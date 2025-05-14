@@ -1,9 +1,11 @@
 import type { RenderOriginType } from '../constants/renderOrigin.ts';
 import { ViewMode } from '../constants/viewMode.ts';
+import type { ISlideContext } from '../contracts/slideContext.ts';
 import type { ISvgSlide } from '../contracts/svgSlide.ts';
+import { generateHtmlFromMarkdown } from '../helpers/markdownHelper.ts';
 import { renderSvg } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
-import { slideCenterText } from '../slides/slideBase.ts';
+import { slideCenterText, slideEmpty } from '../slides/slideBase.ts';
 import { changeControlsOnSlideChange, setupControlOnClicks, setupMouseTrap } from './controls.ts';
 import { handleSlideIndex } from './slide.ts';
 import { setRootCss } from './style.ts';
@@ -45,14 +47,15 @@ export const setupPresentationForWeb = async () => {
 
   setupMouseTrap(() => slideIndex, slideFromModifier);
   setupControlOnClicks(controlsElem, viewMode, slideFromModifier);
-  renderFunc(slideIndex, slideIndex, 'initial');
+  await renderFunc(slideIndex, slideIndex, 'initial');
+  containerElem.classList.add('ready');
 };
 
 const getRenderFunctions = (
   containerElem: HTMLElement,
   presenterElem: HTMLElement,
   controlsElem: HTMLElement,
-  slides: Array<ISvgSlide>,
+  slides: Array<(props: ISlideContext) => Promise<ISvgSlide>>,
   numberOfSlides: number,
   lastSlideIndex: number,
   viewMode: string,
@@ -73,8 +76,11 @@ const getRenderFunctions = (
       broadcastChannel.postMessage(newIndex);
     }
 
+    const slideFunc = slides[newIndex] ?? (() => Promise.resolve(slideEmpty));
+    const slideObj = await slideFunc({});
+
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
-    const mainSvgContent = await renderSvg(slides, newIndex, numberOfSlides);
+    const mainSvgContent = await renderSvg(slideObj, newIndex, numberOfSlides);
     if (mainSvgElem != null) mainSvgElem.outerHTML = mainSvgContent;
 
     if (viewMode == ViewMode.slides) {
@@ -82,13 +88,18 @@ const getRenderFunctions = (
     } else if (viewMode == ViewMode.presenter) {
       containerElem.classList.add(viewMode);
       presenterElem.style.removeProperty('display');
+
+      const nextSlideFunc = slides[newIndex + 1] ?? (() => Promise.resolve(slideCenterText('END')));
+      const nextSlideObj = await nextSlideFunc({});
+      const presenterSvgContent = await renderSvg(nextSlideObj, newIndex + 1, numberOfSlides + 1);
+
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');
-      const presenterSvgContent = await renderSvg(
-        [...slides, slideCenterText('END')],
-        newIndex + 1,
-        numberOfSlides + 1,
-      );
       if (presenterSvgElem != null) presenterSvgElem.outerHTML = presenterSvgContent;
+
+      const presenterNotesElem = presenterElem.querySelector<HTMLElement>('.notes');
+      const notesMarkdown = slideObj.publicNotes ?? slideObj.notes;
+      const notesHtml = generateHtmlFromMarkdown(notesMarkdown);
+      if (presenterNotesElem != null) presenterNotesElem.innerHTML = notesHtml;
     } else {
       console.error(`Unknown viewMode: '${viewMode}'`);
     }

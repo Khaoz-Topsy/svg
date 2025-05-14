@@ -10,4 +10,6 @@ export const setRootCss = () => {
     const cssRootProp = formatForCssRoot(colourProp);
     root.style.setProperty(cssRootProp, value);
   }
+
+  root.style.setProperty('--font-family', svgConstants.font);
 };

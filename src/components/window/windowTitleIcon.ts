@@ -1,7 +1,8 @@
+import { PublicImage } from '../../constants/image';
 import { readSvg } from '../../helpers/fileHelper';
 
 export const windowTitleIcon = async () => {
-  const kurtIcon = await readSvg('/assets/img/kurtLourens.svg', (doc) => {
+  const kurtIcon = await readSvg(PublicImage.kurtLourens, (doc) => {
     const elem = doc.querySelector('g') as SVGSVGElement;
     if (elem == null) return '';
 

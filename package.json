@@ -4,17 +4,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "generate": "bun ./scripts/script.ts",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "author": "Kurt Lourens",
   "license": "ISC",
   "dependencies": {
-    "mousetrap": "^1.6.5"
+    "mousetrap": "^1.6.5",
+    "showdown": "^2.1.0"
   },
   "devDependencies": {
     "@types/bun": "^1.2.12",
     "@types/mousetrap": "^1.6.15",
+    "@types/showdown": "^2.0.6",
     "typescript": "~5.8.3",
     "vite": "^6.3.5"
   }

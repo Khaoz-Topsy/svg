@@ -6,8 +6,12 @@ export const handleSlideIndex = (
   renderOrigin: RenderOriginType,
   lastSlideIndex: number,
 ): [number, boolean] => {
-  if (renderOrigin != 'initial' && currentSlideIndex == newSlideIndex) return [currentSlideIndex, true];
-  //   slideIndex = newSlideIndex;
+  const newSlideIndexSafe = Math.min(
+    Math.max(newSlideIndex, 0), //
+    lastSlideIndex,
+  );
+  if (renderOrigin != 'initial' && currentSlideIndex == newSlideIndexSafe) return [currentSlideIndex, true];
+
   if (isNaN(newSlideIndex)) return [0, false];
   if (newSlideIndex < 0) return [0, false];
   if (newSlideIndex > lastSlideIndex) return [lastSlideIndex, false];

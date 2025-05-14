@@ -22,11 +22,12 @@ export const slideBase = (props: {
 };
 
 export const slideEmpty = { content: `<g id="empty"></g>`, notes: 'empty' };
-export const slideCenterText = (text: string) => ({
-  notes: text,
-  content: `
+export const slideCenterText = (text: string) => () =>
+  Promise.resolve({
+    notes: text,
+    content: `
     <text x="${svgConstants.width / 2}" y="${svgConstants.height / 2}" 
         fill="white" font-size="150" text-anchor="middle"
     >${text}</text>
 `,
-});
+  });
