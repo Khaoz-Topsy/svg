@@ -9,6 +9,7 @@ export const slideSvgSize = async () => {
   return {
     content: slideBase({
       id: 'slide-svg-size',
+      animation: 'fadeIn',
       content: `
         ${await windowTitle('SVG vs PNG')}
 

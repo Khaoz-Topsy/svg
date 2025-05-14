@@ -18,6 +18,7 @@ export const slideAgenda = async () => {
   return {
     content: slideBase({
       id: 'slide-agenda',
+      animation: 'fadeIn',
       content: `
         ${await windowTitle('Agenda')}
 
