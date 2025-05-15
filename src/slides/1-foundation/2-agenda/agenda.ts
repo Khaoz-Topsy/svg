@@ -1,7 +1,7 @@
 import { windowTitle } from '../../../components/window/windowTitle';
 import { PublicImage } from '../../../constants/image';
 import { svgConstants } from '../../../constants/svg';
-import { readAssetFile, readSvg } from '../../../helpers/fileHelper';
+import { readSrcFile, readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 import { agendaCard } from './agendaCard';
 
@@ -56,6 +56,6 @@ export const slideAgenda = async () => {
         ${agendaImage}       
         `,
     }),
-    notes: await readAssetFile(notes),
+    notes: await readSrcFile(notes),
   };
 };

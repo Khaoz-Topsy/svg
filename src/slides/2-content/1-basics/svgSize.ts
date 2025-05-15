@@ -1,6 +1,6 @@
 import { windowTitle } from '../../../components/window/windowTitle';
 import { svgConstants } from '../../../constants/svg';
-import { readAssetFile } from '../../../helpers/fileHelper';
+import { readSrcFile } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
 import notes from './svgSize.md';
@@ -23,6 +23,6 @@ export const slideSvgSize = async () => {
         />  
         `,
     }),
-    notes: await readAssetFile(notes),
+    notes: await readSrcFile(notes),
   };
 };

@@ -3,7 +3,7 @@ import { ViewMode } from '../constants/viewMode.ts';
 import type { ISlideContext } from '../contracts/slideContext.ts';
 import type { ISvgSlide } from '../contracts/svgSlide.ts';
 import { generateHtmlFromMarkdown } from '../helpers/markdownHelper.ts';
-import { renderSvg } from '../renderSvg.ts';
+import { renderSvgSlide } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
 import { slideCenterText, slideEmpty } from '../slides/slideBase.ts';
 import { changeControlsOnSlideChange, setupControlOnClicks, setupMouseTrap } from './controls.ts';
@@ -80,7 +80,7 @@ const getRenderFunctions = (
     const slideObj = await slideFunc({});
 
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
-    const mainSvgContent = await renderSvg(slideObj, newIndex, numberOfSlides);
+    const mainSvgContent = await renderSvgSlide(slideObj, newIndex, numberOfSlides);
     if (mainSvgElem != null) mainSvgElem.outerHTML = mainSvgContent;
 
     if (viewMode == ViewMode.slides) {
@@ -91,7 +91,7 @@ const getRenderFunctions = (
 
       const nextSlideFunc = slides[newIndex + 1] ?? (() => Promise.resolve(slideCenterText('END')));
       const nextSlideObj = await nextSlideFunc({});
-      const presenterSvgContent = await renderSvg(nextSlideObj, newIndex + 1, numberOfSlides + 1);
+      const presenterSvgContent = await renderSvgSlide(nextSlideObj, newIndex + 1, numberOfSlides + 1);
 
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');
       if (presenterSvgElem != null) presenterSvgElem.outerHTML = presenterSvgContent;

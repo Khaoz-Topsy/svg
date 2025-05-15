@@ -14,10 +14,10 @@
         transform="translate(-139.85155 -166.43201)" fill="--illustration-suit-colour" />
     <polygon
         points="157.987 348.297 128.038 533.282 108.038 532.282 108.534 362.427 157.987 348.297"
-        fill="--illustration-suit-pants-colour" />
+        fill="--illustration-pants-colour" />
     <path
         d="M217.09914,458.21162l72.66561,1.00922,8.07394,55.50839-49.453,23.21265L226.88976,694.7142l-19-1-6.93857-194.12364Z"
-        transform="translate(-139.85155 -166.43201)" fill="--illustration-suit-pants-colour" />
+        transform="translate(-139.85155 -166.43201)" fill="--illustration-pants-colour" />
     <circle cx="120.64505" cy="126.26344" r="22.20337" fill="--illustration-skin-colour" />
     <polygon
         points="131.038 161.282 143.858 177.735 137.802 303.89 90.368 302.881 82.294 192.874 92.386 164.615 96.038 158.282 131.038 161.282"

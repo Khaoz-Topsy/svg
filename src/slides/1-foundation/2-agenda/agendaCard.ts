@@ -49,7 +49,7 @@ export const agendaCard = async (props: IProps) => {
     )}
 
     ${gradientSphere({
-      gradientId: svgGradients.ButtonSecondaryGradient,
+      gradientId: svgGradients.ButtonSecondaryGradient.id,
       size: 20,
       x: 0,
       y: 100,

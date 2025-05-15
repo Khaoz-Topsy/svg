@@ -10,10 +10,9 @@ export const svgConstants = {
     primaryGradientStop1: '#b616e7',
     secondaryGradientStop1: '#004257',
     //
-    // illustrationSkin: '#D6AA8D',
     illustrationSkin: '#D6AA8D',
     illustrationSuit: '#343434',
-    illustrationSuitPants: '#35465E',
+    illustrationPants: '#35465E',
     illustrationHair: '#392F27',
     //
     controlForeground: '#ffffff',
@@ -28,8 +27,32 @@ export const svgConstants = {
 } as const;
 
 export const svgGradients = {
-  ButtonSecondaryGradient: 'ButtonSecondaryGradient',
-  SphereBlue1Gradient: 'SphereBlue1Gradient',
-  SpherePurple1Gradient: 'SpherePurple1Gradient',
-  SphereGreen1Gradient: 'SphereGreen1Gradient',
+  ButtonSecondaryGradient: {
+    id: 'ButtonSecondaryGradient',
+    defs: `<linearGradient [id]>
+        <stop offset="0%" stop-color="${svgConstants.colour.secondary}" />
+        <stop offset="100%" stop-color="${svgConstants.colour.secondaryGradientStop1}" />
+      </linearGradient>`,
+  },
+  SphereBlue1Gradient: {
+    id: 'SphereBlue1Gradient',
+    defs: `<linearGradient [id]>
+        <stop offset="0%" stop-color="#8497F2" />
+        <stop offset="100%" stop-color="#4A66ED" />
+      </linearGradient>`,
+  },
+  SpherePurple1Gradient: {
+    id: 'SpherePurple1Gradient',
+    defs: `<linearGradient [id]>
+        <stop offset="0%" stop-color="#9D4BE5" />
+        <stop offset="100%" stop-color="#7A0AD9" />
+      </linearGradient>`,
+  },
+  SphereGreen1Gradient: {
+    id: 'SphereGreen1Gradient',
+    defs: `<linearGradient [id]>
+        <stop offset="0%" stop-color="#64E9BA" />
+        <stop offset="100%" stop-color="#1AE19C" />
+      </linearGradient>`,
+  },
 };

@@ -2,26 +2,16 @@ import { svgConstants, svgGradients } from '../constants/svg';
 
 export const svgHeading = `
 <defs>
-  <linearGradient id="${svgGradients.ButtonSecondaryGradient}">
-    <stop offset="0%" stop-color="${svgConstants.colour.secondary}" />
-    <stop offset="100%" stop-color="${svgConstants.colour.secondaryGradientStop1}" />
-  </linearGradient>
-  <linearGradient id="${svgGradients.SphereBlue1Gradient}">
-    <stop offset="0%" stop-color="#8497F2" />
-    <stop offset="100%" stop-color="#4A66ED" />
-  </linearGradient>
-  <linearGradient id="${svgGradients.SpherePurple1Gradient}">
-    <stop offset="0%" stop-color="#9D4BE5" />
-    <stop offset="100%" stop-color="#7A0AD9" />
-  </linearGradient>
-  <linearGradient id="${svgGradients.SphereGreen1Gradient}">
-    <stop offset="0%" stop-color="#64E9BA" />
-    <stop offset="100%" stop-color="#1AE19C" />
-  </linearGradient>
-</defs>
+  ${Object.keys(svgGradients)
+    .map((gradientKey) =>
+      (svgGradients as any)[gradientKey].defs //
+        .toString()
+        .replaceAll('[id]', `id="${gradientKey}"`),
+    )
+    .join('\n')}
 
-    <defs>
-    </defs>
+  <rect id="qrPixel" width="8" height="8"  stroke="#ffffff" stroke-width="1" rx="0.5"/>
+</defs>
 
 <style>
   text {
