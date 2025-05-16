@@ -1,13 +1,15 @@
 import { windowTitle } from '../../../components/window/windowTitle';
 import { PublicImage } from '../../../constants/image';
 import { svgConstants } from '../../../constants/svg';
+import type { ISlideContext } from '../../../contracts/slideContext';
+import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { readSrcFile, readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 import { agendaCard } from './agendaCard';
 
 import notes from './agenda.md';
 
-export const slideAgenda = async () => {
+export const slideAgenda = async (ctx: ISlideContext): Promise<ISvgSlide> => {
   const agendaImage = await readSvg(PublicImage.pitch, (doc) => {
     const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
     if (innerSvg == null) return '';
@@ -17,8 +19,9 @@ export const slideAgenda = async () => {
 
   return {
     content: slideBase({
+      ctx: ctx,
       id: 'slide-agenda',
-      animation: 'fadeIn',
+      webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('Agenda')}
 
@@ -57,5 +60,8 @@ export const slideAgenda = async () => {
         `,
     }),
     notes: await readSrcFile(notes),
+    ssg: {
+      secondsToDisplay: 3,
+    },
   };
 };

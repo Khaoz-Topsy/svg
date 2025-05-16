@@ -17,6 +17,16 @@ export const svgHeading = `
   text {
     font-family: ${svgConstants.font};
   }
+  
+  .noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
   .transition-slide {
     transition: transform var(--duration, 500ms) ease-in-out;
   }

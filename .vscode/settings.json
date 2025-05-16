@@ -32,11 +32,15 @@
     },
     "cSpell.language": "en-GB,en-US",
     "cSpell.words": [
+        "attributename",
         "Avenir",
         "Calibri",
         "khaoznet",
+        "khtml",
         "kurtlourens",
-        "Lourens"
+        "Lourens",
+        "noselect",
+        "xlink"
     ],
     "cSpell.ignorePaths": [
         "node_modules",

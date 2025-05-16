@@ -2,16 +2,17 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import { svgConstants } from '../constants/svg';
-import { formatForCssRoot } from './stringHelper';
 import type { Result } from '../contracts/resultWithValue';
+import { formatForCssRoot } from './stringHelper';
 
-export const readAssetFile = async (relativePath: string) => readLocalFile(relativePath, false);
-export const readSrcFile = async (relativePath: string) => readLocalFile(relativePath, true);
+export const readAssetFile = async (relativePath: string) => readLocalFile(relativePath);
+export const readSrcFile = async (relativePath: string) => readLocalFile(relativePath);
 
-export const readLocalFile = async (relativePath: string, isFullPath: boolean) => {
+export const readLocalFile = async (relativePath: string) => {
   const envMode = import.meta.env.MODE;
   if (envMode == 'ssg') {
     const projectDir = import.meta.env.PROJECT_DIR;
+    const isFullPath = path.resolve(relativePath) == path.normalize(relativePath);
     let fullPath = isFullPath ? relativePath : path.join(projectDir, 'public', relativePath);
     return fs.readFile(fullPath, 'utf-8');
   }

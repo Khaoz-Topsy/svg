@@ -1,18 +1,20 @@
+import { JSDOM } from 'jsdom';
 import path from 'node:path';
 import url from 'node:url';
-import { JSDOM } from 'jsdom';
 
+import type { EnvMode } from '../constants/env.ts';
 import { writeLinesToFile } from '../helpers/fileHelper.ts';
-import { renderSvgSlides } from '../renderSvg.ts';
+import { renderSvgOuterSSG } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
 import { slideEmpty } from '../slides/slideBase.ts';
 
+const env: EnvMode = 'ssg';
 const currentFileName = url.fileURLToPath(import.meta.url);
 const directory = path.dirname(currentFileName);
 const projectDirectory = path.join(directory, '../../');
 
-export const generateFullSvg = async () => {
-  import.meta.env.MODE = 'ssg';
+const generateFullSvg = async () => {
+  import.meta.env.MODE = env;
   import.meta.env.PROJECT_DIR = projectDirectory;
   global.DOMParser = new JSDOM().window.DOMParser;
 
@@ -20,13 +22,18 @@ export const generateFullSvg = async () => {
   const numberOfSlides = slides.length;
 
   const svgSlideContents: Array<string> = [];
-  for (let slideIndex = 0; slideIndex < numberOfSlides; slideIndex++) {
+  for (let invertedSlideIndex = 0; invertedSlideIndex < numberOfSlides; invertedSlideIndex++) {
+    const slideIndex = numberOfSlides - invertedSlideIndex - 1;
     const slideFunc = slides[slideIndex] ?? (() => Promise.resolve(slideEmpty));
-    const slideObj = await slideFunc({});
+    const slideObj = await slideFunc({
+      currentSlideIndex: slideIndex,
+      numberOfSlides,
+      env,
+    });
     svgSlideContents.push(slideObj.content);
   }
 
-  const fullSvg = await renderSvgSlides(svgSlideContents);
+  const fullSvg = await renderSvgOuterSSG(svgSlideContents);
   const outputPath = path.join(projectDirectory, 'dist', 'ssg.svg');
   await writeLinesToFile(fullSvg, outputPath);
 };

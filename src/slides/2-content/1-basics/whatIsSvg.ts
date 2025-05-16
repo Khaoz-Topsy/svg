@@ -1,18 +1,47 @@
-import { codeColours, codeSpan, codeSpans } from '../../../components/code/codeSpan';
+import { codeColours, svgCode } from '../../../components/code/codeSpan';
 import { animateFadeIn } from '../../../components/core/animate';
+import { tooltipAction } from '../../../components/core/tooltipAction';
 import { windowTitle } from '../../../components/window/windowTitle';
+import { PublicImage } from '../../../constants/image';
 import { svgConstants } from '../../../constants/svg';
+import type { ISlideContext } from '../../../contracts/slideContext';
+import type { ISvgSlide } from '../../../contracts/svgSlide';
+import { readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
-export const slideWhatIsAnSvg = async () => {
+const tooltipWhatIsSvg = 'what-is-svg-tooltip';
+const letterDelay = 500;
+
+export const slideWhatIsAnSvg = async (ctx: ISlideContext): Promise<ISvgSlide> => {
+  const tooltipImage = await readSvg(PublicImage.tooltip, (doc) => {
+    const elem = doc.querySelector('g') as SVGSVGElement;
+    if (elem == null) return '';
+
+    elem.setAttribute('id', tooltipWhatIsSvg);
+    elem.setAttribute('transform', 'scale(2) translate(275, 15)');
+    // elem.setAttribute('opacity', '0');
+    // <animate
+    //   href="#${tooltipWhatIsSvg}"
+    //   attributeName="opacity"
+    //   from="0"
+    //   to="1"
+    //   dur="250ms"
+    //   fill="freeze"
+    //   begin="${letterDelay * 7}ms"
+    // />
+
+    return elem.outerHTML;
+  });
+
   return {
     content: slideBase({
-      id: 'slide-intro',
-      animation: 'fadeIn',
+      ctx: ctx,
+      id: 'slide-what-is-svg',
+      webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('What is an SVG')}
 
-        <g opacity="0" transform="translate(100 200)">
+        <g class="noselect" opacity="0" transform="translate(100 200)">
           ${animateFadeIn({ duration: '1s' })}
           <rect 
               width="${svgConstants.width / 3}"
@@ -25,26 +54,47 @@ export const slideWhatIsAnSvg = async () => {
               stroke-width="3"
           >
           </rect>
-          <text x="55" y="105" fill="${svgConstants.colour.controlForeground}" font-size="100">S</text>
-          <text x="100" y="105" fill="${svgConstants.colour.controlForeground}" font-size="50">calar</text>
-          <text x="47" y="205" fill="${svgConstants.colour.controlForeground}" font-size="100">V</text>
-          <text x="97" y="205" fill="${svgConstants.colour.controlForeground}" font-size="50">ector</text>
-          <text x="45" y="310" fill="${svgConstants.colour.controlForeground}" font-size="100">G</text>
-          <text x="105" y="305" fill="${svgConstants.colour.controlForeground}" font-size="50">raphic</text>
+          <text x="55" y="105" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
+            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 0}ms` })}
+            S
+          </text>
+          <text x="47" y="205" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
+            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 1}ms` })}
+            V
+          </text>
+          <text x="45" y="310" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
+            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 2}ms` })}
+            G
+          </text>
+
+          <text x="100" y="105" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
+            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 3}ms` })}
+            calar
+          </text>
+          <text x="97" y="205" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
+            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 4}ms` })}
+            ector
+          </text>
+          <text x="105" y="305" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
+            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 5}ms` })}
+            raphic
+          </text>
         
-          <text 
+          <text id="tooltip-reveal"
             x="200" y="150" font-size="25" opacity="0"
             fill="${svgConstants.colour.controlForeground}"
             transform="rotate(30 400 300) translate(80 -80)"
           >
-            ${animateFadeIn({ duration: '1s', initialDelay: '5s' })}
             A picture from maths
           </text>
+
+          ${tooltipImage}
+          ${tooltipAction({ srcId: tooltipWhatIsSvg, targetId: 'tooltip-reveal' })}
 
         </g>
 
 
-        <g opacity="0" transform="translate(800 200)">
+        <g class="noselect" opacity="0" transform="translate(800 200)">
           ${animateFadeIn({ duration: '1s' })}
           <rect 
               width="1000"
@@ -61,53 +111,53 @@ export const slideWhatIsAnSvg = async () => {
 
           <foreignObject x="40" y="25" width="600" height="600">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-              ${codeSpan('&lt;', `color: ${codeColours.tag};`)}<!--
-          --->${codeSpan('svg', `color: ${codeColours.tag};`)}
-              ${codeSpan('version', `color: ${codeColours.key};`)}<!--
-          --->${codeSpan('=', `color: ${codeColours.tag};`)}<!--
-          --->${codeSpan('"1.1"', `color: ${codeColours.value};`)}
+              ${svgCode.tag('&lt;svg')}
+              ${svgCode.key('version')}
+              ${svgCode.tag('=')}
+              ${svgCode.value('"1.1"')}
               <br />
-              ${codeSpans(
-                ['width', '=', '"300"'],
-                [codeColours.key, codeColours.equals, codeColours.value],
-                'margin-left: 1em;',
-              )}
-              ${codeSpans(['height', '=', '"200"'], [codeColours.key, codeColours.equals, codeColours.value])}
+              ${svgCode.keyValue(['width', '=', '"300"'], { tabLevel: 1 })}
+              ${svgCode.keyValue(['height', '=', '"200"'])}
               <br />
-              ${codeSpans(
-                ['xmlns', '=', '"http://www.w3.org/2000/svg"'],
-                [codeColours.key, codeColours.equals, codeColours.value],
-                'margin-left: 1em;',
-              )}<!--
-          --->${codeSpan('&gt;', `color: ${codeColours.tag};`)}
+              ${svgCode.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { tabLevel: 1 })}
+              ${svgCode.tag('&gt;')}
               <br />
               <br />
 
-              ${codeSpan('&lt;rect', 'color: lightblue; margin-left: 1em;')}
-              ${codeSpans(['width', '=', '"100%"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpans(['height', '=', '"100%"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpans(['fill', '=', '"blue"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpan('/&gt;', `color: ${codeColours.tag};`)}
+              ${svgCode.tag('&lt;rect', { colour: codeColours.tag, tabLevel: 1 })}
+              ${svgCode.keyValue(['width', '=', '"250"'])}
+              ${svgCode.keyValue(['height', '=', '"250"'])}
+              ${svgCode.keyValue(['fill', '=', '"purple"'])}
+              ${svgCode.tag('/&gt;')}
               <br />
-              ${codeSpan('&lt;circle', 'color: lightblue; margin-left: 1em;')}
-              ${codeSpans(['cx', '=', '"150"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpans(['cy', '=', '"100"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpans(['r', '=', '"80"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpans(['fill', '=', '"lightblue"'], [codeColours.key, codeColours.equals, codeColours.value])}
-              ${codeSpan('/&gt;', `color: ${codeColours.tag};`)}
+              ${svgCode.tag('&lt;circle', { colour: codeColours.tag, tabLevel: 1 })}
+              ${svgCode.keyValue(['cx', '=', '"125"'])}
+              ${svgCode.keyValue(['cy', '=', '"125"'])}
+              ${svgCode.keyValue(['r', '=', '"80"'])}
+              ${svgCode.keyValue(['fill', '=', '"lightblue"'])}
+              ${svgCode.tag('/&gt;')}
               <br />
               <br />
 
-              ${codeSpans(['&lt;/', 'svg', '&gt;'], ['lightblue', 'lightblue', 'lightblue'])}
+              ${svgCode.tag('&lt;/svg&gt;')}
               
             </div>
           </foreignObject>
             
+
+          <g transform="translate(700 40)">
+            <rect width="250" height="250" fill="purple" />
+            <circle cx="125" cy="125" r="80" fill="lightblue" />
+          </g>
+
 
         </g>
         
         `,
     }),
     notes: 'what is svg',
+    ssg: {
+      secondsToDisplay: 3,
+    },
   };
 };

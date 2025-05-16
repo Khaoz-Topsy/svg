@@ -1,3 +1,4 @@
+import type { EnvMode } from '../constants/env.ts';
 import type { RenderOriginType } from '../constants/renderOrigin.ts';
 import { ViewMode } from '../constants/viewMode.ts';
 import type { ISlideContext } from '../contracts/slideContext.ts';
@@ -11,7 +12,10 @@ import { handleSlideIndex } from './slide.ts';
 import { setRootCss } from './style.ts';
 import { getValuesFromUrl, updateUrl, windowButtonHandler } from './window.ts';
 
-export const setupPresentationForWeb = async () => {
+const env: EnvMode = 'web';
+import.meta.env.MODE = env;
+
+const setupPresentationForWeb = async () => {
   let { viewMode, slideIndex } = getValuesFromUrl();
 
   const containerElem = document.querySelector<HTMLElement>('#presentation-container');
@@ -77,7 +81,7 @@ const getRenderFunctions = (
     }
 
     const slideFunc = slides[newIndex] ?? (() => Promise.resolve(slideEmpty));
-    const slideObj = await slideFunc({});
+    const slideObj = await slideFunc({ currentSlideIndex: newIndex, numberOfSlides, env });
 
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
     const mainSvgContent = await renderSvgSlide(slideObj, newIndex, numberOfSlides);
@@ -90,7 +94,7 @@ const getRenderFunctions = (
       presenterElem.style.removeProperty('display');
 
       const nextSlideFunc = slides[newIndex + 1] ?? (() => Promise.resolve(slideCenterText('END')));
-      const nextSlideObj = await nextSlideFunc({});
+      const nextSlideObj = await nextSlideFunc({ currentSlideIndex: newIndex + 1, numberOfSlides, env });
       const presenterSvgContent = await renderSvgSlide(nextSlideObj, newIndex + 1, numberOfSlides + 1);
 
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');

@@ -12,8 +12,8 @@ interface IProps {
 export const gradientSphere = (props: IProps) => {
   return `<circle 
       id="gradient-sphere-${props.gradientId}"
-      ${props.className != null && `class="${props.className}"`}
-      ${props.styleOverrides != null && `style="${props.styleOverrides}"`}
+      ${props.className == null ? '' : `class="${props.className}"`}
+      ${props.styleOverrides == null ? '' : `style="${props.styleOverrides}"`}
       cx="${props.x}"
       cy="${props.y}"
       r="${props.size}"

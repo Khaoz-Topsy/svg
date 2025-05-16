@@ -2,6 +2,7 @@ export const PublicImage = {
   kurtLourens: '/assets/img/kurtLourens.svg',
   pitch: '/assets/img/pitch.svg',
   standing: '/assets/img/standing.svg',
+  tooltip: '/assets/img/tooltip.svg',
   qrCode: '/assets/img/qrCode.svg',
   // code: {
   //   basicSvg: '/assets/img/code/basicSvg.svg',

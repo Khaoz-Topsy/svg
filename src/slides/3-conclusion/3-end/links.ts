@@ -1,9 +1,11 @@
 import { windowTitle } from '../../../components/window/windowTitle';
 import { PublicImage } from '../../../constants/image';
+import type { ISlideContext } from '../../../contracts/slideContext';
+import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
-export const slideLinks = async () => {
+export const slideLinks = async (ctx: ISlideContext): Promise<ISvgSlide> => {
   const introImage = await readSvg(PublicImage.qrCode, (doc) => {
     const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
     if (innerSvg == null) return '';
@@ -13,8 +15,9 @@ export const slideLinks = async () => {
 
   return {
     content: slideBase({
+      ctx: ctx,
       id: 'slide-links',
-      animation: 'fadeIn',
+      webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('Links')}
 
@@ -22,5 +25,8 @@ export const slideLinks = async () => {
         `,
     }),
     notes: '',
+    ssg: {
+      secondsToDisplay: 3,
+    },
   };
 };

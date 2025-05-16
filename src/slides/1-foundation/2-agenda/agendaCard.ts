@@ -26,7 +26,9 @@ export const agendaCard = async (props: IProps) => {
     return elem.outerHTML;
   });
 
-  return `<g class="transition-slide" opacity="0" transform="translate(${svgConstants.width + 100} ${props.y})">
+  return `<g class="transition-slide noselect" opacity="0" transform="translate(${svgConstants.width + 100} ${
+    props.y
+  })">
     ${animateFadeIn({ duration: '1s' })}
     ${animateSlideIn({
       from: `${svgConstants.width} ${props.y}`,

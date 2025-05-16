@@ -3,12 +3,14 @@ import { windowTitle } from '../../../components/window/windowTitle';
 import { PublicImage } from '../../../constants/image';
 import { svgConstants, svgGradients } from '../../../constants/svg';
 import { AppText } from '../../../constants/text';
+import type { ISlideContext } from '../../../contracts/slideContext';
+import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { readSrcFile, readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
 import notes from './intro.md';
 
-export const slideIntro = async () => {
+export const slideIntro = async (ctx: ISlideContext): Promise<ISvgSlide> => {
   const introImage = await readSvg(PublicImage.standing, (doc) => {
     const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
     if (innerSvg == null) return '';
@@ -19,6 +21,7 @@ export const slideIntro = async () => {
   return {
     content: slideBase({
       id: 'slide-intro',
+      ctx: ctx,
       content: `
         ${await windowTitle(AppText.title)}
 
@@ -51,7 +54,7 @@ export const slideIntro = async () => {
 
         </g>
         
-        <g id="intro-heading" transform="translate(150, ${svgConstants.height / 2})">
+        <g id="intro-heading" class="noselect" transform="translate(150, ${svgConstants.height / 2})">
           <text x="0" y="0" fill="white" font-size="250">SVG</text>
           <rect 
             x="-50" y="75" 
@@ -64,5 +67,8 @@ export const slideIntro = async () => {
         `,
     }),
     notes: await readSrcFile(notes),
+    ssg: {
+      secondsToDisplay: 3,
+    },
   };
 };
