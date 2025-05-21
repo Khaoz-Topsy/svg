@@ -1,17 +1,16 @@
 import { windowTitle } from '../../../components/window/windowTitle';
 import { svgConstants } from '../../../constants/svg';
-import type { ISlideContext } from '../../../contracts/slideContext';
+import type { SlideContext } from '../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { readSrcFile } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
 import notes from './svgSize.md';
 
-export const slideSvgSize = async (ctx: ISlideContext): Promise<ISvgSlide> => {
+export const slideSvgSize = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
     content: slideBase({
       ctx: ctx,
-      id: 'slide-svg-size',
       webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('SVG vs PNG')}

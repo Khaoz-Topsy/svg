@@ -24,11 +24,14 @@ const generateFullSvg = async () => {
   const svgSlideContents: Array<string> = [];
   for (let invertedSlideIndex = 0; invertedSlideIndex < numberOfSlides; invertedSlideIndex++) {
     const slideIndex = numberOfSlides - invertedSlideIndex - 1;
-    const slideFunc = slides[slideIndex] ?? (() => Promise.resolve(slideEmpty));
+    const slideMeta = slides[slideIndex];
+    const slideFunc = slideMeta.slideFunc ?? (() => Promise.resolve(slideEmpty));
     const slideObj = await slideFunc({
+      env: 'ssg',
+      id: slideMeta.id,
       currentSlideIndex: slideIndex,
       numberOfSlides,
-      env,
+      prevSlideId: slides[slideIndex - 1]?.id,
     });
     svgSlideContents.push(slideObj.content);
   }

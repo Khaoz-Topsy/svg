@@ -1,8 +1,7 @@
 import type { EnvMode } from '../constants/env.ts';
 import type { RenderOriginType } from '../constants/renderOrigin.ts';
 import { ViewMode } from '../constants/viewMode.ts';
-import type { ISlideContext } from '../contracts/slideContext.ts';
-import type { ISvgSlide } from '../contracts/svgSlide.ts';
+import type { SlideMeta } from '../contracts/slideMeta.ts';
 import { generateHtmlFromMarkdown } from '../helpers/markdownHelper.ts';
 import { renderSvgSlide } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
@@ -59,7 +58,7 @@ const getRenderFunctions = (
   containerElem: HTMLElement,
   presenterElem: HTMLElement,
   controlsElem: HTMLElement,
-  slides: Array<(props: ISlideContext) => Promise<ISvgSlide>>,
+  slides: Array<SlideMeta>,
   numberOfSlides: number,
   lastSlideIndex: number,
   viewMode: string,
@@ -80,8 +79,9 @@ const getRenderFunctions = (
       broadcastChannel.postMessage(newIndex);
     }
 
-    const slideFunc = slides[newIndex] ?? (() => Promise.resolve(slideEmpty));
-    const slideObj = await slideFunc({ currentSlideIndex: newIndex, numberOfSlides, env });
+    const slideMeta = slides[newIndex];
+    const slideFunc = slideMeta.slideFunc ?? (() => Promise.resolve(slideEmpty));
+    const slideObj = await slideFunc({ id: slideMeta.id, env: 'web', currentSlideIndex: newIndex });
 
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
     const mainSvgContent = await renderSvgSlide(slideObj, newIndex, numberOfSlides);
@@ -93,8 +93,9 @@ const getRenderFunctions = (
       containerElem.classList.add(viewMode);
       presenterElem.style.removeProperty('display');
 
-      const nextSlideFunc = slides[newIndex + 1] ?? (() => Promise.resolve(slideCenterText('END')));
-      const nextSlideObj = await nextSlideFunc({ currentSlideIndex: newIndex + 1, numberOfSlides, env });
+      const nextSlideMeta = slides[newIndex + 1];
+      const nextSlideFunc = nextSlideMeta.slideFunc ?? (() => Promise.resolve(slideCenterText('END')));
+      const nextSlideObj = await nextSlideFunc({ id: nextSlideMeta.id, env: 'web', currentSlideIndex: newIndex });
       const presenterSvgContent = await renderSvgSlide(nextSlideObj, newIndex + 1, numberOfSlides + 1);
 
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');

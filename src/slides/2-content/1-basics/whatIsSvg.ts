@@ -4,40 +4,33 @@ import { tooltipAction } from '../../../components/core/tooltipAction';
 import { windowTitle } from '../../../components/window/windowTitle';
 import { PublicImage } from '../../../constants/image';
 import { svgConstants } from '../../../constants/svg';
-import type { ISlideContext } from '../../../contracts/slideContext';
+import type { SlideContext } from '../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../contracts/svgSlide';
+import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
 import { readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
+import { slideBeginValue } from '../../../components/common/slideAnimation.ts';
 
 const tooltipWhatIsSvg = 'what-is-svg-tooltip';
 const letterDelay = 500;
 
-export const slideWhatIsAnSvg = async (ctx: ISlideContext): Promise<ISvgSlide> => {
+export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const tooltipImage = await readSvg(PublicImage.tooltip, (doc) => {
     const elem = doc.querySelector('g') as SVGSVGElement;
     if (elem == null) return '';
 
     elem.setAttribute('id', tooltipWhatIsSvg);
     elem.setAttribute('transform', 'scale(2) translate(275, 15)');
-    // elem.setAttribute('opacity', '0');
-    // <animate
-    //   href="#${tooltipWhatIsSvg}"
-    //   attributeName="opacity"
-    //   from="0"
-    //   to="1"
-    //   dur="250ms"
-    //   fill="freeze"
-    //   begin="${letterDelay * 7}ms"
-    // />
 
     return elem.outerHTML;
   });
 
+  const previousSlideId = getPreviousSlideIndex(ctx);
+  const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, letterDelay * numTicksDelay);
+
   return {
     content: slideBase({
       ctx: ctx,
-      id: 'slide-what-is-svg',
-      webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('What is an SVG')}
 
@@ -55,28 +48,28 @@ export const slideWhatIsAnSvg = async (ctx: ISlideContext): Promise<ISvgSlide> =
           >
           </rect>
           <text x="55" y="105" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
-            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 0}ms` })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(0) })}
             S
           </text>
           <text x="47" y="205" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
-            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 1}ms` })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(1) })}
             V
           </text>
           <text x="45" y="310" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
-            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 2}ms` })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(2) })}
             G
           </text>
 
           <text x="100" y="105" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
-            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 3}ms` })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(3) })}
             calar
           </text>
           <text x="97" y="205" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
-            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 4}ms` })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(4) })}
             ector
           </text>
           <text x="105" y="305" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
-            ${animateFadeIn({ duration: '1s', initialDelay: `${letterDelay * 5}ms` })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(5) })}
             raphic
           </text>
         

@@ -1,22 +1,21 @@
 import { svgCode } from '../../../../components/code/codeSpan';
 import { windowTitle } from '../../../../components/window/windowTitle';
-import type { ISlideContext } from '../../../../contracts/slideContext';
+import type { SlideContext } from '../../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../../contracts/svgSlide';
 import { slideBase } from '../../../slideBase';
-import { slideBasicDrawingCard } from './cardExample';
+import { slideBasicDrawingCard } from './basicDrawingCard';
 
-export const slideBasicDrawing = async (ctx: ISlideContext): Promise<ISvgSlide> => {
+export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
     content: slideBase({
       ctx: ctx,
-      id: 'slide-basic-drawing',
-      webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('Basics of drawing')}
 
         ${slideBasicDrawingCard({
           x: 100,
           y: 120,
+          ctx: ctx,
           animatePosition: 1,
           svgContent: `<line x1="50" y1="200" x2="250" y2="50" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
@@ -34,6 +33,7 @@ export const slideBasicDrawing = async (ctx: ISlideContext): Promise<ISvgSlide> 
         ${slideBasicDrawingCard({
           x: 1000,
           y: 120,
+          ctx: ctx,
           animatePosition: 2,
           svgContent: `<rect x="50" y="50" width="200" height="150" fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
@@ -52,6 +52,7 @@ export const slideBasicDrawing = async (ctx: ISlideContext): Promise<ISvgSlide> 
         ${slideBasicDrawingCard({
           x: 100,
           y: 420,
+          ctx: ctx,
           animatePosition: 3,
           svgContent: `<circle cx="150" cy="125" r="80" fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
@@ -69,13 +70,14 @@ export const slideBasicDrawing = async (ctx: ISlideContext): Promise<ISvgSlide> 
         ${slideBasicDrawingCard({
           x: 1000,
           y: 420,
+          ctx: ctx,
           animatePosition: 4,
           overrideForeignObjectX: 280,
-          svgContent: `<polygon points="150,50 220,110 200,200 100,200 80,110" 
+          svgContent: `<polygon points="130,50 200,110 180,190 80,190 60,110" 
               fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
             ${svgCode.tag('&lt;polygon')}<br />
-            ${svgCode.keyValue(['points', '=', '"150,50 220,110 200,200 100,200 80,110"'], { tabLevel: 1 })}<br />
+            ${svgCode.keyValue(['points', '=', '"130,50 200,110 180,200 80,200 60,110"'], { tabLevel: 1 })}<br />
             ${svgCode.keyValue(['fill', '=', '"transparent"'], { tabLevel: 1 })}<br />
             ${svgCode.keyValue(['stroke', '=', '"#64E9BA"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['stroke-width', '=', '"5"'])}<br />
@@ -86,6 +88,7 @@ export const slideBasicDrawing = async (ctx: ISlideContext): Promise<ISvgSlide> 
         ${slideBasicDrawingCard({
           x: 100,
           y: 720,
+          ctx: ctx,
           animatePosition: 5,
           overrideForeignObjectX: 280,
           overrideCardHeight: 275,
@@ -105,6 +108,7 @@ export const slideBasicDrawing = async (ctx: ISlideContext): Promise<ISvgSlide> 
         ${slideBasicDrawingCard({
           x: 1000,
           y: 720,
+          ctx: ctx,
           animatePosition: 6,
           overrideForeignObjectX: 280,
           overrideCardHeight: 275,

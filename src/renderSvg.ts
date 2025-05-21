@@ -12,6 +12,7 @@ export const renderSvgWrapper = async (inner: string): Promise<string> => `
     viewBox="0 0 ${svgConstants.width} ${svgConstants.height}"
     overflow="hidden"
   >
+    ${layoutBackground}
     ${svgHeading}
 
     ${inner}
@@ -31,9 +32,7 @@ export const renderSvgSlide = async (
   slideIndex: number,
   numberOfSlides: number,
 ): Promise<string> =>
-  renderSvgWrapper(`
-    ${layoutBackground}
-    
+  renderSvgWrapper(`    
     ${slideObj.content ?? ''}
     ${progress({ slideIndex, numberOfSlides })}
 

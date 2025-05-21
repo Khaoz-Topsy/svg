@@ -1,12 +1,15 @@
 import { animateFadeIn, animateSlideIn } from '../../../components/core/animate';
 import { gradientSphere } from '../../../components/spheres/gradientSphere';
 import { svgConstants, svgGradients } from '../../../constants/svg';
+import type { SlideContext } from '../../../contracts/slideContext';
+import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
 import { readSvg } from '../../../helpers/fileHelper';
 
 interface IProps {
   y: number;
   icon: string;
   heading: string;
+  ctx: SlideContext;
   description: string;
   iconTransformProp: string;
 }
@@ -26,13 +29,20 @@ export const agendaCard = async (props: IProps) => {
     return elem.outerHTML;
   });
 
-  return `<g class="transition-slide noselect" opacity="0" transform="translate(${svgConstants.width + 100} ${
-    props.y
-  })">
-    ${animateFadeIn({ duration: '1s' })}
+  const previousSlideId = getPreviousSlideIndex(props.ctx);
+
+  return `<g 
+      class="transition-slide noselect" opacity="0" 
+      transform="translate(${svgConstants.width + 100} ${props.y})"
+    >
+    ${animateFadeIn({
+      duration: '1s',
+      begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+50ms`,
+    })}
     ${animateSlideIn({
       from: `${svgConstants.width} ${props.y}`,
       to: `${svgConstants.width / 2.5} ${props.y}`,
+      begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+${props.y / 4}ms`,
       initialDelay: `${props.y / 4}ms`,
     })}
     <rect 

@@ -1,29 +1,59 @@
 export const animateFadeIn = (props: {
   initialDelay?: string; //
   duration?: string;
-}) => `<animate
+  begin?: string;
+}) => {
+  return `<animate
     attributeName="opacity"
     from="0"
     to="1"
     dur="${props.duration ?? '250ms'}"
     fill="freeze"
-    ${(props.initialDelay?.length ?? 0) > 0 ? `begin="${props.initialDelay}"` : ''}
+    ${getBeginKeyValue(props) ?? ''}
     />`;
+};
 
 export const animateSlideIn = (props: {
   initialDelay?: string; //
+  begin?: string;
   from: string;
   to: string;
-}) => `
-  <animateTransform
+}) => {
+  let begin = '';
+  const beginWasSupplied = (props.begin?.length ?? 0) > 0;
+  const initialDelayWasSupplied = (props.initialDelay?.length ?? 0) > 0;
+
+  if (beginWasSupplied) {
+    begin = `begin="${props.begin}"`;
+  } else if (initialDelayWasSupplied) {
+    begin = `begin="${props.initialDelay}"`;
+  }
+  return `<animateTransform
     attributeName="transform"
     attributeType="XML"
     type="translate"
     from="${props.to}"
     to="${props.from}"
     fill="freeze"
-    begin="${props.initialDelay ?? '50ms'}"
+    ${getBeginKeyValue(props) ?? '50ms'}
   />`;
+};
+
+export const getBeginKeyValue = (props: {
+  initialDelay?: string; //
+  begin?: string;
+}) => {
+  let begin = null;
+  const beginWasSupplied = (props.begin?.length ?? 0) > 0;
+  const initialDelayWasSupplied = (props.initialDelay?.length ?? 0) > 0;
+
+  if (beginWasSupplied) {
+    begin = `begin="${props.begin}"`;
+  } else if (initialDelayWasSupplied) {
+    begin = `begin="${props.initialDelay}"`;
+  }
+  return begin;
+};
 
 // ${(props.initialDelay?.length ?? 0) > 0 ? `begin="${props.initialDelay}"` : ''}
 // export const animateSlideIn = (props: {

@@ -1,19 +1,27 @@
+import { slideBeginValue } from '../../../../components/common/slideAnimation.ts';
 import { animateFadeIn } from '../../../../components/core/animate';
 import { svgConstants } from '../../../../constants/svg';
+import type { SlideContext } from '../../../../contracts/slideContext.ts';
+import { getPreviousSlideIndex } from '../../../../helpers/contextHelper.ts';
 
 interface IProps {
   x: number;
   y: number;
+  ctx: SlideContext;
   animatePosition: number;
   svgContent: string;
   codeContent: string;
   overrideForeignObjectX?: number;
   overrideCardHeight?: number;
 }
+const drawingCardDelay = 500;
 export const slideBasicDrawingCard = (props: IProps) => {
+  const previousSlideId = getPreviousSlideIndex(props.ctx);
+  const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, drawingCardDelay * numTicksDelay);
+
   return `
     <g class="noselect" opacity="0" transform="translate(${props.x} ${props.y})">
-        ${animateFadeIn({ duration: '1s', initialDelay: `${(props.animatePosition - 1) * 500}ms` })}
+        ${animateFadeIn({ duration: '1s', begin: getBegin(props.animatePosition - 1) })}
         <rect 
             width="${svgConstants.width / 2 - 150}"
             height="${props.overrideCardHeight ?? 250}"
