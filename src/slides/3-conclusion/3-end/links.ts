@@ -5,6 +5,7 @@ import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { readSvg } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
+const id = 'slide-links';
 export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const introImage = await readSvg(PublicImage.qrCode, (doc) => {
     const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
@@ -14,9 +15,10 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
   });
 
   return {
+    id,
     content: slideBase({
+      id,
       ctx: ctx,
-      webAnimation: 'fadeIn',
       content: `
         ${await windowTitle('Links')}
 

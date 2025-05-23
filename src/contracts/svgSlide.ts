@@ -1,4 +1,5 @@
 export interface ISvgSlide {
+  id: string;
   content: string;
   notes: string;
   publicNotes?: string;

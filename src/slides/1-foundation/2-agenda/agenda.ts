@@ -9,6 +9,7 @@ import { agendaCard } from './agendaCard';
 
 import notes from './agenda.md';
 
+const id = 'slide-agenda';
 export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const agendaImage = await readSvg(PublicImage.pitch, (doc) => {
     const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
@@ -18,7 +19,9 @@ export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
   });
 
   return {
+    id,
     content: slideBase({
+      id,
       ctx: ctx,
       content: `
         ${await windowTitle('Agenda')}

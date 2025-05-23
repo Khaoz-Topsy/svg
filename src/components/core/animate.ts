@@ -19,15 +19,6 @@ export const animateSlideIn = (props: {
   from: string;
   to: string;
 }) => {
-  let begin = '';
-  const beginWasSupplied = (props.begin?.length ?? 0) > 0;
-  const initialDelayWasSupplied = (props.initialDelay?.length ?? 0) > 0;
-
-  if (beginWasSupplied) {
-    begin = `begin="${props.begin}"`;
-  } else if (initialDelayWasSupplied) {
-    begin = `begin="${props.initialDelay}"`;
-  }
   return `<animateTransform
     attributeName="transform"
     attributeType="XML"

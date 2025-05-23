@@ -14,6 +14,7 @@ import { slideBeginValue } from '../../../components/common/slideAnimation.ts';
 const tooltipWhatIsSvg = 'what-is-svg-tooltip';
 const letterDelay = 500;
 
+const id = 'slide-what-is-svg';
 export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const tooltipImage = await readSvg(PublicImage.tooltip, (doc) => {
     const elem = doc.querySelector('g') as SVGSVGElement;
@@ -29,7 +30,9 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, letterDelay * numTicksDelay);
 
   return {
+    id,
     content: slideBase({
+      id,
       ctx: ctx,
       content: `
         ${await windowTitle('What is an SVG')}

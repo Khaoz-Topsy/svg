@@ -10,6 +10,7 @@ import { slideBase } from '../../slideBase';
 
 import notes from './intro.md';
 
+const id = 'slide-intro';
 export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const introImage = await readSvg(PublicImage.standing, (doc) => {
     const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
@@ -19,7 +20,9 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
   });
 
   return {
+    id,
     content: slideBase({
+      id,
       ctx: ctx,
       content: `
         ${await windowTitle(AppText.title)}

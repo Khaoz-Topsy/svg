@@ -25,7 +25,7 @@ const setupPresentationForWeb = async () => {
     return;
   }
 
-  const slides = await getAllSlides();
+  const slides = getAllSlides();
   const numberOfSlides = slides.length;
   const lastSlideIndex = numberOfSlides - 1;
 
@@ -52,6 +52,9 @@ const setupPresentationForWeb = async () => {
   setupControlOnClicks(controlsElem, viewMode, slideFromModifier);
   await renderFunc(slideIndex, slideIndex, 'initial');
   containerElem.classList.add('ready');
+  if (viewMode == ViewMode.slides) {
+    windowButtonHandler();
+  }
 };
 
 const getRenderFunctions = (
@@ -81,21 +84,19 @@ const getRenderFunctions = (
 
     const slideMeta = slides[newIndex];
     const slideFunc = slideMeta.slideFunc ?? (() => Promise.resolve(slideEmpty));
-    const slideObj = await slideFunc({ id: slideMeta.id, env: 'web', currentSlideIndex: newIndex });
+    const slideObj = await slideFunc({ env: 'web', currentSlideIndex: newIndex });
 
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
     const mainSvgContent = await renderSvgSlide(slideObj, newIndex, numberOfSlides);
     if (mainSvgElem != null) mainSvgElem.outerHTML = mainSvgContent;
 
-    if (viewMode == ViewMode.slides) {
-      windowButtonHandler();
-    } else if (viewMode == ViewMode.presenter) {
+    if (viewMode == ViewMode.presenter) {
       containerElem.classList.add(viewMode);
       presenterElem.style.removeProperty('display');
 
       const nextSlideMeta = slides[newIndex + 1];
       const nextSlideFunc = nextSlideMeta.slideFunc ?? (() => Promise.resolve(slideCenterText('END')));
-      const nextSlideObj = await nextSlideFunc({ id: nextSlideMeta.id, env: 'web', currentSlideIndex: newIndex });
+      const nextSlideObj = await nextSlideFunc({ env: 'web', currentSlideIndex: newIndex });
       const presenterSvgContent = await renderSvgSlide(nextSlideObj, newIndex + 1, numberOfSlides + 1);
 
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');
@@ -105,9 +106,8 @@ const getRenderFunctions = (
       const notesMarkdown = slideObj.publicNotes ?? slideObj.notes;
       const notesHtml = generateHtmlFromMarkdown(notesMarkdown);
       if (presenterNotesElem != null) presenterNotesElem.innerHTML = notesHtml;
-    } else {
-      console.error(`Unknown viewMode: '${viewMode}'`);
     }
+
     return newIndex;
   };
 

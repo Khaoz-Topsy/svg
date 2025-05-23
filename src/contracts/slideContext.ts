@@ -2,7 +2,6 @@ import type { EnvMode } from '../constants/env';
 import type { Prettify } from '../constants/prettify';
 
 export type BaseSlideContext = {
-  id: string;
   currentSlideIndex: number;
 };
 

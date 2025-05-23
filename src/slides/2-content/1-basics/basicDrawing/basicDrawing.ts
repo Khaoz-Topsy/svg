@@ -5,9 +5,12 @@ import type { ISvgSlide } from '../../../../contracts/svgSlide';
 import { slideBase } from '../../../slideBase';
 import { slideBasicDrawingCard } from './basicDrawingCard';
 
+const id = 'slide-basic-drawing';
 export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
+    id,
     content: slideBase({
+      id,
       ctx: ctx,
       content: `
         ${await windowTitle('Basics of drawing')}

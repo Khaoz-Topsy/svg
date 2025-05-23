@@ -13,6 +13,7 @@ export const progress = (props: { slideIndex: number; numberOfSlides: number }) 
       progressIcon({
         x: leftPadding + progressIconOffset + index * spaceBetweenIcons,
         y: yCoord,
+        index,
         isActive: index <= props.slideIndex,
       }),
     )}

@@ -4,8 +4,7 @@
     xmlns:ev="http://www.w3.org/2001/xml-events">
 
     <defs>
-        <!-- This is already included in src/components/svgSetup.ts -->
-        <rect id="qrPixel" width="8" height="8" />
+        <rect id="qrPixel" width="8" height="8" stroke="#ffffff" stroke-width="1" rx="0.5" />
     </defs>
 
     <g id="qr-svg-kurtlourens-com">

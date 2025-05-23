@@ -11,6 +11,7 @@ export const renderSvgWrapper = async (inner: string): Promise<string> => `
   <svg xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 ${svgConstants.width} ${svgConstants.height}"
     overflow="hidden"
+    data-date-rendered="${new Date().toISOString()}"
   >
     ${layoutBackground}
     ${svgHeading}
