@@ -15,11 +15,11 @@ export const svgConstants = {
     illustrationPants: '#35465E',
     illustrationHair: '#392F27',
     //
-    controlForeground: '#ffffff',
+    controlForeground: '#f0f0f0ff',
     controlBackground: '#121212',
     controlHighlight: '#545454',
   },
-  font: '"system-ui", "Avenir", "Calibri", "Arial", sans-serif',
+  font: '"Calibri", "Arial", sans-serif',
   windowIconSize: 10,
   progress: {
     iconSize: 5,

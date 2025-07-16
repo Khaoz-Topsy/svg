@@ -18,12 +18,12 @@ export const setupControlOnClicks = (
   onButtonClick: (indexModifier: number) => Promise<void>,
 ) => {
   const leftControlElem = controlsElem.querySelector<HTMLElement>('.left');
-  const bottomControlElem = controlsElem.querySelector<HTMLElement>('.bottom');
+  // const bottomControlElem = controlsElem.querySelector<HTMLElement>('.bottom');
   const rightControlElem = controlsElem.querySelector<HTMLElement>('.right');
 
   if (viewMode == 'presenter') {
-    if (bottomControlElem == null) return;
-    bottomControlElem.style.removeProperty('display');
+    // if (bottomControlElem == null) return;
+    // bottomControlElem.style.removeProperty('display');
   } else {
     if (leftControlElem) leftControlElem.onclick = () => onButtonClick(-1);
     if (rightControlElem) rightControlElem.onclick = () => onButtonClick(1);

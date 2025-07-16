@@ -37,6 +37,7 @@ a {
 
 #presentation-container.presenter {
   justify-content: start;
+  height: 100vh;
 }
 
 #presentation-container.presenter + #presentation-controls .left,
@@ -58,7 +59,7 @@ a {
 #presentation-presenter-container {
   flex: 1;
   flex-direction: column;
-  height: 100%;
+  justify-content: flex-start;
   margin: 3em;
 }
 

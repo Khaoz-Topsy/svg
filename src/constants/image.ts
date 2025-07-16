@@ -4,12 +4,13 @@ export const PublicImage = {
   standing: '/assets/img/standing.svg',
   tooltip: '/assets/img/tooltip.svg',
   qrCode: '/assets/img/qrCode.svg',
-  // code: {
-  //   basicSvg: '/assets/img/code/basicSvg.svg',
-  // },
-  // icon: {
-  //   about: 'about',
-  //   cool: 'cool',
-  //   review: 'review',
-  // },
-} as const;
+  alien: '/assets/img/alien.svg',
+  //
+  about: '/assets/img/icon/about.svg',
+  cool: '/assets/img/icon/cool.svg',
+  review: '/assets/img/icon/review.svg',
+} as const; // These images are always included
+
+export type PublicImageKey = keyof typeof PublicImage;
+
+export const usePublicImage = (id: PublicImageKey, attr?: string) => `<use href="#${id}" ${attr ?? ''} />`;

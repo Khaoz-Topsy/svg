@@ -10,6 +10,8 @@
     - animate tag
     - CSS
 
+## SVGZ
+
 ## Cool features
 
 - Templates for page metadata

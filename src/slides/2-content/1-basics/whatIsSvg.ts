@@ -1,43 +1,31 @@
 import { codeColours, svgCode } from '../../../components/code/codeSpan';
+import { slideBeginValue } from '../../../components/common/slideAnimation.ts';
 import { animateFadeIn } from '../../../components/core/animate';
 import { tooltipAction } from '../../../components/core/tooltipAction';
 import { windowTitle } from '../../../components/window/windowTitle';
-import { PublicImage } from '../../../constants/image';
 import { svgConstants } from '../../../constants/svg';
 import type { SlideContext } from '../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
-import { readSvg } from '../../../helpers/fileHelper';
+import { readSrcFile } from '../../../helpers/fileHelper.ts';
 import { slideBase } from '../../slideBase';
-import { slideBeginValue } from '../../../components/common/slideAnimation.ts';
+
+import notes from './whatIsSvg.md';
 
 const tooltipWhatIsSvg = 'what-is-svg-tooltip';
 const letterDelay = 500;
 
-const id = 'slide-what-is-svg';
 export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const tooltipImage = await readSvg(PublicImage.tooltip, (doc) => {
-    const elem = doc.querySelector('g') as SVGSVGElement;
-    if (elem == null) return '';
-
-    elem.setAttribute('id', tooltipWhatIsSvg);
-    elem.setAttribute('transform', 'scale(2) translate(275, 15)');
-
-    return elem.outerHTML;
-  });
-
   const previousSlideId = getPreviousSlideIndex(ctx);
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, letterDelay * numTicksDelay);
 
   return {
-    id,
     content: slideBase({
-      id,
       ctx: ctx,
       content: `
         ${await windowTitle('What is an SVG')}
 
-        <g class="noselect" opacity="0" transform="translate(100 200)">
+        <g class="noselect" opacity="0" transform="translate(100 150)">
           ${animateFadeIn({ duration: '1s' })}
           <rect 
               width="${svgConstants.width / 3}"
@@ -84,13 +72,15 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
             A picture from maths
           </text>
 
-          ${tooltipImage}
+          <g id="${tooltipWhatIsSvg}">
+            <use  href="#tooltip" transform="scale(2) translate(275, 15)" />
+          </g>
           ${tooltipAction({ srcId: tooltipWhatIsSvg, targetId: 'tooltip-reveal' })}
 
         </g>
 
 
-        <g class="noselect" opacity="0" transform="translate(800 200)">
+        <g class="noselect" opacity="0" transform="translate(800 150)">
           ${animateFadeIn({ duration: '1s' })}
           <rect 
               width="1000"
@@ -149,9 +139,40 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
 
         </g>
         
+        
+        <g class="noselect" opacity="0" transform="translate(100 550)">
+          ${animateFadeIn({ duration: '1s' })}
+          <rect 
+              width="${svgConstants.width - 220}"
+              height="400"
+              x="0"
+              y="0"
+              rx="50"
+              fill="transparent"
+              stroke="${svgConstants.colour.secondary}"
+              stroke-width="3"
+          >
+          </rect>
+
+          <text x="50" y="85" fill="${svgConstants.colour.controlForeground}" font-size="40">
+            Fun facts
+          </text>
+
+          <circle cx="55" cy="167" r="7" fill="#64E9BA" />
+          <text x="75" y="175" fill="${svgConstants.colour.controlForeground}" font-size="30">
+            The first proposed SVG file format was in 1994 by a Dutch software engineer Martijn Koster.
+          </text>
+
+          <circle cx="55" cy="217" r="7" fill="#64E9BA" />
+          <text x="75" y="225" fill="${svgConstants.colour.controlForeground}" font-size="30">
+            It wasn't until 2003 that the SVG file format was finalised and approved as an ISO standard.
+          </text>
+          
+        </g>
+        
         `,
     }),
-    notes: 'what is svg',
+    notes: await readSrcFile(notes),
     ssg: {
       secondsToDisplay: 3,
     },

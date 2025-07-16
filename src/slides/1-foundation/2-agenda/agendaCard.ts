@@ -1,13 +1,13 @@
 import { animateFadeIn, animateSlideIn } from '../../../components/core/animate';
 import { gradientSphere } from '../../../components/spheres/gradientSphere';
+import { usePublicImage, type PublicImageKey } from '../../../constants/image.ts';
 import { svgConstants, svgGradients } from '../../../constants/svg';
 import type { SlideContext } from '../../../contracts/slideContext';
 import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
-import { readSvg } from '../../../helpers/fileHelper';
 
 interface IProps {
   y: number;
-  icon: string;
+  icon: PublicImageKey;
   heading: string;
   ctx: SlideContext;
   description: string;
@@ -21,14 +21,6 @@ const colours = {
 
 export const agendaCard = async (props: IProps) => {
   const descriptionLines = props.description.split('\n');
-  const imageContent = await readSvg(`/assets/img/icon/${props.icon}.svg`, (doc) => {
-    const elem = doc.querySelector('g') as SVGSVGElement;
-    if (elem == null) return '';
-
-    elem.setAttribute('transform', props.iconTransformProp);
-    return elem.outerHTML;
-  });
-
   const previousSlideId = getPreviousSlideIndex(props.ctx);
 
   return `<g 
@@ -54,7 +46,7 @@ export const agendaCard = async (props: IProps) => {
         fill="${colours.card}"
     >
     </rect>
-    ${imageContent}
+    ${usePublicImage(props.icon, `transform="${props.iconTransformProp}"`)}
     <text x="175" y="70" fill="${colours.text}" font-size="50">${props.heading}</text>
     ${descriptionLines.map(
       (text, index) => `<text x="175" y="${120 + index * 30}" fill="${colours.text}" font-size="25">${text}</text>`,

@@ -3,7 +3,7 @@ import { svgConstants } from '../constants/svg';
 import type { SlideContext } from '../contracts/slideContext';
 import { layoutBackground } from '../layouts/layoutBackground';
 
-export const slideBase = (props: { id: string; ctx: SlideContext; attr?: string; content: string }) => {
+export const slideBase = (props: { ctx: SlideContext; attr?: string; content: string }) => {
   let attr = props.attr ?? '';
   let buttonSvg = '';
   let startOpacity = '0';
@@ -17,7 +17,7 @@ export const slideBase = (props: { id: string; ctx: SlideContext; attr?: string;
     const isLastSlide = props.ctx.currentSlideIndex >= lastSlideIndex;
 
     buttonSvg = `
-      <g id="${props.id}-navigate-btn" 
+      <g id="${props.ctx.id}-navigate-btn" 
         transform="translate(${svgConstants.width - 160} ${svgConstants.height - 100})">
 
         <rect x="0" y="0" rx="20"
@@ -30,8 +30,8 @@ export const slideBase = (props: { id: string; ctx: SlideContext; attr?: string;
           fill="${svgConstants.colour.slideBackground}"
         />
         <animate 
-          id="${props.id}-slide-anim"
-          href="#${props.id}-navigate-btn" 
+          id="${props.ctx.id}-slide-anim"
+          href="#${props.ctx.id}-navigate-btn" 
           attributename="opacity"
           from="1"
           to="0"
@@ -40,7 +40,7 @@ export const slideBase = (props: { id: string; ctx: SlideContext; attr?: string;
           fill="freeze"
         />
         <animateTransform
-          href="#${props.id}"
+          href="#${props.ctx.id}"
           attributeName="transform"
           attributeType="XML"
           type="rotate"
@@ -48,15 +48,15 @@ export const slideBase = (props: { id: string; ctx: SlideContext; attr?: string;
           from="0 500 500"
           to="90 500 500"
           repeatCount="1"
-          begin="${props.id}-slide-anim.begin+50ms" 
+          begin="${props.ctx.id}-slide-anim.begin+50ms" 
         />
         <animateMotion
-          href="#${props.id}"
+          href="#${props.ctx.id}"
           dur="500ms"
           repeatCount="1"
           fill="freeze"
           path="M0,0 L -300 ${svgConstants.height}"
-          begin="${props.id}-slide-anim.begin+50ms" 
+          begin="${props.ctx.id}-slide-anim.begin+50ms" 
         />
       </g>`;
     if (isLastSlide) buttonSvg = '';
@@ -66,7 +66,7 @@ export const slideBase = (props: { id: string; ctx: SlideContext; attr?: string;
     startOpacity = '1';
   }
 
-  return `<g id="${props.id}" ${attr} opacity="${startOpacity}">
+  return `<g id="${props.ctx.id}" ${attr} opacity="${startOpacity}">
       ${layoutBackground}
       ${preContent}
       ${props.content}

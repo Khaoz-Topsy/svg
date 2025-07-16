@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import path from 'node:path';
 import url from 'node:url';
-import xmlFormat from 'xml-formatter';
+// import xmlFormat from 'xml-formatter';
 
 import type { EnvMode } from '../constants/env.ts';
 import { writeLinesToFile } from '../helpers/fileHelper.ts';
@@ -29,6 +29,7 @@ const generateFullSvg = async () => {
     const slideFunc = slideMeta.slideFunc ?? (() => Promise.resolve(slideEmpty));
     const slideObj = await slideFunc({
       env: 'ssg',
+      id: slideMeta.id,
       currentSlideIndex: slideIndex,
       numberOfSlides,
       prevSlideId: slides[slideIndex - 1]?.id,
@@ -36,10 +37,10 @@ const generateFullSvg = async () => {
     svgSlideContents.push(slideObj.content);
   }
 
-  const fullSvg = await renderSvgOuterSSG(svgSlideContents);
-  let formattedSvg = xmlFormat(fullSvg);
+  let fullSvg = await renderSvgOuterSSG(svgSlideContents);
+  // let formattedSvg = xmlFormat(fullSvg);
   const outputPath = path.join(projectDirectory, 'dist', 'ssg.svg');
-  await writeLinesToFile(formattedSvg, outputPath);
+  await writeLinesToFile(fullSvg, outputPath);
 };
 
 generateFullSvg();

@@ -1,6 +1,8 @@
 import { svgConstants, svgGradients } from '../constants/svg';
 
-export const svgHeading = `
+export const svgHeading = (props: {
+  imagePreloads: string; //
+}) => `
 <defs>
   ${Object.keys(svgGradients)
     .map((gradientKey) =>
@@ -10,12 +12,25 @@ export const svgHeading = `
     )
     .join('\n')}
 
+  ${props.imagePreloads}
+
+  <polygon id="star-for-def-example" points="96,0,125.38926261462366,55.54915028125263,187.30142556433475,66.33436854000504,143.55282581475768,111.45084971874736,152.42738422007744,173.66563145999493,96,146,39.572615779922586,173.66563145999498,48.447174185242325,111.45084971874738,4.69857443566525,66.33436854000507,66.61073738537632,55.549150281252636" fill="transparent" stroke-width="5"></polygon>
+  <pattern id="pattern-for-def-example" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="10" fill="#64E9BA" />
+  </pattern>
+
   <rect id="qrPixel" width="8" height="8"  stroke="#ffffff" stroke-width="1" rx="0.5"/>
 </defs>
 
 <style>
+  foreignObject *,
   text {
     font-family: ${svgConstants.font};
+    line-height: 1.5em;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
   
   .noselect {

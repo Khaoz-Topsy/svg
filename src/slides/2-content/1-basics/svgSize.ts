@@ -7,12 +7,9 @@ import { slideBase } from '../../slideBase';
 
 import notes from './svgSize.md';
 
-const id = 'slide-svg-size';
 export const slideSvgSize = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
-    id,
     content: slideBase({
-      id,
       ctx: ctx,
       content: `
         ${await windowTitle('SVG vs PNG')}

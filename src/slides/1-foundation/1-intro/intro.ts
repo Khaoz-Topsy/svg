@@ -1,33 +1,23 @@
 import { gradientSphere } from '../../../components/spheres/gradientSphere';
 import { windowTitle } from '../../../components/window/windowTitle';
-import { PublicImage } from '../../../constants/image';
+import { usePublicImage } from '../../../constants/image';
 import { svgConstants, svgGradients } from '../../../constants/svg';
 import { AppText } from '../../../constants/text';
 import type { SlideContext } from '../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../contracts/svgSlide';
-import { readSrcFile, readSvg } from '../../../helpers/fileHelper';
+import { readSrcFile } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
 import notes from './intro.md';
 
-const id = 'slide-intro';
 export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const introImage = await readSvg(PublicImage.standing, (doc) => {
-    const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
-    if (innerSvg == null) return '';
-
-    return `<g transform="translate(750, 315) scale(1.5)">${innerSvg}</g>`;
-  });
-
   return {
-    id,
     content: slideBase({
-      id,
       ctx: ctx,
       content: `
         ${await windowTitle(AppText.title)}
 
-        ${introImage}
+        ${usePublicImage('standing', 'transform="translate(750, 315) scale(1.5)"')}
         <g id="intro-spheres">
           ${gradientSphere({
             gradientId: svgGradients.SpherePurple1Gradient.id,

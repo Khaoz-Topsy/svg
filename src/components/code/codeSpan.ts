@@ -5,33 +5,41 @@ export const codeColours = {
   value: 'lightyellow',
 };
 
+export const getStyleAttr = (style?: string) => ((style?.length ?? 0) < 1 ? '' : ` style="${style}"`);
+
 export const codeSpan = (text: string, style?: string) => {
-  return `<span style="${style}">${text}</span>`;
+  return `<span${getStyleAttr(style)}>${text}</span>`;
 };
 
 export const codeSpans = (texts: Array<string>, colours: Array<string | null>, style?: string) => {
   const inner = texts.map((txt, idx) => `<span style="color: ${colours[idx]};">${txt}</span>`).join('');
-  return `<span style="${style}">${inner}</span>`;
+  return `<span${getStyleAttr(style)}>${inner}</span>`;
 };
 
 interface IStyleOptions {
   colour?: string;
   tabLevel?: number;
+  opacity?: number;
 }
 const getStyleValue = (options?: IStyleOptions) => {
-  let style = '';
+  const styles: Array<string> = [];
 
   const colour = options?.colour ?? '';
   if (colour.length > 0) {
-    style += ` color: ${colour};`;
+    styles.push(`color: ${colour};`);
   }
 
   const tabLevel = options?.tabLevel ?? 0;
   if (tabLevel > 0) {
-    style += ` margin-left: ${tabLevel}em;`;
+    styles.push(`margin-left: ${tabLevel}em;`);
   }
 
-  return style;
+  const opacity = options?.opacity ?? 0;
+  if (opacity > 0) {
+    styles.push(`opacity: ${opacity};`);
+  }
+
+  return styles.join(' ');
 };
 
 export const svgCode = {

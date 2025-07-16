@@ -4,13 +4,13 @@ import type { SlideContext } from '../../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../../contracts/svgSlide';
 import { slideBase } from '../../../slideBase';
 import { slideBasicDrawingCard } from './basicDrawingCard';
+import { readSrcFile } from '../../../../helpers/fileHelper';
 
-const id = 'slide-basic-drawing';
+import notes from './basicDrawing.md';
+
 export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
-    id,
     content: slideBase({
-      id,
       ctx: ctx,
       content: `
         ${await windowTitle('Basics of drawing')}
@@ -20,12 +20,13 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           y: 120,
           ctx: ctx,
           animatePosition: 1,
-          svgContent: `<line x1="50" y1="200" x2="250" y2="50" stroke="#64E9BA" stroke-width="5" />`,
+          overrideForeignObjectX: 280,
+          svgContent: `<line x1="50" y1="200" x2="225" y2="50" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
             ${svgCode.tag('&lt;line')}<br />
             ${svgCode.keyValue(['x1', '=', '"50"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['y1', '=', '"200"'])}<br />
-            ${svgCode.keyValue(['x2', '=', '"250"'], { tabLevel: 1 })}
+            ${svgCode.keyValue(['x2', '=', '"200"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['y2', '=', '"50"'])}<br />
             ${svgCode.keyValue(['stroke', '=', '"#64E9BA"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['stroke-width', '=', '"5"'])}<br />
@@ -38,13 +39,14 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           y: 120,
           ctx: ctx,
           animatePosition: 2,
-          svgContent: `<rect x="50" y="50" width="200" height="150" fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
+          overrideForeignObjectX: 280,
+          svgContent: `<rect x="50" y="50" width="165" height="150" fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
             ${svgCode.tag('&lt;rect')}<br />
             ${svgCode.keyValue(['x', '=', '"50"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['y', '=', '"50"'])}
             ${svgCode.keyValue(['fill', '=', '"transparent"'])}<br />
-            ${svgCode.keyValue(['width', '=', '"200"'], { tabLevel: 1 })}
+            ${svgCode.keyValue(['width', '=', '"165"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['height', '=', '"150"'])}<br />
             ${svgCode.keyValue(['stroke', '=', '"#64E9BA"'], { tabLevel: 1 })}
             ${svgCode.keyValue(['stroke-width', '=', '"5"'])}<br />
@@ -57,6 +59,7 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           y: 420,
           ctx: ctx,
           animatePosition: 3,
+          overrideForeignObjectX: 280,
           svgContent: `<circle cx="150" cy="125" r="80" fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
             ${svgCode.tag('&lt;circle')}<br />
@@ -98,7 +101,7 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           svgContent: `<polyline points="120,140 180,140 210,100 180,60 110,60 70,100 70,170 110,210 180,210" 
               fill="transparent" stroke="#64E9BA" stroke-width="5" />`,
           codeContent: `
-            ${svgCode.tag('&lt;polygon')}<br />
+            ${svgCode.tag('&lt;polyline')}<br />
             ${svgCode.keyValue(['points', '=', '"120,130 180,130 210,90 180,50'], { tabLevel: 1 })}<br />
             ${svgCode.value('110,50 70,90 70,150 110,190 180,190"', { tabLevel: 4 })}<br />
             ${svgCode.keyValue(['fill', '=', '"transparent"'], { tabLevel: 1 })}<br />
@@ -129,7 +132,7 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
         })}
         `,
     }),
-    notes: 'what is svg',
+    notes: await readSrcFile(notes),
     ssg: {
       secondsToDisplay: 3,
     },
