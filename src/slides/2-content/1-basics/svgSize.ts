@@ -5,9 +5,10 @@ import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { readSrcFile } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 
-import notes from './svgSize.md';
+import notesMd from './svgSize.md';
 
 export const slideSvgSize = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
@@ -23,8 +24,9 @@ export const slideSvgSize = async (ctx: SlideContext): Promise<ISvgSlide> => {
             fill="${svgConstants.colour.primary}"
         />  
         `,
+      notes,
     }),
-    notes: await readSrcFile(notes),
+    notes,
     ssg: {
       secondsToDisplay: 3,
     },

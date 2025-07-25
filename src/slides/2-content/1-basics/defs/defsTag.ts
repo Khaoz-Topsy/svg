@@ -1,3 +1,4 @@
+import { codeBlockWithExample } from '../../../../components/code/codeBlockWithExample.ts';
 import { svgCode } from '../../../../components/code/codeSpan';
 import { animateSlideIn } from '../../../../components/core/animate';
 import { gradientSphere } from '../../../../components/spheres/gradientSphere';
@@ -9,23 +10,23 @@ import type { ISvgSlide } from '../../../../contracts/svgSlide';
 import { getPreviousSlideIndex } from '../../../../helpers/contextHelper.ts';
 import { readSrcFile } from '../../../../helpers/fileHelper';
 import { slideBase } from '../../../slideBase';
-import { defsCard } from './defsCard.ts';
 
-import notes from './defsTag.md';
+import notesMd from './defsTag.md';
 
 export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notFocussedStyle = { opacity: 0.3 };
   const previousSlideId = getPreviousSlideIndex(ctx);
-  const alienDelay = ctx.env == 'ssg' ? '1ms' : '60s';
+  const alienDelay = ctx.env == 'ssg' ? '1ms' : '10s';
   const alienPositionY = ctx.env == 'ssg' ? '-50' : '0';
 
+  const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
       content: `
         ${await windowTitle('Basics of drawing - defs')}
 
-        ${defsCard({
+        ${codeBlockWithExample({
           ctx,
           x: 100,
           y: 120,
@@ -81,7 +82,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           `,
         })}
         
-        ${defsCard({
+        ${codeBlockWithExample({
           ctx,
           x: 1075,
           y: 120,
@@ -140,7 +141,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           `,
         })}
         
-        ${defsCard({
+        ${codeBlockWithExample({
           ctx,
           x: 100,
           y: 620,
@@ -191,7 +192,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           `,
         })}
         
-        ${defsCard({
+        ${codeBlockWithExample({
           ctx,
           x: 1075,
           y: 620,
@@ -237,8 +238,9 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           `,
         })}
         `,
+      notes,
     }),
-    notes: await readSrcFile(notes),
+    notes,
     ssg: {
       secondsToDisplay: 3,
     },

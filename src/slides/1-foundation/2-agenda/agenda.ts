@@ -1,4 +1,5 @@
 import { windowTitle } from '../../../components/window/windowTitle';
+import { usePublicImage } from '../../../constants/image';
 import { svgConstants } from '../../../constants/svg';
 import type { SlideContext } from '../../../contracts/slideContext';
 import type { ISvgSlide } from '../../../contracts/svgSlide';
@@ -6,10 +7,10 @@ import { readSrcFile } from '../../../helpers/fileHelper';
 import { slideBase } from '../../slideBase';
 import { agendaCard } from './agendaCard';
 
-import notes from './agenda.md';
-import { usePublicImage } from '../../../constants/image';
+import notesMd from './agenda.md';
 
 export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
@@ -64,8 +65,9 @@ export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
         ${usePublicImage('pitch', 'transform="translate(100, 225) scale(1.5)"')}
         `,
+      notes,
     }),
-    notes: await readSrcFile(notes),
+    notes,
     ssg: {
       secondsToDisplay: 3,
     },

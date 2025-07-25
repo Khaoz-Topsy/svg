@@ -10,7 +10,7 @@ import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
 import { readSrcFile } from '../../../helpers/fileHelper.ts';
 import { slideBase } from '../../slideBase';
 
-import notes from './whatIsSvg.md';
+import notesMd from './whatIsSvg.md';
 
 const tooltipWhatIsSvg = 'what-is-svg-tooltip';
 const letterDelay = 500;
@@ -18,6 +18,8 @@ const letterDelay = 500;
 export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, letterDelay * numTicksDelay);
+
+  const notes = await readSrcFile(notesMd);
 
   return {
     content: slideBase({
@@ -171,8 +173,9 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
         </g>
         
         `,
+      notes,
     }),
-    notes: await readSrcFile(notes),
+    notes,
     ssg: {
       secondsToDisplay: 3,
     },

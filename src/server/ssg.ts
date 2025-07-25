@@ -8,6 +8,7 @@ import { writeLinesToFile } from '../helpers/fileHelper.ts';
 import { renderSvgOuterSSG } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
 import { slideEmpty } from '../slides/slideBase.ts';
+import { generateNotesPanel } from './notesPanel.ts';
 
 const env: EnvMode = 'ssg';
 const currentFileName = url.fileURLToPath(import.meta.url);
@@ -18,6 +19,11 @@ const generateFullSvg = async () => {
   import.meta.env.MODE = env;
   import.meta.env.PROJECT_DIR = projectDirectory;
   global.DOMParser = new JSDOM().window.DOMParser;
+
+  // const args = process.argv.slice(2);
+  // args.forEach((val, index) => {
+  //   console.log(index + ': ' + val);
+  // });
 
   const slides = getAllSlides();
   const numberOfSlides = slides.length;
@@ -33,6 +39,7 @@ const generateFullSvg = async () => {
       currentSlideIndex: slideIndex,
       numberOfSlides,
       prevSlideId: slides[slideIndex - 1]?.id,
+      showNotes: false, //TODO: add notes ability
     });
     svgSlideContents.push(slideObj.content);
   }

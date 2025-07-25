@@ -5,6 +5,7 @@ import type { ISvgSlide } from '../../../contracts/svgSlide';
 import { slideBase } from '../../slideBase';
 
 export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const notes = '';
   return {
     content: slideBase({
       ctx: ctx,
@@ -13,8 +14,9 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
         ${usePublicImage('qrCode', 'transform="translate(750, 315) scale(1.5)"')}
         `,
+      notes,
     }),
-    notes: '',
+    notes,
     ssg: {
       secondsToDisplay: 3,
     },

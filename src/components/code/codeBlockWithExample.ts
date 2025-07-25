@@ -1,8 +1,8 @@
-import { slideBeginValue } from '../../../../components/common/slideAnimation.ts';
-import { animateFadeIn } from '../../../../components/core/animate';
-import { svgConstants } from '../../../../constants/svg';
-import type { SlideContext } from '../../../../contracts/slideContext';
-import { getPreviousSlideIndex } from '../../../../helpers/contextHelper.ts';
+import { svgConstants } from '../../constants/svg.ts';
+import type { SlideContext } from '../../contracts/slideContext.ts';
+import { getPreviousSlideIndex } from '../../helpers/contextHelper.ts.ts';
+import { slideBeginValue } from '../common/slideAnimation.ts';
+import { animateFadeIn } from '../core/animate.ts';
 
 interface IProps {
   x: number;
@@ -19,7 +19,7 @@ interface IProps {
 }
 
 const drawingCardDelay = 500;
-export const defsCard = (props: IProps) => {
+export const codeBlockWithExample = (props: IProps) => {
   const previousSlideId = getPreviousSlideIndex(props.ctx);
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, drawingCardDelay * numTicksDelay);
 

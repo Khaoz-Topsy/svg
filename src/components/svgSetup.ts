@@ -79,4 +79,26 @@ export const svgHeading = (props: {
       transform: translateY(3em);
     }
   }
+
+  .my-rect {
+    fill: #FF0000;
+    stroke: #FFFF00;
+    stroke-width: 10px;
+  }
+
+  @keyframes anim-my-rect-anim {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, 18em);
+    }
+  }
+
+  .my-rect-anim {
+    animation: anim-my-rect-anim;
+    animation-direction: alternate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
 </style>`;

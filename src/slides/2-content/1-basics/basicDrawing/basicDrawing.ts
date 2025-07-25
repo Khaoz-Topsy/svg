@@ -6,9 +6,10 @@ import { slideBase } from '../../../slideBase';
 import { slideBasicDrawingCard } from './basicDrawingCard';
 import { readSrcFile } from '../../../../helpers/fileHelper';
 
-import notes from './basicDrawing.md';
+import notesMd from './basicDrawing.md';
 
 export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
@@ -131,8 +132,9 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           `,
         })}
         `,
+      notes,
     }),
-    notes: await readSrcFile(notes),
+    notes,
     ssg: {
       secondsToDisplay: 3,
     },

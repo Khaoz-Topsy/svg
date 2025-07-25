@@ -2,12 +2,14 @@ import { slideAnimationFadeIn } from '../components/common/slideAnimation';
 import { svgConstants } from '../constants/svg';
 import type { SlideContext } from '../contracts/slideContext';
 import { layoutBackground } from '../layouts/layoutBackground';
+import { generateNotesPanel } from '../server/notesPanel';
 
-export const slideBase = (props: { ctx: SlideContext; attr?: string; content: string }) => {
+export const slideBase = (props: { ctx: SlideContext; attr?: string; content: string; notes: string }) => {
   let attr = props.attr ?? '';
   let buttonSvg = '';
   let startOpacity = '0';
   let preContent = slideAnimationFadeIn({ ctx: props.ctx, duration: '250ms' });
+  let notesContent = '';
 
   if (props.ctx.env == 'web') {
     //
@@ -15,6 +17,9 @@ export const slideBase = (props: { ctx: SlideContext; attr?: string; content: st
   if (props.ctx.env == 'ssg') {
     const lastSlideIndex = props.ctx.numberOfSlides - 1;
     const isLastSlide = props.ctx.currentSlideIndex >= lastSlideIndex;
+    if (props.ctx.showNotes == true) {
+      notesContent = generateNotesPanel(props.ctx.id, props.notes);
+    }
 
     buttonSvg = `
       <g id="${props.ctx.id}-navigate-btn" 
@@ -70,6 +75,7 @@ export const slideBase = (props: { ctx: SlideContext; attr?: string; content: st
       ${layoutBackground}
       ${preContent}
       ${props.content}
+      ${notesContent}
       ${buttonSvg}
     </g>`;
 };

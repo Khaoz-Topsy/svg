@@ -1,5 +1,9 @@
 # Agenda
 
-- intro
-- cool use cases
-- considerations
+intro
+
+- This will be code heavy
+
+cool use cases
+
+considerations

@@ -17,11 +17,11 @@ export const renderSvgWrapper = async (inner: string): Promise<string> => {
     overflow="hidden"
     data-date-rendered="${new Date().toISOString()}"
   >
-    ${layoutBackground}
     ${svgHeading({
       imagePreloads: imagePreloads.join('\r\n'),
     })}
 
+    ${layoutBackground}
     ${inner}
   </svg>`;
 };

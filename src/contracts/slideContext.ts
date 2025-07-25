@@ -12,6 +12,7 @@ export type SsgSlideContext = BaseSlideContext & {
   env: EnvMode;
   numberOfSlides: number;
   prevSlideId: string;
+  showNotes?: boolean;
 };
 
 export type SlideContext = Prettify<
