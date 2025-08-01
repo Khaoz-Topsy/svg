@@ -72,7 +72,7 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
           y: 120,
           width: 910,
           height: 670,
-          animatePosition: 1,
+          animatePosition: 2,
           svgContent: `
             <circle class="cool-circle cool-circle-anim" cx="650" cy="150" r="75" />
           `,

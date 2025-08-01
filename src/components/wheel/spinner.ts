@@ -19,15 +19,15 @@ export const getSpinner = (props: IProps) => {
   const value = 360 / props.options.length;
   anglePerSlice = Number(value.toFixed(2));
 
-  let innerContent = '';
+  let innerAttr = '';
   if (props.rotate == true) {
-    innerContent = `<animateTransform attributeName="transform" type="rotate" from="0 ${centerPoint} ${centerPoint}" to="360 ${centerPoint} ${centerPoint}" dur="30s" repeatCount="indefinite" />`;
+    innerAttr = 'class="spin-the-wheel"';
+    // innerContent = `<animateTransform attributeName="transform" type="rotate" from="0 ${centerPoint} ${centerPoint}" to="360 ${centerPoint} ${centerPoint}" dur="30s" repeatCount="indefinite" />`;
   }
 
   return `
     <g id="spinner" ${props.attr ?? ''}>
-        <g id="spinner-inner">
-            ${innerContent}
+        <g id="spinner-inner" ${innerAttr}>
 
             <circle
                 cx="${centerPoint}"

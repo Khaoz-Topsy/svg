@@ -24,8 +24,8 @@ export const getAllSlides = (): Array<SlideMeta> => [
   // { id: 'slide-svg-size', slideFunc: slideSvgSize },
 
   // { id: 'slide-fun-themed-illustrations', slideFunc: themedIllustrations },
-  { id: 'slide-fun-calendar-icon', slideFunc: calendarIcon },
   { id: 'slide-fun-wheel-of-fortune', slideFunc: wheelOfFortune },
+  { id: 'slide-fun-calendar-icon', slideFunc: calendarIcon },
 
   // Conclusion
   { id: 'slide-links', slideFunc: slideLinks },

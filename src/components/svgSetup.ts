@@ -102,4 +102,30 @@ export const svgHeading = (props: {
     animation-duration: 3s;
     animation-iteration-count: infinite;
   }
+
+  @keyframes anim-spin-the-wheel {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .spin-the-wheel {
+    -webkit-animation: anim-spin-the-wheel 30s linear infinite;
+    -moz-animation: anim-spin-the-wheel 30s linear infinite;
+    -ms-animation: anim-spin-the-wheel 30s linear infinite;
+    -o-animation: anim-spin-the-wheel 30s linear infinite;
+    animation: anim-spin-the-wheel 30s linear infinite;
+    transform-origin: 256px 256px;
+  }
 </style>`;

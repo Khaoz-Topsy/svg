@@ -12,6 +12,7 @@ import notesMd from './wheelOfFortune.md';
 export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notes = await readSrcFile(notesMd);
 
+  const options = ['😁', '🕹️', '🧑‍🎨', '💫', '🥪'];
   const circleRadius = 7;
   const drawPoint = (y: number) => `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="#64E9BA" />`;
   const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
@@ -51,7 +52,7 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
             ${drawPoint(2)}
             ${drawText(2, 'Calculate the wedge angle (360 / number of options)')}
-            ${drawText(3, '360 / 3 = 120', 25, 'font-style="italic"')}
+            ${drawText(3, `360 / ${options.length} = ${360 / options.length}`, 25, 'font-style="italic"')}
 
             ${drawPoint(4)}
             ${drawText(4, 'Rotate the line by wedge angle x the index of the line')}
@@ -77,7 +78,7 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
         </g>
 
         ${getSpinner({
-          options: ['😁', '🕹️', '🧑‍🎨'],
+          options,
           attr: 'transform="scale(1.5) translate(50 110)"',
           rotate: true,
         })}
