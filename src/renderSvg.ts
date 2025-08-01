@@ -110,6 +110,13 @@ const preloadImages = (): Promise<Array<string>> => {
 
       return `<g id="qrCode">${innerSvg}</g>`;
     }),
+    readSvg(PublicImage.undraw, (doc) => {
+      const elem = doc.querySelector('g') as SVGSVGElement;
+      if (elem == null) return '';
+
+      elem.setAttribute('id', 'undraw');
+      return elem.outerHTML;
+    }),
   ];
   return Promise.all(imagePreloadsTasks);
 };

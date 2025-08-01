@@ -89,10 +89,10 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
           height: 415,
           animatePosition: 1,
           svgContent: `
-            <rect class="my-rect" x="1000" y="85" width="150" height="150">              
+            <circle class="cool-circle" cx="1000" cy="150" r="75">              
               <animateTransform id="left" attributeName="transform" type="translate" from="0 0" to="500 0" begin="0s;right.end" dur="1s" />
               <animateTransform id="right" attributeName="transform" type="translate" from="500 0" to="0 0" begin="left.end" dur="1s" />
-            </rect>
+            </circle>
           `,
           codeContent: `
             ${svgCode.tag('&lt;svg', notFocussedStyle)}

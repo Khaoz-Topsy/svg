@@ -5,6 +5,7 @@ export const PublicImage = {
   tooltip: '/assets/img/tooltip.svg',
   qrCode: '/assets/img/qrCode.svg',
   alien: '/assets/img/alien.svg',
+  undraw: '/assets/img/undraw.svg',
   //
   about: '/assets/img/icon/about.svg',
   cool: '/assets/img/icon/cool.svg',

@@ -27,7 +27,7 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
           height: 450,
           animatePosition: 1,
           svgContent: `
-            <rect class="my-rect" x="550" y="85" width="150" height="150" />
+            <circle class="cool-circle" cx="580" cy="170" r="75" />
           `,
           codeContent: `
             ${svgCode.tag('&lt;svg', notFocussedStyle)}
@@ -40,7 +40,7 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             
             ${svgCode.tag('&lt;style&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.key('.my-rect', { tabLevel: 2 })}
+            ${svgCode.key('.cool-circle', { tabLevel: 2 })}
             ${svgCode.value('{')}
             <br />
 
@@ -56,11 +56,10 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             <br />
 
             ${svgCode.tag('&lt;rect', { tabLevel: 1 })}
-            ${svgCode.keyValue(['class', '=', '"my-rect"'])}
-            ${svgCode.keyValue(['x', '=', '"50"'], notFocussedStyle)}
-            ${svgCode.keyValue(['y', '=', '"50"'], notFocussedStyle)}
-            ${svgCode.keyValue(['width', '=', '"165"'], notFocussedStyle)}
-            ${svgCode.keyValue(['height', '=', '"150"'], notFocussedStyle)}
+            ${svgCode.keyValue(['class', '=', '"cool-circle"'])}
+            ${svgCode.keyValue(['cx', '=', '"50"'], notFocussedStyle)}
+            ${svgCode.keyValue(['cy', '=', '"50"'], notFocussedStyle)}
+            ${svgCode.keyValue(['r', '=', '"170"'], notFocussedStyle)}
             ${svgCode.tag('/&gt;')}
             <br />
             ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
@@ -72,10 +71,10 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
           x: 900,
           y: 120,
           width: 910,
-          height: 630,
+          height: 670,
           animatePosition: 1,
           svgContent: `
-            <rect class="my-rect my-rect-anim" x="600" y="75" width="150" height="150" />
+            <circle class="cool-circle cool-circle-anim" cx="650" cy="150" r="75" />
           `,
           codeContent: `
             ${svgCode.tag('&lt;svg', notFocussedStyle)}
@@ -88,17 +87,18 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             
             ${svgCode.tag('&lt;style&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.keyValue(['@keyframes', ' anim-my-rect-anim ', '{'], { tabLevel: 2 })}<br />
+            ${svgCode.keyValue(['@keyframes', ' anim-cool-circle ', '{'], { tabLevel: 2 })}<br />
             ${svgCode.tag('0% { transform: translate(0, 0); }', { tabLevel: 3 })}<br />
             ${svgCode.tag('100% { transform: translate(0, 12em); }', { tabLevel: 3 })}<br />
 
             ${svgCode.value('}', { tabLevel: 2 })}
             <br />
             <br />
-            ${svgCode.key('.my-rect-anim', { tabLevel: 2 })}
+            ${svgCode.key('.cool-circle-anim', { tabLevel: 2 })}
             ${svgCode.value('{')}
             <br />
 
+            ${svgCode.keyValue(['animation', ': ', 'anim-cool-circle;'], { tabLevel: 3 })}<br />
             ${svgCode.keyValue(['animation-direction', ': ', 'alternate;'], { tabLevel: 3 })}<br />
             ${svgCode.keyValue(['animation-duration', ': ', '3s;'], { tabLevel: 3 })}<br />
             ${svgCode.keyValue(['animation-iteration-count', ': ', 'infinite;'], { tabLevel: 3 })}<br />

@@ -11,3 +11,7 @@
 - Nomads spinning wheel (interactive ?)
 - Generating meta images
 - Diagrams (with D2 and other charting libs)
+
+## Extras
+
+- <https://oak.is/thinking/animated-svgs/>
