@@ -1,5 +1,5 @@
-import { svgConstants } from '../../constants/svg';
-import { arrayOfNLength } from '../../helpers/arrayHelper';
+import { svgConstants } from '@/constants/svg';
+import { arrayOfNLength } from '@/helpers/arrayHelper';
 import { progressIcon } from './progressIcon';
 
 export const progress = (props: { slideIndex: number; numberOfSlides: number }) => {

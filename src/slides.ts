@@ -1,4 +1,4 @@
-import type { SlideMeta } from './contracts/slideMeta';
+import type { SlideMeta } from '@/contracts/slideMeta';
 import { slideIntro } from './slides/1-foundation/1-intro/intro';
 import { slideAgenda } from './slides/1-foundation/2-agenda/agenda';
 import { slideAnimate } from './slides/2-content/1-basics/animate/animate';

@@ -1,4 +1,4 @@
-import { usePublicImage } from '../../constants/image';
+import { usePublicImage } from '@/constants/image';
 
 export const windowTitleIcon = () => {
   return `<g id="window-title-icon">

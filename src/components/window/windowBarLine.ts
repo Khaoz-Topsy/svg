@@ -1,4 +1,4 @@
-import { svgConstants } from '../../constants/svg';
+import { svgConstants } from '@/constants/svg';
 
 export const windowBarLine = () => {
   const yCoord = 65;

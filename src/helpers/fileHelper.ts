@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { svgConstants } from '../constants/svg';
-import type { Result } from '../contracts/resultWithValue';
+import { svgConstants } from '@/constants/svg';
+import type { Result } from '@/contracts/resultWithValue';
 import { formatForCssRoot } from './stringHelper';
 
 export const readAssetFile = async (relativePath: string) => readLocalFile(relativePath);

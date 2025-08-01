@@ -1,8 +1,8 @@
-import { slideBeginValue } from '../../../../components/common/slideAnimation.ts';
-import { animateFadeIn } from '../../../../components/core/animate';
-import { svgConstants } from '../../../../constants/svg';
-import type { SlideContext } from '../../../../contracts/slideContext.ts';
-import { getPreviousSlideIndex } from '../../../../helpers/contextHelper.ts';
+import { slideBeginValue } from '@/components/common/slideAnimation.ts';
+import { animateFadeIn } from '@/components/core/animate';
+import { svgConstants } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext.ts';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
 interface IProps {
   x: number;

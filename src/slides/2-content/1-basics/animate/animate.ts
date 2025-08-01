@@ -1,14 +1,14 @@
-import { codeBlockWithExample } from '../../../../components/code/codeBlockWithExample';
-import { svgCode } from '../../../../components/code/codeSpan';
-import { slideBeginValue } from '../../../../components/common/slideAnimation';
-import { animateFadeIn } from '../../../../components/core/animate';
-import { windowTitle } from '../../../../components/window/windowTitle';
-import { svgConstants } from '../../../../constants/svg';
-import type { SlideContext } from '../../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../../contracts/svgSlide';
-import { getPreviousSlideIndex } from '../../../../helpers/contextHelper.ts';
-import { readSrcFile } from '../../../../helpers/fileHelper';
-import { slideBase } from '../../../slideBase';
+import { codeBlockWithExample } from '@/components/code/codeBlockWithExample';
+import { svgCode } from '@/components/code/codeSpan';
+import { slideBeginValue } from '@/components/common/slideAnimation';
+import { animateFadeIn } from '@/components/core/animate';
+import { windowTitle } from '@/components/window/windowTitle';
+import { svgConstants } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
+import { readSrcFile } from '@/helpers/fileHelper';
+import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './animate.md';
 

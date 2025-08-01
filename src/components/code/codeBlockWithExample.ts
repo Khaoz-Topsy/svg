@@ -1,6 +1,6 @@
-import { svgConstants } from '../../constants/svg.ts';
-import type { SlideContext } from '../../contracts/slideContext.ts';
-import { getPreviousSlideIndex } from '../../helpers/contextHelper.ts.ts';
+import { svgConstants } from '@/constants/svg.ts';
+import type { SlideContext } from '@/contracts/slideContext.ts';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts.ts';
 import { slideBeginValue } from '../common/slideAnimation.ts';
 import { animateFadeIn } from '../core/animate.ts';
 

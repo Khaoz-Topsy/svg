@@ -1,4 +1,4 @@
-import { svgConstants } from '../constants/svg';
+import { svgConstants } from '@/constants/svg';
 
 export const generateNotesPanel = (slideId: string, comment: string) => {
   return `<g id="${slideId}-notes" transform="translate(${svgConstants.width} 0)">

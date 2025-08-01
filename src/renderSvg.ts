@@ -1,12 +1,12 @@
-import { progress } from './components/progress/progress.ts';
-import { svgHeading } from './components/svgSetup.ts';
-import { windowBarLine } from './components/window/windowBarLine.ts';
-import { windowButtons } from './components/window/windowButtons.ts';
-import { windowTitleIcon } from './components/window/windowTitleIcon.ts';
-import { PublicImage } from './constants/image.ts';
-import { svgConstants } from './constants/svg.ts';
-import type { ISvgSlide } from './contracts/svgSlide.ts';
-import { readSvg } from './helpers/fileHelper.ts';
+import { progress } from '@/components/progress/progress.ts';
+import { svgHeading } from '@/components/svgSetup.ts';
+import { windowBarLine } from '@/components/window/windowBarLine.ts';
+import { windowButtons } from '@/components/window/windowButtons.ts';
+import { windowTitleIcon } from '@/components/window/windowTitleIcon.ts';
+import { PublicImage } from '@/constants/image.ts';
+import { svgConstants } from '@/constants/svg.ts';
+import type { ISvgSlide } from '@/contracts/svgSlide.ts';
+import { readSvg } from '@/helpers/fileHelper.ts';
 import { layoutBackground } from './layouts/layoutBackground.ts';
 
 export const renderSvgWrapper = async (inner: string): Promise<string> => {

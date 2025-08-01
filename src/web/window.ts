@@ -1,5 +1,5 @@
-import { ViewMode } from '../constants/viewMode';
-import { getNewPresentationUrl } from '../helpers/urlHelper';
+import { ViewMode } from '@/constants/viewMode';
+import { getNewPresentationUrl } from '@/helpers/urlHelper';
 
 export const windowButtonHandler = () => {
   console.log('window button listener setup');

@@ -1,6 +1,6 @@
-import { slideAnimationFadeIn } from '../components/common/slideAnimation';
-import { svgConstants } from '../constants/svg';
-import type { SlideContext } from '../contracts/slideContext';
+import { slideAnimationFadeIn } from '@/components/common/slideAnimation';
+import { svgConstants } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
 import { layoutBackground } from '../layouts/layoutBackground';
 import { generateNotesPanel } from '../server/notesPanel';
 

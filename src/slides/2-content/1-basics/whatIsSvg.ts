@@ -1,14 +1,14 @@
-import { codeColours, svgCode } from '../../../components/code/codeSpan';
-import { slideBeginValue } from '../../../components/common/slideAnimation.ts';
-import { animateFadeIn } from '../../../components/core/animate';
-import { tooltipAction } from '../../../components/core/tooltipAction';
-import { windowTitle } from '../../../components/window/windowTitle';
-import { svgConstants } from '../../../constants/svg';
-import type { SlideContext } from '../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../contracts/svgSlide';
-import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
-import { readSrcFile } from '../../../helpers/fileHelper.ts';
-import { slideBase } from '../../slideBase';
+import { codeColours, svgCode } from '@/components/code/codeSpan';
+import { slideBeginValue } from '@/components/common/slideAnimation.ts';
+import { animateFadeIn } from '@/components/core/animate';
+import { tooltipAction } from '@/components/core/tooltipAction';
+import { windowTitle } from '@/components/window/windowTitle';
+import { svgConstants } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
+import { readSrcFile } from '@/helpers/fileHelper.ts';
+import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './whatIsSvg.md';
 

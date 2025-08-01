@@ -1,6 +1,6 @@
 import { bind } from 'mousetrap';
 
-import { getNewPresentationUrl } from '../helpers/urlHelper.ts';
+import { getNewPresentationUrl } from '@/helpers/urlHelper.ts';
 
 export const changeControlsOnSlideChange = (
   controlsElem: HTMLElement, //

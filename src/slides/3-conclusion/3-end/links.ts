@@ -1,8 +1,8 @@
-import { windowTitle } from '../../../components/window/windowTitle';
-import { usePublicImage } from '../../../constants/image';
-import type { SlideContext } from '../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../contracts/svgSlide';
-import { slideBase } from '../../slideBase';
+import { windowTitle } from '@/components/window/windowTitle';
+import { usePublicImage } from '@/constants/image';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { slideBase } from '@/slides/slideBase';
 
 export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notes = '';

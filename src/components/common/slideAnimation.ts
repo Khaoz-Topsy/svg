@@ -1,4 +1,4 @@
-import type { SlideContext, SsgSlideContext } from '../../contracts/slideContext';
+import type { SlideContext, SsgSlideContext } from '@/contracts/slideContext';
 import { animateFadeIn } from '../core/animate';
 
 interface ISlideAnimationFadeInProps {

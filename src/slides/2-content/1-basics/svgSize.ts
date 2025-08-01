@@ -1,9 +1,9 @@
-import { windowTitle } from '../../../components/window/windowTitle';
-import { svgConstants } from '../../../constants/svg';
-import type { SlideContext } from '../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../contracts/svgSlide';
-import { readSrcFile } from '../../../helpers/fileHelper';
-import { slideBase } from '../../slideBase';
+import { windowTitle } from '@/components/window/windowTitle';
+import { svgConstants } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { readSrcFile } from '@/helpers/fileHelper';
+import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './svgSize.md';
 

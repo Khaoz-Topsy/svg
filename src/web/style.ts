@@ -1,5 +1,5 @@
-import { svgConstants } from '../constants/svg';
-import { formatForCssRoot } from '../helpers/stringHelper';
+import { svgConstants } from '@/constants/svg';
+import { formatForCssRoot } from '@/helpers/stringHelper';
 
 export const setRootCss = () => {
   const root = document.querySelector<HTMLElement>(':root');

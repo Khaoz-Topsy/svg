@@ -1,15 +1,15 @@
-import { codeBlockWithExample } from '../../../../components/code/codeBlockWithExample.ts';
-import { svgCode } from '../../../../components/code/codeSpan';
-import { animateSlideIn } from '../../../../components/core/animate';
-import { gradientSphere } from '../../../../components/spheres/gradientSphere';
-import { windowTitle } from '../../../../components/window/windowTitle';
-import { usePublicImage } from '../../../../constants/image.ts';
-import { svgConstants, svgGradients } from '../../../../constants/svg';
-import type { SlideContext } from '../../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../../contracts/svgSlide';
-import { getPreviousSlideIndex } from '../../../../helpers/contextHelper.ts';
-import { readSrcFile } from '../../../../helpers/fileHelper';
-import { slideBase } from '../../../slideBase';
+import { codeBlockWithExample } from '@/components/code/codeBlockWithExample.ts';
+import { svgCode } from '@/components/code/codeSpan';
+import { animateSlideIn } from '@/components/core/animate';
+import { gradientSphere } from '@/components/spheres/gradientSphere';
+import { windowTitle } from '@/components/window/windowTitle';
+import { usePublicImage } from '@/constants/image.ts';
+import { svgConstants, svgGradients } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
+import { readSrcFile } from '@/helpers/fileHelper';
+import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './defsTag.md';
 

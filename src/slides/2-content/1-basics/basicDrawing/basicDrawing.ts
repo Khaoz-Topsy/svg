@@ -1,10 +1,10 @@
-import { svgCode } from '../../../../components/code/codeSpan';
-import { windowTitle } from '../../../../components/window/windowTitle';
-import type { SlideContext } from '../../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../../contracts/svgSlide';
-import { slideBase } from '../../../slideBase';
+import { svgCode } from '@/components/code/codeSpan';
+import { windowTitle } from '@/components/window/windowTitle';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { slideBase } from '@/slides/slideBase';
 import { slideBasicDrawingCard } from './basicDrawingCard';
-import { readSrcFile } from '../../../../helpers/fileHelper';
+import { readSrcFile } from '@/helpers/fileHelper';
 
 import notesMd from './basicDrawing.md';
 

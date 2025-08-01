@@ -1,4 +1,4 @@
-import { svgConstants, svgGradients } from '../constants/svg';
+import { svgConstants, svgGradients } from '@/constants/svg';
 
 export const svgHeading = (props: {
   imagePreloads: string; //

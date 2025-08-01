@@ -1,9 +1,9 @@
-import { animateFadeIn, animateSlideIn } from '../../../components/core/animate';
-import { gradientSphere } from '../../../components/spheres/gradientSphere';
-import { usePublicImage, type PublicImageKey } from '../../../constants/image.ts';
-import { svgConstants, svgGradients } from '../../../constants/svg';
-import type { SlideContext } from '../../../contracts/slideContext';
-import { getPreviousSlideIndex } from '../../../helpers/contextHelper.ts';
+import { animateFadeIn, animateSlideIn } from '@/components/core/animate';
+import { gradientSphere } from '@/components/spheres/gradientSphere';
+import { usePublicImage, type PublicImageKey } from '@/constants/image.ts';
+import { svgConstants, svgGradients } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
 interface IProps {
   y: number;

@@ -1,11 +1,11 @@
-import type { EnvMode } from '../constants/env.ts';
-import type { RenderOriginType } from '../constants/renderOrigin.ts';
-import { ViewMode } from '../constants/viewMode.ts';
-import type { SlideMeta } from '../contracts/slideMeta.ts';
-import { generateHtmlFromMarkdown } from '../helpers/markdownHelper.ts';
+import type { EnvMode } from '@/constants/env.ts';
+import type { RenderOriginType } from '@/constants/renderOrigin.ts';
+import { ViewMode } from '@/constants/viewMode.ts';
+import type { SlideMeta } from '@/contracts/slideMeta.ts';
+import { generateHtmlFromMarkdown } from '@/helpers/markdownHelper.ts';
 import { renderSvgSlide } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
-import { slideCenterText, slideEmpty } from '../slides/slideBase.ts';
+import { slideCenterText, slideEmpty } from '@/slides/slideBase.ts';
 import { changeControlsOnSlideChange, setupControlOnClicks, setupMouseTrap } from './controls.ts';
 import { handleSlideIndex } from './slide.ts';
 import { setRootCss } from './style.ts';

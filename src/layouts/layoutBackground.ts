@@ -1,4 +1,4 @@
-import { svgConstants } from '../constants/svg';
+import { svgConstants } from '@/constants/svg';
 
 const borderRadius = 20;
 const strokeWidth = 4;

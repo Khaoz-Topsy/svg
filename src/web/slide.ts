@@ -1,4 +1,4 @@
-import type { RenderOriginType } from '../constants/renderOrigin';
+import type { RenderOriginType } from '@/constants/renderOrigin';
 
 export const handleSlideIndex = (
   currentSlideIndex: number, //

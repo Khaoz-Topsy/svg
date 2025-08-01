@@ -1,10 +1,10 @@
-import { codeBlockWithExample } from '../../../../../components/code/codeBlockWithExample.ts';
-import { svgCode } from '../../../../../components/code/codeSpan.ts';
-import { windowTitle } from '../../../../../components/window/windowTitle.ts';
-import type { SlideContext } from '../../../../../contracts/slideContext.ts';
-import type { ISvgSlide } from '../../../../../contracts/svgSlide.ts';
-import { readSrcFile } from '../../../../../helpers/fileHelper.ts';
-import { slideBase } from '../../../../slideBase.ts';
+import { codeBlockWithExample } from '@/components/code/codeBlockWithExample.ts';
+import { svgCode } from '@/components/code/codeSpan.ts';
+import { windowTitle } from '@/components/window/windowTitle.ts';
+import type { SlideContext } from '@/contracts/slideContext.ts';
+import type { ISvgSlide } from '@/contracts/svgSlide.ts';
+import { readSrcFile } from '@/helpers/fileHelper.ts';
+import { slideBase } from '@/slides/slideBase.ts';
 
 import notesMd from '../defsTag.md';
 

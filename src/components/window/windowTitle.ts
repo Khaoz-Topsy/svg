@@ -1,4 +1,4 @@
-import { svgConstants } from '../../constants/svg';
+import { svgConstants } from '@/constants/svg';
 
 export const windowTitle = async (title: string) => {
   return `<g id="window-title" class="noselect">

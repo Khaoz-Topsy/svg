@@ -1,11 +1,11 @@
-import { animateFadeIn } from '../../../../components/core/animate';
-import { getSpinner } from '../../../../components/wheel/spinner';
-import { windowTitle } from '../../../../components/window/windowTitle';
-import { svgConstants } from '../../../../constants/svg';
-import type { SlideContext } from '../../../../contracts/slideContext';
-import type { ISvgSlide } from '../../../../contracts/svgSlide';
-import { readSrcFile } from '../../../../helpers/fileHelper';
-import { slideBase } from '../../../slideBase';
+import { animateFadeIn } from '@/components/core/animate';
+import { getSpinner } from '@/components/wheel/spinner';
+import { windowTitle } from '@/components/window/windowTitle';
+import { svgConstants } from '@/constants/svg';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { readSrcFile } from '@/helpers/fileHelper';
+import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './wheelOfFortune.md';
 

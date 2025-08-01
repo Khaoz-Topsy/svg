@@ -1,4 +1,4 @@
-import { svgConstants } from '../../constants/svg';
+import { svgConstants } from '@/constants/svg';
 
 export const windowButtons = () => {
   const yCoord = svgConstants.windowIconSize * 3;

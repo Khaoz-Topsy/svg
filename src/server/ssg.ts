@@ -3,12 +3,12 @@ import path from 'node:path';
 import url from 'node:url';
 // import xmlFormat from 'xml-formatter';
 
-import type { EnvMode } from '../constants/env.ts';
-import { writeLinesToFile } from '../helpers/fileHelper.ts';
+import type { EnvMode } from '@/constants/env.ts';
+import { writeLinesToFile } from '@/helpers/fileHelper.ts';
 import { renderSvgOuterSSG } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
-import { slideEmpty } from '../slides/slideBase.ts';
-import { generateNotesPanel } from './notesPanel.ts';
+import { slideEmpty } from '@/slides/slideBase.ts';
+// import { generateNotesPanel } from './notesPanel.ts';
 
 const env: EnvMode = 'ssg';
 const currentFileName = url.fileURLToPath(import.meta.url);

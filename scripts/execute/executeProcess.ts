@@ -1,6 +1,6 @@
 import { exec } from 'node:child_process';
 
-import { ResultWithValue } from '../../src/contracts/resultWithValue';
+import { ResultWithValue } from '@/contracts/resultWithValue';
 
 interface IExecute {
   args: Array<string>;
