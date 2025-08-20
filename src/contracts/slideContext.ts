@@ -1,8 +1,10 @@
 import type { EnvMode } from '@/constants/env';
 import type { Prettify } from '@/constants/prettify';
+import type { ThemeKey } from '@/constants/theme';
 
 export type BaseSlideContext = {
   id: string;
+  themeKey: ThemeKey;
   currentSlideIndex: number;
   numberOfSlides: number;
 };

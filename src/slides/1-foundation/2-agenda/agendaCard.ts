@@ -2,6 +2,7 @@ import { animateFadeIn, animateSlideIn } from '@/components/core/animate';
 import { gradientSphere } from '@/components/spheres/gradientSphere';
 import { usePublicImage, type PublicImageKey } from '@/constants/image.ts';
 import { svgConstants, svgGradients } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
@@ -15,6 +16,7 @@ interface IProps {
 }
 
 export const agendaCard = async (props: IProps) => {
+  const gradients = svgGradients(props.ctx.themeKey);
   const descriptionLines = props.description.split('\n');
   const previousSlideId = getPreviousSlideIndex(props.ctx);
 
@@ -38,20 +40,20 @@ export const agendaCard = async (props: IProps) => {
         x="0"
         y="0"
         rx="50"
-        fill="${svgConstants.colour.cardBackground}"
+        fill="${themes[props.ctx.themeKey].cardBackground}"
     >
     </rect>
     ${usePublicImage(props.icon, `transform="${props.iconTransformProp}"`)}
-    <text x="175" y="70" fill="${svgConstants.colour.cardForeground}" font-size="50">${props.heading}</text>
+    <text x="175" y="70" fill="${themes[props.ctx.themeKey].cardForeground}" font-size="50">${props.heading}</text>
     ${descriptionLines.map(
       (text, index) =>
         `<text x="175" y="${120 + index * 30}" fill="${
-          svgConstants.colour.cardForeground
+          themes[props.ctx.themeKey].cardForeground
         }" font-size="25">${text}</text>`,
     )}
 
     ${gradientSphere({
-      gradientId: svgGradients.ButtonSecondaryGradient.id,
+      gradientId: gradients.ButtonSecondaryGradient.id,
       size: 20,
       x: 0,
       y: 100,

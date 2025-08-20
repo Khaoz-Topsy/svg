@@ -1,7 +1,6 @@
 import { animateFadeIn } from '@/components/core/animate';
 import { getSpinner } from '@/components/wheel/spinner';
-import { windowTitle } from '@/components/window/windowTitle';
-import { svgConstants } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readSrcFile } from '@/helpers/fileHelper';
@@ -10,24 +9,23 @@ import { slideBase } from '@/slides/slideBase';
 import notesMd from './wheelOfFortune.md';
 
 export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notes = await readSrcFile(notesMd);
+  const theme = themes[ctx.themeKey];
 
   const options = ['😁', '🕹️', '🧑‍🎨', '💫', '🥪'];
   const circleRadius = 7;
   const drawPoint = (y: number) =>
-    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${svgConstants.colour.exampleColour}" />`;
+    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${theme.exampleColour}" />`;
   const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
-    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${svgConstants.colour.controlForeground}" font-size="${
-      fontSize ?? 30
-    }" ${attr ?? ''}>${text}</text>`;
+    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${theme.controlForeground}" font-size="${fontSize ?? 30}" ${
+      attr ?? ''
+    }>${text}</text>`;
 
+  const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'The Fun stuff - complex shapes',
       content: `
-        ${await windowTitle('The Fun stuff - complex shapes')}
-
-        
         <g opacity="0" transform="translate(100 100)">
             ${animateFadeIn({ duration: '1s' })}
             <rect 
@@ -37,11 +35,11 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
               y="50"
               rx="50"
               fill="transparent"
-              stroke="${svgConstants.colour.secondary}"
+              stroke="${theme.secondary}"
               stroke-width="3"
             />
 
-            <text x="890" y="120" fill="${svgConstants.colour.controlForeground}" font-size="30">
+            <text x="890" y="120" fill="${theme.controlForeground}" font-size="30">
               Steps:
             </text>
 
@@ -83,6 +81,7 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
         ${getSpinner({
           options,
+          theme,
           attr: 'transform="scale(1.5) translate(50 110)"',
           rotate: true,
         })}

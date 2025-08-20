@@ -1,6 +1,7 @@
 import { slideBeginValue } from '@/components/common/slideAnimation.ts';
 import { animateFadeIn } from '@/components/core/animate';
 import { svgConstants } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext.ts';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
@@ -29,7 +30,7 @@ export const slideBasicDrawingCard = (props: IProps) => {
             y="0"
             rx="50"
             fill="transparent"
-            stroke="${svgConstants.colour.secondary}"
+            stroke="${themes[props.ctx.themeKey].secondary}"
             stroke-width="3"
         >
         </rect>

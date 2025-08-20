@@ -1,8 +1,8 @@
 import { gradientSphere } from '@/components/spheres/gradientSphere';
-import { windowTitle } from '@/components/window/windowTitle';
 import { usePublicImage } from '@/constants/image';
 import { svgConstants, svgGradients } from '@/constants/svg';
 import { AppText } from '@/constants/text';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readSrcFile } from '@/helpers/fileHelper';
@@ -11,17 +11,19 @@ import { slideBase } from '@/slides/slideBase';
 import notesMd from './intro.md';
 
 export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const gradients = svgGradients(ctx.themeKey);
+  const theme = themes[ctx.themeKey];
+
   const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
+      title: AppText.title,
       content: `
-        ${await windowTitle(AppText.title)}
-
         ${usePublicImage('standing', 'transform="translate(750, 315) scale(1.5)"')}
         <g id="intro-spheres">
           ${gradientSphere({
-            gradientId: svgGradients.SpherePurple1Gradient.id,
+            gradientId: gradients.SpherePurple1Gradient.id,
             className: 'slide-up-down',
             styleOverrides: '--delay: -3s;',
             x: svgConstants.width - 400,
@@ -29,7 +31,7 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
             size: 50,
           })}
           ${gradientSphere({
-            gradientId: svgGradients.SphereBlue1Gradient.id,
+            gradientId: gradients.SphereBlue1Gradient.id,
             className: 'slide-left-right',
             styleOverrides: '--duration: 10s',
             x: svgConstants.width - 600,
@@ -37,7 +39,7 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
             size: 150,
           })}
           ${gradientSphere({
-            gradientId: svgGradients.SphereGreen1Gradient.id,
+            gradientId: gradients.SphereGreen1Gradient.id,
             className: 'slide-left-right',
             styleOverrides: '--duration: 7s; animation-direction: alternate-reverse',
             x: svgConstants.width - 800,
@@ -48,12 +50,12 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
         </g>
         
         <g id="intro-heading" class="noselect" transform="translate(150, ${svgConstants.height / 2})">
-          <text x="0" y="0" fill="${svgConstants.colour.controlForeground}" font-size="250">SVG</text>
+          <text x="0" y="0" fill="${theme.controlForeground}" font-size="250">SVG</text>
           <rect 
             x="-50" y="75" 
             width="${svgConstants.width / 2}" 
             height="100" rx="50" ry="50" 
-            fill="url(#${svgGradients.ButtonSecondaryGradient.id})" 
+            fill="url(#${gradients.ButtonSecondaryGradient.id})" 
           />
           <text x="0" y="140" fill="white" font-size="50">${AppText.subTitle}</text>
         </g>

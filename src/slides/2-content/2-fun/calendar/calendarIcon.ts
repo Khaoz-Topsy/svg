@@ -1,4 +1,3 @@
-import { windowTitle } from '@/components/window/windowTitle';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readSrcFile } from '@/helpers/fileHelper';
@@ -27,9 +26,8 @@ export const calendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'The Fun stuff - complex icons',
       content: `
-        ${await windowTitle('The Fun stuff - complex icons')}
-
         <g transform="scale(0.5) translate(200, 300)">
           <path
             d="M512 455c0 32-25 57-57 57H57c-32 0-57-25-57-57V128c0-31 25-57 57-57h398c32 0 57 26 57 57z"

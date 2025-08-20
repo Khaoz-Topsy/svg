@@ -2,8 +2,7 @@ import { codeBlockWithExample } from '@/components/code/codeBlockWithExample';
 import { svgCode } from '@/components/code/codeSpan';
 import { slideBeginValue } from '@/components/common/slideAnimation';
 import { animateFadeIn } from '@/components/core/animate';
-import { windowTitle } from '@/components/window/windowTitle';
-import { svgConstants } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
@@ -15,6 +14,8 @@ import notesMd from './animate.md';
 export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notFocussedStyle = { opacity: 0.3 };
   const previousSlideId = getPreviousSlideIndex(ctx);
+  const code = svgCode(ctx.themeKey);
+  const theme = themes[ctx.themeKey];
 
   const tableContent = `
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.33em;">
@@ -78,9 +79,8 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'Animation - CSS or SVG',
       content: `
-        ${await windowTitle('Animation - CSS or SVG')}
-
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -95,49 +95,49 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
             </circle>
           `,
           codeContent: `
-            ${svgCode.tag('&lt;svg', notFocussedStyle)}
-            ${svgCode.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
-            ${svgCode.keyValue(['width', '=', '"300"'], notFocussedStyle)}
-            ${svgCode.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${svgCode.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
-            ${svgCode.tag('&gt;', notFocussedStyle)}
+            ${code.tag('&lt;svg', notFocussedStyle)}
+            ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
+            ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
+            ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
+            ${code.tag('&gt;', notFocussedStyle)}
             <br />
             
-            ${svgCode.tag('&lt;rect', { tabLevel: 1 })}
-            ${svgCode.keyValue(['class', '=', '"my-rect"'])}
-            ${svgCode.keyValue(['x', '=', '"550"'])}
-            ${svgCode.keyValue(['y', '=', '"85"'])}
-            ${svgCode.keyValue(['width', '=', '"150"'])}
-            ${svgCode.keyValue(['height', '=', '"150"'])}${svgCode.tag('&gt;')}
+            ${code.tag('&lt;rect', { tabLevel: 1 })}
+            ${code.keyValue(['class', '=', '"my-rect"'])}
+            ${code.keyValue(['x', '=', '"550"'])}
+            ${code.keyValue(['y', '=', '"85"'])}
+            ${code.keyValue(['width', '=', '"150"'])}
+            ${code.keyValue(['height', '=', '"150"'])}${code.tag('&gt;')}
             <br />
-            ${svgCode.tag('&lt;animateTransform', { tabLevel: 2 })}
-            ${svgCode.keyValue(['id', '=', '"left"'])}
-            ${svgCode.keyValue(['attributeName', '=', '"transform"'])}
-            ${svgCode.keyValue(['type', '=', '"translate"'])}
+            ${code.tag('&lt;animateTransform', { tabLevel: 2 })}
+            ${code.keyValue(['id', '=', '"left"'])}
+            ${code.keyValue(['attributeName', '=', '"transform"'])}
+            ${code.keyValue(['type', '=', '"translate"'])}
             <br />
-            ${svgCode.keyValue(['from', '=', '"0 0"'], { tabLevel: 3 })}
-            ${svgCode.keyValue(['to', '=', '"500 0"'])}
-            ${svgCode.keyValue(['begin', '=', '"0s;right.end"'])}
-            ${svgCode.keyValue(['dur', '=', '"1s"'])}
+            ${code.keyValue(['from', '=', '"0 0"'], { tabLevel: 3 })}
+            ${code.keyValue(['to', '=', '"500 0"'])}
+            ${code.keyValue(['begin', '=', '"0s;right.end"'])}
+            ${code.keyValue(['dur', '=', '"1s"'])}
             <br />
-            ${svgCode.tag('/&gt;', { tabLevel: 2 })}
+            ${code.tag('/&gt;', { tabLevel: 2 })}
             <br />
-            ${svgCode.tag('&lt;animateTransform', { tabLevel: 2 })}
-            ${svgCode.keyValue(['id', '=', '"right"'])}
-            ${svgCode.keyValue(['attributeName', '=', '"transform"'])}
-            ${svgCode.keyValue(['type', '=', '"translate"'])}
+            ${code.tag('&lt;animateTransform', { tabLevel: 2 })}
+            ${code.keyValue(['id', '=', '"right"'])}
+            ${code.keyValue(['attributeName', '=', '"transform"'])}
+            ${code.keyValue(['type', '=', '"translate"'])}
             <br />
-            ${svgCode.keyValue(['from', '=', '"500 0"'], { tabLevel: 3 })}
-            ${svgCode.keyValue(['to', '=', '"0 0"'])}
-            ${svgCode.keyValue(['begin', '=', '"left.end"'])}
-            ${svgCode.keyValue(['dur', '=', '"1s"'])}
+            ${code.keyValue(['from', '=', '"500 0"'], { tabLevel: 3 })}
+            ${code.keyValue(['to', '=', '"0 0"'])}
+            ${code.keyValue(['begin', '=', '"left.end"'])}
+            ${code.keyValue(['dur', '=', '"1s"'])}
             <br />
-            ${svgCode.tag('/&gt;', { tabLevel: 2 })}
+            ${code.tag('/&gt;', { tabLevel: 2 })}
             <br />
 
-            ${svgCode.tag('&lt;/rect&gt;', { tabLevel: 1 })}
+            ${code.tag('&lt;/rect&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
+            ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
           `,
         })}
         
@@ -149,35 +149,35 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
           height: 415,
           animatePosition: 2,
           svgContent: `
-            <text x="60" y="85" fill="${svgConstants.colour.controlForeground}" font-size="25">
+            <text x="60" y="85" fill="${theme.controlForeground}" font-size="25">
               Provides a way to animate an attribute of an element over time.
             </text>
-            <text x="60" y="190" fill="${svgConstants.colour.controlForeground}" font-size="25">
+            <text x="60" y="190" fill="${theme.controlForeground}" font-size="25">
               Provides a way to define how an element moves along a motion path.
             </text>
-            <text x="60" y="300" fill="${svgConstants.colour.controlForeground}" font-size="25">
+            <text x="60" y="300" fill="${theme.controlForeground}" font-size="25">
               Animates a transformation attribute on its target element, allowing 
             </text>
-            <text x="60" y="335" fill="${svgConstants.colour.controlForeground}" font-size="25">
+            <text x="60" y="335" fill="${theme.controlForeground}" font-size="25">
               animations to control translation, scaling, rotation, and/or skewing.
             </text>
           `,
           codeContent: `
-            ${svgCode.tag('&lt;animate')}
-            ${svgCode.keyValue(['attributeName', '=', '"..."'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;animate')}
+            ${code.keyValue(['attributeName', '=', '"..."'])}
+            ${code.tag('/&gt;')}
             <br />
             <br />
             <br />
-            ${svgCode.tag('&lt;animateMotion')}
-            ${svgCode.keyValue(['attributeName', '=', '"..."'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;animateMotion')}
+            ${code.keyValue(['attributeName', '=', '"..."'])}
+            ${code.tag('/&gt;')}
             <br />
             <br />
             <br />
-            ${svgCode.tag('&lt;animateTransform')}
-            ${svgCode.keyValue(['attributeName', '=', '"..."'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;animateTransform')}
+            ${code.keyValue(['attributeName', '=', '"..."'])}
+            ${code.tag('/&gt;')}
           `,
         })}
 

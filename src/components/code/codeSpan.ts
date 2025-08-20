@@ -1,4 +1,4 @@
-import { svgConstants } from '@/constants/svg';
+import { themes, type ThemeKey } from '@/constants/theme';
 
 export const getStyleAttr = (style?: string) => ((style?.length ?? 0) < 1 ? '' : ` style="${style}"`);
 
@@ -37,17 +37,17 @@ const getStyleValue = (options?: IStyleOptions) => {
   return styles.join(' ');
 };
 
-export const svgCode = {
+export const svgCode = (themeKey: ThemeKey) => ({
   tag: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: svgConstants.colour.codeTag })),
+    codeSpan(code, getStyleValue({ ...options, colour: themes[themeKey].codeTag })),
   key: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: svgConstants.colour.codeKey })),
+    codeSpan(code, getStyleValue({ ...options, colour: themes[themeKey].codeKey })),
   value: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: svgConstants.colour.codeValue })),
+    codeSpan(code, getStyleValue({ ...options, colour: themes[themeKey].codeValue })),
   keyValue: (codes: Array<string>, options?: Omit<IStyleOptions, 'colour'>) =>
     codeSpans(
       codes,
-      [svgConstants.colour.codeKey, svgConstants.colour.codeEquals, svgConstants.colour.codeValue],
+      [themes[themeKey].codeKey, themes[themeKey].codeEquals, themes[themeKey].codeValue],
       getStyleValue(options),
     ),
-};
+});

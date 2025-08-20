@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { svgConstants } from '@/constants/svg';
+import type { ITheme } from '@/constants/theme';
 import type { Result } from '@/contracts/resultWithValue';
 import { formatForCssRoot } from './stringHelper';
 
@@ -21,9 +21,9 @@ export const readLocalFile = async (relativePath: string) => {
   return response.text();
 };
 
-export const readSvg = async (path: string, parserFunc?: (doc: Document) => string) => {
+export const readSvg = async (theme: ITheme, path: string, parserFunc?: (doc: Document) => string) => {
   let content = await readAssetFile(path);
-  content = replaceVariablesInSvgContent(content);
+  content = replaceVariablesInSvgContent(theme, content);
 
   if (parserFunc == null) return content;
 
@@ -32,18 +32,19 @@ export const readSvg = async (path: string, parserFunc?: (doc: Document) => stri
   return parserFunc(doc);
 };
 
-export const readDiagramSvg = async (diagramName: string, parserFunc?: (doc: Document) => string) =>
+export const readDiagramSvg = async (theme: ITheme, diagramName: string, parserFunc?: (doc: Document) => string) =>
   readSvg(
+    theme,
     `/assets/diagram/${diagramName}.d2.svg`,
     parserFunc ?? ((doc: Document) => doc?.children?.[0]?.outerHTML ?? ''),
   );
 
-export const replaceVariablesInSvgContent = (svgContent: string): string => {
+export const replaceVariablesInSvgContent = (theme: ITheme, svgContent: string): string => {
   if (svgContent.includes('--') == false) return svgContent;
 
   let result = svgContent.toString();
-  for (const colourProp of Object.keys(svgConstants.colour)) {
-    const value = (svgConstants.colour as { [x: string]: string })[colourProp];
+  for (const colourProp of Object.keys(theme)) {
+    const value = (theme as unknown as { [x: string]: string })[colourProp];
     const cssRootProp = formatForCssRoot(colourProp);
     result = result.replaceAll(cssRootProp, value);
   }

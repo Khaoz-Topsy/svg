@@ -1,34 +1,33 @@
-import { windowTitle } from '@/components/window/windowTitle';
+import { animateFadeIn } from '@/components/core/animate';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readSrcFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
-import { animateFadeIn } from '@/components/core/animate';
-import { svgConstants } from '@/constants/svg';
 
 import notesMd from './statPoints.md';
-import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
 export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notes = await readSrcFile(notesMd);
   const previousSlideId = getPreviousSlideIndex(ctx);
+  const theme = themes[ctx.themeKey];
 
   const circleRadius = 7;
   const drawPoint = (y: number) =>
-    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${svgConstants.colour.exampleColour}" />`;
+    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${theme.exampleColour}" />`;
   const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
-    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${svgConstants.colour.controlForeground}" font-size="${
-      fontSize ?? 30
-    }" ${attr ?? ''}>${text}</text>`;
+    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${theme.controlForeground}" font-size="${fontSize ?? 30}" ${
+      attr ?? ''
+    }>${text}</text>`;
 
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'The Fun stuff - complex shapes',
       content: `
-        ${await windowTitle('The Fun stuff - complex shapes')}
-
         <g transform="scale(3) translate(50, 80)">
-          <g fill="#9dacc2" stroke="${svgConstants.colour.controlForeground}">
+          <g fill="#9dacc2" stroke="${theme.controlForeground}">
             <polygon points="100,0 14,50 14,150 100,200 186,150 186,50 100,0"></polygon>
             <line x1="100" y1="100" x2="100" y2="0"></line>
             <line x1="100" y1="100" x2="14" y2="50"></line>
@@ -38,7 +37,7 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
             <line x1="100" y1="100" x2="186" y2="50"></line>
           </g>
 
-          <g fill="${svgConstants.colour.controlForeground}">
+          <g fill="${theme.controlForeground}">
             <animate attributeName="opacity" dur="500ms" from="0" to="1"></animate>
             <text font-size="10px" text-anchor="middle" y="-15">
               <tspan x="100">Max HP</tspan>
@@ -88,11 +87,11 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
             y="50"
             rx="50"
             fill="transparent"
-            stroke="${svgConstants.colour.secondary}"
+            stroke="${theme.secondary}"
             stroke-width="3"
           />
 
-          <text x="890" y="120" fill="${svgConstants.colour.controlForeground}" font-size="30">
+          <text x="890" y="120" fill="${theme.controlForeground}" font-size="30">
             Steps:
           </text>
 

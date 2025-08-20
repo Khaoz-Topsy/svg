@@ -1,4 +1,3 @@
-import { windowTitle } from '@/components/window/windowTitle';
 import { usePublicImage } from '@/constants/image';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -9,9 +8,8 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'Links',
       content: `
-        ${await windowTitle('Links')}
-
         ${usePublicImage('qrCode', 'transform="translate(750, 315) scale(1.5)"')}
         `,
       notes,

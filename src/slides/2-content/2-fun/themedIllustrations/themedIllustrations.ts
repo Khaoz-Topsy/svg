@@ -14,7 +14,7 @@ export const themedIllustrations = async (ctx: SlideContext): Promise<ISvgSlide>
     content: slideBase({
       ctx: ctx,
       content: `
-        ${await windowTitle('The Fun stuff - Themed Illustrations')}
+        ${windowTitle(ctx, 'The Fun stuff - Themed Illustrations')}
 
         ${usePublicImage('undraw')}
         `,

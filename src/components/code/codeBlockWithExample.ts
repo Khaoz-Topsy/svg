@@ -1,4 +1,4 @@
-import { svgConstants } from '@/constants/svg.ts';
+import { themes } from '@/constants/theme.ts';
 import type { SlideContext } from '@/contracts/slideContext.ts';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts.ts';
 import { slideBeginValue } from '../common/slideAnimation.ts';
@@ -45,7 +45,7 @@ export const codeBlockWithExample = (props: IProps) => {
           y="0"
           rx="50"
           fill="transparent"
-          stroke="${svgConstants.colour.secondary}"
+          stroke="${themes[props.ctx.themeKey].secondary}"
           stroke-width="3"
         >
         </rect>

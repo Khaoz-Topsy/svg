@@ -1,11 +1,12 @@
 import { ViewMode } from '@/constants/viewMode';
 import { getNewPresentationUrl } from '@/helpers/urlHelper';
 
-export const windowButtonHandler = () => {
+export const windowButtonHandler = (props: { toggleTheme: () => void }) => {
   console.log('window button listener setup');
 
   windowButtonOnClick('#window-minimize', () => {
     console.log('minimize');
+    props.toggleTheme();
   });
   windowButtonOnClick('#window-maximize', () => {
     console.log('maximize');
@@ -17,8 +18,11 @@ export const windowButtonHandler = () => {
 
 const windowButtonOnClick = (buttonId: string, onClick: () => void) => {
   const buttonElem = document.querySelector<HTMLElement>(buttonId);
-  if (buttonElem == null) return;
-  buttonElem.onclick = onClick;
+  if (buttonElem == null) {
+    console.warn(`Button with id "${buttonElem}" not found`);
+    return;
+  }
+  buttonElem.onclick = () => onClick();
 };
 
 export const getValuesFromUrl = () => {

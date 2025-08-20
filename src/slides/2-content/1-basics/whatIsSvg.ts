@@ -2,8 +2,8 @@ import { svgCode } from '@/components/code/codeSpan';
 import { slideBeginValue } from '@/components/common/slideAnimation.ts';
 import { animateFadeIn } from '@/components/core/animate';
 import { tooltipAction } from '@/components/core/tooltipAction';
-import { windowTitle } from '@/components/window/windowTitle';
 import { svgConstants } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
@@ -17,16 +17,17 @@ const letterDelay = 500;
 
 export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
+  const code = svgCode(ctx.themeKey);
+  const theme = themes[ctx.themeKey];
+
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, letterDelay * numTicksDelay);
 
   const notes = await readSrcFile(notesMd);
-
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'What is an SVG',
       content: `
-        ${await windowTitle('What is an SVG')}
-
         <g class="noselect" opacity="0" transform="translate(100 150)">
           ${animateFadeIn({ duration: '1s' })}
           <rect 
@@ -36,39 +37,39 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
               y="0"
               rx="50"
               fill="transparent"
-              stroke="${svgConstants.colour.secondary}"
+              stroke="${theme.secondary}"
               stroke-width="3"
           >
           </rect>
-          <text x="55" y="105" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
+          <text x="55" y="105" opacity="0" fill="${theme.controlForeground}" font-size="100">
             ${animateFadeIn({ duration: '1s', begin: getBegin(0) })}
             S
           </text>
-          <text x="47" y="205" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
+          <text x="47" y="205" opacity="0" fill="${theme.controlForeground}" font-size="100">
             ${animateFadeIn({ duration: '1s', begin: getBegin(1) })}
             V
           </text>
-          <text x="45" y="310" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="100">
+          <text x="45" y="310" opacity="0" fill="${theme.controlForeground}" font-size="100">
             ${animateFadeIn({ duration: '1s', begin: getBegin(2) })}
             G
           </text>
 
-          <text x="100" y="105" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
+          <text x="100" y="105" opacity="0" fill="${theme.controlForeground}" font-size="50">
             ${animateFadeIn({ duration: '1s', begin: getBegin(3) })}
             calar
           </text>
-          <text x="97" y="205" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
+          <text x="97" y="205" opacity="0" fill="${theme.controlForeground}" font-size="50">
             ${animateFadeIn({ duration: '1s', begin: getBegin(4) })}
             ector
           </text>
-          <text x="105" y="305" opacity="0" fill="${svgConstants.colour.controlForeground}" font-size="50">
+          <text x="105" y="305" opacity="0" fill="${theme.controlForeground}" font-size="50">
             ${animateFadeIn({ duration: '1s', begin: getBegin(5) })}
             raphic
           </text>
         
           <text id="tooltip-reveal"
             x="200" y="150" font-size="25" opacity="0"
-            fill="${svgConstants.colour.controlForeground}"
+            fill="${theme.controlForeground}"
             transform="rotate(30 400 300) translate(80 -80)"
           >
             A picture from maths
@@ -90,42 +91,42 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
               y="0"
               rx="50"
               fill="transparent"
-              stroke="${svgConstants.colour.secondary}"
+              stroke="${theme.secondary}"
               stroke-width="3"
           >
           </rect>
           
           <foreignObject x="40" y="25" width="600" height="600">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-              ${svgCode.tag('&lt;svg')}
-              ${svgCode.key('version')}
-              ${svgCode.tag('=')}
-              ${svgCode.value('"1.1"')}
+              ${code.tag('&lt;svg')}
+              ${code.key('version')}
+              ${code.tag('=')}
+              ${code.value('"1.1"')}
               <br />
-              ${svgCode.keyValue(['width', '=', '"300"'], { tabLevel: 1 })}
-              ${svgCode.keyValue(['height', '=', '"300"'])}
+              ${code.keyValue(['width', '=', '"300"'], { tabLevel: 1 })}
+              ${code.keyValue(['height', '=', '"300"'])}
               <br />
-              ${svgCode.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { tabLevel: 1 })}
-              ${svgCode.tag('&gt;')}
-              <br />
-              <br />
-
-              ${svgCode.tag('&lt;rect', { colour: svgConstants.colour.codeTag, tabLevel: 1 })}
-              ${svgCode.keyValue(['width', '=', '"250"'])}
-              ${svgCode.keyValue(['height', '=', '"250"'])}
-              ${svgCode.keyValue(['fill', '=', '"purple"'])}
-              ${svgCode.tag('/&gt;')}
-              <br />
-              ${svgCode.tag('&lt;circle', { colour: svgConstants.colour.codeTag, tabLevel: 1 })}
-              ${svgCode.keyValue(['cx', '=', '"125"'])}
-              ${svgCode.keyValue(['cy', '=', '"125"'])}
-              ${svgCode.keyValue(['r', '=', '"80"'])}
-              ${svgCode.keyValue(['fill', '=', '"lightblue"'])}
-              ${svgCode.tag('/&gt;')}
+              ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { tabLevel: 1 })}
+              ${code.tag('&gt;')}
               <br />
               <br />
 
-              ${svgCode.tag('&lt;/svg&gt;')}
+              ${code.tag('&lt;rect', { colour: theme.codeTag, tabLevel: 1 })}
+              ${code.keyValue(['width', '=', '"250"'])}
+              ${code.keyValue(['height', '=', '"250"'])}
+              ${code.keyValue(['fill', '=', '"purple"'])}
+              ${code.tag('/&gt;')}
+              <br />
+              ${code.tag('&lt;circle', { colour: theme.codeTag, tabLevel: 1 })}
+              ${code.keyValue(['cx', '=', '"125"'])}
+              ${code.keyValue(['cy', '=', '"125"'])}
+              ${code.keyValue(['r', '=', '"80"'])}
+              ${code.keyValue(['fill', '=', '"lightblue"'])}
+              ${code.tag('/&gt;')}
+              <br />
+              <br />
+
+              ${code.tag('&lt;/svg&gt;')}
               
             </div>
           </foreignObject>
@@ -149,22 +150,22 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
               y="0"
               rx="50"
               fill="transparent"
-              stroke="${svgConstants.colour.secondary}"
+              stroke="${theme.secondary}"
               stroke-width="3"
           >
           </rect>
 
-          <text x="50" y="85" fill="${svgConstants.colour.controlForeground}" font-size="40">
+          <text x="50" y="85" fill="${theme.controlForeground}" font-size="40">
             Fun facts
           </text>
 
-          <circle cx="55" cy="167" r="7" fill="${svgConstants.colour.exampleColour}" />
-          <text x="75" y="175" fill="${svgConstants.colour.controlForeground}" font-size="30">
+          <circle cx="55" cy="167" r="7" fill="${theme.exampleColour}" />
+          <text x="75" y="175" fill="${theme.controlForeground}" font-size="30">
             The first proposed SVG file format was in 1994 by a Dutch software engineer Martijn Koster.
           </text>
 
-          <circle cx="55" cy="217" r="7" fill="${svgConstants.colour.exampleColour}" />
-          <text x="75" y="225" fill="${svgConstants.colour.controlForeground}" font-size="30">
+          <circle cx="55" cy="217" r="7" fill="${theme.exampleColour}" />
+          <text x="75" y="225" fill="${theme.controlForeground}" font-size="30">
             It wasn't until 2003 that the SVG file format was finalised and approved as an ISO standard.
           </text>
           

@@ -2,20 +2,24 @@ import { codeBlockWithExample } from '@/components/code/codeBlockWithExample.ts'
 import { svgCode } from '@/components/code/codeSpan';
 import { animateSlideIn } from '@/components/core/animate';
 import { gradientSphere } from '@/components/spheres/gradientSphere';
-import { windowTitle } from '@/components/window/windowTitle';
 import { usePublicImage } from '@/constants/image.ts';
-import { svgConstants, svgGradients } from '@/constants/svg';
+import { svgGradients } from '@/constants/svg';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readSrcFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
+import { themes } from '@/constants/theme';
 import notesMd from './defsTag.md';
 
 export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notFocussedStyle = { opacity: 0.3 };
   const previousSlideId = getPreviousSlideIndex(ctx);
+  const gradients = svgGradients(ctx.themeKey);
+  const code = svgCode(ctx.themeKey);
+  const theme = themes[ctx.themeKey];
+
   const alienDelay = ctx.env == 'ssg' ? '1ms' : '10s';
   const alienPositionY = ctx.env == 'ssg' ? '-50' : '0';
 
@@ -23,9 +27,8 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'Basics of drawing - defs',
       content: `
-        ${await windowTitle('Basics of drawing - defs')}
-
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -34,51 +37,51 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           height: 450,
           animatePosition: 1,
           svgContent: `
-            <use href="#star-for-def-example" x="600" y="100" stroke="${svgConstants.colour.exampleColour}" />
+            <use href="#star-for-def-example" x="600" y="100" stroke="${theme.exampleColour}" />
             <use href="#star-for-def-example" x="700" y="210" stroke="#007ca3" />
           `,
           codeContent: `
-            ${svgCode.tag('&lt;svg', notFocussedStyle)}
-            ${svgCode.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
-            ${svgCode.keyValue(['width', '=', '"300"'], notFocussedStyle)}
-            ${svgCode.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${svgCode.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
-            ${svgCode.tag('&gt;', notFocussedStyle)}
+            ${code.tag('&lt;svg', notFocussedStyle)}
+            ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
+            ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
+            ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
+            ${code.tag('&gt;', notFocussedStyle)}
             <br />
             
-            ${svgCode.tag('&lt;defs&gt;', { tabLevel: 1 })}
+            ${code.tag('&lt;defs&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.tag('&lt;polygon', { tabLevel: 2 })}
-            ${svgCode.keyValue(['id', '=', '"star"'])}
-            ${svgCode.keyValue(['fill', '=', '"transparent"'])}
+            ${code.tag('&lt;polygon', { tabLevel: 2 })}
+            ${code.keyValue(['id', '=', '"star"'])}
+            ${code.keyValue(['fill', '=', '"transparent"'])}
             <br />
-            ${svgCode.keyValue(['points', '=', '"96,0,125.38926261462,55.5491.....'], { tabLevel: 3 })}
+            ${code.keyValue(['points', '=', '"96,0,125.38926261462,55.5491.....'], { tabLevel: 3 })}
             <br />
-            ${svgCode.keyValue(['stroke-width', '=', '"5"'], { tabLevel: 3 })}${svgCode.tag('&gt;')}
+            ${code.keyValue(['stroke-width', '=', '"5"'], { tabLevel: 3 })}${code.tag('&gt;')}
             <br />
-            ${svgCode.tag('&lt;/polygon&gt;', { tabLevel: 2 })}
-            <br />
-
-            ${svgCode.tag('&lt;/defs&gt;', { tabLevel: 1 })}
-            <br />
+            ${code.tag('&lt;/polygon&gt;', { tabLevel: 2 })}
             <br />
 
-            ${svgCode.tag('&lt;use', { tabLevel: 1 })}
-            ${svgCode.keyValue(['href', '=', '"#star"'])}
-            ${svgCode.keyValue(['x', '=', '"600"'])}
-            ${svgCode.keyValue(['y', '=', '"100"'])}
-            ${svgCode.keyValue(['stroke', '=', '"#64E9BA"'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;/defs&gt;', { tabLevel: 1 })}
+            <br />
+            <br />
+
+            ${code.tag('&lt;use', { tabLevel: 1 })}
+            ${code.keyValue(['href', '=', '"#star"'])}
+            ${code.keyValue(['x', '=', '"600"'])}
+            ${code.keyValue(['y', '=', '"100"'])}
+            ${code.keyValue(['stroke', '=', '"#64E9BA"'])}
+            ${code.tag('/&gt;')}
             <br />
             
-            ${svgCode.tag('&lt;use', { tabLevel: 1 })}
-            ${svgCode.keyValue(['href', '=', '"#star"'])}
-            ${svgCode.keyValue(['x', '=', '"700"'])}
-            ${svgCode.keyValue(['y', '=', '"210"'])}
-            ${svgCode.keyValue(['stroke', '=', '"#007CA3"'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;use', { tabLevel: 1 })}
+            ${code.keyValue(['href', '=', '"#star"'])}
+            ${code.keyValue(['x', '=', '"700"'])}
+            ${code.keyValue(['y', '=', '"210"'])}
+            ${code.keyValue(['stroke', '=', '"#007CA3"'])}
+            ${code.tag('/&gt;')}
             <br />
-            ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
+            ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
           `,
         })}
         
@@ -91,7 +94,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           animatePosition: 2,
           svgContent: `
             ${gradientSphere({
-              gradientId: svgGradients.SphereBlue1Gradient.id,
+              gradientId: gradients.SphereBlue1Gradient.id,
               x: 600,
               y: 320,
               size: 100,
@@ -99,45 +102,45 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             })}
           `,
           codeContent: `
-            ${svgCode.tag('&lt;svg', notFocussedStyle)}
-            ${svgCode.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
-            ${svgCode.keyValue(['width', '=', '"300"'], notFocussedStyle)}
-            ${svgCode.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${svgCode.keyValue(['xmlns', '=', '"http://w...."'], notFocussedStyle)}
-            ${svgCode.tag('&gt;', notFocussedStyle)}
+            ${code.tag('&lt;svg', notFocussedStyle)}
+            ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
+            ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
+            ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http://w...."'], notFocussedStyle)}
+            ${code.tag('&gt;', notFocussedStyle)}
             <br />
             
-            ${svgCode.tag('&lt;defs&gt;', { tabLevel: 1 })}
+            ${code.tag('&lt;defs&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.tag('&lt;linearGradient', { tabLevel: 2 })}
-            ${svgCode.keyValue(['id', '=', '"Blue1Gradient"'])}${svgCode.tag('&gt;')}
+            ${code.tag('&lt;linearGradient', { tabLevel: 2 })}
+            ${code.keyValue(['id', '=', '"Blue1Gradient"'])}${code.tag('&gt;')}
             <br />
-            ${svgCode.tag('&lt;stop', { tabLevel: 3 })}
-            ${svgCode.keyValue(['offset', '=', '"0%'])}
-            ${svgCode.keyValue(['stop-color', '=', '"#8497F2"'])}
-            ${svgCode.tag('&gt;&lt;/stop&gt;')}
+            ${code.tag('&lt;stop', { tabLevel: 3 })}
+            ${code.keyValue(['offset', '=', '"0%'])}
+            ${code.keyValue(['stop-color', '=', '"#8497F2"'])}
+            ${code.tag('&gt;&lt;/stop&gt;')}
             <br />
-            ${svgCode.tag('&lt;stop', { tabLevel: 3 })}
-            ${svgCode.keyValue(['offset', '=', '"100%'])}
-            ${svgCode.keyValue(['stop-color', '=', '"#4A66ED"'])}
-            ${svgCode.tag('&gt;&lt;/stop&gt;')}
+            ${code.tag('&lt;stop', { tabLevel: 3 })}
+            ${code.keyValue(['offset', '=', '"100%'])}
+            ${code.keyValue(['stop-color', '=', '"#4A66ED"'])}
+            ${code.tag('&gt;&lt;/stop&gt;')}
             <br />
-            ${svgCode.tag('&lt;/linearGradient&gt;', { tabLevel: 2 })}
-            <br />
-
-            ${svgCode.tag('&lt;/defs&gt;', { tabLevel: 1 })}
-            <br />
+            ${code.tag('&lt;/linearGradient&gt;', { tabLevel: 2 })}
             <br />
 
-            ${svgCode.tag('&lt;circle', { tabLevel: 1 })}
-            ${svgCode.keyValue(['cx', '=', '"100"'])}
-            ${svgCode.keyValue(['cy', '=', '"100"'])}
-            ${svgCode.keyValue(['r', '=', '"100"'])}
+            ${code.tag('&lt;/defs&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.keyValue(['fill', '=', '"url(#Blue1Gradient)"'], { tabLevel: 2 })}
-            ${svgCode.tag('/&gt;')}
             <br />
-            ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
+
+            ${code.tag('&lt;circle', { tabLevel: 1 })}
+            ${code.keyValue(['cx', '=', '"100"'])}
+            ${code.keyValue(['cy', '=', '"100"'])}
+            ${code.keyValue(['r', '=', '"100"'])}
+            <br />
+            ${code.keyValue(['fill', '=', '"url(#Blue1Gradient)"'], { tabLevel: 2 })}
+            ${code.tag('/&gt;')}
+            <br />
+            ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
           `,
         })}
         
@@ -153,42 +156,42 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             <rect width="200" height="100" x="650" y="100" fill="url(#pattern-for-def-example)" />
           `,
           codeContent: `
-            ${svgCode.tag('&lt;svg', notFocussedStyle)}
-            ${svgCode.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
-            ${svgCode.keyValue(['width', '=', '"300"'], notFocussedStyle)}
-            ${svgCode.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${svgCode.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
-            ${svgCode.tag('&gt;', notFocussedStyle)}
+            ${code.tag('&lt;svg', notFocussedStyle)}
+            ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
+            ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
+            ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
+            ${code.tag('&gt;', notFocussedStyle)}
             <br />
             
-            ${svgCode.tag('&lt;defs&gt;', { tabLevel: 1 })}
+            ${code.tag('&lt;defs&gt;', { tabLevel: 1 })}
             <br />
-            ${svgCode.tag('&lt;pattern', { tabLevel: 2 })}
-            ${svgCode.keyValue(['id', '=', '"my-pattern"'])}${svgCode.tag('&gt;')}
+            ${code.tag('&lt;pattern', { tabLevel: 2 })}
+            ${code.keyValue(['id', '=', '"my-pattern"'])}${code.tag('&gt;')}
             <br />
-            ${svgCode.tag('&lt;circle', { tabLevel: 3 })}
-            ${svgCode.keyValue(['cx', '=', '"10"'])}
-            ${svgCode.keyValue(['cy', '=', '"10"'])}
-            ${svgCode.keyValue(['r', '=', '"10"'])}
-            ${svgCode.keyValue(['fill', '=', '"#64E9BA"'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;circle', { tabLevel: 3 })}
+            ${code.keyValue(['cx', '=', '"10"'])}
+            ${code.keyValue(['cy', '=', '"10"'])}
+            ${code.keyValue(['r', '=', '"10"'])}
+            ${code.keyValue(['fill', '=', '"#64E9BA"'])}
+            ${code.tag('/&gt;')}
             <br />
-            ${svgCode.tag('&lt;/pattern&gt;', { tabLevel: 2 })}
+            ${code.tag('&lt;/pattern&gt;', { tabLevel: 2 })}
             <br />
 
-            ${svgCode.tag('&lt;/defs&gt;', { tabLevel: 1 })}
+            ${code.tag('&lt;/defs&gt;', { tabLevel: 1 })}
             <br />
             <br />
             
-            ${svgCode.tag('&lt;rect', { tabLevel: 1 })}
-            ${svgCode.keyValue(['width', '=', '"200"'])}
-            ${svgCode.keyValue(['height', '=', '"100"'])}
-            ${svgCode.keyValue(['x', '=', '"0"'])}
-            ${svgCode.keyValue(['y', '=', '"0"'])}
-            ${svgCode.keyValue(['fill', '=', '"url(#my-pattern)"'])}
-            ${svgCode.tag('/&gt;')}
+            ${code.tag('&lt;rect', { tabLevel: 1 })}
+            ${code.keyValue(['width', '=', '"200"'])}
+            ${code.keyValue(['height', '=', '"100"'])}
+            ${code.keyValue(['x', '=', '"0"'])}
+            ${code.keyValue(['y', '=', '"0"'])}
+            ${code.keyValue(['fill', '=', '"url(#my-pattern)"'])}
+            ${code.tag('/&gt;')}
             <br />
-            ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
+            ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
           `,
         })}
         
@@ -213,24 +216,24 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
                 x="190"
                 y="50"
                 rx="50"
-                fill="${svgConstants.colour.illustrationShoes}"
-                stroke="${svgConstants.colour.secondary}"
+                fill="${theme.illustrationShoes}"
+                stroke="${theme.secondary}"
                 stroke-width="3"
               >
               </rect>
-              <text x="220" y="100" fill="${svgConstants.colour.controlForeground}" font-size="30">
+              <text x="220" y="100" fill="${theme.controlForeground}" font-size="30">
                 Tired of SVG tags?
               </text>
-              <text x="220" y="150" fill="${svgConstants.colour.controlForeground}" font-size="30">
+              <text x="220" y="150" fill="${theme.controlForeground}" font-size="30">
                 Do you want to see something more
               </text>
-              <text x="220" y="190" fill="${svgConstants.colour.controlForeground}" font-size="30">
+              <text x="220" y="190" fill="${theme.controlForeground}" font-size="30">
                 more familiar?
               </text>
               <polyline
                 points="650,228 690,250 690,170"
-                fill="${svgConstants.colour.illustrationShoes}"
-                stroke="${svgConstants.colour.secondary}"
+                fill="${theme.illustrationShoes}"
+                stroke="${theme.secondary}"
                 stroke-width="3"
               />
               ${usePublicImage('alien', 'transform="translate(-90, -700) scale(1.5)"')}

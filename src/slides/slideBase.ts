@@ -4,14 +4,24 @@ import type { SlideContext } from '@/contracts/slideContext';
 import { layoutBackground } from '../layouts/layoutBackground';
 import { generateNotesPanel } from '../server/notesPanel';
 import { progress } from '@/components/progress/progress';
+import { themes } from '@/constants/theme';
+import { windowTitle } from '@/components/window/windowTitle';
 
-export const slideBase = (props: { ctx: SlideContext; attr?: string; content: string; notes: string }) => {
+export const slideBase = (props: {
+  ctx: SlideContext; //
+  attr?: string;
+  title: string;
+  content: string;
+  notes: string;
+}) => {
   let attr = props.attr ?? '';
   let buttonSvg = '';
   let startOpacity = '0';
   let preContent = slideAnimationFadeIn({ ctx: props.ctx, duration: '250ms' });
   let progressContent = '';
   let notesContent = '';
+
+  const theme = themes[props.ctx.themeKey];
 
   if (props.ctx.env == 'web') {
     //
@@ -30,12 +40,12 @@ export const slideBase = (props: { ctx: SlideContext; attr?: string; content: st
 
         <rect x="0" y="0" rx="20"
           width="160" height="100"
-          fill="${svgConstants.colour.primary}"
-          stroke="${svgConstants.colour.slideBackground}" stroke-width="0"
+          fill="${theme.primary}"
+          stroke="${theme.slideBackground}" stroke-width="0"
         />
         <polyline
           points="30,40 90,40 90,20 140,55 90,90 90,70 30,70"
-          fill="${svgConstants.colour.slideBackground}"
+          fill="${theme.slideBackground}"
         />
         <animate 
           id="${props.ctx.id}-slide-anim"
@@ -75,8 +85,9 @@ export const slideBase = (props: { ctx: SlideContext; attr?: string; content: st
   }
 
   return `<g id="${props.ctx.id}" ${attr} opacity="${startOpacity}">
-      ${layoutBackground}
+      ${layoutBackground(props.ctx.themeKey)}
       ${preContent}
+      ${windowTitle(theme, props.title)}
       ${props.content}
       ${progressContent}
       ${notesContent}

@@ -1,6 +1,6 @@
-import { windowTitle } from '@/components/window/windowTitle';
 import { usePublicImage } from '@/constants/image';
 import { svgConstants } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readSrcFile } from '@/helpers/fileHelper';
@@ -10,32 +10,32 @@ import { agendaCard } from './agendaCard';
 import notesMd from './agenda.md';
 
 export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const theme = themes[ctx.themeKey];
   const notes = await readSrcFile(notesMd);
   return {
     content: slideBase({
       ctx: ctx,
+      title: 'Agenda',
       content: `
-        ${await windowTitle('Agenda')}
-
         <rect 
           width="${svgConstants.width - (svgConstants.width / 3) * 2}"
           height="${svgConstants.height - 100}"
           x="${(svgConstants.width / 3) * 2}"
           y="100"
           rx="25"
-          fill="${svgConstants.colour.primary}"
+          fill="${theme.primary}"
         />
         <rect 
           width="50" height="50"
           x="${svgConstants.width - 50}"
           y="100"
-          fill="${svgConstants.colour.primary}"
+          fill="${theme.primary}"
         />
         <rect 
           width="50" height="50"
           x="${(svgConstants.width / 3) * 2}"
           y="${svgConstants.height - 50}"
-          fill="${svgConstants.colour.primary}"
+          fill="${theme.primary}"
         />
         
         ${await agendaCard({

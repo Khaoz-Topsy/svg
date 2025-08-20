@@ -7,10 +7,11 @@ import { PublicImage } from '@/constants/image.ts';
 import { svgConstants } from '@/constants/svg.ts';
 import type { ISvgSlide } from '@/contracts/svgSlide.ts';
 import { readSvg } from '@/helpers/fileHelper.ts';
+import { themes, type ThemeKey } from './constants/theme.ts';
 import { layoutBackground } from './layouts/layoutBackground.ts';
 
-export const renderSvgWrapper = async (inner: string): Promise<string> => {
-  const imagePreloads: Array<string> = await preloadImages();
+export const renderSvgWrapper = async (themeKey: ThemeKey, inner: string): Promise<string> => {
+  const imagePreloads: Array<string> = await preloadImages(themeKey);
   return `
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 ${svgConstants.width} ${svgConstants.height}"
@@ -18,99 +19,107 @@ export const renderSvgWrapper = async (inner: string): Promise<string> => {
     data-date-rendered="${new Date().toISOString()}"
   >
     ${svgHeading({
+      themeKey,
       imagePreloads: imagePreloads.join('\r\n'),
     })}
 
-    ${layoutBackground}
+    ${layoutBackground(themeKey)}
     ${inner}
   </svg>`;
 };
 
-export const renderSvgOuterSSG = async (svgSlideContents: Array<string>): Promise<string> =>
-  renderSvgWrapper(`
-    ${svgSlideContents.join('\r\n')}
+export const renderSvgOuterSSG = async (themeKey: ThemeKey, svgSlideContents: Array<string>): Promise<string> =>
+  renderSvgWrapper(
+    themeKey,
+    `${svgSlideContents.join('\r\n')}
     
     ${windowTitleIcon()}
     ${windowButtons()}
-    ${windowBarLine()}
-  `);
+    ${windowBarLine(themes[themeKey])}
+  `,
+  );
 
 export const renderSvgSlide = async (
   slideObj: ISvgSlide, //
+  themeKey: ThemeKey,
   slideIndex: number,
   numberOfSlides: number,
 ): Promise<string> =>
-  renderSvgWrapper(`    
+  renderSvgWrapper(
+    themeKey,
+    `    
     ${slideObj.content ?? ''}
     ${progress({ slideIndex, numberOfSlides })}
 
     ${windowTitleIcon()}
     ${windowButtons()}
-    ${windowBarLine()}
-  `);
+    ${windowBarLine(themes[themeKey])}
+  `,
+  );
 
-const preloadImages = (): Promise<Array<string>> => {
+const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
+  const theme = themes[themeKey];
   let imagePreloadsTasks: Array<Promise<string>> = [
-    readSvg(PublicImage.kurtLourens, (doc) => {
+    readSvg(theme, PublicImage.kurtLourens, (doc) => {
       const elem = doc.querySelector('g') as SVGSVGElement;
       if (elem == null) return '';
 
       elem.setAttribute('id', 'kurtLourens');
       return elem.outerHTML;
     }),
-    readSvg(PublicImage.standing, (doc) => {
+    readSvg(theme, PublicImage.standing, (doc) => {
       const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
       if (innerSvg == null) return '';
 
       return `<g id="standing">${innerSvg}</g>`;
     }),
-    readSvg(PublicImage.pitch, (doc) => {
+    readSvg(theme, PublicImage.pitch, (doc) => {
       const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
       if (innerSvg == null) return '';
 
       return `<g id="pitch">${innerSvg}</g>`;
     }),
-    readSvg(PublicImage.about, (doc) => {
+    readSvg(theme, PublicImage.about, (doc) => {
       const elem = doc.querySelector('g') as SVGSVGElement;
       if (elem == null) return '';
 
       elem.setAttribute('id', 'about');
       return elem.outerHTML;
     }),
-    readSvg(PublicImage.alien, (doc) => {
+    readSvg(theme, PublicImage.alien, (doc) => {
       const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
       if (innerSvg == null) return '';
 
       return `<g id="alien">${innerSvg}</g>`;
     }),
-    readSvg(PublicImage.cool, (doc) => {
+    readSvg(theme, PublicImage.cool, (doc) => {
       const elem = doc.querySelector('g') as SVGSVGElement;
       if (elem == null) return '';
 
       elem.setAttribute('id', 'cool');
       return elem.outerHTML;
     }),
-    readSvg(PublicImage.review, (doc) => {
+    readSvg(theme, PublicImage.review, (doc) => {
       const elem = doc.querySelector('g') as SVGSVGElement;
       if (elem == null) return '';
 
       elem.setAttribute('id', 'review');
       return elem.outerHTML;
     }),
-    readSvg(PublicImage.tooltip, (doc) => {
+    readSvg(theme, PublicImage.tooltip, (doc) => {
       const elem = doc.querySelector('g') as SVGSVGElement;
       if (elem == null) return '';
 
       elem.setAttribute('id', 'tooltip');
       return elem.outerHTML;
     }),
-    readSvg(PublicImage.qrCode, (doc) => {
+    readSvg(theme, PublicImage.qrCode, (doc) => {
       const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
       if (innerSvg == null) return '';
 
       return `<g id="qrCode">${innerSvg}</g>`;
     }),
-    readSvg(PublicImage.undraw, (doc) => {
+    readSvg(theme, PublicImage.undraw, (doc) => {
       const elem = doc.querySelector('g') as SVGSVGElement;
       if (elem == null) return '';
 

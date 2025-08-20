@@ -1,7 +1,8 @@
-import { svgConstants } from '@/constants/svg';
+import { type ITheme } from '@/constants/theme';
 
 interface IProps {
   options: Array<string>;
+  theme: ITheme;
   attr?: string;
   rotate?: boolean;
 }
@@ -15,7 +16,7 @@ export const getSpinner = (props: IProps) => {
   let anglePerSlice = 360 / props.options.length;
 
   const centerPoint = size / 2 + viewBoxPadding;
-  const spinnerColour = svgConstants.colour.exampleColour;
+  const spinnerColour = props.theme.exampleColour;
 
   const value = 360 / props.options.length;
   anglePerSlice = Number(value.toFixed(2));
@@ -34,8 +35,8 @@ export const getSpinner = (props: IProps) => {
                 cx="${centerPoint}"
                 cy="${centerPoint}"
                 r="${centerPoint - padding}"
-                fill="${svgConstants.colour.wheelOfFortuneBackground}"
-                stroke="${svgConstants.colour.wheelOfFortuneForeground}"
+                fill="${props.theme.wheelOfFortuneBackground}"
+                stroke="${props.theme.wheelOfFortuneForeground}"
             />
             ${props.options
               .map(
@@ -46,8 +47,8 @@ export const getSpinner = (props: IProps) => {
                         y1="${centerPoint}"
                         x2="${centerPoint}"
                         y2="${padding}"
-                        fill="${svgConstants.colour.wheelOfFortuneBackground}"
-                        stroke="${svgConstants.colour.wheelOfFortuneForeground}"
+                        fill="${props.theme.wheelOfFortuneBackground}"
+                        stroke="${props.theme.wheelOfFortuneForeground}"
                     ></line>
                 </g>
                 <g id="option-text-${index}" transform="rotate(${
@@ -69,8 +70,8 @@ export const getSpinner = (props: IProps) => {
                 cx="${centerPoint}"
                 cy="${centerPoint}"
                 r="${(logoSize / 3) * 2}"
-                fill="${svgConstants.colour.wheelOfFortuneBackground}"
-                stroke="${svgConstants.colour.wheelOfFortuneForeground}"
+                fill="${props.theme.wheelOfFortuneBackground}"
+                stroke="${props.theme.wheelOfFortuneForeground}"
             />
             <use 
               href="#entelect-logo" 

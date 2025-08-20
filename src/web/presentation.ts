@@ -10,8 +10,11 @@ import { changeControlsOnSlideChange, setupControlOnClicks, setupMouseTrap } fro
 import { handleSlideIndex } from './slide.ts';
 import { setRootCss } from './style.ts';
 import { getValuesFromUrl, updateUrl, windowButtonHandler } from './window.ts';
+import { themes, type ThemeKey } from '@/constants/theme.ts';
 
 const env: EnvMode = 'web';
+const localStorageThemeKey = 'kurt-presentation-theme';
+let themeKey = (localStorage.getItem(localStorageThemeKey) ?? 'dark') as unknown as ThemeKey;
 import.meta.env.MODE = env;
 
 const setupPresentationForWeb = async () => {
@@ -53,7 +56,16 @@ const setupPresentationForWeb = async () => {
   await renderFunc(slideIndex, slideIndex, 'initial');
   containerElem.classList.add('ready');
   if (viewMode == ViewMode.slides) {
-    windowButtonHandler();
+    windowButtonHandler({
+      toggleTheme: () => {
+        const themeList = Object.keys(themes) as Array<ThemeKey>;
+        const currentIndex = themeList.indexOf(themeKey);
+        const newIndex = (currentIndex + 1) % themeList.length;
+
+        localStorage.setItem(localStorageThemeKey, themeList[newIndex]);
+        document.location.reload();
+      },
+    });
   }
 };
 
@@ -84,10 +96,16 @@ const getRenderFunctions = (
 
     const slideMeta = slides[newIndex];
     const slideFunc = slideMeta.slideFunc ?? (() => Promise.resolve(slideEmpty));
-    const slideObj = await slideFunc({ id: slideMeta.id, env: 'web', currentSlideIndex: newIndex, numberOfSlides });
+    const slideObj = await slideFunc({
+      id: slideMeta.id,
+      env,
+      themeKey,
+      currentSlideIndex: newIndex,
+      numberOfSlides,
+    });
 
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
-    const mainSvgContent = await renderSvgSlide(slideObj, newIndex, numberOfSlides);
+    const mainSvgContent = await renderSvgSlide(slideObj, themeKey, newIndex, numberOfSlides);
     if (mainSvgElem != null) mainSvgElem.outerHTML = mainSvgContent;
 
     if (viewMode == ViewMode.presenter) {
@@ -98,11 +116,12 @@ const getRenderFunctions = (
       const nextSlideFunc = nextSlideMeta.slideFunc ?? (() => Promise.resolve(slideCenterText('END')));
       const nextSlideObj = await nextSlideFunc({
         id: slideMeta.id,
-        env: 'web',
+        env,
+        themeKey,
         currentSlideIndex: newIndex,
         numberOfSlides,
       });
-      const presenterSvgContent = await renderSvgSlide(nextSlideObj, newIndex + 1, numberOfSlides + 1);
+      const presenterSvgContent = await renderSvgSlide(nextSlideObj, themeKey, newIndex + 1, numberOfSlides + 1);
 
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');
       if (presenterSvgElem != null) presenterSvgElem.outerHTML = presenterSvgContent;
@@ -119,5 +138,5 @@ const getRenderFunctions = (
   return { broadcastChannel, renderFunc };
 };
 
-setRootCss();
+setRootCss(themes[themeKey]);
 setupPresentationForWeb();
