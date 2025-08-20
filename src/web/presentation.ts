@@ -84,7 +84,7 @@ const getRenderFunctions = (
 
     const slideMeta = slides[newIndex];
     const slideFunc = slideMeta.slideFunc ?? (() => Promise.resolve(slideEmpty));
-    const slideObj = await slideFunc({ id: slideMeta.id, env: 'web', currentSlideIndex: newIndex });
+    const slideObj = await slideFunc({ id: slideMeta.id, env: 'web', currentSlideIndex: newIndex, numberOfSlides });
 
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
     const mainSvgContent = await renderSvgSlide(slideObj, newIndex, numberOfSlides);
@@ -96,7 +96,12 @@ const getRenderFunctions = (
 
       const nextSlideMeta = slides[newIndex + 1];
       const nextSlideFunc = nextSlideMeta.slideFunc ?? (() => Promise.resolve(slideCenterText('END')));
-      const nextSlideObj = await nextSlideFunc({ id: slideMeta.id, env: 'web', currentSlideIndex: newIndex });
+      const nextSlideObj = await nextSlideFunc({
+        id: slideMeta.id,
+        env: 'web',
+        currentSlideIndex: newIndex,
+        numberOfSlides,
+      });
       const presenterSvgContent = await renderSvgSlide(nextSlideObj, newIndex + 1, numberOfSlides + 1);
 
       const presenterSvgElem = presenterElem.querySelector<HTMLElement>('svg');

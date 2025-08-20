@@ -1,3 +1,5 @@
+import { svgConstants } from '@/constants/svg';
+
 interface IProps {
   options: Array<string>;
   attr?: string;
@@ -6,8 +8,6 @@ interface IProps {
 
 const size = 512;
 const viewBoxPadding = 2;
-const wheelBg = 'rgb(77, 77, 77)';
-const wheelStroke = 'white';
 const logoSize = 100;
 const padding = 10;
 
@@ -15,6 +15,7 @@ export const getSpinner = (props: IProps) => {
   let anglePerSlice = 360 / props.options.length;
 
   const centerPoint = size / 2 + viewBoxPadding;
+  const spinnerColour = svgConstants.colour.exampleColour;
 
   const value = 360 / props.options.length;
   anglePerSlice = Number(value.toFixed(2));
@@ -33,8 +34,8 @@ export const getSpinner = (props: IProps) => {
                 cx="${centerPoint}"
                 cy="${centerPoint}"
                 r="${centerPoint - padding}"
-                fill="${wheelBg}"
-                stroke="${wheelStroke}"
+                fill="${svgConstants.colour.wheelOfFortuneBackground}"
+                stroke="${svgConstants.colour.wheelOfFortuneForeground}"
             />
             ${props.options
               .map(
@@ -45,8 +46,8 @@ export const getSpinner = (props: IProps) => {
                         y1="${centerPoint}"
                         x2="${centerPoint}"
                         y2="${padding}"
-                        fill="${wheelBg}"
-                        stroke="${wheelStroke}"
+                        fill="${svgConstants.colour.wheelOfFortuneBackground}"
+                        stroke="${svgConstants.colour.wheelOfFortuneForeground}"
                     ></line>
                 </g>
                 <g id="option-text-${index}" transform="rotate(${
@@ -68,18 +69,22 @@ export const getSpinner = (props: IProps) => {
                 cx="${centerPoint}"
                 cy="${centerPoint}"
                 r="${(logoSize / 3) * 2}"
-                fill="${wheelBg}"
-                stroke="${wheelStroke}"
+                fill="${svgConstants.colour.wheelOfFortuneBackground}"
+                stroke="${svgConstants.colour.wheelOfFortuneForeground}"
             />
-            <use href="#entelect-logo" fill="#64E9BA" stroke="#64E9BA" stroke-width="5" transform="scale(0.5) translate(${
-              centerPoint - 50
-            } ${centerPoint - 110})"  />
+            <use 
+              href="#entelect-logo" 
+              fill="${spinnerColour}" 
+              stroke="${spinnerColour}" 
+              stroke-width="5" 
+              transform="scale(0.5) translate(${centerPoint - 50} ${centerPoint - 110})"  
+            />
         </g>
         <polygon
             transform="translate(${centerPoint - padding * 2} 5)"
             points="0,0 ${centerPoint / 6},0 ${centerPoint / 12},${centerPoint / 12}"
-            fill="#64E9BA" rx="10"
-            stroke="#64E9BA" stroke-width="5"
+            fill="${spinnerColour}" rx="10"
+            stroke="${spinnerColour}" stroke-width="5"
         />
     </g>`;
 };

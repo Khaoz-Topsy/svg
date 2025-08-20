@@ -24,10 +24,10 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
           x: 100,
           y: 120,
           width: 750,
-          height: 450,
+          height: 670,
           animatePosition: 1,
           svgContent: `
-            <circle class="cool-circle" cx="580" cy="170" r="75" />
+            <circle class="cool-circle" cx="580" cy="270" r="75" />
           `,
           codeContent: `
             ${svgCode.tag('&lt;svg', notFocussedStyle)}
@@ -36,6 +36,12 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             ${svgCode.keyValue(['height', '=', '"200"'], notFocussedStyle)}
             ${svgCode.keyValue(['xmlns', '=', '"http://ww..."'], notFocussedStyle)}
             ${svgCode.tag('&gt;', notFocussedStyle)}
+            <br />
+            
+            ${svgCode.tag('&lt;defs&gt;', { ...notFocussedStyle, tabLevel: 1 })}<br />
+            ${svgCode.value('...', { ...notFocussedStyle, tabLevel: 2 })}<br />
+            ${svgCode.tag('&lt;/defs&gt;', { ...notFocussedStyle, tabLevel: 1 })}
+            <br />
             <br />
             
             ${svgCode.tag('&lt;style&gt;', { tabLevel: 1 })}
@@ -61,6 +67,8 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             ${svgCode.keyValue(['cy', '=', '"50"'], notFocussedStyle)}
             ${svgCode.keyValue(['r', '=', '"170"'], notFocussedStyle)}
             ${svgCode.tag('/&gt;')}
+            <br />
+            <br />
             <br />
             ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
           `,

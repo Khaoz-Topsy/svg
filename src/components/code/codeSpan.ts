@@ -1,9 +1,4 @@
-export const codeColours = {
-  tag: 'lightblue',
-  key: 'lightcoral',
-  equals: 'white',
-  value: 'lightyellow',
-};
+import { svgConstants } from '@/constants/svg';
 
 export const getStyleAttr = (style?: string) => ((style?.length ?? 0) < 1 ? '' : ` style="${style}"`);
 
@@ -44,11 +39,15 @@ const getStyleValue = (options?: IStyleOptions) => {
 
 export const svgCode = {
   tag: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: codeColours.tag })),
+    codeSpan(code, getStyleValue({ ...options, colour: svgConstants.colour.codeTag })),
   key: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: codeColours.key })),
+    codeSpan(code, getStyleValue({ ...options, colour: svgConstants.colour.codeKey })),
   value: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: codeColours.value })),
+    codeSpan(code, getStyleValue({ ...options, colour: svgConstants.colour.codeValue })),
   keyValue: (codes: Array<string>, options?: Omit<IStyleOptions, 'colour'>) =>
-    codeSpans(codes, [codeColours.key, codeColours.equals, codeColours.value], getStyleValue(options)),
+    codeSpans(
+      codes,
+      [svgConstants.colour.codeKey, svgConstants.colour.codeEquals, svgConstants.colour.codeValue],
+      getStyleValue(options),
+    ),
 };

@@ -12,7 +12,7 @@ import { layoutBackground } from './layouts/layoutBackground.ts';
 export const renderSvgWrapper = async (inner: string): Promise<string> => {
   const imagePreloads: Array<string> = await preloadImages();
   return `
-  <svg xmlns="http://www.w3.org/2000/svg"
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 ${svgConstants.width} ${svgConstants.height}"
     overflow="hidden"
     data-date-rendered="${new Date().toISOString()}"

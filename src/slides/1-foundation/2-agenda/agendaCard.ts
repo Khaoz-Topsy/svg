@@ -14,11 +14,6 @@ interface IProps {
   iconTransformProp: string;
 }
 
-const colours = {
-  text: 'black',
-  card: '#E3E3E3',
-};
-
 export const agendaCard = async (props: IProps) => {
   const descriptionLines = props.description.split('\n');
   const previousSlideId = getPreviousSlideIndex(props.ctx);
@@ -43,13 +38,16 @@ export const agendaCard = async (props: IProps) => {
         x="0"
         y="0"
         rx="50"
-        fill="${colours.card}"
+        fill="${svgConstants.colour.cardBackground}"
     >
     </rect>
     ${usePublicImage(props.icon, `transform="${props.iconTransformProp}"`)}
-    <text x="175" y="70" fill="${colours.text}" font-size="50">${props.heading}</text>
+    <text x="175" y="70" fill="${svgConstants.colour.cardForeground}" font-size="50">${props.heading}</text>
     ${descriptionLines.map(
-      (text, index) => `<text x="175" y="${120 + index * 30}" fill="${colours.text}" font-size="25">${text}</text>`,
+      (text, index) =>
+        `<text x="175" y="${120 + index * 30}" fill="${
+          svgConstants.colour.cardForeground
+        }" font-size="25">${text}</text>`,
     )}
 
     ${gradientSphere({

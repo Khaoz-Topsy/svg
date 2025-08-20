@@ -14,7 +14,8 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
   const options = ['😁', '🕹️', '🧑‍🎨', '💫', '🥪'];
   const circleRadius = 7;
-  const drawPoint = (y: number) => `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="#64E9BA" />`;
+  const drawPoint = (y: number) =>
+    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${svgConstants.colour.exampleColour}" />`;
   const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
     `<text x="930" y="${160 + circleRadius + y * 50}" fill="${svgConstants.colour.controlForeground}" font-size="${
       fontSize ?? 30
@@ -31,7 +32,7 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
             ${animateFadeIn({ duration: '1s' })}
             <rect 
               width="850"
-              height="800"
+              height="790"
               x="850"
               y="50"
               rx="50"
@@ -73,8 +74,11 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
             ${drawPoint(10)}
             ${drawText(10, 'Add rotation animation 💫')}   
 
-            ${drawPoint(12)}
-            ${drawText(12, 'Profit?')}              
+          ${drawPoint(12)}
+          ${drawText(12, 'I used this on:')}
+          <a xlink:href="https://nomads.kurtlourens.com" target="_blank">
+            ${drawText(12.75, 'https://nomads.kurtlourens.com', 30, 'font-style="italic"')}
+          </a>        
         </g>
 
         ${getSpinner({

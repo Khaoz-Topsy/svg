@@ -1,4 +1,4 @@
-import { codeColours, svgCode } from '@/components/code/codeSpan';
+import { svgCode } from '@/components/code/codeSpan';
 import { slideBeginValue } from '@/components/common/slideAnimation.ts';
 import { animateFadeIn } from '@/components/core/animate';
 import { tooltipAction } from '@/components/core/tooltipAction';
@@ -81,8 +81,7 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
 
         </g>
 
-
-        <g class="noselect" opacity="0" transform="translate(800 150)">
+        <g opacity="0" transform="translate(800 150)">
           ${animateFadeIn({ duration: '1s' })}
           <rect 
               width="1000"
@@ -96,7 +95,6 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
           >
           </rect>
           
-
           <foreignObject x="40" y="25" width="600" height="600">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
               ${svgCode.tag('&lt;svg')}
@@ -105,20 +103,20 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
               ${svgCode.value('"1.1"')}
               <br />
               ${svgCode.keyValue(['width', '=', '"300"'], { tabLevel: 1 })}
-              ${svgCode.keyValue(['height', '=', '"200"'])}
+              ${svgCode.keyValue(['height', '=', '"300"'])}
               <br />
               ${svgCode.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { tabLevel: 1 })}
               ${svgCode.tag('&gt;')}
               <br />
               <br />
 
-              ${svgCode.tag('&lt;rect', { colour: codeColours.tag, tabLevel: 1 })}
+              ${svgCode.tag('&lt;rect', { colour: svgConstants.colour.codeTag, tabLevel: 1 })}
               ${svgCode.keyValue(['width', '=', '"250"'])}
               ${svgCode.keyValue(['height', '=', '"250"'])}
               ${svgCode.keyValue(['fill', '=', '"purple"'])}
               ${svgCode.tag('/&gt;')}
               <br />
-              ${svgCode.tag('&lt;circle', { colour: codeColours.tag, tabLevel: 1 })}
+              ${svgCode.tag('&lt;circle', { colour: svgConstants.colour.codeTag, tabLevel: 1 })}
               ${svgCode.keyValue(['cx', '=', '"125"'])}
               ${svgCode.keyValue(['cy', '=', '"125"'])}
               ${svgCode.keyValue(['r', '=', '"80"'])}
@@ -160,12 +158,12 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
             Fun facts
           </text>
 
-          <circle cx="55" cy="167" r="7" fill="#64E9BA" />
+          <circle cx="55" cy="167" r="7" fill="${svgConstants.colour.exampleColour}" />
           <text x="75" y="175" fill="${svgConstants.colour.controlForeground}" font-size="30">
             The first proposed SVG file format was in 1994 by a Dutch software engineer Martijn Koster.
           </text>
 
-          <circle cx="55" cy="217" r="7" fill="#64E9BA" />
+          <circle cx="55" cy="217" r="7" fill="${svgConstants.colour.exampleColour}" />
           <text x="75" y="225" fill="${svgConstants.colour.controlForeground}" font-size="30">
             It wasn't until 2003 that the SVG file format was finalised and approved as an ISO standard.
           </text>

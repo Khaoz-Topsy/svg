@@ -48,7 +48,7 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
         </g>
         
         <g id="intro-heading" class="noselect" transform="translate(150, ${svgConstants.height / 2})">
-          <text x="0" y="0" fill="white" font-size="250">SVG</text>
+          <text x="0" y="0" fill="${svgConstants.colour.controlForeground}" font-size="250">SVG</text>
           <rect 
             x="-50" y="75" 
             width="${svgConstants.width / 2}" 

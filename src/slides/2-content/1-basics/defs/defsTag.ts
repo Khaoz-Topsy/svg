@@ -34,7 +34,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           height: 450,
           animatePosition: 1,
           svgContent: `
-            <use href="#star-for-def-example" x="600" y="100" stroke="#64E9BA" />
+            <use href="#star-for-def-example" x="600" y="100" stroke="${svgConstants.colour.exampleColour}" />
             <use href="#star-for-def-example" x="700" y="210" stroke="#007ca3" />
           `,
           codeContent: `
@@ -110,7 +110,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${svgCode.tag('&lt;defs&gt;', { tabLevel: 1 })}
             <br />
             ${svgCode.tag('&lt;linearGradient', { tabLevel: 2 })}
-            ${svgCode.keyValue(['id', '=', '"SphereBlue1Gradient"'])}${svgCode.tag('&gt;')}
+            ${svgCode.keyValue(['id', '=', '"Blue1Gradient"'])}${svgCode.tag('&gt;')}
             <br />
             ${svgCode.tag('&lt;stop', { tabLevel: 3 })}
             ${svgCode.keyValue(['offset', '=', '"0%'])}
@@ -134,7 +134,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${svgCode.keyValue(['cy', '=', '"100"'])}
             ${svgCode.keyValue(['r', '=', '"100"'])}
             <br />
-            ${svgCode.keyValue(['fill', '=', '"url(#SphereBlue1Gradient)"'], { tabLevel: 2 })}
+            ${svgCode.keyValue(['fill', '=', '"url(#Blue1Gradient)"'], { tabLevel: 2 })}
             ${svgCode.tag('/&gt;')}
             <br />
             ${svgCode.tag('&lt;/svg&gt;', notFocussedStyle)}
@@ -213,7 +213,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
                 x="190"
                 y="50"
                 rx="50"
-                fill="${svgConstants.colour.illustrationSuit}"
+                fill="${svgConstants.colour.illustrationShoes}"
                 stroke="${svgConstants.colour.secondary}"
                 stroke-width="3"
               >
@@ -229,7 +229,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
               </text>
               <polyline
                 points="650,228 690,250 690,170"
-                fill="${svgConstants.colour.illustrationSuit}"
+                fill="${svgConstants.colour.illustrationShoes}"
                 stroke="${svgConstants.colour.secondary}"
                 stroke-width="3"
               />

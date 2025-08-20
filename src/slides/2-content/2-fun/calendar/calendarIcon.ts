@@ -1,7 +1,4 @@
-import { codeBlockWithExample } from '@/components/code/codeBlockWithExample';
-import { svgCode } from '@/components/code/codeSpan';
 import { windowTitle } from '@/components/window/windowTitle';
-import { svgConstants } from '@/constants/svg';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readSrcFile } from '@/helpers/fileHelper';
@@ -43,6 +40,13 @@ export const calendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
             fill="#dd2f45"
           />
           <rect x="50" y="0" width="400" height="85" fill="#dd2f45" />
+          <rect
+            x="0" y="0" rx="40"
+            width="510" height="508"
+            fill="transparent"
+            stroke="#dd2f45"
+            stroke-width="10px"
+          />
           <g fill="#f3aab9">
             <circle cx="470" cy="142" r="14" />
             <circle cx="470" cy="100" r="14" />
@@ -60,14 +64,6 @@ export const calendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
           <text id="month" x="256" y="470" fill="#000" font-family="monospace" style="text-anchor: middle" font-size="90px">
             ${months[date.getMonth()]}
           </text>
-          
-          <rect
-            x="0" y="0" rx="40"
-            width="510" height="508"
-            fill="transparent"
-            stroke="#dd2f45"
-            stroke-width="10px"
-          />
         </g>
         `,
       notes,

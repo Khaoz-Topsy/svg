@@ -15,3 +15,7 @@
 ## Extras
 
 - <https://oak.is/thinking/animated-svgs/>
+
+## Landing page
+
+- <https://github.com/bedimcode/responsive-travel-website>

@@ -46,8 +46,8 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
         </thead>
         <tbody>
           <tr>
-            <td>Browser Compatibility	
-            <td>❌ Inconsistent	
+            <td>Browser Compatibility</td>	
+            <td>❌ Inconsistent</td>	
             <td>✅ Reliable</td>
           </tr>
           <tr>
@@ -56,7 +56,7 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
             <td>❌ Limited for intricate SVG-specific animations</td>
           </tr>
           <tr>
-            <td>Maintenance & Flexibility</td>
+            <td>Maintenance &amp; Flexibility</td>
             <td>❌ Harder to manage inside SVG</td>
             <td>✅ Cleaner and more flexible</td>
           </tr>

@@ -1,0 +1,141 @@
+import { windowTitle } from '@/components/window/windowTitle';
+import type { SlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide } from '@/contracts/svgSlide';
+import { readSrcFile } from '@/helpers/fileHelper';
+import { slideBase } from '@/slides/slideBase';
+import { animateFadeIn } from '@/components/core/animate';
+import { svgConstants } from '@/constants/svg';
+
+import notesMd from './statPoints.md';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
+
+export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const notes = await readSrcFile(notesMd);
+  const previousSlideId = getPreviousSlideIndex(ctx);
+
+  const circleRadius = 7;
+  const drawPoint = (y: number) =>
+    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${svgConstants.colour.exampleColour}" />`;
+  const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
+    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${svgConstants.colour.controlForeground}" font-size="${
+      fontSize ?? 30
+    }" ${attr ?? ''}>${text}</text>`;
+
+  return {
+    content: slideBase({
+      ctx: ctx,
+      content: `
+        ${await windowTitle('The Fun stuff - complex shapes')}
+
+        <g transform="scale(3) translate(50, 80)">
+          <g fill="#9dacc2" stroke="${svgConstants.colour.controlForeground}">
+            <polygon points="100,0 14,50 14,150 100,200 186,150 186,50 100,0"></polygon>
+            <line x1="100" y1="100" x2="100" y2="0"></line>
+            <line x1="100" y1="100" x2="14" y2="50"></line>
+            <line x1="100" y1="100" x2="14" y2="150"></line>
+            <line x1="100" y1="100" x2="100" y2="200"></line>
+            <line x1="100" y1="100" x2="186" y2="150"></line>
+            <line x1="100" y1="100" x2="186" y2="50"></line>
+          </g>
+
+          <g fill="${svgConstants.colour.controlForeground}">
+            <animate attributeName="opacity" dur="500ms" from="0" to="1"></animate>
+            <text font-size="10px" text-anchor="middle" y="-15">
+              <tspan x="100">Max HP</tspan>
+              <tspan dy="10px" x="100">120</tspan>
+            </text>
+            <text font-size="10px" text-anchor="middle" y="45">
+              <tspan x="0">R. Atk</tspan>
+              <tspan dy="10px" x="0">145</tspan>
+            </text>
+            <text font-size="10px" text-anchor="middle" y="160">
+              <tspan x="0">R. Def</tspan>
+              <tspan dy="10px" x="0">110</tspan>
+            </text>
+            <text font-size="10px" text-anchor="middle" y="210">
+              <tspan x="100">Speed</tspan>
+              <tspan dy="10px" x="100">130</tspan>
+            </text>
+            <text font-size="10px" text-anchor="middle" y="160">
+              <tspan x="200">M. Def</tspan>
+              <tspan dy="10px" x="200">110</tspan>
+            </text>
+            <text font-size="10px" text-anchor="middle" y="45">
+              <tspan x="200">M. Atk</tspan>
+              <tspan dy="10px" x="200">125</tspan>
+            </text>
+          </g>
+          <polygon
+            points="100,100 100,100 100,100 100,100 100,100 100,100"
+            fill="#3fbb9f" opacity="0.75" stroke="#ab75e8" stroke-width="2px">
+            <animate 
+              from="100,100 100,100 100,100 100,100 100,100 100,100" 
+              to="100,60.00 58.14,75.83 68.25,118.33 100,143.33 131.75,118.33 136.08,79.17" 
+              attributeName="points" 
+              fill="freeze"
+              begin="${previousSlideId == undefined ? '500ms' : `${previousSlideId}-slide-anim.begin+750ms`}"
+              dur="1s"
+            ></animate>
+          </polygon>
+        </g>
+        
+        <g opacity="0" transform="translate(100 100)">
+          ${animateFadeIn({ duration: '1s' })}
+          <rect 
+            width="850"
+            height="790"
+            x="850"
+            y="50"
+            rx="50"
+            fill="transparent"
+            stroke="${svgConstants.colour.secondary}"
+            stroke-width="3"
+          />
+
+          <text x="890" y="120" fill="${svgConstants.colour.controlForeground}" font-size="30">
+            Steps:
+          </text>
+
+          ${drawPoint(0)}
+          ${drawText(0, 'Draw a Hexagon')}
+          ${drawText(1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
+
+          ${drawPoint(2)}
+          ${drawText(2, 'Draw a line from the center to the the edge of the hexagon')}
+          ${drawText(3, '6 times, one for each point', 25, 'font-style="italic"')}
+
+          ${drawPoint(4)}
+          ${drawText(4, 'Add the text descriptions and values for each corner')}
+
+          ${drawPoint(5)}
+          ${drawText(5, 'Draw the value of each attribute')}
+          ${drawText(6, 'Defining the point for each attribute in a', 25, 'font-style="italic"')}
+          <text x="1345" y="${
+            160 + circleRadius + 6 * 50
+          }" fill="#ab75e8" font-size="25" font-style="italic">&lt;polyline&gt;</text>
+
+          ${drawPoint(7)}
+          ${drawText(7, 'Add some colour to the')}
+          <text x="1223" y="${
+            160 + circleRadius + 7 * 50
+          }" fill="#ab75e8" font-size="30" font-style="italic">&lt;polyline&gt;</text>
+
+          ${drawPoint(8)}
+          ${drawText(8, 'Add an animation 💫')}
+
+          ${drawPoint(12)}
+          ${drawText(12, 'I used this on:')}
+          <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
+            ${drawText(12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
+          </a>
+          
+        </g>
+        `,
+      notes,
+    }),
+    notes,
+    ssg: {
+      secondsToDisplay: 3,
+    },
+  };
+};
