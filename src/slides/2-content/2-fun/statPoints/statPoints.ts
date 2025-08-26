@@ -7,6 +7,7 @@ import { readSrcFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './statPoints.md';
+import { drawLine } from '@/helpers/svgHelper';
 
 export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notes = await readSrcFile(notesMd);
@@ -78,11 +79,14 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
           </polygon>
         </g>
         
-        <g opacity="0" transform="translate(100 100)">
-          ${animateFadeIn({ duration: '1s' })}
+        <g opacity="0" transform="translate(100 90)">
+          ${animateFadeIn({
+            duration: '1s',
+            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+1s`,
+          })}
           <rect 
             width="850"
-            height="790"
+            height="800"
             x="850"
             y="50"
             rx="50"
@@ -122,11 +126,12 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ${drawPoint(8)}
           ${drawText(8, 'Add an animation 💫')}
 
-          ${drawPoint(12)}
-          ${drawText(12, 'I used this on:')}
+          ${drawPoint(11)}
+          ${drawText(11, 'I used this on:')}
           <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            ${drawText(12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
+            ${drawText(11.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
           </a>
+          ${drawLine(theme, 11.8, 500)}
           
         </g>
         `,

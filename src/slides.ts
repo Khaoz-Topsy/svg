@@ -9,6 +9,7 @@ import { slideBasicDrawingDefs } from './slides/2-content/1-basics/defs/defsTag'
 import { slideWhatIsAnSvg } from './slides/2-content/1-basics/whatIsSvg';
 import { calendarIcon } from './slides/2-content/2-fun/calendar/calendarIcon.ts';
 import { statPoints } from './slides/2-content/2-fun/statPoints/statPoints.ts';
+import { swatChart } from './slides/2-content/2-fun/swatChart/swatChart.ts';
 import { wheelOfFortune } from './slides/2-content/2-fun/wheelOfFortune/wheelOfFortune.ts';
 import { slideLinks } from './slides/3-conclusion/3-end/links';
 
@@ -30,6 +31,7 @@ export const getAllSlides = (): Array<SlideMeta> => [
   { id: 'slide-fun-calendar-icon', slideFunc: calendarIcon },
   { id: 'slide-fun-stat-points', slideFunc: statPoints },
   { id: 'slide-fun-wheel-of-fortune', slideFunc: wheelOfFortune },
+  { id: 'slide-fun-swat-chart', slideFunc: swatChart },
 
   // Conclusion
   { id: 'slide-links', slideFunc: slideLinks },

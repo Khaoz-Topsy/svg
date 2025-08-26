@@ -126,6 +126,12 @@ const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
       elem.setAttribute('id', 'undraw');
       return elem.outerHTML;
     }),
+    readSvg(theme, PublicImage.swatChart, (doc) => {
+      const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+      if (innerSvg == null) return '';
+
+      return `<g id="swatChart" style="border-radius: 150px;">${innerSvg}</g>`;
+    }),
   ];
   return Promise.all(imagePreloadsTasks);
 };

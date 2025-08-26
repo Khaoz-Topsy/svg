@@ -5,20 +5,16 @@ import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readSrcFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
+import { drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
 
 import notesMd from './wheelOfFortune.md';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
 export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
+  const previousSlideId = getPreviousSlideIndex(ctx);
 
   const options = ['😁', '🕹️', '🧑‍🎨', '💫', '🥪'];
-  const circleRadius = 7;
-  const drawPoint = (y: number) =>
-    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${theme.exampleColour}" />`;
-  const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
-    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${theme.controlForeground}" font-size="${fontSize ?? 30}" ${
-      attr ?? ''
-    }>${text}</text>`;
 
   const notes = await readSrcFile(notesMd);
   return {
@@ -26,11 +22,13 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
       ctx: ctx,
       title: 'The Fun stuff - complex shapes',
       content: `
-        <g opacity="0" transform="translate(100 100)">
-            ${animateFadeIn({ duration: '1s' })}
+        <g opacity="0" transform="translate(100 90)">${animateFadeIn({
+          duration: '1s',
+          begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+1s`,
+        })}
             <rect 
               width="850"
-              height="790"
+              height="800"
               x="850"
               y="50"
               rx="50"
@@ -43,40 +41,41 @@ export const wheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
               Steps:
             </text>
 
-            ${drawPoint(0)}
-            ${drawText(0, 'Draw a Circle')}
+            ${drawPoint(theme, 0)}
+            ${drawText(theme, 0, 'Draw a Circle')}
 
-            ${drawPoint(1)}
-            ${drawText(1, 'Draw a line from the center to the the edge of the circle')}
+            ${drawPoint(theme, 1)}
+            ${drawText(theme, 1, 'Draw a line from the center to the the edge of the circle')}
 
-            ${drawPoint(2)}
-            ${drawText(2, 'Calculate the wedge angle (360 / number of options)')}
-            ${drawText(3, `360 / ${options.length} = ${360 / options.length}`, 25, 'font-style="italic"')}
+            ${drawPoint(theme, 2)}
+            ${drawText(theme, 2, 'Calculate the wedge angle (360 / number of options)')}
+            ${drawText(theme, 3, `360 / ${options.length} = ${360 / options.length}`, 25, 'font-style="italic"')}
 
-            ${drawPoint(4)}
-            ${drawText(4, 'Rotate the line by wedge angle x the index of the line')}
+            ${drawPoint(theme, 4)}
+            ${drawText(theme, 4, 'Rotate the line by wedge angle x the index of the line')}
 
-            ${drawPoint(5)}
-            ${drawText(5, 'Draw the text of the option')}
+            ${drawPoint(theme, 5)}
+            ${drawText(theme, 5, 'Draw the text of the option')}
 
-            ${drawPoint(6)}
-            ${drawText(6, 'Rotate the text by wedge angle x the (index of the text + 0.5)')}
-            ${drawText(7, 'This will place the text in the middle of the slice', 25, 'font-style="italic"')}
+            ${drawPoint(theme, 6)}
+            ${drawText(theme, 6, 'Rotate the text by wedge angle x the (index of the text + 0.5)')}
+            ${drawText(theme, 7, 'This will place the text in the middle of the slice', 25, 'font-style="italic"')}
 
-            ${drawPoint(8)}
-            ${drawText(8, 'Draw the center circle')}
+            ${drawPoint(theme, 8)}
+            ${drawText(theme, 8, 'Draw the center circle')}
 
-            ${drawPoint(9)}
-            ${drawText(9, 'Draw the center logo')}
+            ${drawPoint(theme, 9)}
+            ${drawText(theme, 9, 'Draw the center logo')}
 
-            ${drawPoint(10)}
-            ${drawText(10, 'Add rotation animation 💫')}   
+            ${drawPoint(theme, 10)}
+            ${drawText(theme, 10, 'Add rotation animation 💫')}   
 
-          ${drawPoint(12)}
-          ${drawText(12, 'I used this on:')}
+          ${drawPoint(theme, 12)}
+          ${drawText(theme, 12, 'I used this on:')}
           <a xlink:href="https://nomads.kurtlourens.com" target="_blank">
-            ${drawText(12.75, 'https://nomads.kurtlourens.com', 30, 'font-style="italic"')}
-          </a>        
+            ${drawText(theme, 12.75, 'https://nomads.kurtlourens.com', 30, 'font-style="italic"')}
+          </a>
+          ${drawLine(theme, 12.8, 395)}
         </g>
 
         ${getSpinner({
