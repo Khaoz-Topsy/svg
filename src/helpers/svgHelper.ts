@@ -1,6 +1,8 @@
 import type { ITheme } from '@/constants/theme';
 
-const circleRadius = 7;
+export const notFocussedStyle = { opacity: 0.3 };
+
+export const circleRadius = 7;
 export const drawPoint = (theme: ITheme, y: number) =>
   `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${theme.exampleColour}" />`;
 export const drawText = (theme: ITheme, y: number, text: string, fontSize?: number, attr?: string) =>

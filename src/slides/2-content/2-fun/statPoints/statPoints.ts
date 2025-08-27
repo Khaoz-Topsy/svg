@@ -7,20 +7,12 @@ import { readSrcFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './statPoints.md';
-import { drawLine } from '@/helpers/svgHelper';
+import { circleRadius, drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
 
 export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const notes = await readSrcFile(notesMd);
   const previousSlideId = getPreviousSlideIndex(ctx);
   const theme = themes[ctx.themeKey];
-
-  const circleRadius = 7;
-  const drawPoint = (y: number) =>
-    `<circle cx="900" cy="${160 + y * 50}" r="${circleRadius}" fill="${theme.exampleColour}" />`;
-  const drawText = (y: number, text: string, fontSize?: number, attr?: string) =>
-    `<text x="930" y="${160 + circleRadius + y * 50}" fill="${theme.controlForeground}" font-size="${fontSize ?? 30}" ${
-      attr ?? ''
-    }>${text}</text>`;
 
   return {
     content: slideBase({
@@ -99,37 +91,37 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
             Steps:
           </text>
 
-          ${drawPoint(0)}
-          ${drawText(0, 'Draw a Hexagon')}
-          ${drawText(1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
+          ${drawPoint(theme, 0)}
+          ${drawText(theme, 0, 'Draw a Hexagon')}
+          ${drawText(theme, 1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
 
-          ${drawPoint(2)}
-          ${drawText(2, 'Draw a line from the center to the the edge of the hexagon')}
-          ${drawText(3, '6 times, one for each point', 25, 'font-style="italic"')}
+          ${drawPoint(theme, 2)}
+          ${drawText(theme, 2, 'Draw a line from the center to the the edge of the hexagon')}
+          ${drawText(theme, 3, '6 times, one for each point', 25, 'font-style="italic"')}
 
-          ${drawPoint(4)}
-          ${drawText(4, 'Add the text descriptions and values for each corner')}
+          ${drawPoint(theme, 4)}
+          ${drawText(theme, 4, 'Add the text descriptions and values for each corner')}
 
-          ${drawPoint(5)}
-          ${drawText(5, 'Draw the value of each attribute')}
-          ${drawText(6, 'Defining the point for each attribute in a', 25, 'font-style="italic"')}
+          ${drawPoint(theme, 5)}
+          ${drawText(theme, 5, 'Draw the value of each attribute')}
+          ${drawText(theme, 6, 'Defining the point for each attribute in a', 25, 'font-style="italic"')}
           <text x="1345" y="${
             160 + circleRadius + 6 * 50
           }" fill="#ab75e8" font-size="25" font-style="italic">&lt;polyline&gt;</text>
 
-          ${drawPoint(7)}
-          ${drawText(7, 'Add some colour to the')}
+          ${drawPoint(theme, 7)}
+          ${drawText(theme, 7, 'Add some colour to the')}
           <text x="1223" y="${
             160 + circleRadius + 7 * 50
           }" fill="#ab75e8" font-size="30" font-style="italic">&lt;polyline&gt;</text>
 
-          ${drawPoint(8)}
-          ${drawText(8, 'Add an animation 💫')}
+          ${drawPoint(theme, 8)}
+          ${drawText(theme, 8, 'Add an animation 💫')}
 
-          ${drawPoint(11)}
-          ${drawText(11, 'I used this on:')}
+          ${drawPoint(theme, 11)}
+          ${drawText(theme, 11, 'I used this on:')}
           <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            ${drawText(11.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
+            ${drawText(theme, 11.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
           </a>
           ${drawLine(theme, 11.8, 500)}
           

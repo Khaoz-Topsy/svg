@@ -1,6 +1,5 @@
 import { slideBeginValue } from '@/components/common/slideAnimation.ts';
 import { animateFadeIn } from '@/components/core/animate';
-import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext.ts';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
@@ -11,37 +10,27 @@ interface IProps {
   ctx: SlideContext;
   animatePosition: number;
   svgContent: string;
-  codeContent: string;
-  overrideForeignObjectX?: number;
-  overrideCardHeight?: number;
 }
-export const slideBasicDrawingCard = (props: IProps) => {
+export const slideWhyIsSvgCard = (props: IProps) => {
   const theme = themes[props.ctx.themeKey];
   const previousSlideId = getPreviousSlideIndex(props.ctx);
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, theme.defaultDelayInMs * numTicksDelay);
 
   return `
-    <g opacity="0" transform="translate(${props.x} ${props.y})">
+    <g class="noselect" opacity="0" transform="translate(${props.x} ${props.y})">
         ${animateFadeIn({ duration: '1s', begin: getBegin(props.animatePosition - 1) })}
         <rect 
-            width="${svgConstants.width / 2 - 150}"
-            height="${props.overrideCardHeight ?? 250}"
-            x="0"
-            y="0"
-            rx="50"
-            fill="transparent"
-            stroke="${themes[props.ctx.themeKey].secondary}"
-            stroke-width="3"
+          width="500"
+          height="800"
+          x="0"
+          y="0"
+          rx="50"
+          fill="transparent"
+          stroke="${theme.secondary}"
+          stroke-width="3"
         >
         </rect>
         
         ${props.svgContent}
-
-        <foreignObject x="${props.overrideForeignObjectX ?? '350'}" y="25" width="600" height="600">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-            ${props.codeContent}
-            <br />              
-        </div>
-        </foreignObject>
     </g>`;
 };

@@ -4,17 +4,17 @@ import { animateSlideIn } from '@/components/core/animate';
 import { gradientSphere } from '@/components/spheres/gradientSphere';
 import { usePublicImage } from '@/constants/image.ts';
 import { svgGradients } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readSrcFile } from '@/helpers/fileHelper';
+import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
-import { themes } from '@/constants/theme';
 import notesMd from './defsTag.md';
 
 export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notFocussedStyle = { opacity: 0.3 };
   const previousSlideId = getPreviousSlideIndex(ctx);
   const gradients = svgGradients(ctx.themeKey);
   const code = svgCode(ctx.themeKey);

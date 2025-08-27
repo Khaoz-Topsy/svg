@@ -1,1 +1,1 @@
-export type EnvMode = 'web' | 'ssg';
+export type EnvMode = 'web' | 'ssg' | 'auto-slide';

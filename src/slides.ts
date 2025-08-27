@@ -12,6 +12,7 @@ import { statPoints } from './slides/2-content/2-fun/statPoints/statPoints.ts';
 import { swatChart } from './slides/2-content/2-fun/swatChart/swatChart.ts';
 import { wheelOfFortune } from './slides/2-content/2-fun/wheelOfFortune/wheelOfFortune.ts';
 import { slideLinks } from './slides/3-conclusion/3-end/links';
+import { slideWhyIsSvg } from './slides/2-content/1-basics/whyIsSvg/whyIsSvg.ts';
 
 export const getAllSlides = (): Array<SlideMeta> => [
   // Foundation
@@ -20,12 +21,12 @@ export const getAllSlides = (): Array<SlideMeta> => [
 
   // Content
   { id: 'slide-what-is-svg', slideFunc: slideWhatIsAnSvg },
+  { id: 'slide-why-is-svg', slideFunc: slideWhyIsSvg },
   { id: 'slide-basic-setup', slideFunc: slideBasicSetup },
   { id: 'slide-basic-drawing', slideFunc: slideBasicDrawing },
   { id: 'slide-basic-drawing-defs', slideFunc: slideBasicDrawingDefs },
   { id: 'slide-basic-drawing-css', slideFunc: slideBasicDrawingDefsWithCss },
   { id: 'slide-basic-animate', slideFunc: slideAnimate },
-  // { id: 'slide-svg-size', slideFunc: slideSvgSize },
 
   // { id: 'slide-fun-themed-illustrations', slideFunc: themedIllustrations },
   { id: 'slide-fun-calendar-icon', slideFunc: calendarIcon },

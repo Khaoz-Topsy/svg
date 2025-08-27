@@ -3,12 +3,12 @@ import { svgCode } from '@/components/code/codeSpan.ts';
 import type { SlideContext } from '@/contracts/slideContext.ts';
 import type { ISvgSlide } from '@/contracts/svgSlide.ts';
 import { readSrcFile } from '@/helpers/fileHelper.ts';
+import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase.ts';
 
 import notesMd from '../defsTag.md';
 
 export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notFocussedStyle = { opacity: 0.3 };
   const code = svgCode(ctx.themeKey);
 
   const notes = await readSrcFile(notesMd);

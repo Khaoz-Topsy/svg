@@ -7,12 +7,12 @@ import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readSrcFile } from '@/helpers/fileHelper';
+import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './animate.md';
 
 export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notFocussedStyle = { opacity: 0.3 };
   const previousSlideId = getPreviousSlideIndex(ctx);
   const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];

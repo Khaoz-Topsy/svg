@@ -1,15 +1,19 @@
 import { ViewMode } from '@/constants/viewMode';
 import { getNewPresentationUrl } from '@/helpers/urlHelper';
 
-export const windowButtonHandler = (props: { toggleTheme: () => void }) => {
+export const windowButtonHandler = (props: {
+  toggleTheme: () => void; //
+  tempMinimize: () => void;
+}) => {
   console.log('window button listener setup');
 
   windowButtonOnClick('#window-minimize', () => {
     console.log('minimize');
-    props.toggleTheme();
+    props.tempMinimize();
   });
   windowButtonOnClick('#window-maximize', () => {
     console.log('maximize');
+    props.toggleTheme();
   });
   windowButtonOnClick('#window-close', () => {
     console.log('close');
@@ -23,6 +27,7 @@ const windowButtonOnClick = (buttonId: string, onClick: () => void) => {
     return;
   }
   buttonElem.onclick = () => onClick();
+  buttonElem.classList.add('pointer');
 };
 
 export const getValuesFromUrl = () => {

@@ -26,7 +26,7 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
   return {
     content: slideBase({
       ctx: ctx,
-      title: 'What is an SVG',
+      title: 'What is an SVG?',
       content: `
         <g class="noselect" opacity="0" transform="translate(100 150)">
           ${animateFadeIn({ duration: '1s' })}

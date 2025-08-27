@@ -23,10 +23,16 @@ export interface ITheme {
   illustrationPants: string;
   illustrationShoes: string;
   illustrationHair: string;
+  illustrationDuckFeather: string;
+  illustrationDuckBeak: string;
+  illustrationDuckEye: string;
+  illustrationDuckPupil: string;
   //
   controlForeground: string;
   controlBackground: string;
   controlHighlight: string;
+  //
+  defaultDelayInMs: number;
 }
 
 export type ThemeKey = 'light' | 'dark';
@@ -57,10 +63,16 @@ export const themes: Record<ThemeKey, ITheme> = {
     illustrationPants: '#35465E',
     illustrationShoes: '#343434',
     illustrationHair: '#392F27',
+    illustrationDuckFeather: '#FFF000',
+    illustrationDuckBeak: '#FF8400',
+    illustrationDuckEye: '#000103',
+    illustrationDuckPupil: '#FDFDFD',
     //
     controlForeground: '#121212',
     controlBackground: '#f0f0f0',
     controlHighlight: '#545454',
+    //
+    defaultDelayInMs: 500,
   },
   dark: {
     primary: '#7B0CD8',
@@ -87,9 +99,15 @@ export const themes: Record<ThemeKey, ITheme> = {
     illustrationPants: '#35465E',
     illustrationShoes: '#343434',
     illustrationHair: '#392F27',
+    illustrationDuckFeather: '#FFF000',
+    illustrationDuckBeak: '#FF8400',
+    illustrationDuckEye: '#000103',
+    illustrationDuckPupil: '#FDFDFD',
     //
     controlForeground: '#f0f0f0',
     controlBackground: '#121212',
     controlHighlight: '#545454',
+    //
+    defaultDelayInMs: 500,
   },
 } as const;

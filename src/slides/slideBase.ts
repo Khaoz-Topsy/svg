@@ -16,6 +16,7 @@ export const slideBase = (props: {
 }) => {
   let attr = props.attr ?? '';
   let buttonSvg = '';
+  let autoAnimationSvg = '';
   let startOpacity = '0';
   let preContent = slideAnimationFadeIn({ ctx: props.ctx, duration: '250ms' });
   let progressContent = '';
@@ -26,7 +27,7 @@ export const slideBase = (props: {
   if (props.ctx.env == 'web') {
     //
   }
-  if (props.ctx.env == 'ssg') {
+  if (props.ctx.env == 'ssg' || props.ctx.env == 'auto-slide') {
     const lastSlideIndex = props.ctx.numberOfSlides - 1;
     const isLastSlide = props.ctx.currentSlideIndex >= lastSlideIndex;
     progressContent = progress({ slideIndex: props.ctx.currentSlideIndex, numberOfSlides: props.ctx.numberOfSlides });
@@ -77,6 +78,39 @@ export const slideBase = (props: {
           begin="${props.ctx.id}-slide-anim.begin+50ms" 
         />
       </g>`;
+    if (props.ctx.env == 'auto-slide') {
+      autoAnimationSvg = '';
+      // autoAnimationSvg = `
+      //   <animate
+      //     id="${props.ctx.id}-slide-anim"
+      //     href="#${props.ctx.id}-navigate-btn"
+      //     attributename="opacity"
+      //     from="1"
+      //     to="0"
+      //     dur="50ms"
+      //     begin="click"
+      //     fill="freeze"
+      //   />
+      //   <animateTransform
+      //     href="#${props.ctx.id}"
+      //     attributeName="transform"
+      //     attributeType="XML"
+      //     type="rotate"
+      //     dur="1000ms"
+      //     from="0 500 500"
+      //     to="90 500 500"
+      //     repeatCount="1"
+      //     begin="${props.ctx.id}-slide-anim.begin+50ms"
+      //   />
+      //   <animateMotion
+      //     href="#${props.ctx.id}"
+      //     dur="500ms"
+      //     repeatCount="1"
+      //     fill="freeze"
+      //     path="M0,0 L -300 ${svgConstants.height}"
+      //     begin="${props.ctx.id}-slide-anim.begin+50ms"
+      //   />`;
+    }
     if (isLastSlide) buttonSvg = '';
   }
 
@@ -91,6 +125,7 @@ export const slideBase = (props: {
       ${props.content}
       ${progressContent}
       ${notesContent}
+      ${autoAnimationSvg}
       ${buttonSvg}
     </g>`;
 };

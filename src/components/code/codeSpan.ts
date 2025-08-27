@@ -16,7 +16,7 @@ interface IStyleOptions {
   tabLevel?: number;
   opacity?: number;
 }
-const getStyleValue = (options?: IStyleOptions) => {
+export const getStyleValue = (options?: IStyleOptions) => {
   const styles: Array<string> = [];
 
   const colour = options?.colour ?? '';

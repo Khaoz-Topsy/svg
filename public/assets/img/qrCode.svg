@@ -4,7 +4,7 @@
     xmlns:ev="http://www.w3.org/2001/xml-events">
 
     <g id="qr-svg-kurtlourens-com">
-        <g fill="--control-foreground-colour">
+        <g fill="--control-foreground-colour" stroke="--control-foreground-colour" stroke-width="1">
             <use href="#qrPixel" x="32" y="32" />
             <use href="#qrPixel" x="32" y="40" />
             <use href="#qrPixel" x="32" y="48" />

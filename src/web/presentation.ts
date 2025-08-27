@@ -14,8 +14,13 @@ import { themes, type ThemeKey } from '@/constants/theme.ts';
 
 const env: EnvMode = 'web';
 const localStorageThemeKey = 'kurt-presentation-theme';
+let isMinimized = false;
 let themeKey = (localStorage.getItem(localStorageThemeKey) ?? 'dark') as unknown as ThemeKey;
 import.meta.env.MODE = env;
+
+const slideBackgrounds: Record<string, string> = {
+  'slide-basic-drawing-defs': '/assets/img/sun-tornado.svg',
+};
 
 const setupPresentationForWeb = async () => {
   let { viewMode, slideIndex } = getValuesFromUrl();
@@ -55,18 +60,6 @@ const setupPresentationForWeb = async () => {
   setupControlOnClicks(controlsElem, viewMode, slideFromModifier);
   await renderFunc(slideIndex, slideIndex, 'initial');
   containerElem.classList.add('ready');
-  if (viewMode == ViewMode.slides) {
-    windowButtonHandler({
-      toggleTheme: () => {
-        const themeList = Object.keys(themes) as Array<ThemeKey>;
-        const currentIndex = themeList.indexOf(themeKey);
-        const newIndex = (currentIndex + 1) % themeList.length;
-
-        localStorage.setItem(localStorageThemeKey, themeList[newIndex]);
-        document.location.reload();
-      },
-    });
-  }
 };
 
 const getRenderFunctions = (
@@ -107,6 +100,43 @@ const getRenderFunctions = (
     const mainSvgElem = containerElem.querySelector<HTMLElement>('svg');
     const mainSvgContent = await renderSvgSlide(slideObj, themeKey, newIndex, numberOfSlides);
     if (mainSvgElem != null) mainSvgElem.outerHTML = mainSvgContent;
+
+    if (viewMode == ViewMode.slides) {
+      const bgContainerElem = document.querySelector<HTMLElement>('#background-container');
+      if (bgContainerElem != null) {
+        const imgSrc = slideBackgrounds[slideMeta.id];
+        if (imgSrc != null) {
+          let imgElem = document.createElement('img');
+          imgElem.src = imgSrc;
+          imgElem.style = 'opacity: 0';
+          bgContainerElem.appendChild(imgElem);
+          setTimeout(() => {
+            imgElem.style = '';
+          }, 1000);
+        } else {
+          bgContainerElem.innerHTML = '';
+        }
+      }
+
+      windowButtonHandler({
+        tempMinimize: () => {
+          if (isMinimized) {
+            containerElem.classList.remove('minimized');
+          } else {
+            containerElem.classList.add('minimized');
+          }
+          isMinimized = !isMinimized;
+        },
+        toggleTheme: () => {
+          const themeList = Object.keys(themes) as Array<ThemeKey>;
+          const currentIndex = themeList.indexOf(themeKey);
+          const newIndex = (currentIndex + 1) % themeList.length;
+
+          localStorage.setItem(localStorageThemeKey, themeList[newIndex]);
+          document.location.reload();
+        },
+      });
+    }
 
     if (viewMode == ViewMode.presenter) {
       containerElem.classList.add(viewMode);

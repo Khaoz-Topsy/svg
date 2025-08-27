@@ -24,4 +24,7 @@ export type SlideContext = Prettify<
   | ({
       env: 'ssg';
     } & SsgSlideContext)
+  | ({
+      env: 'auto-slide';
+    } & SsgSlideContext)
 >;

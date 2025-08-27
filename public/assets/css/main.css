@@ -7,6 +7,10 @@ svg {
   font-family: var(--font-family);
 }
 
+html {
+  overflow: hidden;
+}
+
 a {
   color: var(--secondary-colour);
 }
@@ -28,11 +32,29 @@ a {
   user-select: none;
 }
 
+#background-container img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  transition: opacity 500ms ease-in-out;
+}
+
+#presentation-container {
+  transition: transform 1s ease-in-out;
+}
+#presentation-container.minimized {
+  transform: translateY(92.5vh);
+}
+
 #presentation-container,
 #presentation-presenter-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: relative;
 }
 
 #presentation-container.presenter {
