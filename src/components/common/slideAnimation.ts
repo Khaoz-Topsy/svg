@@ -8,6 +8,7 @@ interface ISlideAnimationFadeInProps {
 export const slideAnimationFadeIn = (props: ISlideAnimationFadeInProps) => {
   let previousSlideId = undefined;
   if (props.ctx.env == 'ssg') {
+    // TODO: check if ssg-auto needs to have this as well
     const ctx = props.ctx as SsgSlideContext;
     previousSlideId = ctx.prevSlideId;
   }
@@ -23,9 +24,9 @@ export const slideAnimationFadeIn = (props: ISlideAnimationFadeInProps) => {
   });
 };
 
-export const slideBeginValue = (previousSlideId: string | undefined, milli: number) => {
+export const slideBeginValue = (previousSlideId: string | undefined, milli: number, attr: string = 'end') => {
   if (previousSlideId != undefined) {
-    return `${previousSlideId}-slide-anim.begin+${milli}ms`;
+    return `${previousSlideId}-slide-anim.${attr}+${milli}ms`;
   }
   return `${milli}ms`;
 };

@@ -4,4 +4,4 @@ node_modules
 /dist
 /temp
 .env
-/public/assets/diagram/*.d2*
+/public/assets/diagram/*.svg*

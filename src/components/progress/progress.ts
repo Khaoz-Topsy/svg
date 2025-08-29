@@ -9,13 +9,15 @@ export const progress = (props: { slideIndex: number; numberOfSlides: number }) 
   const leftPadding = (svgConstants.width - totalWidth) / 2;
   const yCoord = svgConstants.height - 35;
   return `<g id="progress">
-    ${arrayOfNLength(props.numberOfSlides).map((_, index) =>
-      progressIcon({
-        x: leftPadding + progressIconOffset + index * spaceBetweenIcons,
-        y: yCoord,
-        index,
-        isActive: index <= props.slideIndex,
-      }),
-    )}
+    ${arrayOfNLength(props.numberOfSlides)
+      .map((_, index) =>
+        progressIcon({
+          x: leftPadding + progressIconOffset + index * spaceBetweenIcons,
+          y: yCoord,
+          index,
+          isActive: index <= props.slideIndex,
+        }),
+      )
+      .join('')}
   </g>`;
 };

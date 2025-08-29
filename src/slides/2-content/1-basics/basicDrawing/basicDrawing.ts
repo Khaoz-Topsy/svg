@@ -2,17 +2,20 @@ import { svgCode } from '@/components/code/codeSpan';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 import { slideBasicDrawingCard } from './basicDrawingCard';
 
 import notesMd from './basicDrawing.md';
 
 export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -134,11 +137,8 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           `,
         })}
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

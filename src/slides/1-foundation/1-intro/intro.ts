@@ -5,7 +5,7 @@ import { AppText } from '@/constants/text';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './intro.md';
@@ -14,7 +14,10 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const gradients = svgGradients(ctx.themeKey);
   const theme = themes[ctx.themeKey];
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -60,11 +63,8 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
           <text x="0" y="140" fill="white" font-size="50">${AppText.subTitle}</text>
         </g>
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

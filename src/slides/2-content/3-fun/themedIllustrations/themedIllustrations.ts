@@ -1,15 +1,16 @@
-import { windowTitle } from '@/components/window/windowTitle';
 import { usePublicImage } from '@/constants/image';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './themedIllustrations.md';
 
 export const themedIllustrations = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notes = await readSrcFile(notesMd);
-
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -17,11 +18,8 @@ export const themedIllustrations = async (ctx: SlideContext): Promise<ISvgSlide>
       content: `
         ${usePublicImage('undraw')}
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

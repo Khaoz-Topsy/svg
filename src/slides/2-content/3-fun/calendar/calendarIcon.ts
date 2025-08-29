@@ -1,13 +1,11 @@
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './calendarIcon.md';
 
-export const calendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notes = await readSrcFile(notesMd);
-
+export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const date = new Date();
   const months = [
     'January',
@@ -23,6 +21,11 @@ export const calendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
     'November',
     'December',
   ];
+
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -64,11 +67,8 @@ export const calendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
           </text>
         </g>
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

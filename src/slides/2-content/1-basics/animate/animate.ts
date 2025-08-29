@@ -6,7 +6,7 @@ import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
@@ -14,8 +14,8 @@ import notesMd from './animate.md';
 
 export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
-  const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
 
   const tableContent = `
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.33em;">
@@ -75,7 +75,10 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
       </table>
     </div>`;
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -104,7 +107,7 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
             <br />
             
             ${code.tag('&lt;rect', { tabLevel: 1 })}
-            ${code.keyValue(['class', '=', '"my-rect"'])}
+            ${code.keyValue(['class', '=', '"cool-circle"'])}
             ${code.keyValue(['x', '=', '"550"'])}
             ${code.keyValue(['y', '=', '"85"'])}
             ${code.keyValue(['width', '=', '"150"'])}
@@ -189,11 +192,8 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
             </foreignObject>
         </g>
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

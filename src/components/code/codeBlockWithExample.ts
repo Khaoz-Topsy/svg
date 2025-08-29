@@ -21,13 +21,13 @@ interface IProps {
 const drawingCardDelay = 500;
 export const codeBlockWithExample = (props: IProps) => {
   const previousSlideId = getPreviousSlideIndex(props.ctx);
-  const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, drawingCardDelay * numTicksDelay);
+  const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, drawingCardDelay * numTicksDelay, 'end');
 
   const renderCodeBlock = (codeContent?: string) => {
     if (codeContent == null) return '';
 
     return `
-    <foreignObject x="40" y="25" width="1000" height="700">
+    <foreignObject x="40" y="25" width="1200" height="800">
         <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
           ${codeContent}
       </div>

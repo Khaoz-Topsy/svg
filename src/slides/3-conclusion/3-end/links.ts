@@ -4,7 +4,10 @@ import type { ISvgSlide } from '@/contracts/svgSlide';
 import { slideBase } from '@/slides/slideBase';
 
 export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notes = '';
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: '',
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -12,11 +15,8 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
       content: `
         ${usePublicImage('qrCode', 'transform="translate(750, 315) scale(1.5)"')}
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

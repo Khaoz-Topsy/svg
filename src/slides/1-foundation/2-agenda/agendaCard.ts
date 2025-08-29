@@ -26,12 +26,12 @@ export const agendaCard = async (props: IProps) => {
     >
     ${animateFadeIn({
       duration: '1s',
-      begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+50ms`,
+      begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.end+50ms`,
     })}
     ${animateSlideIn({
       from: `${svgConstants.width} ${props.y}`,
       to: `${svgConstants.width / 2.5} ${props.y}`,
-      begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+${props.y / 4}ms`,
+      begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.end+${props.y / 4}ms`,
       initialDelay: `${props.y / 4}ms`,
     })}
     <rect 

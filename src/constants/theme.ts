@@ -1,9 +1,17 @@
+export interface ICodeTheme {
+  tag: string;
+  key: string;
+  equals: string;
+  value: string;
+}
+
 export interface ITheme {
   primary: string;
   secondary: string;
   background: string;
   slideBackground: string;
   exampleColour: string;
+  exampleColour2: string;
   //
   primaryGradientStop1: string;
   secondaryGradientStop1: string;
@@ -13,10 +21,8 @@ export interface ITheme {
   wheelOfFortuneForeground: string;
   wheelOfFortuneBackground: string;
   //
-  codeTag: string;
-  codeKey: string;
-  codeEquals: string;
-  codeValue: string;
+  code: ICodeTheme;
+  d2Code: ICodeTheme;
   //
   illustrationSkin: string;
   illustrationSuitTop: string;
@@ -44,6 +50,7 @@ export const themes: Record<ThemeKey, ITheme> = {
     background: '#bbbbbb',
     slideBackground: '#e2e2e2',
     exampleColour: '#18be84',
+    exampleColour2: '#007CA3',
     //
     primaryGradientStop1: '#b616e7',
     secondaryGradientStop1: '#004257',
@@ -53,10 +60,18 @@ export const themes: Record<ThemeKey, ITheme> = {
     wheelOfFortuneForeground: '#121212',
     wheelOfFortuneBackground: '#545d6b',
     //
-    codeTag: '#003342',
-    codeKey: 'red',
-    codeEquals: 'grey',
-    codeValue: 'darkgoldenrod',
+    code: {
+      tag: '#003342',
+      key: 'red',
+      equals: 'grey',
+      value: 'darkgoldenrod',
+    },
+    d2Code: {
+      tag: '#405f81',
+      key: '#5E5FFF',
+      equals: '#635b6e',
+      value: '#20814d',
+    },
     //
     illustrationSkin: '#D6AA8D',
     illustrationSuitTop: '#9e9e9e',
@@ -80,6 +95,7 @@ export const themes: Record<ThemeKey, ITheme> = {
     background: '#343434',
     slideBackground: '#242424',
     exampleColour: '#64E9BA',
+    exampleColour2: '#007CA3',
     //
     primaryGradientStop1: '#b616e7',
     secondaryGradientStop1: '#004257',
@@ -89,10 +105,18 @@ export const themes: Record<ThemeKey, ITheme> = {
     wheelOfFortuneForeground: '#f0f0f0',
     wheelOfFortuneBackground: '#35465E',
     //
-    codeTag: 'lightblue',
-    codeKey: 'lightcoral',
-    codeEquals: 'white',
-    codeValue: 'lightyellow',
+    code: {
+      tag: 'lightblue',
+      key: 'lightcoral',
+      equals: 'white',
+      value: 'lightyellow',
+    },
+    d2Code: {
+      tag: '#6DA1DC',
+      key: '#5E5FFF',
+      equals: '#C4B3DC',
+      value: '#30C174',
+    },
     //
     illustrationSkin: '#D6AA8D',
     illustrationSuitTop: '#CCCCCC',

@@ -1,19 +1,23 @@
-import { slideAnimationFadeIn } from '@/components/common/slideAnimation';
+import { slideAnimationFadeIn, slideBeginValue } from '@/components/common/slideAnimation';
+import { progress } from '@/components/progress/progress';
+import { windowTitle } from '@/components/window/windowTitle';
 import { svgConstants } from '@/constants/svg';
-import type { SlideContext } from '@/contracts/slideContext';
+import { themes } from '@/constants/theme';
+import type { SlideContext, SsgSlideContext } from '@/contracts/slideContext';
+import type { ISvgSlide, ISvgSlideServerSideOptions } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { layoutBackground } from '../layouts/layoutBackground';
 import { generateNotesPanel } from '../server/notesPanel';
-import { progress } from '@/components/progress/progress';
-import { themes } from '@/constants/theme';
-import { windowTitle } from '@/components/window/windowTitle';
+import { isServerMode } from '@/constants/env';
 
-export const slideBase = (props: {
+interface ISlideBase extends ISvgSlide {
   ctx: SlideContext; //
   attr?: string;
   title: string;
-  content: string;
-  notes: string;
-}) => {
+  ssg: ISvgSlideServerSideOptions;
+}
+
+export const slideBase = (props: ISlideBase) => {
   let attr = props.attr ?? '';
   let buttonSvg = '';
   let autoAnimationSvg = '';
@@ -27,16 +31,39 @@ export const slideBase = (props: {
   if (props.ctx.env == 'web') {
     //
   }
-  if (props.ctx.env == 'ssg' || props.ctx.env == 'auto-slide') {
-    const lastSlideIndex = props.ctx.numberOfSlides - 1;
-    const isLastSlide = props.ctx.currentSlideIndex >= lastSlideIndex;
-    progressContent = progress({ slideIndex: props.ctx.currentSlideIndex, numberOfSlides: props.ctx.numberOfSlides });
-    if (props.ctx.showNotes == true) {
-      notesContent = generateNotesPanel(props.ctx.id, props.notes);
+  if (isServerMode(props.ctx.env)) {
+    const serverCtx = props.ctx as SsgSlideContext;
+    const lastSlideIndex = serverCtx.numberOfSlides - 1;
+    const isLastSlide = serverCtx.currentSlideIndex >= lastSlideIndex;
+    progressContent = progress({ slideIndex: serverCtx.currentSlideIndex, numberOfSlides: serverCtx.numberOfSlides });
+    if (serverCtx.showNotes == true) {
+      notesContent = generateNotesPanel(serverCtx.id, props.notes);
     }
 
-    buttonSvg = `
-      <g id="${props.ctx.id}-navigate-btn" 
+    const ssgSlideAnim = `
+      <animateTransform
+        href="#${serverCtx.id}"
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        dur="1000ms"
+        from="0 500 500"
+        to="90 500 500"
+        repeatCount="1"
+        begin="${serverCtx.id}-slide-anim.end+50ms" 
+      />
+      <animateMotion
+        href="#${serverCtx.id}"
+        dur="500ms"
+        repeatCount="1"
+        fill="freeze"
+        path="M0,0 L -300 ${svgConstants.height}"
+        begin="${serverCtx.id}-slide-anim.end+50ms" 
+      />`;
+
+    if (serverCtx.env == 'ssg' && isLastSlide == false) {
+      buttonSvg = `
+      <g id="${serverCtx.id}-navigate-btn" 
         transform="translate(${svgConstants.width - 160} ${svgConstants.height - 100})">
 
         <rect x="0" y="0" rx="20"
@@ -49,8 +76,8 @@ export const slideBase = (props: {
           fill="${theme.slideBackground}"
         />
         <animate 
-          id="${props.ctx.id}-slide-anim"
-          href="#${props.ctx.id}-navigate-btn" 
+          id="${serverCtx.id}-slide-anim"
+          href="#${serverCtx.id}-navigate-btn" 
           attributename="opacity"
           from="1"
           to="0"
@@ -58,64 +85,44 @@ export const slideBase = (props: {
           begin="click"
           fill="freeze"
         />
-        <animateTransform
-          href="#${props.ctx.id}"
-          attributeName="transform"
-          attributeType="XML"
-          type="rotate"
-          dur="1000ms"
-          from="0 500 500"
-          to="90 500 500"
-          repeatCount="1"
-          begin="${props.ctx.id}-slide-anim.begin+50ms" 
-        />
-        <animateMotion
-          href="#${props.ctx.id}"
-          dur="500ms"
-          repeatCount="1"
-          fill="freeze"
-          path="M0,0 L -300 ${svgConstants.height}"
-          begin="${props.ctx.id}-slide-anim.begin+50ms" 
-        />
+        ${ssgSlideAnim}
       </g>`;
-    if (props.ctx.env == 'auto-slide') {
-      autoAnimationSvg = '';
-      // autoAnimationSvg = `
-      //   <animate
-      //     id="${props.ctx.id}-slide-anim"
-      //     href="#${props.ctx.id}-navigate-btn"
-      //     attributename="opacity"
-      //     from="1"
-      //     to="0"
-      //     dur="50ms"
-      //     begin="click"
-      //     fill="freeze"
-      //   />
-      //   <animateTransform
-      //     href="#${props.ctx.id}"
-      //     attributeName="transform"
-      //     attributeType="XML"
-      //     type="rotate"
-      //     dur="1000ms"
-      //     from="0 500 500"
-      //     to="90 500 500"
-      //     repeatCount="1"
-      //     begin="${props.ctx.id}-slide-anim.begin+50ms"
-      //   />
-      //   <animateMotion
-      //     href="#${props.ctx.id}"
-      //     dur="500ms"
-      //     repeatCount="1"
-      //     fill="freeze"
-      //     path="M0,0 L -300 ${svgConstants.height}"
-      //     begin="${props.ctx.id}-slide-anim.begin+50ms"
-      //   />`;
     }
-    if (isLastSlide) buttonSvg = '';
+
+    if (serverCtx.env == 'auto-slide' && isLastSlide == false) {
+      const animTags: Array<string> = [];
+      if (serverCtx.currentSlideIndex == 0) {
+        animTags.push(`<animate
+          id="${serverCtx.id}-slide-anim"
+          attributename="opacity"
+          from="1"
+          to="0"
+          dur="1ms"
+          begin="${props.ssg.secondsToDisplay}s"
+          fill="freeze"
+        />`);
+      } else {
+        const previousSlideId = getPreviousSlideIndex(serverCtx);
+        animTags.push(`
+          <animate
+            id="${serverCtx.id}-slide-anim"
+            attributename="opacity"
+            from="1"
+            to="0"
+            dur="${props.ssg.secondsToDisplay}s"
+            begin="${slideBeginValue(previousSlideId, theme.defaultDelayInMs, 'end')}"
+            fill="freeze"
+          />
+        `);
+      }
+      animTags.push(ssgSlideAnim);
+      autoAnimationSvg = animTags.join('\n');
+    }
   }
 
   if (props.ctx.currentSlideIndex == 0) {
     startOpacity = '1';
+    preContent = '';
   }
 
   return `<g id="${props.ctx.id}" ${attr} opacity="${startOpacity}">

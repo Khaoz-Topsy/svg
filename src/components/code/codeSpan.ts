@@ -1,4 +1,4 @@
-import { themes, type ThemeKey } from '@/constants/theme';
+import { type ICodeTheme } from '@/constants/theme';
 
 export const getStyleAttr = (style?: string) => ((style?.length ?? 0) < 1 ? '' : ` style="${style}"`);
 
@@ -37,17 +37,10 @@ export const getStyleValue = (options?: IStyleOptions) => {
   return styles.join(' ');
 };
 
-export const svgCode = (themeKey: ThemeKey) => ({
-  tag: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: themes[themeKey].codeTag })),
-  key: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: themes[themeKey].codeKey })),
-  value: (code: string, options?: IStyleOptions) =>
-    codeSpan(code, getStyleValue({ ...options, colour: themes[themeKey].codeValue })),
+export const svgCode = (theme: ICodeTheme) => ({
+  tag: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options, colour: theme.tag })),
+  key: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options, colour: theme.key })),
+  value: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options, colour: theme.value })),
   keyValue: (codes: Array<string>, options?: Omit<IStyleOptions, 'colour'>) =>
-    codeSpans(
-      codes,
-      [themes[themeKey].codeKey, themes[themeKey].codeEquals, themes[themeKey].codeValue],
-      getStyleValue(options),
-    ),
+    codeSpans(codes, [theme.key, theme.equals, theme.value], getStyleValue(options)),
 });

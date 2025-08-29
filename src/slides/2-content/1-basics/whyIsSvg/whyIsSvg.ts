@@ -2,7 +2,7 @@ import { codeSpan, getStyleValue, svgCode } from '@/components/code/codeSpan';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 import { slideWhyIsSvgCard } from './whyIsSvgCard';
@@ -10,10 +10,13 @@ import { slideWhyIsSvgCard } from './whyIsSvgCard';
 import notesMd from './whyIsSvg.md';
 
 export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notes = await readSrcFile(notesMd);
-  const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
 
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -31,13 +34,13 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
             <g transform="translate(50 175)">
               <use href="#duckPixelArt" /> 
-              <text x="45" y="120" fill="${theme.codeKey}" text-anchor="middle" font-size="25">
+              <text x="45" y="120" fill="${theme.code.key}" text-anchor="middle" font-size="25">
                 PNG
               </text>
               <polygon
                 points="100,103 135,103 135,90 165,110 135,130 135,117 100,117"
-                fill="${theme.codeKey}"
-                stroke="${theme.codeKey}" stroke-width="5"
+                fill="${theme.code.key}"
+                stroke="${theme.code.key}" stroke-width="5"
               />
             </g>
             <g transform="translate(250 175) scale(2)" filter="url(#GaussianBlur)">
@@ -46,13 +49,13 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
             <g transform="translate(50 500)">
               <use href="#duckPixelArt" /> 
-              <text x="45" y="120" fill="${theme.codeKey}" text-anchor="middle" font-size="25">
+              <text x="45" y="120" fill="${theme.code.key}" text-anchor="middle" font-size="25">
                 SVG
               </text>
               <polygon
                 points="100,103 135,103 135,90 165,110 135,130 135,117 100,117"
-                fill="${theme.codeKey}"
-                stroke="${theme.codeKey}" stroke-width="5"
+                fill="${theme.code.key}"
+                stroke="${theme.code.key}" stroke-width="5"
               />
             </g>
             <g transform="translate(250 500) scale(2)">
@@ -65,7 +68,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ctx,
           x: 700,
           y: 150,
-          animatePosition: 1,
+          animatePosition: 2,
           svgContent: `
             <text x="250" y="75" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
               Flexibility
@@ -77,7 +80,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ctx,
           x: 1300,
           y: 150,
-          animatePosition: 1,
+          animatePosition: 3,
           svgContent: `
             <text x="250" y="75" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
               Accessibility
@@ -140,11 +143,8 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
       
 
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

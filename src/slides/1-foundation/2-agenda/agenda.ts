@@ -3,7 +3,7 @@ import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 import { agendaCard } from './agendaCard';
 
@@ -11,7 +11,11 @@ import notesMd from './agenda.md';
 
 export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
-  const notes = await readSrcFile(notesMd);
+
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -49,27 +53,25 @@ export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
         ${await agendaCard({
           y: 450,
           ctx: ctx,
-          icon: 'cool',
-          heading: 'Cool use cases',
-          description: 'Examples of clever ways to use SVGs',
-          iconTransformProp: 'scale(0.1) translate(400, 450)',
+          icon: 'review',
+          heading: 'Features &amp; Considerations',
+          description:
+            'A deep dive on the inner workings and what some of the \nconcerns or negatives are when using SVGs.',
+          iconTransformProp: 'scale(0.05) translate(1000, 950)',
         })}
         ${await agendaCard({
           y: 700,
           ctx: ctx,
-          icon: 'review',
-          heading: 'Considerations',
-          description: 'What are some concerns or negatives when using SVGs',
-          iconTransformProp: 'scale(0.05) translate(1000, 950)',
+          icon: 'cool',
+          heading: 'Cool use cases',
+          description: 'Examples of clever ways to use SVGs.',
+          iconTransformProp: 'scale(0.1) translate(400, 450)',
         })}
 
         ${usePublicImage('pitch', 'transform="translate(100, 225) scale(1.5)"')}
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

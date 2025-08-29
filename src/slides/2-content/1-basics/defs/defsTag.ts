@@ -2,13 +2,14 @@ import { codeBlockWithExample } from '@/components/code/codeBlockWithExample.ts'
 import { svgCode } from '@/components/code/codeSpan';
 import { animateSlideIn } from '@/components/core/animate';
 import { gradientSphere } from '@/components/spheres/gradientSphere';
+import { isServerMode } from '@/constants/env';
 import { usePublicImage } from '@/constants/image.ts';
 import { svgGradients } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
@@ -17,13 +18,17 @@ import notesMd from './defsTag.md';
 export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
   const gradients = svgGradients(ctx.themeKey);
-  const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
 
-  const alienDelay = ctx.env == 'ssg' ? '1ms' : '10s';
+  const isServer = isServerMode(ctx.env);
+  const alienDelay = isServer ? '1ms' : '10s';
   const alienPositionY = ctx.env == 'ssg' ? '-50' : '0';
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -37,8 +42,8 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           height: 450,
           animatePosition: 1,
           svgContent: `
-            <use href="#star-for-def-example" x="600" y="100" stroke="${theme.exampleColour}" />
-            <use href="#star-for-def-example" x="700" y="210" stroke="#007ca3" />
+            <use href="#star-for-def-example" x="600" y="100" fill="transparent" stroke="${theme.exampleColour}" />
+            <use href="#star-for-def-example" x="700" y="210" fill="transparent" stroke="#007ca3" />
           `,
           codeContent: `
             ${code.tag('&lt;svg', notFocussedStyle)}
@@ -70,7 +75,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${code.keyValue(['href', '=', '"#star"'])}
             ${code.keyValue(['x', '=', '"600"'])}
             ${code.keyValue(['y', '=', '"100"'])}
-            ${code.keyValue(['stroke', '=', '"#64E9BA"'])}
+            ${code.keyValue(['stroke', '=', `"${theme.exampleColour}"`])}
             ${code.tag('/&gt;')}
             <br />
             
@@ -78,7 +83,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${code.keyValue(['href', '=', '"#star"'])}
             ${code.keyValue(['x', '=', '"700"'])}
             ${code.keyValue(['y', '=', '"210"'])}
-            ${code.keyValue(['stroke', '=', '"#007CA3"'])}
+            ${code.keyValue(['stroke', '=', `"${theme.exampleColour2}"`])}
             ${code.tag('/&gt;')}
             <br />
             ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
@@ -173,7 +178,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${code.keyValue(['cx', '=', '"10"'])}
             ${code.keyValue(['cy', '=', '"10"'])}
             ${code.keyValue(['r', '=', '"10"'])}
-            ${code.keyValue(['fill', '=', '"#64E9BA"'])}
+            ${code.keyValue(['fill', '=', `"${theme.exampleColour}"`])}
             ${code.tag('/&gt;')}
             <br />
             ${code.tag('&lt;/pattern&gt;', { tabLevel: 2 })}
@@ -222,13 +227,13 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
               >
               </rect>
               <text x="220" y="100" fill="${theme.controlForeground}" font-size="30">
-                Tired of SVG tags?
+                Heads up!
               </text>
               <text x="220" y="150" fill="${theme.controlForeground}" font-size="30">
-                Do you want to see something more
+                We are going to make use of the 
               </text>
               <text x="220" y="190" fill="${theme.controlForeground}" font-size="30">
-                more familiar?
+                top left example again
               </text>
               <polyline
                 points="650,228 690,250 690,170"
@@ -240,12 +245,10 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             </g>
           `,
         })}
+        
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

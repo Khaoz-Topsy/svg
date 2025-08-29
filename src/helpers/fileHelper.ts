@@ -1,20 +1,22 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import type { ITheme } from '@/constants/theme';
+import { isServerMode, type EnvMode } from '@/constants/env';
+import type { ITheme, ThemeKey } from '@/constants/theme';
 import type { Result } from '@/contracts/resultWithValue';
 import { formatForCssRoot } from './stringHelper';
 
-export const readAssetFile = async (relativePath: string) => readLocalFile(relativePath);
-export const readSrcFile = async (relativePath: string) => readLocalFile(relativePath);
-
-export const readLocalFile = async (relativePath: string) => {
-  const envMode = import.meta.env.MODE;
-  if (envMode == 'ssg') {
+export const readLocalFile = async (
+  relativePath: string,
+  encoding: BufferEncoding | 'none' = 'utf-8',
+): Promise<string> => {
+  const envMode = import.meta.env.MODE as unknown as EnvMode;
+  if (isServerMode(envMode)) {
     const projectDir = import.meta.env.PROJECT_DIR;
     const isFullPath = path.resolve(relativePath) == path.normalize(relativePath);
     let fullPath = isFullPath ? relativePath : path.join(projectDir, 'public', relativePath);
-    return fs.readFile(fullPath, 'utf-8');
+    const opts = encoding == 'none' ? undefined : { encoding };
+    return fs.readFile(fullPath, opts) as Promise<string>;
   }
 
   const response = await fetch(relativePath);
@@ -22,7 +24,7 @@ export const readLocalFile = async (relativePath: string) => {
 };
 
 export const readSvg = async (theme: ITheme, path: string, parserFunc?: (doc: Document) => string) => {
-  let content = await readAssetFile(path);
+  let content = await readLocalFile(path, 'utf-8');
   content = replaceVariablesInSvgContent(theme, content);
 
   if (parserFunc == null) return content;
@@ -32,12 +34,53 @@ export const readSvg = async (theme: ITheme, path: string, parserFunc?: (doc: Do
   return parserFunc(doc);
 };
 
-export const readDiagramSvg = async (theme: ITheme, diagramName: string, parserFunc?: (doc: Document) => string) =>
-  readSvg(
+export const readBase64Image = async (path: string) => {
+  const envMode = import.meta.env.MODE as unknown as EnvMode;
+  if (isServerMode(envMode)) {
+    const raw = await readLocalFile(path, 'none');
+    const content = Buffer.from(raw).toString('base64');
+    return `data:image/png;base64,${content}`;
+  } else {
+    const promise = new Promise((resolve) => {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        var reader = new FileReader();
+        reader.onloadend = function () {
+          resolve(reader.result);
+        };
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', path);
+      xhr.responseType = 'blob';
+      xhr.send();
+    });
+    return promise;
+  }
+};
+
+export const readDiagramSvg = async (
+  theme: ITheme,
+  themeKey: ThemeKey,
+  diagramName: string,
+  fillClassColourReplaceRegex: Array<{ reg: RegExp; newColour: string }>,
+  parserFunc?: (doc: Document) => string,
+) => {
+  return readSvg(
     theme,
-    `/assets/diagram/${diagramName}.d2.svg`,
-    parserFunc ?? ((doc: Document) => doc?.children?.[0]?.outerHTML ?? ''),
+    `/assets/diagram/${diagramName}.d2.${themeKey}.svg`,
+    parserFunc ??
+      ((doc) => {
+        let innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+        if (innerSvg == null) return '';
+
+        for (const fillClassKey of fillClassColourReplaceRegex) {
+          innerSvg = innerSvg.replace(fillClassKey.reg, `.fill-N7{fill:${fillClassKey.newColour};}`);
+        }
+
+        return `<g id="diagramCloud">${innerSvg}</g>`;
+      }),
   );
+};
 
 export const replaceVariablesInSvgContent = (theme: ITheme, svgContent: string): string => {
   if (svgContent.includes('--') == false) return svgContent;

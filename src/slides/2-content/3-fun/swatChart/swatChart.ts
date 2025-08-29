@@ -1,6 +1,6 @@
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import { usePublicImage } from '@/constants/image';
@@ -10,11 +10,14 @@ import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { themes } from '@/constants/theme';
 import { drawPoint, drawText, drawRect, drawLine } from '@/helpers/svgHelper';
 
-export const swatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
+export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
   const theme = themes[ctx.themeKey];
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -67,11 +70,8 @@ export const swatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ${drawText(theme, 6, 'Profit?')}          
         </g>
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

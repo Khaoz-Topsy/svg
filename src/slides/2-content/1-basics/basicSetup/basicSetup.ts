@@ -3,16 +3,19 @@ import { svgCode } from '@/components/code/codeSpan';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './basicSetup.md';
 
 export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -71,7 +74,7 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
           y: 630,
           width: 1700,
           height: 350,
-          animatePosition: 1,
+          animatePosition: 2,
           svgContent: `
             <g id="basic-setup-example" transform="translate(200 50)">
               <text x="50" y="50" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">viewBox</text>
@@ -111,11 +114,8 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
           codeContent: '',
         })}
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };

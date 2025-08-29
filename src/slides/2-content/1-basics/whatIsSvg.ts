@@ -1,35 +1,37 @@
 import { svgCode } from '@/components/code/codeSpan';
 import { slideBeginValue } from '@/components/common/slideAnimation.ts';
 import { animateFadeIn } from '@/components/core/animate';
-import { tooltipAction } from '@/components/core/tooltipAction';
 import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { readSrcFile } from '@/helpers/fileHelper.ts';
+import { readLocalFile } from '@/helpers/fileHelper.ts';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './whatIsSvg.md';
 
-const tooltipWhatIsSvg = 'what-is-svg-tooltip';
+// const tooltipWhatIsSvg = 'what-is-svg-tooltip';
 const letterDelay = 500;
 
 export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
-  const code = svgCode(ctx.themeKey);
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
 
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, letterDelay * numTicksDelay);
 
-  const notes = await readSrcFile(notesMd);
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
       title: 'What is an SVG?',
       content: `
         <g class="noselect" opacity="0" transform="translate(100 150)">
-          ${animateFadeIn({ duration: '1s' })}
+          ${animateFadeIn({ duration: '1s', begin: getBegin(0) })}
           <rect 
               width="${svgConstants.width / 3}"
               height="350"
@@ -42,7 +44,7 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
           >
           </rect>
           <text x="55" y="105" opacity="0" fill="${theme.controlForeground}" font-size="100">
-            ${animateFadeIn({ duration: '1s', begin: getBegin(0) })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(1) })}
             S
           </text>
           <text x="47" y="205" opacity="0" fill="${theme.controlForeground}" font-size="100">
@@ -50,40 +52,34 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
             V
           </text>
           <text x="45" y="310" opacity="0" fill="${theme.controlForeground}" font-size="100">
-            ${animateFadeIn({ duration: '1s', begin: getBegin(2) })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(1) })}
             G
           </text>
 
           <text x="100" y="105" opacity="0" fill="${theme.controlForeground}" font-size="50">
-            ${animateFadeIn({ duration: '1s', begin: getBegin(3) })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(4) })}
             calar
           </text>
           <text x="97" y="205" opacity="0" fill="${theme.controlForeground}" font-size="50">
-            ${animateFadeIn({ duration: '1s', begin: getBegin(4) })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(5) })}
             ector
           </text>
           <text x="105" y="305" opacity="0" fill="${theme.controlForeground}" font-size="50">
-            ${animateFadeIn({ duration: '1s', begin: getBegin(5) })}
+            ${animateFadeIn({ duration: '1s', begin: getBegin(6) })}
             raphic
           </text>
         
-          <text id="tooltip-reveal"
-            x="200" y="150" font-size="25" opacity="0"
-            fill="${theme.controlForeground}"
-            transform="rotate(30 400 300) translate(80 -80)"
-          >
-            A picture from maths
-          </text>
-
-          <g id="${tooltipWhatIsSvg}">
-            <use  href="#tooltip" transform="scale(2) translate(275, 15)" />
+          <g class="noselect" opacity="0" transform="translate(0 50)">
+            ${animateFadeIn({ duration: '1s', begin: getBegin(10) })}
+            <text x="550" y="60 " text-anchor="middle" font-size="35" fill="${theme.controlForeground}">A</text>
+            <text x="550" y="100" text-anchor="middle" font-size="35" fill="${theme.controlForeground}">picture</text>
+            <text x="550" y="145" text-anchor="middle" font-size="35" fill="${theme.controlForeground}">from</text>
+            <text x="550" y="190" text-anchor="middle" font-size="35" fill="${theme.controlForeground}">maths</text>
           </g>
-          ${tooltipAction({ srcId: tooltipWhatIsSvg, targetId: 'tooltip-reveal' })}
-
         </g>
 
         <g opacity="0" transform="translate(800 150)">
-          ${animateFadeIn({ duration: '1s' })}
+          ${animateFadeIn({ duration: '1s', begin: getBegin(1) })}
           <rect 
               width="1000"
               height="350"
@@ -111,13 +107,13 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
               <br />
               <br />
 
-              ${code.tag('&lt;rect', { colour: theme.codeTag, tabLevel: 1 })}
+              ${code.tag('&lt;rect', { colour: theme.code.tag, tabLevel: 1 })}
               ${code.keyValue(['width', '=', '"250"'])}
               ${code.keyValue(['height', '=', '"250"'])}
               ${code.keyValue(['fill', '=', '"purple"'])}
               ${code.tag('/&gt;')}
               <br />
-              ${code.tag('&lt;circle', { colour: theme.codeTag, tabLevel: 1 })}
+              ${code.tag('&lt;circle', { colour: theme.code.tag, tabLevel: 1 })}
               ${code.keyValue(['cx', '=', '"125"'])}
               ${code.keyValue(['cy', '=', '"125"'])}
               ${code.keyValue(['r', '=', '"80"'])}
@@ -142,7 +138,7 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
         
         
         <g class="noselect" opacity="0" transform="translate(100 550)">
-          ${animateFadeIn({ duration: '1s' })}
+          ${animateFadeIn({ duration: '1s', begin: getBegin(2) })}
           <rect 
               width="${svgConstants.width - 220}"
               height="400"
@@ -172,11 +168,16 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
         </g>
         
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };
+
+/*
+
+          <g id="${tooltipWhatIsSvg}">
+            <use  href="#tooltip" transform="scale(2) translate(275, 15)" />
+          </g>
+          ${tooltipAction({ srcId: tooltipWhatIsSvg, targetId: 'tooltip-reveal' })}
+*/

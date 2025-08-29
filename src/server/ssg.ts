@@ -49,7 +49,7 @@ const generateFullSvg = async () => {
 
   let fullSvg = await renderSvgOuterSSG(themeKey, svgSlideContents);
   // let formattedSvg = xmlFormat(fullSvg);
-  const outputPath = path.join(projectDirectory, 'dist', `${env}.svg`);
+  const outputPath = path.join(projectDirectory, 'website', 'assets', 'img', 'generated', `${env}.svg`);
   await writeLinesToFile(fullSvg, outputPath);
 };
 

@@ -3,17 +3,20 @@ import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { readSrcFile } from '@/helpers/fileHelper';
+import { readLocalFile } from '@/helpers/fileHelper';
+import { circleRadius, drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './statPoints.md';
-import { circleRadius, drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
 
-export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
-  const notes = await readSrcFile(notesMd);
-  const previousSlideId = getPreviousSlideIndex(ctx);
+export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
+  const previousSlideId = getPreviousSlideIndex(ctx);
 
+  const sharedProperties = {
+    ssg: { secondsToDisplay: 3 },
+    notes: await readLocalFile(notesMd),
+  };
   return {
     content: slideBase({
       ctx: ctx,
@@ -65,7 +68,7 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
               to="100,60.00 58.14,75.83 68.25,118.33 100,143.33 131.75,118.33 136.08,79.17" 
               attributeName="points" 
               fill="freeze"
-              begin="${previousSlideId == undefined ? '500ms' : `${previousSlideId}-slide-anim.begin+750ms`}"
+              begin="${previousSlideId == undefined ? '500ms' : `${previousSlideId}-slide-anim.end+750ms`}"
               dur="1s"
             ></animate>
           </polygon>
@@ -74,7 +77,7 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
         <g opacity="0" transform="translate(100 90)">
           ${animateFadeIn({
             duration: '1s',
-            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+1s`,
+            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.end+1s`,
           })}
           <rect 
             width="850"
@@ -127,11 +130,8 @@ export const statPoints = async (ctx: SlideContext): Promise<ISvgSlide> => {
           
         </g>
         `,
-      notes,
+      ...sharedProperties,
     }),
-    notes,
-    ssg: {
-      secondsToDisplay: 3,
-    },
+    ...sharedProperties,
   };
 };
