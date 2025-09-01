@@ -1,0 +1,169 @@
+html,
+body,
+div,
+svg {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+html {
+  overflow: hidden;
+}
+
+a {
+  color: var(--secondary-colour);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#background-container img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  transition: opacity 500ms ease-in-out;
+}
+
+#presentation-container {
+  transition: transform 1s ease-in-out;
+}
+#presentation-container.minimized {
+  transform: translateY(92.5vh);
+}
+
+#presentation-container,
+#presentation-presenter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+#presentation-container.presenter {
+  justify-content: start;
+  height: 100vh;
+}
+
+#presentation-container.presenter + #presentation-controls .left,
+#presentation-container.presenter + #presentation-controls .right {
+  display: none;
+}
+
+#presentation-container.presenter > svg {
+  max-width: 50vw;
+  margin: 3em;
+}
+
+#presentation-container > svg {
+  width: auto;
+  max-height: calc(100vh - 2em - 4px);
+  margin-block: 1em;
+}
+
+#presentation-presenter-container {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 3em;
+}
+
+#presentation-presenter-container hr {
+  margin-block: 2em;
+  border-width: 2px;
+  border-style: dashed;
+  border-radius: 50%;
+  border-color: var(--primary-colour);
+  width: 100%;
+}
+
+#presentation-presenter-container .notes {
+  color: white;
+}
+
+#presentation-container #presentation-presenter-container > svg {
+  max-width: 25vw;
+  margin-inline: 6em;
+}
+
+.control {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 3em;
+  left: 3em;
+  right: 3em;
+  color: var(--control-foreground-colour);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: var(--control-background-colour);
+  filter: drop-shadow(5px 5px 5px #000000);
+  transition: all 500ms ease-in-out;
+  /* transition-delay: 100ms; */
+  cursor: pointer;
+  opacity: 0;
+}
+
+.control:hover {
+  opacity: 0.5;
+}
+
+.control.left {
+  left: 0;
+  right: unset;
+  border-right: 2px solid var(--control-highlight-colour);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.control.right {
+  left: unset;
+  right: 0;
+  border-left: 2px solid var(--control-highlight-colour);
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.control.bottom {
+  top: unset;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: unset;
+  height: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-left: 2px solid var(--control-highlight-colour);
+  opacity: 0.5;
+}
+
+#presentation-controls.first .control.left {
+  cursor: unset;
+  opacity: 0;
+}
+
+#presentation-controls.last .control.right {
+  cursor: unset;
+  opacity: 0;
+}

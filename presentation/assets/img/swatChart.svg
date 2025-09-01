@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 650" style="background-color: black; border-radius: 50px;"><defs>
+    <polygon id="arrow" points="8,0 16,12 0,12" fill="#696969ff" />
+  </defs>
+<g id="area-backgrounds"><rect width="410" height="325" x="0" y="0" fill="#FFFFDF" />
+<rect width="410" height="325" x="410" y="0"
+      fill="#DFFFDF" />
+<rect width="410" height="325" x="0" y="325"
+      fill="#FFDFDF" />
+<rect width="410" height="325" x="410" y="325"
+      fill="#EDDFFF" /></g>
+<g id="graph">
+    <use href="#arrow" x="402" y="0" />
+    <use href="#arrow" x="317" y="-820" style="transform: rotate(90deg)" />
+    <use href="#arrow" x="-418" y="-650"
+      style="transform: rotate(180deg)" />
+    <use href="#arrow" x="-333" y="0" style="transform: rotate(270deg)" />
+
+    <rect id="x-axis" width="796" height="3" x="12"
+      y="323.5" fill="#696969ff" />
+    <rect id="y-axis" width="3" height="626"
+      x="408.5" y="12" fill="#696969ff" />
+  </g>
+<g id="grid-lines" transform="translate(10 25)">
+    
+  </g>
+<g id="swat" transform="translate(10, 25)">
+<g id="ticks">
+        <text 
+          x="-1.5" 
+          y="308"
+          fill="#696969ff" 
+          text-anchor="left"
+          alignment-baseline="hanging"
+          font-size="25"
+          font-family="Calibri">Lame
+        </text>
+
+        <text 
+          x="801.5" 
+          y="308"
+          fill="#696969ff" 
+          text-anchor="end"
+          alignment-baseline="hanging"
+          font-size="25"
+          font-family="Calibri">Epic
+        </text>
+
+        <text 
+          x="408" y="600" 
+          fill="#696969ff" 
+          text-anchor="left" 
+          alignment-baseline="middle"
+          font-size="25"
+          font-family="Calibri">Lost brain cells</text>
+
+        <text 
+          x="408" y="0" 
+          fill="#696969ff" 
+          text-anchor="left" 
+          alignment-baseline="middle"
+          font-size="25"
+          font-family="Calibri">Life changing</text></g>
+<g id="points"><circle 
+        cx="600"
+        cy="90"
+        r="3" 
+        fill="black" />
+<text y="90"
+        x="606" fill="black"
+        text-anchor="left" 
+        alignment-baseline="middle"
+        font-size="25"
+        font-family="Calibri">This prez 😎</text>
+<circle 
+        cx="600"
+        cy="540"
+        r="3" 
+        fill="black" />
+<text y="540"
+        x="606" fill="black"
+        text-anchor="left" 
+        alignment-baseline="middle"
+        font-size="25"
+        font-family="Calibri">Asdfmovie</text>
+<circle 
+        cx="120"
+        cy="210"
+        r="3" 
+        fill="black" />
+<text y="210"
+        x="126" fill="black"
+        text-anchor="left" 
+        alignment-baseline="middle"
+        font-size="25"
+        font-family="Calibri">TedX talk</text>
+<circle 
+        cx="40"
+        cy="570"
+        r="3" 
+        fill="black" />
+<text y="570"
+        x="46" fill="black"
+        text-anchor="left" 
+        alignment-baseline="middle"
+        font-size="25"
+        font-family="Calibri">Skibidi toilet</text></g>
+</g></svg>
