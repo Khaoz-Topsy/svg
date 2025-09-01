@@ -67,16 +67,17 @@ export const readDiagramSvg = async (
 ) => {
   return readSvg(
     theme,
-    `/assets/diagram/${diagramName}.d2.${themeKey}.svg`,
+    `./assets/diagram/${diagramName}.d2.${themeKey}.svg`,
     parserFunc ??
       ((doc) => {
-        let innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+        console.log(doc);
+        let innerSvg = doc?.children?.[0]?.children?.[0].innerHTML ?? '';
         if (innerSvg == null) return '';
 
-        for (const fillClassKey of fillClassColourReplaceRegex) {
-          innerSvg = innerSvg.replace(fillClassKey.reg, `.fill-N7{fill:${fillClassKey.newColour};}`);
-        }
-
+        // for (const fillClassKey of fillClassColourReplaceRegex) {
+        //   innerSvg = innerSvg.replace(fillClassKey.reg, `.fill-N7{fill:${fillClassKey.newColour};}`);
+        // }
+        console.log(innerSvg, fillClassColourReplaceRegex);
         return `<g id="diagramCloud">${innerSvg}</g>`;
       }),
   );

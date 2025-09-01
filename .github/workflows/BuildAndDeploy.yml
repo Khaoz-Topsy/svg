@@ -1,0 +1,52 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    environment: github-pages
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: 'Setup D2'
+        run: |
+          curl -fsSL https://d2lang.com/install.sh | sh -s --
+
+      - name: Setup variables
+        run: |
+          touch .env
+          echo D2_SRC_DIR="./docs/d2" >> .env
+          echo D2_DST_DIR="./public/assets/diagram" >> .env
+
+      - name: Install packages
+        run: |
+          npm ci --force
+
+      - name: Build D2 files
+        run: |
+          cd public/assets/diagram
+          sh ./generate.sh
+
+      - name: Build SVGs
+        run: |
+          npm run build:web
+          npm run build:ssg
+          npm run build:ssg-auto
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        with:
+          folder: website # The folder the action should deploy.

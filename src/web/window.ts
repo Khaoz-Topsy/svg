@@ -43,6 +43,10 @@ export const getValuesFromUrl = () => {
 export const updateUrl = (newIndex: number, viewMode: string) => {
   const newUrl = getNewPresentationUrl(newIndex, viewMode);
   if (location.href != newUrl) location.href = newUrl;
+  console.log({
+    locHref: location.href,
+    newUrl,
+  });
 };
 
 export const progressIndexHandler = (

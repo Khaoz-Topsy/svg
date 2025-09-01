@@ -9,6 +9,7 @@ import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './fakeSvg.md';
 import { isServerMode } from '@/constants/env';
+import { PublicImage } from '@/constants/image';
 
 export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
@@ -36,7 +37,7 @@ export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
                 stroke="${theme.exampleColour}" fill="${theme.exampleColour}" 
               />
               <image x="65" y="70"
-                href="${await readBase64Image('/assets/img/entelect.png')}" 
+                href="${await readBase64Image(PublicImage.entelect)}"
                 alt="Entelect logo"
                />
             </g>
@@ -90,8 +91,8 @@ export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
               </clipPath>
               <image href="${
                 isServerMode(ctx.env)
-                  ? await readBase64Image('/assets/img/entelect-github.png')
-                  : '/assets/img/entelect-github.png'
+                  ? await readBase64Image(PublicImage.entelectGithub)
+                  : './assets/img/entelect-github.png'
               }" clip-path="url(#httpImageClip)" alt="Description of the image" />
             </g>
           `,

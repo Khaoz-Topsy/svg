@@ -16,10 +16,9 @@ const env: EnvMode = 'web';
 const localStorageThemeKey = 'kurt-presentation-theme';
 let isMinimized = false;
 let themeKey = (localStorage.getItem(localStorageThemeKey) ?? 'dark') as unknown as ThemeKey;
-import.meta.env.MODE = env;
 
 const slideBackgrounds: Record<string, string> = {
-  'slide-basic-drawing-defs': '/assets/img/sun-tornado.svg',
+  'slide-basic-drawing-defs': './assets/img/sun-tornado.svg',
 };
 
 const setupPresentationForWeb = async () => {

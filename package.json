@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:diagrams": "bun ./scripts/script.ts",
     "build:web": "tsc && vite build",
     "build:ssg": "bun ./src/server/ssg.ts",
     "build:ssg-auto": "bun ./src/server/ssg.ts auto-slide",
