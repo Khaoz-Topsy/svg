@@ -48,6 +48,7 @@ jobs:
         run: |
           npm run build:ssg
           npm run build:ssg-auto
+          rm ./website/assets/img/.gitignore
 
       - name: Build web version
         run: |
