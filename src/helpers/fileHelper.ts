@@ -70,14 +70,13 @@ export const readDiagramSvg = async (
     `./assets/diagram/${diagramName}.d2.${themeKey}.svg`,
     parserFunc ??
       ((doc) => {
-        console.log(doc);
         let innerSvg = doc?.children?.[0]?.children?.[0].innerHTML ?? '';
         if (innerSvg == null) return '';
 
-        // for (const fillClassKey of fillClassColourReplaceRegex) {
-        //   innerSvg = innerSvg.replace(fillClassKey.reg, `.fill-N7{fill:${fillClassKey.newColour};}`);
-        // }
-        console.log(innerSvg, fillClassColourReplaceRegex);
+        for (const fillClassKey of fillClassColourReplaceRegex) {
+          innerSvg = innerSvg.replace(fillClassKey.reg, `.fill-N7{fill:${fillClassKey.newColour};}`);
+        }
+
         return `<g id="diagramCloud">${innerSvg}</g>`;
       }),
   );
