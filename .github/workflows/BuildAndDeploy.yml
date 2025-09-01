@@ -20,6 +20,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
       - name: 'Setup D2'
         run: |
@@ -42,9 +46,13 @@ jobs:
 
       - name: Build SVGs
         run: |
-          npm run build:web
           npm run build:ssg
           npm run build:ssg-auto
+
+      - name: Build web version
+        run: |
+          npm run build:web
+          cp -r ./dist ./website/presentation
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.3.4
