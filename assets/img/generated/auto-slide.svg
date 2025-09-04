@@ -2,7 +2,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 1920 1080"
     overflow="hidden"
-    data-date-rendered="2025-09-04T15:01:21.838Z"
+    data-date-rendered="2025-09-04T21:14:24.261Z"
   >
     
   <defs>
@@ -608,6 +608,14 @@
 <circle cx="40" cy="570" r="3" fill="black"/>
 <text y="570" x="46" fill="black" text-anchor="left" alignment-baseline="middle" font-size="25" font-family="Calibri">Skibidi toilet</text></g>
 </g></g>
+<g id="ghost">
+  <path xmlns="http://www.w3.org/2000/svg" d="M16.0338 1.5c-5.2901 0 -9.77932 3.79167 -10.53558 8.9044l-0.00123 0.0083L5.25951 12.5H2.74776c-1.08736 0 -1.6272 1.3199 -0.86356 2.0836l2.81767 2.8176 -1.14522 10.0657c-0.20678 1.3865 0.72583 2.8126 2.20913 3.001 1.17029 0.1481 2.39172 -0.2165 3.29658 -1.0976 1.15084 -1.1205 3.02824 -1.1205 4.17914 0 1.539 1.4987 4.0352 1.4987 5.5743 0 1.1508 -1.1205 3.0283 -1.1205 4.1791 0 0.824 0.8024 1.9054 1.1665 2.9677 1.1211l0.0018 -0.0001c1.584 -0.0734 2.759 -1.5018 2.5364 -3.0431l-1.1423 -10.0818 2.7828 -2.7828c0.7637 -0.7637 0.2238 -2.0836 -0.8635 -2.0836h-2.4707l-0.2365 -2.0867 -0.0011 -0.0079C25.8238 5.29103 21.323 1.5 16.0338 1.5Z" fill="#9b9b9b" stroke-width="1"/>
+  <path xmlns="http://www.w3.org/2000/svg" d="m6.15216 13.5 0.33649 -2.9575C7.17333 5.94213 11.2241 2.5 16.0338 2.5c4.8106 0 8.8704 3.44297 9.545 8.0419l0.3351 2.9581h3.3639c0.1926 0 0.2928 0.2401 0.1564 0.3764l-3.1237 3.1237 1.1985 10.5772 0.0012 0.0084c0.1412 0.9544 -0.5916 1.8599 -1.5915 1.9066 -0.8059 0.0342 -1.6131 -0.2415 -2.2262 -0.8384 -1.539 -1.4987 -4.0353 -1.4987 -5.5743 0 -1.1509 1.1206 -3.0283 1.1206 -4.1791 0 -1.5391 -1.4987 -4.03532 -1.4987 -5.5744 0 -0.67622 0.6585 -1.59029 0.9337 -2.47336 0.8219 -0.87437 -0.1112 -1.48096 -0.9779 -1.34471 -1.8676l0.00146 -0.0095 1.20187 -10.5636 -3.15867 -3.1587c-0.13636 -0.1363 -0.0362 -0.3764 0.15644 -0.3764h3.40443Z" fill="#ffffff" stroke-width="1"/>
+  <path xmlns="http://www.w3.org/2000/svg" d="M21 12H11s0 5 5 5 5 -5 5 -5Z" fill="#89029c" stroke-width="1"/>
+  <path xmlns="http://www.w3.org/2000/svg" d="m19.5884 16.0583 0.177 -0.8854c0.1314 -0.6566 -0.2762 -1.3006 -0.9258 -1.463 -1.8644 -0.4661 -3.8148 -0.4661 -5.6792 0 -0.6496 0.1624 -1.0571 0.8064 -0.9258 1.463l0.1771 0.8854C12.7538 17.7688 14.2556 19 16 19c1.7444 0 3.2463 -1.2312 3.5884 -2.9417Z" fill="#f70a8d" stroke-width="1"/>
+  <path xmlns="http://www.w3.org/2000/svg" d="M11.7237 7.05277c-0.247 -0.12349 -0.5473 -0.02338 -0.6708 0.22361 -0.1235 0.24699 -0.0234 0.54733 0.2236 0.67082l1.1056 0.55279 -1.1056 0.55278c-0.247 0.1235 -0.3471 0.42383 -0.2236 0.67082 0.1235 0.24699 0.4238 0.34711 0.6708 0.22361l2 -1c0.1694 -0.08469 0.2764 -0.25783 0.2764 -0.44721 0 -0.18939 -0.107 -0.36252 -0.2764 -0.44722l-2 -1Z" fill="#321b41" stroke-width="1"/>
+  <path xmlns="http://www.w3.org/2000/svg" d="M21.0001 8.49999c0 0.82842 -0.6716 1.5 -1.5 1.5s-1.5 -0.67158 -1.5 -1.5c0 -0.82843 0.6716 -1.5 1.5 -1.5s1.5 0.67157 1.5 1.5Z" fill="#321b41" stroke-width="1"/>
+</g>
 
     <polygon id="star-for-def-example" points="96,0,125.38926261462366,55.54915028125263,187.30142556433475,66.33436854000504,143.55282581475768,111.45084971874736,152.42738422007744,173.66563145999493,96,146,39.572615779922586,173.66563145999498,48.447174185242325,111.45084971874738,4.69857443566525,66.33436854000507,66.61073738537632,55.549150281252636" stroke-width="5"></polygon>
     <pattern id="pattern-for-def-example" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -1232,7 +1240,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1241,7 +1249,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1250,7 +1258,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1259,7 +1267,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1268,7 +1276,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1277,7 +1285,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1286,7 +1294,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1295,7 +1303,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1304,7 +1312,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1313,7 +1321,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1322,7 +1330,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1331,7 +1339,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1340,7 +1348,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1349,7 +1357,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1358,7 +1366,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1367,7 +1375,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1376,7 +1384,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1385,7 +1393,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1394,7 +1402,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1560,7 +1577,7 @@
     />
           <rect 
             width="850"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -1633,7 +1650,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1642,7 +1659,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1651,7 +1668,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1660,7 +1677,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1669,7 +1686,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1678,7 +1695,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1687,7 +1704,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1696,7 +1713,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1705,7 +1722,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1714,7 +1731,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1723,7 +1740,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1732,7 +1749,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1741,7 +1758,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1750,7 +1767,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1759,7 +1776,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1768,7 +1785,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1777,7 +1794,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1786,7 +1803,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1795,7 +1812,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -1873,7 +1899,6 @@
         <g transform="translate(125, 220)">
           <use href="#swatChart"  />
         </g>
-
         
         <g opacity="0" transform="translate(200 100)">
           <animate
@@ -1886,9 +1911,9 @@
     />
           <rect 
             width="750"
-            height="790"
+            height="810"
             x="850"
-            y="50"
+            y="40"
             rx="50"
             fill="transparent"
             stroke="#007ca3"
@@ -1920,7 +1945,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1929,7 +1954,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1938,7 +1963,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1947,7 +1972,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1956,7 +1981,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1965,7 +1990,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1974,7 +1999,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1983,7 +2008,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -1992,7 +2017,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2001,7 +2026,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2010,7 +2035,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2019,7 +2044,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2028,7 +2053,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2037,7 +2062,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2046,7 +2071,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2055,7 +2080,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2064,7 +2089,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2073,16 +2098,25 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-18"
+    class="progress-icon"
+    cx="1147.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
   />
 
   <circle 
-    id="progress-18"
+    id="progress-19"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -2167,7 +2201,7 @@
     />
             <rect 
               width="850"
-              height="800"
+              height="810"
               x="850"
               y="50"
               rx="50"
@@ -2362,7 +2396,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2371,7 +2405,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2380,7 +2414,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2389,7 +2423,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2398,7 +2432,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2407,7 +2441,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2416,7 +2450,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2425,7 +2459,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2434,7 +2468,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2443,7 +2477,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2452,7 +2486,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2461,7 +2495,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2470,7 +2504,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2479,7 +2513,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2488,7 +2522,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2497,7 +2531,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2506,16 +2540,16 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
-    fill="#2F2F2F" 
+    fill="#888888" 
   />
 
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -2524,7 +2558,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -2668,7 +2711,7 @@
     />
           <rect 
             width="700"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -2681,17 +2724,61 @@
             What the template looks like:
           </text>
 
-          <circle cx="900" cy="160" r="7" fill="#64E9BA" />
-          <text x="930" y="167" fill="#f0f0f0" font-size="30" >Draw a Hexagon</text>
-          <text x="930" y="217" fill="#f0f0f0" font-size="25" font-style="italic">Using &lt;polygon&gt;</text>
+          <foreignObject x="880" y="150" width="1200" height="800">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
+                <span style="color: lightblue; opacity: 0.3;">&lt;svg</span>
+                <span style="opacity: 0.3;"><span style="color: lightcoral;">viewBox</span><span style="color: white;">=</span><span style="color: lightyellow;">"0 0 1200 627"</span></span>
+                <span style="opacity: 0.3;"><span style="color: lightcoral;">xmlns</span><span style="color: white;">=</span><span style="color: lightyellow;">"http://www.w3..."</span></span><span style="color: lightblue; opacity: 0.3;">&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; margin-left: 2em;">&lt;image</span>
+                <span><span style="color: lightcoral;"> </span><span style="color: white;">.....</span></span>
+                <span><span style="color: lightcoral;">href</span><span style="color: white;">=</span><span style="color: lightyellow;">"{{backgroundBase64}}"</span></span>
+                <span style="color: lightblue;">/&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; margin-left: 2em;">&lt;image</span>
+                <span><span style="color: lightcoral;"> </span><span style="color: white;">.....</span></span>
+                <span><span style="color: lightcoral;">href</span><span style="color: white;">=</span><span style="color: lightyellow;">"{{spriteBase64}}"</span></span>
+                <span style="color: lightblue;">/&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; margin-left: 2em;">&lt;image</span>
+                <span><span style="color: lightcoral;"> </span><span style="color: white;">.....</span></span>
+                <span><span style="color: lightcoral;">href</span><span style="color: white;">=</span><span style="color: lightyellow;">"{{elementBase64}}"</span></span>
+                <span style="color: lightblue;">/&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; margin-left: 2em;">&lt;text</span>
+                <span><span style="color: lightcoral;"> </span><span style="color: white;">.....</span></span>
+                <span style="color: lightblue;">&gt;</span>
+                <span style="color: #007CA3;">{{name}}</span>
+                <span style="color: lightblue;">&lt;/text&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; margin-left: 2em;">&lt;text</span>
+                <span><span style="color: lightcoral;"> </span><span style="color: white;">.....</span></span>
+                <span style="color: lightblue;">&gt;</span>
+                <span style="color: #007CA3;">{{description}}</span>
+                <span style="color: lightblue;">&lt;/text&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; margin-left: 2em;">&lt;image</span>
+                <span><span style="color: lightcoral;"> </span><span style="color: white;">.....</span></span>
+                <span><span style="color: lightcoral;">href</span><span style="color: white;">=</span><span style="color: lightyellow;">"{{backgroundOverlayBase64}}"</span></span>
+                <span style="color: lightblue;">/&gt;</span>
+                <br />
+                <br />
+                <span style="color: lightblue; opacity: 0.3;">&lt;svg&gt;</span>
+            </div>
+          </foreignObject>
 
-
-          <circle cx="900" cy="710" r="7" fill="#64E9BA" />
-          <text x="930" y="717" fill="#f0f0f0" font-size="30" >I used this on:</text>
+          <circle cx="900" cy="760" r="7" fill="#64E9BA" />
+          <text x="930" y="767" fill="#f0f0f0" font-size="30" >I used this on:</text>
           <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            <text x="930" y="754.5" fill="#f0f0f0" font-size="30" font-style="italic">https://cassettebeasts.assistantapps.com</text>
+            <text x="930" y="804.5" fill="#f0f0f0" font-size="30" font-style="italic">https://cassettebeasts.assistantapps.com</text>
           </a>
-          <line x1="930" y1="768" x2="1430" y2="768" stroke="#f0f0f0" stroke-width="2" />
+          <line x1="930" y1="818" x2="1430" y2="818" stroke="#f0f0f0" stroke-width="2" />
           
         </g>
         
@@ -2700,7 +2787,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2709,7 +2796,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2718,7 +2805,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2727,7 +2814,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2736,7 +2823,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2745,7 +2832,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2754,7 +2841,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2763,7 +2850,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2772,7 +2859,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2781,7 +2868,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2790,7 +2877,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2799,7 +2886,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2808,7 +2895,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2817,7 +2904,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2826,7 +2913,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -2835,16 +2922,16 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
-    fill="#2F2F2F" 
+    fill="#888888" 
   />
 
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -2853,7 +2940,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -2862,7 +2949,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3000,7 +3096,7 @@
     />
           <rect 
             width="850"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -3036,12 +3132,12 @@
           <circle cx="900" cy="560" r="7" fill="#64E9BA" />
           <text x="930" y="567" fill="#f0f0f0" font-size="30" >Add an animation 💫</text>
 
-          <circle cx="900" cy="710" r="7" fill="#64E9BA" />
-          <text x="930" y="717" fill="#f0f0f0" font-size="30" >I used this on:</text>
+          <circle cx="900" cy="760" r="7" fill="#64E9BA" />
+          <text x="930" y="767" fill="#f0f0f0" font-size="30" >I used this on:</text>
           <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            <text x="930" y="754.5" fill="#f0f0f0" font-size="30" font-style="italic">https://cassettebeasts.assistantapps.com</text>
+            <text x="930" y="804.5" fill="#f0f0f0" font-size="30" font-style="italic">https://cassettebeasts.assistantapps.com</text>
           </a>
-          <line x1="930" y1="768" x2="1430" y2="768" stroke="#f0f0f0" stroke-width="2" />
+          <line x1="930" y1="818" x2="1430" y2="818" stroke="#f0f0f0" stroke-width="2" />
           
         </g>
         
@@ -3050,7 +3146,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3059,7 +3155,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3068,7 +3164,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3077,7 +3173,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3086,7 +3182,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3095,7 +3191,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3104,7 +3200,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3113,7 +3209,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3122,7 +3218,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3131,7 +3227,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3140,7 +3236,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3149,7 +3245,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3158,7 +3254,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3167,7 +3263,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3176,16 +3272,16 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
-    fill="#2F2F2F" 
+    fill="#888888" 
   />
 
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3194,7 +3290,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3203,7 +3299,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3212,7 +3308,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3330,11 +3435,11 @@
     to="1"
     dur="1s"
     fill="freeze"
-    begin="slide-advanced-security-concerns-slide-anim.end+1s"
+    begin="slide-fun-begins-slide-anim.end+1s"
     />
           <rect 
             width="850"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -3348,10 +3453,25 @@
           </text>
 
           <circle cx="900" cy="160" r="7" fill="#64E9BA" />
-          <text x="930" y="167" fill="#f0f0f0" font-size="30" >Draw a Hexagon</text>
-          <text x="930" y="217" fill="#f0f0f0" font-size="25" font-style="italic">Using &lt;polygon&gt;</text>
+          <text x="930" y="167" fill="#f0f0f0" font-size="30" >Draw a red rounded rectangle</text>
 
-          
+          <circle cx="900" cy="210" r="7" fill="#64E9BA" />
+          <text x="930" y="217" fill="#f0f0f0" font-size="30" >Draw a white rounded rectangle</text>
+          <text x="930" y="267" fill="#f0f0f0" font-size="25" font-style="italic">2/3 the height, aligned to the bottom</text>
+
+          <circle cx="900" cy="310" r="7" fill="#64E9BA" />
+          <text x="930" y="317" fill="#f0f0f0" font-size="30" >Draw 1 more red rectangle</text>
+          <text x="930" y="367" fill="#f0f0f0" font-size="25" font-style="italic">1/3 the height, aligned to the top</text>
+
+          <circle cx="900" cy="410" r="7" fill="#64E9BA" />
+          <text x="930" y="417" fill="#f0f0f0" font-size="30" >Draw the text</text>
+          <text x="930" y="467" fill="#f0f0f0" font-size="25" font-style="italic">Using text-anchor="middle" when needed</text>
+
+          <circle cx="900" cy="510" r="7" fill="#64E9BA" />
+          <text x="930" y="517" fill="#f0f0f0" font-size="30" >Draw 1 more red rectangle but with the fill transparent</text>
+
+          <circle cx="900" cy="610" r="7" fill="#64E9BA" />
+          <text x="930" y="617" fill="#f0f0f0" font-size="30" >Add extra decorations 👨‍🎨</text>
         </g>
         
       <g id="progress">
@@ -3359,7 +3479,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3368,7 +3488,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3377,7 +3497,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3386,7 +3506,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3395,7 +3515,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3404,7 +3524,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3413,7 +3533,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3422,7 +3542,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3431,7 +3551,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3440,7 +3560,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3449,7 +3569,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3458,7 +3578,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3467,7 +3587,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3476,16 +3596,16 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
-    fill="#2F2F2F" 
+    fill="#888888" 
   />
 
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3494,7 +3614,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3503,7 +3623,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3512,7 +3632,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3521,7 +3641,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3536,7 +3665,7 @@
             from="1"
             to="0"
             dur="3s"
-            begin="slide-advanced-security-concerns-slide-anim.end+500ms"
+            begin="slide-fun-begins-slide-anim.end+500ms"
             fill="freeze"
           />
         
@@ -3559,6 +3688,261 @@
         fill="freeze"
         path="M0,0 L -300 1080"
         begin="slide-fun-calendar-icon-slide-anim.end+50ms" 
+      />
+      
+    </g>
+<g id="slide-fun-begins"  opacity="0">
+      <g id="background">
+    <rect 
+        width="1918"
+        height="1078"
+        x="1"
+        y="1"
+        rx="20"
+        fill="#242424"
+    />
+    <rect 
+        width="1916"
+        height="1076"
+        x="2"
+        y="2"
+        rx="20"
+        fill="transparent"
+        stroke="#7B0CD8"
+        stroke-width="4"
+    />
+</g>
+      <animate
+    attributeName="opacity"
+    from="0"
+    to="1"
+    dur="250ms"
+    fill="freeze"
+    
+    />
+      <g id="window-title" class="noselect">
+    <rect x="60" y="10" height="47" fill="#242424" width="960" />
+    <text x="70" y="44" fill="#f0f0f0" font-size="35">The Fun begins</text>
+  </g>
+      
+        <g transform="scale(20) translate(33 10)">
+          <use href="#ghost"  />
+        </g>
+        
+      <g id="progress">
+    
+  <circle 
+    id="progress-0"
+    class="progress-icon"
+    cx="742.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-1"
+    class="progress-icon"
+    cx="765" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-2"
+    class="progress-icon"
+    cx="787.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-3"
+    class="progress-icon"
+    cx="810" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-4"
+    class="progress-icon"
+    cx="832.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-5"
+    class="progress-icon"
+    cx="855" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-6"
+    class="progress-icon"
+    cx="877.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-7"
+    class="progress-icon"
+    cx="900" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-8"
+    class="progress-icon"
+    cx="922.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-9"
+    class="progress-icon"
+    cx="945" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-10"
+    class="progress-icon"
+    cx="967.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-11"
+    class="progress-icon"
+    cx="990" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-12"
+    class="progress-icon"
+    cx="1012.5" 
+    cy="1045" 
+    r="5" 
+    fill="#888888" 
+  />
+
+  <circle 
+    id="progress-13"
+    class="progress-icon"
+    cx="1035" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-14"
+    class="progress-icon"
+    cx="1057.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-15"
+    class="progress-icon"
+    cx="1080" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-16"
+    class="progress-icon"
+    cx="1102.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-17"
+    class="progress-icon"
+    cx="1125" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-18"
+    class="progress-icon"
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  </g>
+      
+      
+          <animate
+            id="slide-fun-begins-slide-anim"
+            attributename="opacity"
+            from="1"
+            to="0"
+            dur="3s"
+            begin="slide-advanced-security-concerns-slide-anim.end+500ms"
+            fill="freeze"
+          />
+        
+
+      <animateTransform
+        href="#slide-fun-begins"
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        dur="1000ms"
+        from="0 500 500"
+        to="90 500 500"
+        repeatCount="1"
+        begin="slide-fun-begins-slide-anim.end+50ms" 
+      />
+      <animateMotion
+        href="#slide-fun-begins"
+        dur="500ms"
+        repeatCount="1"
+        fill="freeze"
+        path="M0,0 L -300 1080"
+        begin="slide-fun-begins-slide-anim.end+50ms" 
       />
       
     </g>
@@ -3596,14 +3980,68 @@
     <text x="70" y="44" fill="#f0f0f0" font-size="35">Security Concerns</text>
   </g>
       
+        <foreignObject x="100" y="200" width="1200" height="800">
+          <img src="./assets/img/hacker.svg" 
+            onload="alert('Image is loaded')"
+          />
+        </foreignObject>
+                        
+        <g opacity="0" transform="translate(300 90)">
+          <animate
+    attributeName="opacity"
+    from="0"
+    to="1"
+    dur="1s"
+    fill="freeze"
+    begin="slide-advanced-foreign-object-slide-anim.end+1s"
+    />
+          <rect 
+            width="650"
+            height="800"
+            x="850"
+            y="50"
+            rx="50"
+            fill="transparent"
+            stroke="#007ca3"
+            stroke-width="3"
+          />
+
+          <text x="890" y="120" fill="#f0f0f0" font-size="30">
+            SVGs: the hacker's canvas
+          </text>
+
+          <text x="890" y="450" fill="#f0f0f0" font-size="30">
+            Mitigations
+          </text>
+
+          <circle cx="900" cy="210" r="7" fill="#64E9BA" />
+          <text x="930" y="217" fill="#f0f0f0" font-size="30" >Redirectors</text>
+
+          <circle cx="900" cy="260" r="7" fill="#64E9BA" />
+          <text x="930" y="267" fill="#f0f0f0" font-size="30" >Phishing pages</text>
+
+          <circle cx="900" cy="310" r="7" fill="#64E9BA" />
+          <text x="930" y="317" fill="#f0f0f0" font-size="30" >DOM injection & script abuse</text>
+
+          <circle cx="900" cy="510" r="7" fill="#64E9BA" />
+          <text x="930" y="517" fill="#f0f0f0" font-size="30" >Don't allow users to upload SVGs</text>
+          <text x="930" y="567" fill="#f0f0f0" font-size="25" font-style="italic">else sanitise them</text>
+
+          <circle cx="900" cy="760" r="7" fill="#64E9BA" />
+          <text x="930" y="767" fill="#f0f0f0" font-size="30" >For more details:</text>
+          <a xlink:href="https://www.cloudflare.com/en-gb/threat-intelligence/research/report/svgs-the-hackers-canvas/" target="_blank">
+            <text x="930" y="804.5" fill="#f0f0f0" font-size="30" font-style="italic">https://cloudflare.com/threat/report...</text>
+          </a>
+          <line x1="930" y1="818" x2="1430" y2="818" stroke="#f0f0f0" stroke-width="2" />
+          
+        </g>
       
-        
       <g id="progress">
     
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3612,7 +4050,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3621,7 +4059,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3630,7 +4068,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3639,7 +4077,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3648,7 +4086,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3657,7 +4095,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3666,7 +4104,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3675,7 +4113,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3684,7 +4122,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3693,7 +4131,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3702,7 +4140,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -3711,7 +4149,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3720,7 +4158,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3729,7 +4167,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3738,7 +4176,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3747,7 +4185,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3756,7 +4194,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3765,7 +4203,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -3904,9 +4351,8 @@
             <span><span style="color: lightcoral;">type</span><span style="color: white;">=</span><span style="color: lightyellow;">"date"</span></span>
             <span><span style="color: lightcoral;">value</span><span style="color: white;">=</span><span style="color: lightyellow;">"2025-09-04"</span></span>
             <span style="color: lightblue;">/&gt;</span>
-
-            <span style="color: lightblue;">/&gt;</span>
             <br />
+            
             <span style="color: lightblue; margin-left: 1em;">&lt;/foreignObject&gt;</span>
             <br />
             <span style="color: lightblue; opacity: 0.3;">&lt;/svg&gt;</span>
@@ -4022,7 +4468,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4031,7 +4477,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4040,7 +4486,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4049,7 +4495,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4058,7 +4504,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4067,7 +4513,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4076,7 +4522,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4085,7 +4531,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4094,7 +4540,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4103,7 +4549,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4112,7 +4558,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4121,7 +4567,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4130,7 +4576,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4139,7 +4585,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4148,7 +4594,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4157,7 +4603,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4166,7 +4612,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4175,7 +4621,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4184,7 +4630,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4481,7 +4936,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4490,7 +4945,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4499,7 +4954,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4508,7 +4963,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4517,7 +4972,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4526,7 +4981,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4535,7 +4990,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4544,7 +4999,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4553,7 +5008,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4562,7 +5017,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4571,7 +5026,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4580,7 +5035,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4589,7 +5044,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4598,7 +5053,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4607,7 +5062,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4616,7 +5071,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4625,7 +5080,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4634,7 +5089,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4643,7 +5098,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4777,7 +5241,7 @@
             <br />
             <br />
 
-            <span style="color: lightblue; margin-left: 1em;">&lt;rect</span>
+            <span style="color: lightblue; margin-left: 1em;">&lt;circle</span>
             <span><span style="color: lightcoral;">class</span><span style="color: white;">=</span><span style="color: lightyellow;">"cool-circle"</span></span>
             <span style="opacity: 0.3;"><span style="color: lightcoral;">cx</span><span style="color: white;">=</span><span style="color: lightyellow;">"50"</span></span>
             <span style="opacity: 0.3;"><span style="color: lightcoral;">cy</span><span style="color: white;">=</span><span style="color: lightyellow;">"50"</span></span>
@@ -4856,7 +5320,7 @@
             <br />
             <br />
 
-            <span style="color: lightblue; margin-left: 1em;">&lt;rect</span>
+            <span style="color: lightblue; margin-left: 1em;">&lt;circle</span>
             <span><span style="color: lightcoral;">class</span><span style="color: white;">=</span><span style="color: lightyellow;">"cool-circle cool-circle-anim"</span></span>
             <br />
             <span style="margin-left: 2em; opacity: 0.3;"><span style="color: lightcoral;">x</span><span style="color: white;">=</span><span style="color: lightyellow;">"50"</span></span>
@@ -4883,7 +5347,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4892,7 +5356,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4901,7 +5365,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4910,7 +5374,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4919,7 +5383,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4928,7 +5392,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4937,7 +5401,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4946,7 +5410,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4955,7 +5419,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -4964,7 +5428,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4973,7 +5437,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4982,7 +5446,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -4991,7 +5455,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5000,7 +5464,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5009,7 +5473,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5018,7 +5482,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5027,7 +5491,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5036,7 +5500,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5045,7 +5509,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5275,7 +5748,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5284,7 +5757,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5293,7 +5766,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5302,7 +5775,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5311,7 +5784,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5320,7 +5793,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5329,7 +5802,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5338,7 +5811,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5347,7 +5820,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5356,7 +5829,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5365,7 +5838,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5374,7 +5847,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5383,7 +5856,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5392,7 +5865,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5401,7 +5874,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5410,7 +5883,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5419,7 +5892,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5428,7 +5901,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5437,7 +5910,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5824,7 +6306,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5833,7 +6315,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5842,7 +6324,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5851,7 +6333,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5860,7 +6342,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5869,7 +6351,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5878,7 +6360,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -5887,7 +6369,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5896,7 +6378,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5905,7 +6387,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5914,7 +6396,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5923,7 +6405,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5932,7 +6414,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5941,7 +6423,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5950,7 +6432,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5959,7 +6441,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5968,7 +6450,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5977,7 +6459,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -5986,7 +6468,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6058,7 +6549,7 @@
     />
       <g id="window-title" class="noselect">
     <rect x="60" y="10" height="47" fill="#242424" width="960" />
-    <text x="70" y="44" fill="#f0f0f0" font-size="35">Basics of drawing</text>
+    <text x="70" y="44" fill="#f0f0f0" font-size="35">Basic drawings</text>
   </g>
       
         
@@ -6312,7 +6803,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6321,7 +6812,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6330,7 +6821,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6339,7 +6830,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6348,7 +6839,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6357,7 +6848,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6366,7 +6857,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6375,7 +6866,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6384,7 +6875,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6393,7 +6884,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6402,7 +6893,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6411,7 +6902,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6420,7 +6911,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6429,7 +6920,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6438,7 +6929,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6447,7 +6938,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6456,7 +6947,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6465,7 +6956,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6474,7 +6965,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6693,7 +7193,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6702,7 +7202,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6711,7 +7211,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6720,7 +7220,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6729,7 +7229,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -6738,7 +7238,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6747,7 +7247,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6756,7 +7256,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6765,7 +7265,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6774,7 +7274,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6783,7 +7283,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6792,7 +7292,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6801,7 +7301,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6810,7 +7310,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6819,7 +7319,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6828,7 +7328,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6837,7 +7337,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6846,7 +7346,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -6855,7 +7355,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7016,7 +7525,7 @@
               Flexibility
             </text>
 
-            <foreignObject x="30" y="120" width="600" height="600">
+            <foreignObject x="30" y="120" width="600" height="700">
               <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
                 
                 <span style="color: lightblue; opacity: 0.5;">// green.html</span>
@@ -7167,7 +7676,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7176,7 +7685,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7185,7 +7694,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7194,7 +7703,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7203,7 +7712,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7212,7 +7721,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7221,7 +7730,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7230,7 +7739,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7239,7 +7748,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7248,7 +7757,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7257,7 +7766,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7266,7 +7775,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7275,7 +7784,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7284,7 +7793,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7293,7 +7802,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7302,7 +7811,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7311,7 +7820,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7320,7 +7829,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7329,7 +7838,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7529,21 +8047,17 @@
           >
           </rect>
           
-          <foreignObject x="40" y="25" width="600" height="600">
+          <foreignObject x="40" y="40" width="600" height="600">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
               <span style="color: lightblue;">&lt;svg</span>
-              <span style="color: lightcoral;">version</span>
-              <span style="color: lightblue;">=</span>
-              <span style="color: lightyellow;">"1.1"</span>
+              <span><span style="color: lightcoral;">xmlns</span><span style="color: white;">=</span><span style="color: lightyellow;">"http://www.w3.org/2000/svg"</span></span>
               <br />
               <span style="margin-left: 1em;"><span style="color: lightcoral;">width</span><span style="color: white;">=</span><span style="color: lightyellow;">"300"</span></span>
               <span><span style="color: lightcoral;">height</span><span style="color: white;">=</span><span style="color: lightyellow;">"300"</span></span>
-              <br />
-              <span style="margin-left: 1em;"><span style="color: lightcoral;">xmlns</span><span style="color: white;">=</span><span style="color: lightyellow;">"http://www.w3.org/2000/svg"</span></span>
               <span style="color: lightblue;">&gt;</span>
               <br />
               <br />
-
+              
               <span style="color: lightblue; margin-left: 1em;">&lt;rect</span>
               <span><span style="color: lightcoral;">width</span><span style="color: white;">=</span><span style="color: lightyellow;">"250"</span></span>
               <span><span style="color: lightcoral;">height</span><span style="color: white;">=</span><span style="color: lightyellow;">"250"</span></span>
@@ -7617,7 +8131,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7626,7 +8140,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7635,7 +8149,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -7644,7 +8158,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7653,7 +8167,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7662,7 +8176,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7671,7 +8185,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7680,7 +8194,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7689,7 +8203,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7698,7 +8212,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7707,7 +8221,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7716,7 +8230,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7725,7 +8239,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7734,7 +8248,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7743,7 +8257,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7752,7 +8266,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7761,7 +8275,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7770,7 +8284,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -7779,7 +8293,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8024,7 +8547,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -8033,7 +8556,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -8042,7 +8565,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8051,7 +8574,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8060,7 +8583,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8069,7 +8592,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8078,7 +8601,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8087,7 +8610,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8096,7 +8619,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8105,7 +8628,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8114,7 +8637,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8123,7 +8646,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8132,7 +8655,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8141,7 +8664,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8150,7 +8673,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8159,7 +8682,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8168,7 +8691,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8177,7 +8700,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8186,7 +8709,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8311,7 +8843,7 @@
   <circle 
     id="progress-0"
     class="progress-icon"
-    cx="753.75" 
+    cx="742.5" 
     cy="1045" 
     r="5" 
     fill="#888888" 
@@ -8320,7 +8852,7 @@
   <circle 
     id="progress-1"
     class="progress-icon"
-    cx="776.25" 
+    cx="765" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8329,7 +8861,7 @@
   <circle 
     id="progress-2"
     class="progress-icon"
-    cx="798.75" 
+    cx="787.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8338,7 +8870,7 @@
   <circle 
     id="progress-3"
     class="progress-icon"
-    cx="821.25" 
+    cx="810" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8347,7 +8879,7 @@
   <circle 
     id="progress-4"
     class="progress-icon"
-    cx="843.75" 
+    cx="832.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8356,7 +8888,7 @@
   <circle 
     id="progress-5"
     class="progress-icon"
-    cx="866.25" 
+    cx="855" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8365,7 +8897,7 @@
   <circle 
     id="progress-6"
     class="progress-icon"
-    cx="888.75" 
+    cx="877.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8374,7 +8906,7 @@
   <circle 
     id="progress-7"
     class="progress-icon"
-    cx="911.25" 
+    cx="900" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8383,7 +8915,7 @@
   <circle 
     id="progress-8"
     class="progress-icon"
-    cx="933.75" 
+    cx="922.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8392,7 +8924,7 @@
   <circle 
     id="progress-9"
     class="progress-icon"
-    cx="956.25" 
+    cx="945" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8401,7 +8933,7 @@
   <circle 
     id="progress-10"
     class="progress-icon"
-    cx="978.75" 
+    cx="967.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8410,7 +8942,7 @@
   <circle 
     id="progress-11"
     class="progress-icon"
-    cx="1001.25" 
+    cx="990" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8419,7 +8951,7 @@
   <circle 
     id="progress-12"
     class="progress-icon"
-    cx="1023.75" 
+    cx="1012.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8428,7 +8960,7 @@
   <circle 
     id="progress-13"
     class="progress-icon"
-    cx="1046.25" 
+    cx="1035" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8437,7 +8969,7 @@
   <circle 
     id="progress-14"
     class="progress-icon"
-    cx="1068.75" 
+    cx="1057.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8446,7 +8978,7 @@
   <circle 
     id="progress-15"
     class="progress-icon"
-    cx="1091.25" 
+    cx="1080" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8455,7 +8987,7 @@
   <circle 
     id="progress-16"
     class="progress-icon"
-    cx="1113.75" 
+    cx="1102.5" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8464,7 +8996,7 @@
   <circle 
     id="progress-17"
     class="progress-icon"
-    cx="1136.25" 
+    cx="1125" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
@@ -8473,7 +9005,16 @@
   <circle 
     id="progress-18"
     class="progress-icon"
-    cx="1158.75" 
+    cx="1147.5" 
+    cy="1045" 
+    r="5" 
+    fill="#2F2F2F" 
+  />
+
+  <circle 
+    id="progress-19"
+    class="progress-icon"
+    cx="1170" 
     cy="1045" 
     r="5" 
     fill="#2F2F2F" 
