@@ -3,12 +3,12 @@ import { getSpinner } from '@/components/wheel/spinner';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
-import { slideBase } from '@/slides/slideBase';
 import { drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
+import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './wheelOfFortune.md';
-import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 
 export const slideWheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
@@ -31,7 +31,7 @@ export const slideWheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide>
         })}
             <rect 
               width="850"
-              height="800"
+              height="810"
               x="850"
               y="50"
               rx="50"

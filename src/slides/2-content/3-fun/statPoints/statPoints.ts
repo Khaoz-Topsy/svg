@@ -81,7 +81,7 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
           })}
           <rect 
             width="850"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -121,12 +121,12 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
           ${drawPoint(theme, 8)}
           ${drawText(theme, 8, 'Add an animation 💫')}
 
-          ${drawPoint(theme, 11)}
-          ${drawText(theme, 11, 'I used this on:')}
+          ${drawPoint(theme, 12)}
+          ${drawText(theme, 12, 'I used this on:')}
           <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            ${drawText(theme, 11.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
+            ${drawText(theme, 12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
           </a>
-          ${drawLine(theme, 11.8, 500)}
+          ${drawLine(theme, 12.8, 500)}
           
         </g>
         `,

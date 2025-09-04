@@ -80,7 +80,7 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
           })}
           <rect 
             width="850"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -94,10 +94,25 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
           </text>
 
           ${drawPoint(theme, 0)}
-          ${drawText(theme, 0, 'Draw a Hexagon')}
-          ${drawText(theme, 1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
+          ${drawText(theme, 0, 'Draw a red rounded rectangle')}
 
-          
+          ${drawPoint(theme, 1)}
+          ${drawText(theme, 1, 'Draw a white rounded rectangle')}
+          ${drawText(theme, 2, '2/3 the height, aligned to the bottom', 25, 'font-style="italic"')}
+
+          ${drawPoint(theme, 3)}
+          ${drawText(theme, 3, 'Draw 1 more red rectangle')}
+          ${drawText(theme, 4, '1/3 the height, aligned to the top', 25, 'font-style="italic"')}
+
+          ${drawPoint(theme, 5)}
+          ${drawText(theme, 5, 'Draw the text')}
+          ${drawText(theme, 6, 'Using text-anchor="middle" when needed', 25, 'font-style="italic"')}
+
+          ${drawPoint(theme, 7)}
+          ${drawText(theme, 7, 'Draw 1 more red rectangle but with the fill transparent')}
+
+          ${drawPoint(theme, 9)}
+          ${drawText(theme, 9, 'Add extra decorations 👨‍🎨')}
         </g>
         `,
       ...sharedProperties,

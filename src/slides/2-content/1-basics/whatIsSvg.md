@@ -1,4 +1,4 @@
-### What is a SVG
+# What is a SVG
 
 An SVG is a picture from maths.
 
@@ -9,3 +9,5 @@ You define how to draw an SVG using an XML like text format. This makes it quite
 On the top right you can see a little basic example of what an SVG looks like, the code on the left produces the image on the right.
 
 fun facts
+
+## Transition: Now you know what is an SVG

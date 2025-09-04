@@ -26,7 +26,6 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
         <g transform="translate(125, 220)">
           ${usePublicImage('swatChart')}
         </g>
-
         
         <g opacity="0" transform="translate(200 100)">
           ${animateFadeIn({
@@ -35,9 +34,9 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
           })}
           <rect 
             width="750"
-            height="790"
+            height="810"
             x="850"
-            y="50"
+            y="40"
             rx="50"
             fill="transparent"
             stroke="${theme.secondary}"

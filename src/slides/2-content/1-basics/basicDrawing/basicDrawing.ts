@@ -19,7 +19,7 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
   return {
     content: slideBase({
       ctx: ctx,
-      title: 'Basics of drawing',
+      title: 'Basic drawings',
       content: `
         ${slideBasicDrawingCard({
           x: 100,

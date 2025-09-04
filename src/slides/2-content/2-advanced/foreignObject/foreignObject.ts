@@ -81,9 +81,8 @@ export const slideForeignObject = async (ctx: SlideContext): Promise<ISvgSlide> 
             ${code.keyValue(['type', '=', '"date"'])}
             ${code.keyValue(['value', '=', `"${new Date().toISOString().slice(0, 10)}"`])}
             ${code.tag('/&gt;')}
-
-            ${code.tag('/&gt;')}
             <br />
+            
             ${code.tag('&lt;/foreignObject&gt;', { tabLevel: 1 })}
             <br />
             ${code.tag('&lt;/svg&gt;', notFocussedStyle)}

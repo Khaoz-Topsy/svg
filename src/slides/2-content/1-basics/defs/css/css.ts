@@ -7,7 +7,7 @@ import { readLocalFile } from '@/helpers/fileHelper.ts';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase.ts';
 
-import notesMd from '../defsTag.md';
+import notesMd from './css.md';
 
 export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
@@ -65,7 +65,7 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             <br />
             <br />
 
-            ${code.tag('&lt;rect', { tabLevel: 1 })}
+            ${code.tag('&lt;circle', { tabLevel: 1 })}
             ${code.keyValue(['class', '=', '"cool-circle"'])}
             ${code.keyValue(['cx', '=', '"50"'], notFocussedStyle)}
             ${code.keyValue(['cy', '=', '"50"'], notFocussedStyle)}
@@ -121,7 +121,7 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             <br />
             <br />
 
-            ${code.tag('&lt;rect', { tabLevel: 1 })}
+            ${code.tag('&lt;circle', { tabLevel: 1 })}
             ${code.keyValue(['class', '=', '"cool-circle cool-circle-anim"'])}
             <br />
             ${code.keyValue(['x', '=', '"50"'], { ...notFocussedStyle, tabLevel: 2 })}

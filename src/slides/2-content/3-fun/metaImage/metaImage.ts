@@ -1,18 +1,20 @@
+import { svgCode } from '@/components/code/codeSpan';
+import { animateFadeIn } from '@/components/core/animate';
 import { isServerMode } from '@/constants/env';
 import { PublicImage } from '@/constants/image';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readBase64Image, readLocalFile } from '@/helpers/fileHelper';
+import { drawLine, drawPoint, drawText, notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
-import { animateFadeIn } from '@/components/core/animate';
-import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
 import notesMd from './metaImage.md';
 
 export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
+  const code = svgCode(theme.code);
   const previousSlideId = getPreviousSlideIndex(ctx);
 
   const userInChat = (y: number, length: number) => `
@@ -75,7 +77,7 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
           })}
           <rect 
             width="700"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"
@@ -88,17 +90,64 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
             What the template looks like:
           </text>
 
-          ${drawPoint(theme, 0)}
-          ${drawText(theme, 0, 'Draw a Hexagon')}
-          ${drawText(theme, 1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
+          <foreignObject x="880" y="150" width="1200" height="800">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
+                ${code.tag('&lt;svg', notFocussedStyle)}
+                ${code.keyValue(['viewBox', '=', '"0 0 1200 627"'], notFocussedStyle)}
+                ${code.keyValue(['xmlns', '=', '"http://www.w3..."'], notFocussedStyle)}${code.tag(
+        '&gt;',
+        notFocussedStyle,
+      )}
+                <br />
+                <br />
+                ${code.tag('&lt;image', { tabLevel: 2 })}
+                ${code.keyValue([' ', '.....'])}
+                ${code.keyValue(['href', '=', '"{{backgroundBase64}}"'])}
+                ${code.tag('/&gt;')}
+                <br />
+                <br />
+                ${code.tag('&lt;image', { tabLevel: 2 })}
+                ${code.keyValue([' ', '.....'])}
+                ${code.keyValue(['href', '=', '"{{spriteBase64}}"'])}
+                ${code.tag('/&gt;')}
+                <br />
+                <br />
+                ${code.tag('&lt;image', { tabLevel: 2 })}
+                ${code.keyValue([' ', '.....'])}
+                ${code.keyValue(['href', '=', '"{{elementBase64}}"'])}
+                ${code.tag('/&gt;')}
+                <br />
+                <br />
+                ${code.tag('&lt;text', { tabLevel: 2 })}
+                ${code.keyValue([' ', '.....'])}
+                ${code.tag('&gt;')}
+                ${code.custom('{{name}}', { colour: theme.exampleColour2 })}
+                ${code.tag('&lt;/text&gt;')}
+                <br />
+                <br />
+                ${code.tag('&lt;text', { tabLevel: 2 })}
+                ${code.keyValue([' ', '.....'])}
+                ${code.tag('&gt;')}
+                ${code.custom('{{description}}', { colour: theme.exampleColour2 })}
+                ${code.tag('&lt;/text&gt;')}
+                <br />
+                <br />
+                ${code.tag('&lt;image', { tabLevel: 2 })}
+                ${code.keyValue([' ', '.....'])}
+                ${code.keyValue(['href', '=', '"{{backgroundOverlayBase64}}"'])}
+                ${code.tag('/&gt;')}
+                <br />
+                <br />
+                ${code.tag('&lt;svg&gt;', notFocussedStyle)}
+            </div>
+          </foreignObject>
 
-
-          ${drawPoint(theme, 11)}
-          ${drawText(theme, 11, 'I used this on:')}
+          ${drawPoint(theme, 12)}
+          ${drawText(theme, 12, 'I used this on:')}
           <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            ${drawText(theme, 11.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
+            ${drawText(theme, 12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
           </a>
-          ${drawLine(theme, 11.8, 500)}
+          ${drawLine(theme, 12.8, 500)}
           
         </g>
         `,

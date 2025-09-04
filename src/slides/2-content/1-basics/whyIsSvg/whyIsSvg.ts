@@ -74,7 +74,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
               Flexibility
             </text>
 
-            <foreignObject x="30" y="120" width="600" height="600">
+            <foreignObject x="30" y="120" width="600" height="700">
               <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
                 
                 ${code.tag('// green.html', { colour: 'lightgrey', opacity: 0.5 })}

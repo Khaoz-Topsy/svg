@@ -47,7 +47,7 @@ export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
           })}
           <rect 
             width="850"
-            height="800"
+            height="810"
             x="850"
             y="50"
             rx="50"

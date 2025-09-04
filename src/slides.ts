@@ -18,6 +18,7 @@ import { slideLinks } from './slides/3-conclusion/3-end/links';
 import { slideDiagrams } from './slides/2-content/3-fun/diagrams/diagrams.ts';
 import { slideSecurityConcerns } from './slides/2-content/2-advanced/securityConcerns/securityConcerns.ts';
 import { slideMetaImage } from './slides/2-content/3-fun/metaImage/metaImage.ts';
+import { slideFunBegins } from './slides/2-content/3-fun/1-begins/begins.ts';
 
 export const getAllSlides = (): Array<SlideMeta> => [
   // Foundation
@@ -39,6 +40,7 @@ export const getAllSlides = (): Array<SlideMeta> => [
   { id: 'slide-advanced-security-concerns', slideFunc: slideSecurityConcerns },
 
   // { id: 'slide-fun-themed-illustrations', slideFunc: themedIllustrations },
+  { id: 'slide-fun-begins', slideFunc: slideFunBegins },
   { id: 'slide-fun-calendar-icon', slideFunc: slideCalendarIcon },
   { id: 'slide-fun-stat-points', slideFunc: slideStatPoints },
   { id: 'slide-fun-meta-image', slideFunc: slideMetaImage },

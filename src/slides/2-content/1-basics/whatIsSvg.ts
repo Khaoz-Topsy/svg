@@ -92,21 +92,17 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
           >
           </rect>
           
-          <foreignObject x="40" y="25" width="600" height="600">
+          <foreignObject x="40" y="40" width="600" height="600">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
               ${code.tag('&lt;svg')}
-              ${code.key('version')}
-              ${code.tag('=')}
-              ${code.value('"1.1"')}
+              ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'])}
               <br />
               ${code.keyValue(['width', '=', '"300"'], { tabLevel: 1 })}
               ${code.keyValue(['height', '=', '"300"'])}
-              <br />
-              ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { tabLevel: 1 })}
               ${code.tag('&gt;')}
               <br />
               <br />
-
+              
               ${code.tag('&lt;rect', { colour: theme.code.tag, tabLevel: 1 })}
               ${code.keyValue(['width', '=', '"250"'])}
               ${code.keyValue(['height', '=', '"250"'])}

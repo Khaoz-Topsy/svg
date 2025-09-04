@@ -38,6 +38,7 @@ export const getStyleValue = (options?: IStyleOptions) => {
 };
 
 export const svgCode = (theme: ICodeTheme) => ({
+  custom: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options })),
   tag: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options, colour: theme.tag })),
   key: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options, colour: theme.key })),
   value: (code: string, options?: IStyleOptions) => codeSpan(code, getStyleValue({ ...options, colour: theme.value })),
