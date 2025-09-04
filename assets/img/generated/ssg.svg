@@ -2,7 +2,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 1920 1080"
     overflow="hidden"
-    data-date-rendered="2025-09-04T21:14:23.534Z"
+    data-date-rendered="2025-09-04T21:16:34.820Z"
   >
     
   <defs>
@@ -4073,7 +4073,7 @@
       
         <foreignObject x="100" y="200" width="1200" height="800">
           <img src="./assets/img/hacker.svg" 
-            onload="alert('Image is loaded')"
+            
           />
         </foreignObject>
                         

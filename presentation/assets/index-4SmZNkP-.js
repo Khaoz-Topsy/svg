@@ -2048,7 +2048,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
         `,...$}),...$}},er="data:text/markdown;base64,IyBTZWN1cml0eQoKIyMgVHJhbnNpdGlvbjogSSBob3BlIHRoYXQgdGhlc2UgZG9uJ3Qgc2NhcmUgeW91IHRvbyBtdWNoCg==",tr=async n=>{const u=V[n.themeKey],t=T(n),r={ssg:{secondsToDisplay:3},notes:await Y(er)};return{content:A({ctx:n,title:"Security Concerns",content:`
         <foreignObject x="100" y="200" width="1200" height="800">
           <img src="${X.hacker}" 
-            ${de(n.env)?`onload="alert('Image is loaded')"`:""}
+            ${de(n.env)?"":`onload="alert('Image is loaded')"`}
           />
         </foreignObject>
                         
