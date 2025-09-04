@@ -25,7 +25,7 @@ export const slideSecurityConcerns = async (ctx: SlideContext): Promise<ISvgSlid
       content: `
         <foreignObject x="100" y="200" width="1200" height="800">
           <img src="${PublicImage.hacker}" 
-            ${isServerMode(ctx.env) ? `onload="alert('Image is loaded')"` : ''}
+            ${isServerMode(ctx.env) ? '' : `onload="alert('Image is loaded')"`}
           />
         </foreignObject>
                         
