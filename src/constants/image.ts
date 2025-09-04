@@ -10,6 +10,7 @@ export const PublicImage = {
   //
   entelect: './assets/img/entelect.png',
   entelectGithub: './assets/img/entelect-github.png',
+  metaDataExample: './assets/img/metaDataExample.png',
   about: './assets/img/icon/about.svg',
   cool: './assets/img/icon/cool.svg',
   review: './assets/img/icon/review.svg',

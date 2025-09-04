@@ -16,6 +16,8 @@ import { slideSwatChart } from './slides/2-content/3-fun/swatChart/swatChart.ts'
 import { slideWheelOfFortune } from './slides/2-content/3-fun/wheelOfFortune/wheelOfFortune.ts';
 import { slideLinks } from './slides/3-conclusion/3-end/links';
 import { slideDiagrams } from './slides/2-content/3-fun/diagrams/diagrams.ts';
+import { slideSecurityConcerns } from './slides/2-content/2-advanced/securityConcerns/securityConcerns.ts';
+import { slideMetaImage } from './slides/2-content/3-fun/metaImage/metaImage.ts';
 
 export const getAllSlides = (): Array<SlideMeta> => [
   // Foundation
@@ -34,10 +36,12 @@ export const getAllSlides = (): Array<SlideMeta> => [
 
   // Advanced
   { id: 'slide-advanced-foreign-object', slideFunc: slideForeignObject },
+  { id: 'slide-advanced-security-concerns', slideFunc: slideSecurityConcerns },
 
   // { id: 'slide-fun-themed-illustrations', slideFunc: themedIllustrations },
   { id: 'slide-fun-calendar-icon', slideFunc: slideCalendarIcon },
   { id: 'slide-fun-stat-points', slideFunc: slideStatPoints },
+  { id: 'slide-fun-meta-image', slideFunc: slideMetaImage },
   { id: 'slide-fun-wheel-of-fortune', slideFunc: slideWheelOfFortune },
   { id: 'slide-fun-swat-chart', slideFunc: slideSwatChart },
   { id: 'slide-fun-diagram', slideFunc: slideDiagrams },

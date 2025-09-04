@@ -73,6 +73,73 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
             <text x="250" y="75" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
               Flexibility
             </text>
+
+            <foreignObject x="30" y="120" width="600" height="600">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
+                
+                ${code.tag('// green.html', { colour: 'lightgrey', opacity: 0.5 })}
+                <br />
+                ${code.tag('&lt;div')}
+                ${code.keyValue(['style', '=', '"color: green;"'])}${code.tag('&gt;')}
+                <br />
+
+                ${code.tag('&lt;svg', { ...notFocussedStyle, tabLevel: 1 })}
+                ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
+                ${code.value('...', notFocussedStyle)}
+                <br />
+                
+                ${code.tag('&lt;circle', { tabLevel: 2 })}
+                ${code.keyValue(['cx', '=', '"125"'])}
+                ${code.keyValue(['cy', '=', '"125"'])}
+                ${code.keyValue(['r', '=', '"80"'])}
+                <br />
+                ${code.keyValue(['fill', '=', '"currentcolor"'], { tabLevel: 3 })}
+                <br />
+                ${code.tag('/&gt;', { ...notFocussedStyle, tabLevel: 2 })}
+                <br />
+
+                ${code.tag('&lt;/svg&gt;', { ...notFocussedStyle, tabLevel: 1 })}
+
+                <br />
+                ${code.tag('&lt;/div&gt;')}
+                <br />
+                <br />
+                
+                ${code.tag('// red.html', { colour: 'lightgrey', opacity: 0.5 })}
+                <br />
+                ${code.tag('&lt;div')}
+                ${code.keyValue(['style', '=', '"color: red;"'])}${code.tag('&gt;')}
+                <br />
+
+                ${code.tag('&lt;svg', { ...notFocussedStyle, tabLevel: 1 })}
+                ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
+                ${code.value('...', notFocussedStyle)}
+                <br />
+                
+                ${code.tag('&lt;circle', { tabLevel: 2 })}
+                ${code.keyValue(['cx', '=', '"125"'])}
+                ${code.keyValue(['cy', '=', '"125"'])}
+                ${code.keyValue(['r', '=', '"80"'])}
+                <br />
+                ${code.keyValue(['fill', '=', '"currentcolor"'], { tabLevel: 3 })}
+                <br />
+                ${code.tag('/&gt;', { ...notFocussedStyle, tabLevel: 2 })}
+                <br />
+
+                ${code.tag('&lt;/svg&gt;', { ...notFocussedStyle, tabLevel: 1 })}
+
+                <br />
+                ${code.tag('&lt;/div&gt;')}
+                
+              </div>
+            </foreignObject>
+
+            <circle
+              cx="450" cy="250" r="20" fill="green"
+            />
+            <circle
+              cx="450" cy="570" r="20" fill="red"
+            />
           `,
         })}
 
@@ -86,58 +153,57 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
               Accessibility
             </text>
 
-
-          <foreignObject x="30" y="150" width="600" height="600">
-            <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-              ${code.tag('&lt;svg', notFocussedStyle)}
-              ${code.key('version', notFocussedStyle)}
-              ${code.tag('=', notFocussedStyle)}
-              ${code.value('"1.1"', notFocussedStyle)}
-              <br />
-              ${code.keyValue(['width', '=', '"300"'], { ...notFocussedStyle, tabLevel: 1 })}
-              ${code.keyValue(['height', '=', '"300"'], notFocussedStyle)}
-              <br />
-              ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { ...notFocussedStyle, tabLevel: 1 })}
-              ${code.tag('&gt;', notFocussedStyle)}
-              <br />
-              <br />
-              
-              ${code.tag('&lt;title', { tabLevel: 1 })}${code.tag('&gt;')}${codeSpan(
+            <foreignObject x="30" y="150" width="600" height="600">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
+                ${code.tag('&lt;svg', notFocussedStyle)}
+                ${code.key('version', notFocussedStyle)}
+                ${code.tag('=', notFocussedStyle)}
+                ${code.value('"1.1"', notFocussedStyle)}
+                <br />
+                ${code.keyValue(['width', '=', '"300"'], { ...notFocussedStyle, tabLevel: 1 })}
+                ${code.keyValue(['height', '=', '"300"'], notFocussedStyle)}
+                <br />
+                ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { ...notFocussedStyle, tabLevel: 1 })}
+                ${code.tag('&gt;', notFocussedStyle)}
+                <br />
+                <br />
+                
+                ${code.tag('&lt;title', { tabLevel: 1 })}${code.tag('&gt;')}${codeSpan(
             'Hand crafted SVG',
             getStyleValue({ colour: theme.controlForeground }),
           )}${code.tag('&lt;/title&gt;')}              
-              <br />
-              <br />
+                <br />
+                <br />
 
-              ${code.tag('&lt;desc', { tabLevel: 1 })}${code.tag('&gt;')}
-              <br />
-              ${codeSpan(
-                'A hand crafted artisanal SVG',
-                getStyleValue({ tabLevel: 2, colour: theme.controlForeground }),
-              )}
-              <br />
-              ${code.tag('&lt;/desc&gt;', { tabLevel: 1 })}
+                ${code.tag('&lt;desc', { tabLevel: 1 })}${code.tag('&gt;')}
+                <br />
+                ${codeSpan(
+                  'A hand crafted artisanal SVG',
+                  getStyleValue({ tabLevel: 2, colour: theme.controlForeground }),
+                )}
+                <br />
+                ${code.tag('&lt;/desc&gt;', { tabLevel: 1 })}
 
-              <br />
-              <br />
+                <br />
+                <br />
 
-              ${code.tag('&lt;rect', { ...notFocussedStyle, tabLevel: 1 })}
-              ${code.keyValue(['width', '=', '"250"'], notFocussedStyle)}
-              ${code.keyValue(['height', '=', '"250"'], notFocussedStyle)}
-              ${code.keyValue(['fill', '=', '"pur...'], notFocussedStyle)}
-              <br />
-              ${code.tag('&lt;circle', { ...notFocussedStyle, tabLevel: 1 })}
-              ${code.keyValue(['cx', '=', '"125"'], notFocussedStyle)}
-              ${code.keyValue(['cy', '=', '"125"'], notFocussedStyle)}
-              ${code.keyValue(['r', '=', '"80"'], notFocussedStyle)}
-              ${code.keyValue(['fill', '=', '"lig...'], notFocussedStyle)}
-              <br />
-              <br />
+                ${code.tag('&lt;rect', { ...notFocussedStyle, tabLevel: 1 })}
+                ${code.keyValue(['width', '=', '"250"'], notFocussedStyle)}
+                ${code.keyValue(['height', '=', '"250"'], notFocussedStyle)}
+                ${code.keyValue(['fill', '=', '"pur...'], notFocussedStyle)}
+                <br />
+                ${code.tag('&lt;circle', { ...notFocussedStyle, tabLevel: 1 })}
+                ${code.keyValue(['cx', '=', '"125"'], notFocussedStyle)}
+                ${code.keyValue(['cy', '=', '"125"'], notFocussedStyle)}
+                ${code.keyValue(['r', '=', '"80"'], notFocussedStyle)}
+                ${code.keyValue(['fill', '=', '"lig...'], notFocussedStyle)}
+                <br />
+                <br />
 
-              ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
-              
-            </div>
-          </foreignObject>
+                ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
+                
+              </div>
+            </foreignObject>
           `,
         })}
       

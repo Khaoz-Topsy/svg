@@ -1,11 +1,17 @@
+import { animateFadeIn } from '@/components/core/animate';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
+import { drawPoint, drawText } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './calendarIcon.md';
 
 export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> => {
+  const theme = themes[ctx.themeKey];
+  const previousSlideId = getPreviousSlideIndex(ctx);
   const date = new Date();
   const months = [
     'January',
@@ -31,7 +37,7 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
       ctx: ctx,
       title: 'The Fun stuff - complex icons',
       content: `
-        <g transform="scale(0.5) translate(200, 300)">
+        <g transform="scale(0.5) translate(650, 700)">
           <path
             d="M512 455c0 32-25 57-57 57H57c-32 0-57-25-57-57V128c0-31 25-57 57-57h398c32 0 57 26 57 57z"
             fill="#e0e7ec"
@@ -65,6 +71,33 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
           <text id="month" x="256" y="470" fill="#000" font-family="monospace" style="text-anchor: middle" font-size="90px">
             ${months[date.getMonth()]}
           </text>
+        </g>
+                
+        <g opacity="0" transform="translate(100 90)">
+          ${animateFadeIn({
+            duration: '1s',
+            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.end+1s`,
+          })}
+          <rect 
+            width="850"
+            height="800"
+            x="850"
+            y="50"
+            rx="50"
+            fill="transparent"
+            stroke="${theme.secondary}"
+            stroke-width="3"
+          />
+
+          <text x="890" y="120" fill="${theme.controlForeground}" font-size="30">
+            Steps:
+          </text>
+
+          ${drawPoint(theme, 0)}
+          ${drawText(theme, 0, 'Draw a Hexagon')}
+          ${drawText(theme, 1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
+
+          
         </g>
         `,
       ...sharedProperties,
