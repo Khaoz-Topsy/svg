@@ -2,6 +2,7 @@
 
 ## SVG basics
 
+- When to use an SVG
 - Symbol
 
 ## Concerns

@@ -1,9 +1,7 @@
-import { codeSpan, getStyleValue, svgCode } from '@/components/code/codeSpan';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readLocalFile } from '@/helpers/fileHelper';
-import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 import { whyIsSvgCard } from '../whyIsSvg/whyIsSvgCard';
 
@@ -11,7 +9,6 @@ import notesMd from './whenToUseAnSvg.md';
 
 export const slideWhenToUseAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
-  const code = svgCode(theme.code);
 
   const sharedProperties = {
     ssg: { secondsToDisplay: 3 },
