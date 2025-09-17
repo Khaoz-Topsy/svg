@@ -125,7 +125,8 @@ export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
               tabLevel: 2,
             })}
             <br />
-            ${code.keyValue(['alt', '=', '"raster image in svg"'], { tabLevel: 2 })}
+            ${code.keyValue(['clip-path', '=', '"url(#httpImageClip)"'], { tabLevel: 2 })}
+            ${code.keyValue(['alt', '=', '"raster image in svg"'])}
             <br />
             ${code.tag('/&gt;', { tabLevel: 1 })}
             <br />

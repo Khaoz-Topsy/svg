@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" fill="none">
+    <!-- https://yqnn.github.io/svg-path-editor/ -->
+    <path d="M -325 332 C 652 738 329 -184 1393 224" stroke="#000" stroke-width="1">
+        <animate attributeName="d"
+            begin="0s;" dur="1s" fill="freeze"
+            from="M 38 380 C 1063 7 907 788 1920 414"
+            to="M -501 463 C 451 -70 732 904 1920 414"
+        />
+    </path>
+</svg>

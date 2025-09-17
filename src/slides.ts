@@ -8,17 +8,18 @@ import { slideBasicDrawingDefsWithCss } from './slides/2-content/1-basics/defs/c
 import { slideBasicDrawingDefs } from './slides/2-content/1-basics/defs/defsTag';
 import { slideFakeSvg } from './slides/2-content/1-basics/fakeSvg/fakeSvg.ts';
 import { slideWhatIsAnSvg } from './slides/2-content/1-basics/whatIsSvg';
+import { slideWhenToUseAnSvg } from './slides/2-content/1-basics/whenToUseAnSvg/whenToUseAnSvg.ts';
 import { slideWhyIsSvg } from './slides/2-content/1-basics/whyIsSvg/whyIsSvg.ts';
 import { slideForeignObject } from './slides/2-content/2-advanced/foreignObject/foreignObject.ts';
+import { slideSecurityConcerns } from './slides/2-content/2-advanced/securityConcerns/securityConcerns.ts';
+import { slideFunBegins } from './slides/2-content/3-fun/1-begins/begins.ts';
 import { slideCalendarIcon } from './slides/2-content/3-fun/calendar/calendarIcon.ts';
+import { slideDiagrams } from './slides/2-content/3-fun/diagrams/diagrams.ts';
+import { slideMetaImage } from './slides/2-content/3-fun/metaImage/metaImage.ts';
 import { slideStatPoints } from './slides/2-content/3-fun/statPoints/statPoints.ts';
 import { slideSwatChart } from './slides/2-content/3-fun/swatChart/swatChart.ts';
 import { slideWheelOfFortune } from './slides/2-content/3-fun/wheelOfFortune/wheelOfFortune.ts';
 import { slideLinks } from './slides/3-conclusion/3-end/links';
-import { slideDiagrams } from './slides/2-content/3-fun/diagrams/diagrams.ts';
-import { slideSecurityConcerns } from './slides/2-content/2-advanced/securityConcerns/securityConcerns.ts';
-import { slideMetaImage } from './slides/2-content/3-fun/metaImage/metaImage.ts';
-import { slideFunBegins } from './slides/2-content/3-fun/1-begins/begins.ts';
 
 export const getAllSlides = (): Array<SlideMeta> => [
   // Foundation
@@ -28,6 +29,7 @@ export const getAllSlides = (): Array<SlideMeta> => [
   // Basics
   { id: 'slide-what-is-svg', slideFunc: slideWhatIsAnSvg },
   { id: 'slide-why-is-svg', slideFunc: slideWhyIsSvg },
+  { id: 'slide-when-use-svg', slideFunc: slideWhenToUseAnSvg },
   { id: 'slide-basic-setup', slideFunc: slideBasicSetup },
   { id: 'slide-basic-drawing', slideFunc: slideBasicDrawing },
   { id: 'slide-basic-drawing-defs', slideFunc: slideBasicDrawingDefs },

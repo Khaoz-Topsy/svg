@@ -15,5 +15,3 @@ You don't need a program to edit an svg like other image formats like png or jpg
 ## Accessibility
 
 Because SVGs are text based, their content can be read by screen readers. Search engines can also read and index SVG image text.
-
-## Transition: When should you use it?

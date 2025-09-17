@@ -11,7 +11,7 @@ interface IProps {
   animatePosition: number;
   svgContent: string;
 }
-export const slideWhyIsSvgCard = (props: IProps) => {
+export const whyIsSvgCard = (props: IProps) => {
   const theme = themes[props.ctx.themeKey];
   const previousSlideId = getPreviousSlideIndex(props.ctx);
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, theme.defaultDelayInMs * numTicksDelay);

@@ -5,7 +5,7 @@ import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
-import { slideWhyIsSvgCard } from './whyIsSvgCard';
+import { whyIsSvgCard } from './whyIsSvgCard';
 
 import notesMd from './whyIsSvg.md';
 
@@ -22,7 +22,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
       ctx: ctx,
       title: 'Why is an SVG?',
       content: `
-        ${slideWhyIsSvgCard({
+        ${whyIsSvgCard({
           ctx,
           x: 100,
           y: 150,
@@ -64,7 +64,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           `,
         })}
 
-        ${slideWhyIsSvgCard({
+        ${whyIsSvgCard({
           ctx,
           x: 700,
           y: 150,
@@ -143,7 +143,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           `,
         })}
 
-        ${slideWhyIsSvgCard({
+        ${whyIsSvgCard({
           ctx,
           x: 1300,
           y: 150,

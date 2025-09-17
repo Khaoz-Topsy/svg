@@ -138,6 +138,19 @@ const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
 
       return `<g id="ghost">${innerSvg}</g>`;
     }),
+    readSvg(theme, PublicImage.facebook, (doc) => {
+      const elem = doc.querySelector('g') as SVGSVGElement;
+      if (elem == null) return '';
+
+      elem.removeAttribute('xmlns');
+      return elem.outerHTML;
+    }),
+    readSvg(theme, PublicImage.hacker, (doc) => {
+      const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+      if (innerSvg == null) return '';
+
+      return `<g id="hacker">${innerSvg}</g>`;
+    }),
   ];
   return Promise.all(imagePreloadsTasks);
 };

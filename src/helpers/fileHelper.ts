@@ -44,7 +44,7 @@ export const readBase64Image = async (path: string) => {
     const promise = new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
       xhr.onload = function () {
-        var reader = new FileReader();
+        const reader = new FileReader();
         reader.onloadend = function () {
           resolve(reader.result);
         };
