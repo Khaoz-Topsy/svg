@@ -23,7 +23,7 @@ export const slideWheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide>
   return {
     content: slideBase({
       ctx: ctx,
-      title: 'The Fun stuff - complex shapes',
+      title: 'The Fun stuff - Complex shapes',
       content: `
         <g opacity="0" transform="translate(100 90)">${animateFadeIn({
           duration: '1s',

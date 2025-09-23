@@ -20,7 +20,7 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
   return {
     content: slideBase({
       ctx: ctx,
-      title: 'The Fun stuff - complex shapes',
+      title: 'The Fun stuff - Complex shapes',
       content: `
         <g transform="scale(3) translate(50, 80)">
           <g fill="#9dacc2" stroke="${theme.controlForeground}">

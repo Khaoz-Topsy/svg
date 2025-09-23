@@ -32,9 +32,9 @@ export const svgHeading = (props: {
     <clipPath id="basic-setup-example-4"><rect x="-50" y="50" width="100" height="100" /></clipPath>
 
     <rect id="qrPixel" width="8" height="8" rx="0.5"/>
-    <g id="duckPixelArt">
+    <symbol id="duckPixelArt">
       ${createDuckSvg(theme)}
-    </g>
+    </symbol>
     
     <filter id="GaussianBlur" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
       <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
@@ -145,6 +145,21 @@ export const svgHeading = (props: {
       -o-animation: anim-spin-the-wheel 30s linear infinite;
       animation: anim-spin-the-wheel 30s linear infinite;
       transform-origin: 256px 256px;
+    }
+
+    #line-animation {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: line-animation-dash 3s linear alternate infinite;
+    }
+
+    @keyframes line-animation-dash {
+      from {
+        stroke-dashoffset: 1000;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
     }
   </style>`;
 };

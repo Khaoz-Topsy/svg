@@ -35,7 +35,7 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
   return {
     content: slideBase({
       ctx: ctx,
-      title: 'The Fun stuff - complex icons',
+      title: 'The Fun stuff - Complex icons',
       content: `
         <g transform="scale(0.5) translate(650, 700)">
           <path

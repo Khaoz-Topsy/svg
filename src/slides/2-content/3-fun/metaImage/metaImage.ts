@@ -26,14 +26,94 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
     ssg: { secondsToDisplay: 3 },
     notes: await readLocalFile(notesMd),
   };
-  //https://cassettebeasts.assistantapps.com/assets/img/meta/en/monsters/traffikrab.png
+
   return {
     content: slideBase({
       ctx: ctx,
-      title: 'The Fun stuff - meta image / templates',
-      content: `
+      title: 'The Fun stuff - Meta image / templates',
+      content: `        
+        <g opacity="0" transform="translate(250 90)">
+          ${animateFadeIn({
+            duration: '1s',
+            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.end+1s`,
+          })}
+          <rect 
+            width="700"
+            height="810"
+            x="850"
+            y="50"
+            rx="50"
+            fill="transparent"
+            stroke="${theme.secondary}"
+            stroke-width="3"
+          />
+
+          <text x="890" y="120" fill="${theme.controlForeground}" font-size="30">
+            What the template looks like:
+          </text>
+
+          <foreignObject x="880" y="150" width="1200" height="800">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
+              ${code.tag('&lt;svg', notFocussedStyle)}
+              ${code.keyValue(['viewBox', '=', '"0 0 1200 627"'], notFocussedStyle)}
+              ${code.keyValue(['xmlns', '=', '"http://www.w3..."'], notFocussedStyle)}${code.tag(
+        '&gt;',
+        notFocussedStyle,
+      )}
+              <br />
+              <br />
+              ${code.tag('&lt;image', { tabLevel: 2 })}
+              ${code.keyValue([' ', '.....'])}
+              ${code.keyValue(['href', '=', '"{{backgroundBase64}}"'])}
+              ${code.tag('/&gt;')}
+              <br />
+              <br />
+              ${code.tag('&lt;image', { tabLevel: 2 })}
+              ${code.keyValue([' ', '.....'])}
+              ${code.keyValue(['href', '=', '"{{spriteBase64}}"'])}
+              ${code.tag('/&gt;')}
+              <br />
+              <br />
+              ${code.tag('&lt;image', { tabLevel: 2 })}
+              ${code.keyValue([' ', '.....'])}
+              ${code.keyValue(['href', '=', '"{{elementBase64}}"'])}
+              ${code.tag('/&gt;')}
+              <br />
+              <br />
+              ${code.tag('&lt;text', { tabLevel: 2 })}
+              ${code.keyValue([' ', '.....'])}
+              ${code.tag('&gt;')}
+              ${code.custom('{{name}}', { colour: theme.exampleColour2 })}
+              ${code.tag('&lt;/text&gt;')}
+              <br />
+              <br />
+              ${code.tag('&lt;text', { tabLevel: 2 })}
+              ${code.keyValue([' ', '.....'])}
+              ${code.tag('&gt;')}
+              ${code.custom('{{description}}', { colour: theme.exampleColour2 })}
+              ${code.tag('&lt;/text&gt;')}
+              <br />
+              <br />
+              ${code.tag('&lt;image', { tabLevel: 2 })}
+              ${code.keyValue([' ', '.....'])}
+              ${code.keyValue(['href', '=', '"{{backgroundOverlayBase64}}"'])}
+              ${code.tag('/&gt;')}
+              <br />
+              <br />
+              ${code.tag('&lt;svg&gt;', notFocussedStyle)}
+            </div>
+          </foreignObject>
+
+          ${drawPoint(theme, 12)}
+          ${drawText(theme, 12, 'I used this on:')}
+          <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
+            ${drawText(theme, 12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
+          </a>
+          ${drawLine(theme, 12.8, 500)}
+        </g>          
+
         <g transform="translate(100, 150)">
-          <rect x="0" y="0" width="900" height="700" rx="25" fill="#1A1D21"
+          <rect id="message-client" x="0" y="0" width="900" height="700" rx="25" fill="#1A1D21"
             stroke="${themes.dark.exampleColour}" stroke-width="3"
           />
           <line x1="0" y1="50" x2="900" y2="50" opacity="0.3"
@@ -62,93 +142,32 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
             Lax - messaging client
           </text>
           
-          <image x="225" y="250" href="${
-            isServerMode(ctx.env)
-              ? await readBase64Image(PublicImage.metaDataExample)
-              : './assets/img/metaDataExample.png'
-          }" alt="Description of the image" />
-          metaDataExample
-        </g>
-        
-        <g opacity="0" transform="translate(250 90)">
-          ${animateFadeIn({
-            duration: '1s',
-            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.end+1s`,
-          })}
-          <rect 
-            width="700"
-            height="810"
-            x="850"
-            y="50"
-            rx="50"
-            fill="transparent"
-            stroke="${theme.secondary}"
-            stroke-width="3"
-          />
-
-          <text x="890" y="120" fill="${theme.controlForeground}" font-size="30">
-            What the template looks like:
-          </text>
-
-          <foreignObject x="880" y="150" width="1200" height="800">
-              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-                ${code.tag('&lt;svg', notFocussedStyle)}
-                ${code.keyValue(['viewBox', '=', '"0 0 1200 627"'], notFocussedStyle)}
-                ${code.keyValue(['xmlns', '=', '"http://www.w3..."'], notFocussedStyle)}${code.tag(
-        '&gt;',
-        notFocussedStyle,
-      )}
-                <br />
-                <br />
-                ${code.tag('&lt;image', { tabLevel: 2 })}
-                ${code.keyValue([' ', '.....'])}
-                ${code.keyValue(['href', '=', '"{{backgroundBase64}}"'])}
-                ${code.tag('/&gt;')}
-                <br />
-                <br />
-                ${code.tag('&lt;image', { tabLevel: 2 })}
-                ${code.keyValue([' ', '.....'])}
-                ${code.keyValue(['href', '=', '"{{spriteBase64}}"'])}
-                ${code.tag('/&gt;')}
-                <br />
-                <br />
-                ${code.tag('&lt;image', { tabLevel: 2 })}
-                ${code.keyValue([' ', '.....'])}
-                ${code.keyValue(['href', '=', '"{{elementBase64}}"'])}
-                ${code.tag('/&gt;')}
-                <br />
-                <br />
-                ${code.tag('&lt;text', { tabLevel: 2 })}
-                ${code.keyValue([' ', '.....'])}
-                ${code.tag('&gt;')}
-                ${code.custom('{{name}}', { colour: theme.exampleColour2 })}
-                ${code.tag('&lt;/text&gt;')}
-                <br />
-                <br />
-                ${code.tag('&lt;text', { tabLevel: 2 })}
-                ${code.keyValue([' ', '.....'])}
-                ${code.tag('&gt;')}
-                ${code.custom('{{description}}', { colour: theme.exampleColour2 })}
-                ${code.tag('&lt;/text&gt;')}
-                <br />
-                <br />
-                ${code.tag('&lt;image', { tabLevel: 2 })}
-                ${code.keyValue([' ', '.....'])}
-                ${code.keyValue(['href', '=', '"{{backgroundOverlayBase64}}"'])}
-                ${code.tag('/&gt;')}
-                <br />
-                <br />
-                ${code.tag('&lt;svg&gt;', notFocussedStyle)}
-            </div>
-          </foreignObject>
-
-          ${drawPoint(theme, 12)}
-          ${drawText(theme, 12, 'I used this on:')}
-          <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
-            ${drawText(theme, 12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
-          </a>
-          ${drawLine(theme, 12.8, 500)}
-          
+          <g transform="translate(225 250)">
+            <image id="img-meta-data" x="0" y="0" href="${
+              isServerMode(ctx.env)
+                ? await readBase64Image(PublicImage.metaDataExample)
+                : './assets/img/metaDataExample.png'
+            }" alt="Description of the image" />
+            <animateTransform 
+              id="image-zoom-anim"
+              href="#img-meta-data" 
+              attributename="transform"
+              type="scale"
+              from="1"
+              to="1.95"
+              dur="250ms"
+              begin="click"
+              fill="freeze"
+            />
+            <animateMotion
+              href="#img-meta-data" 
+              dur="250ms"
+              repeatCount="1"
+              fill="freeze"
+              path="M0,0 L -320 -150"
+              begin="image-zoom-anim.begin+5ms" 
+            />
+          </g>
         </g>
         `,
       ...sharedProperties,

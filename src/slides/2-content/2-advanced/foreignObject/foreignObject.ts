@@ -67,6 +67,7 @@ export const slideForeignObject = async (ctx: SlideContext): Promise<ISvgSlide> 
             ${code.keyValue(['y', '=', '"65"'])}
             ${code.keyValue(['width', '=', '"1200"'])}
             ${code.keyValue(['height', '=', '"160"'])}
+            ${code.tag('&gt;')}
             <br/>
             ${code.tag('&lt;div', { tabLevel: 2 })}
             ${code.keyValue(['xmlns', '=', '"http://www.w3.org/1999/xhtml"'])}
@@ -136,6 +137,7 @@ export const slideForeignObject = async (ctx: SlideContext): Promise<ISvgSlide> 
             ${code.keyValue(['width', '=', '"1200"'])}
             ${code.keyValue(['height', '=', '"160"'])}
             ${code.keyValue(['clip-path', '=', '"url(#movieClip)"'])}
+            ${code.tag('&gt;')}
             <br/>
             ${code.tag('&lt;video', { tabLevel: 2 })}
             ${code.keyValue(['xmlns', '=', '"http://www.w3.org/1999/xhtml"'])}

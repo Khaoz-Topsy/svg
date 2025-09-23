@@ -35,7 +35,10 @@ export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
       ctx: ctx,
       title: 'The Fun stuff - Diagrams',
       content: `
-        <g transform="translate(225, 350)">
+        <clipPath id="diagram-rounded">
+          <rect x="-90" y="-100" width="650" height="595" rx="20" />
+        </clipPath>
+        <g transform="translate(225, 350)" clip-path="url(#diagram-rounded)">
           ${await readDiagramSvg(theme, ctx.themeKey, 'cloud', [
             { reg: /(.fill-N7{fill:#)(\w+)(;})/, newColour: theme.slideBackground },
           ])}

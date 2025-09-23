@@ -38,6 +38,9 @@ export interface ITheme {
   controlBackground: string;
   controlHighlight: string;
   //
+  phoneFrame: string;
+  phoneFrameAccent: string;
+  //
   defaultDelayInMs: number;
 }
 
@@ -87,6 +90,9 @@ export const themes: Record<ThemeKey, ITheme> = {
     controlBackground: '#f0f0f0',
     controlHighlight: '#545454',
     //
+    phoneFrame: '#121212',
+    phoneFrameAccent: '#f0f0f0',
+    //
     defaultDelayInMs: 500,
   },
   dark: {
@@ -131,6 +137,9 @@ export const themes: Record<ThemeKey, ITheme> = {
     controlForeground: '#f0f0f0',
     controlBackground: '#121212',
     controlHighlight: '#545454',
+    //
+    phoneFrame: '#121212',
+    phoneFrameAccent: '#f0f0f0',
     //
     defaultDelayInMs: 500,
   },

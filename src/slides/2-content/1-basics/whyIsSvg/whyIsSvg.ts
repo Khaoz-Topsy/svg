@@ -8,6 +8,7 @@ import { slideBase } from '@/slides/slideBase';
 import { whyIsSvgCard } from './whyIsSvgCard';
 
 import notesMd from './whyIsSvg.md';
+import { flexibilityHtml, flexibilitySvgResult } from './flexibility';
 
 export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
@@ -28,7 +29,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           y: 150,
           animatePosition: 1,
           svgContent: `
-            <text x="250" y="75" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
+            <text x="250" y="75" class="noselect" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
               Scalability
             </text>
 
@@ -70,76 +71,20 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           y: 150,
           animatePosition: 2,
           svgContent: `
-            <text x="250" y="75" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
+            <text x="250" y="75" class="noselect" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
               Flexibility
             </text>
 
             <foreignObject x="30" y="120" width="600" height="700">
               <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
                 
-                ${code.tag('// green.html', { colour: 'lightgrey', opacity: 0.5 })}
-                <br />
-                ${code.tag('&lt;div')}
-                ${code.keyValue(['style', '=', '"color: green;"'])}${code.tag('&gt;')}
-                <br />
-
-                ${code.tag('&lt;svg', { ...notFocussedStyle, tabLevel: 1 })}
-                ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
-                ${code.value('...', notFocussedStyle)}
-                <br />
-                
-                ${code.tag('&lt;circle', { tabLevel: 2 })}
-                ${code.keyValue(['cx', '=', '"125"'])}
-                ${code.keyValue(['cy', '=', '"125"'])}
-                ${code.keyValue(['r', '=', '"80"'])}
-                <br />
-                ${code.keyValue(['fill', '=', '"currentcolor"'], { tabLevel: 3 })}
-                <br />
-                ${code.tag('/&gt;', { ...notFocussedStyle, tabLevel: 2 })}
-                <br />
-
-                ${code.tag('&lt;/svg&gt;', { ...notFocussedStyle, tabLevel: 1 })}
-
-                <br />
-                ${code.tag('&lt;/div&gt;')}
-                <br />
-                <br />
-                
-                ${code.tag('// red.html', { colour: 'lightgrey', opacity: 0.5 })}
-                <br />
-                ${code.tag('&lt;div')}
-                ${code.keyValue(['style', '=', '"color: red;"'])}${code.tag('&gt;')}
-                <br />
-
-                ${code.tag('&lt;svg', { ...notFocussedStyle, tabLevel: 1 })}
-                ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
-                ${code.value('...', notFocussedStyle)}
-                <br />
-                
-                ${code.tag('&lt;circle', { tabLevel: 2 })}
-                ${code.keyValue(['cx', '=', '"125"'])}
-                ${code.keyValue(['cy', '=', '"125"'])}
-                ${code.keyValue(['r', '=', '"80"'])}
-                <br />
-                ${code.keyValue(['fill', '=', '"currentcolor"'], { tabLevel: 3 })}
-                <br />
-                ${code.tag('/&gt;', { ...notFocussedStyle, tabLevel: 2 })}
-                <br />
-
-                ${code.tag('&lt;/svg&gt;', { ...notFocussedStyle, tabLevel: 1 })}
-
-                <br />
-                ${code.tag('&lt;/div&gt;')}
-                
+                ${flexibilityHtml(theme, { fileName: 'green', colourValue: 'green' })}
+                ${flexibilityHtml(theme, { fileName: 'red', colourValue: 'red' })}                
               </div>
             </foreignObject>
 
-            <circle
-              cx="450" cy="250" r="20" fill="green"
-            />
-            <circle
-              cx="450" cy="570" r="20" fill="red"
-            />
+            ${flexibilitySvgResult(450, 250, 'green')}
+            ${flexibilitySvgResult(450, 570, 'red')}
           `,
         })}
 
@@ -149,21 +94,17 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           y: 150,
           animatePosition: 3,
           svgContent: `
-            <text x="250" y="75" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
+            <text x="250" y="75" class="noselect" fill="${theme.controlForeground}" text-anchor="middle" font-size="50">
               Accessibility
             </text>
 
             <foreignObject x="30" y="150" width="600" height="600">
               <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
                 ${code.tag('&lt;svg', notFocussedStyle)}
-                ${code.key('version', notFocussedStyle)}
-                ${code.tag('=', notFocussedStyle)}
-                ${code.value('"1.1"', notFocussedStyle)}
+                ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
                 <br />
                 ${code.keyValue(['width', '=', '"300"'], { ...notFocussedStyle, tabLevel: 1 })}
                 ${code.keyValue(['height', '=', '"300"'], notFocussedStyle)}
-                <br />
-                ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], { ...notFocussedStyle, tabLevel: 1 })}
                 ${code.tag('&gt;', notFocussedStyle)}
                 <br />
                 <br />

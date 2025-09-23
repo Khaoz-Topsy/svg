@@ -23,7 +23,10 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
       ctx: ctx,
       title: 'The Fun stuff - Custom charts',
       content: `
-        <g transform="translate(125, 220)">
+        <clipPath id="chart-rounded">
+          <rect x="0" y="0" width="820" height="650" rx="20" />
+        </clipPath>
+        <g transform="translate(125, 220)" clip-path="url(#chart-rounded)">
           ${usePublicImage('swatChart')}
         </g>
         

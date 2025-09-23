@@ -83,7 +83,7 @@ export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           y: 520,
           width: 1700,
           height: 450,
-          animatePosition: 1,
+          animatePosition: 2,
           svgContent: `
             <g transform="scale(1.5) translate(850, 50)">
               <clipPath id="httpImageClip">

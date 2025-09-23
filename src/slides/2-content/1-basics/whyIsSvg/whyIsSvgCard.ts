@@ -17,7 +17,7 @@ export const whyIsSvgCard = (props: IProps) => {
   const getBegin = (numTicksDelay: number) => slideBeginValue(previousSlideId, theme.defaultDelayInMs * numTicksDelay);
 
   return `
-    <g class="noselect" opacity="0" transform="translate(${props.x} ${props.y})">
+    <g opacity="0" transform="translate(${props.x} ${props.y})">
         ${animateFadeIn({ duration: '1s', begin: getBegin(props.animatePosition - 1) })}
         <rect 
           width="500"

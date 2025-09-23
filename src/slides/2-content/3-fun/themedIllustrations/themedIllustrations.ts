@@ -6,7 +6,7 @@ import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './themedIllustrations.md';
 
-export const themedIllustrations = async (ctx: SlideContext): Promise<ISvgSlide> => {
+export const slideThemedIllustrations = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const sharedProperties = {
     ssg: { secondsToDisplay: 3 },
     notes: await readLocalFile(notesMd),
