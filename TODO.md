@@ -2,7 +2,6 @@
 
 ## SVG basics
 
-- When to use an SVG
 - Symbol
 
 ## Concerns
@@ -12,8 +11,17 @@
 
 ## Cool use cases
 
-- github profile banner
+- themed illustrations?
+- github profile banner?
+- line animations
+  - more detail
+
+## Links page
+
+- Mention that this presentation is an SVG
+- Link to SVG files
 
 ## Extras
 
 - <https://oak.is/thinking/animated-svgs/>
+- Different slide backgrounds (SVG backgrounds)

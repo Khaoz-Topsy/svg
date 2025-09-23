@@ -64,7 +64,9 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ${drawPoint(theme, 2)}
           ${drawText(theme, 2, 'Change the config to your liking')}
           ${drawText(theme, 3, 'You can play around with the live version:', 25, 'font-style="italic"')}
-          ${drawText(theme, 3.75, 'https://assistantapps.github.io/Swat-Chart', 25, 'font-style="italic"')}
+          <a xlink:href="https://assistantapps.github.io/Swat-Chart" target="_blank">
+            ${drawText(theme, 3.75, 'https://assistantapps.github.io/Swat-Chart', 25, 'font-style="italic"')}
+          </a>
           ${drawLine(theme, 3.75, 430)}
           
 
