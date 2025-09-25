@@ -33,10 +33,11 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Complex icons',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Complex icons',
+        content: `
         <g transform="scale(0.5) translate(650, 700)">
           <path
             d="M512 455c0 32-25 57-57 57H57c-32 0-57-25-57-57V128c0-31 25-57 57-57h398c32 0 57 26 57 57z"
@@ -115,8 +116,8 @@ export const slideCalendarIcon = async (ctx: SlideContext): Promise<ISvgSlide> =
           ${drawText(theme, 9, 'Add extra decorations 👨‍🎨')}
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

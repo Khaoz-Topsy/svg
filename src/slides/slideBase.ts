@@ -1,23 +1,29 @@
 import { slideAnimationFadeIn, slideBeginValue } from '@/components/common/slideAnimation';
 import { progress } from '@/components/progress/progress';
 import { windowTitle } from '@/components/window/windowTitle';
+import { isServerMode } from '@/constants/env';
 import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext, SsgSlideContext } from '@/contracts/slideContext';
-import type { ISvgSlide, ISvgSlideServerSideOptions } from '@/contracts/svgSlide';
+import type { ISvgSlideServerSideOptions } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
+import { getAllSlides } from '@/slides';
 import { layoutBackground } from '../layouts/layoutBackground';
 import { generateNotesPanel } from '../server/notesPanel';
-import { isServerMode } from '@/constants/env';
 
-interface ISlideBase extends ISvgSlide {
+interface ISlideBase {
   ctx: SlideContext; //
   attr?: string;
   title: string;
   ssg: ISvgSlideServerSideOptions;
+
+  //
+  content: string;
+  notes: string;
+  publicNotes?: string;
 }
 
-export const slideBase = (props: ISlideBase) => {
+export const slideBase = async (props: ISlideBase) => {
   let attr = props.attr ?? '';
   let buttonSvg = '';
   let autoAnimationSvg = '';
@@ -61,7 +67,7 @@ export const slideBase = (props: ISlideBase) => {
         begin="${serverCtx.id}-slide-anim.end+50ms" 
       />`;
 
-    if (serverCtx.env == 'ssg' && isLastSlide == false) {
+    if (serverCtx.transition == 'click' && isLastSlide == false) {
       buttonSvg = `
       <g id="${serverCtx.id}-navigate-btn" 
         transform="translate(${svgConstants.width - 160} ${svgConstants.height - 100})">
@@ -89,7 +95,7 @@ export const slideBase = (props: ISlideBase) => {
       </g>`;
     }
 
-    if (serverCtx.env == 'auto-slide' && isLastSlide == false) {
+    if (serverCtx.transition == 'svg-animation' && isLastSlide == false) {
       const animTags: Array<string> = [];
       if (serverCtx.currentSlideIndex == 0) {
         animTags.push(`<animate
@@ -117,6 +123,22 @@ export const slideBase = (props: ISlideBase) => {
       }
       animTags.push(ssgSlideAnim);
       autoAnimationSvg = animTags.join('\n');
+    }
+
+    if (serverCtx.transition == 'css' && isLastSlide == false) {
+      if ((attr?.length ?? 0) > 1) console.warn(`attr has content and will be overridden: '${attr}'`);
+      let accumulatedDelay = props.ssg.secondsToDisplay;
+      const allSlides = getAllSlides();
+
+      for (let slideIndexOffset = 0; slideIndexOffset < serverCtx.currentSlideIndex; slideIndexOffset++) {
+        const slideIndex = serverCtx.numberOfSlides - 1 - slideIndexOffset;
+        const slide = allSlides[slideIndex];
+        const slideResult = await slide.slideFunc(serverCtx);
+        accumulatedDelay += slideResult.ssg.secondsToDisplay;
+      }
+      attr = `class="next-slide-anim" style="--delay: ${accumulatedDelay}s; --duration: 3s"`;
+
+      autoAnimationSvg = '';
     }
   }
 

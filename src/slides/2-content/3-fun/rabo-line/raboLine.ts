@@ -14,10 +14,11 @@ export const slideRaboLine = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Line animations',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Line animations',
+        content: `
         <clipPath id="phone-frame-clip">
           <rect x="0" y="0" width="400" height="800" />
         </clipPath>
@@ -62,8 +63,8 @@ export const slideRaboLine = async (ctx: SlideContext): Promise<ISvgSlide> => {
           <rect x="-5" y="-5" width="410" height="810" fill="transparent" stroke="${theme.phoneFrameAccent}" stroke-width="1" rx="10" />
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

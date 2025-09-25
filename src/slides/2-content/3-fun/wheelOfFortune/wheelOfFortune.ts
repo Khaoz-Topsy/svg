@@ -21,10 +21,11 @@ export const slideWheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide>
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Complex shapes',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Complex shapes',
+        content: `
         <g opacity="0" transform="translate(100 90)">${animateFadeIn({
           duration: '1s',
           begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+1s`,
@@ -88,8 +89,8 @@ export const slideWheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide>
           rotate: true,
         })}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

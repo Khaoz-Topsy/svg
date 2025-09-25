@@ -24,7 +24,9 @@ export const renderSvgWrapper = async (themeKey: ThemeKey, inner: string): Promi
     })}
 
     ${layoutBackground(themeKey)}
-    ${inner}
+    <g clip-path="url(#presentation-clip)">
+      ${inner}
+    </g>
   </svg>`;
 };
 
@@ -44,11 +46,12 @@ export const renderSvgSlide = async (
   themeKey: ThemeKey,
   slideIndex: number,
   numberOfSlides: number,
-): Promise<string> =>
-  renderSvgWrapper(
+): Promise<string> => {
+  const slideContent = await slideObj.content();
+  return renderSvgWrapper(
     themeKey,
     `    
-    ${slideObj.content ?? ''}
+    ${slideContent ?? ''}
     ${progress({ slideIndex, numberOfSlides })}
 
     ${windowTitleIcon()}
@@ -56,6 +59,7 @@ export const renderSvgSlide = async (
     ${windowBarLine(themes[themeKey])}
   `,
   );
+};
 
 const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
   const theme = themes[themeKey];

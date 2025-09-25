@@ -17,10 +17,11 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Basic drawings',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Basic drawings',
+        content: `
         ${slideBasicDrawingCard({
           x: 100,
           y: 120,
@@ -137,8 +138,8 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
           `,
         })}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

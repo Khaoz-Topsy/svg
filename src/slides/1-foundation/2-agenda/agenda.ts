@@ -17,10 +17,11 @@ export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Agenda',
-      content: `
+    content: async () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Agenda',
+        content: `
         <rect 
           width="${svgConstants.width - (svgConstants.width / 3) * 2}"
           height="${svgConstants.height - 100}"
@@ -70,8 +71,8 @@ export const slideAgenda = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
         ${usePublicImage('pitch', 'transform="translate(100, 225) scale(1.5)"')}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

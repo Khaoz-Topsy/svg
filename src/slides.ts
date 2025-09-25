@@ -14,6 +14,7 @@ import { slideForeignObject } from './slides/2-content/2-advanced/foreignObject/
 import { slideSecurityConcerns } from './slides/2-content/2-advanced/securityConcerns/securityConcerns.ts';
 import { slideFunBegins } from './slides/2-content/3-fun/1-begins/begins.ts';
 import { slideCalendarIcon } from './slides/2-content/3-fun/calendar/calendarIcon.ts';
+import { slideCircularProgress } from './slides/2-content/3-fun/circularProgress/circularProgress.ts';
 import { slideDiagrams } from './slides/2-content/3-fun/diagrams/diagrams.ts';
 import { slideMetaImage } from './slides/2-content/3-fun/metaImage/metaImage.ts';
 import { slideRaboLine } from './slides/2-content/3-fun/rabo-line/raboLine.ts';
@@ -43,6 +44,7 @@ export const getAllSlides = (): Array<SlideMeta> => [
   { id: 'slide-advanced-security-concerns', slideFunc: slideSecurityConcerns },
 
   { id: 'slide-fun-begins', slideFunc: slideFunBegins },
+  { id: 'slide-fun-circular-progress', slideFunc: slideCircularProgress },
   { id: 'slide-fun-calendar-icon', slideFunc: slideCalendarIcon },
   { id: 'slide-fun-rabobank-line', slideFunc: slideRaboLine },
   // { id: 'slide-fun-themed-illustrations', slideFunc: slideThemedIllustrations },

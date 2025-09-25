@@ -17,10 +17,11 @@ export const slideWhenToUseAnSvg = async (ctx: SlideContext): Promise<ISvgSlide>
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'When to use an SVG?',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'When to use an SVG?',
+        content: `
         ${whyIsSvgCard({
           ctx,
           x: 100,
@@ -164,8 +165,8 @@ export const slideWhenToUseAnSvg = async (ctx: SlideContext): Promise<ISvgSlide>
       
 
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

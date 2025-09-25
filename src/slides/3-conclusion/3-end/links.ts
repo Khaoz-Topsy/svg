@@ -9,14 +9,15 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: '',
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Links',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Links',
+        content: `
         ${usePublicImage('qrCode', 'transform="translate(750, 315) scale(1.5)"')}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

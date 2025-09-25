@@ -19,10 +19,11 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: AppText.title,
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: AppText.title,
+        content: `
         ${usePublicImage('standing', 'transform="translate(750, 315) scale(1.5)"')}
         <g id="intro-spheres">
           ${gradientSphere({
@@ -63,8 +64,8 @@ export const slideIntro = async (ctx: SlideContext): Promise<ISvgSlide> => {
           <text x="0" y="140" fill="white" font-size="50">${AppText.subTitle}</text>
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

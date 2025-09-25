@@ -80,10 +80,11 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Animation - CSS or SVG',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Animation - CSS or SVG',
+        content: `
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -192,8 +193,8 @@ export const slideAnimate = async (ctx: SlideContext): Promise<ISvgSlide> => {
             </foreignObject>
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

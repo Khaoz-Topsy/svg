@@ -26,10 +26,11 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'What is an SVG?',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'What is an SVG?',
+        content: `
         <g class="noselect" opacity="0" transform="translate(100 150)">
           ${animateFadeIn({ duration: '1s', begin: getBegin(0) })}
           <rect 
@@ -164,8 +165,8 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
         </g>
         
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

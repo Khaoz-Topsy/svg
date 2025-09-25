@@ -19,10 +19,11 @@ export const slideSecurityConcerns = async (ctx: SlideContext): Promise<ISvgSlid
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Security Concerns',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Security Concerns',
+        content: `
         
         <g transform="translate(100 200)">
           ${usePublicImage('hacker')}
@@ -97,8 +98,8 @@ export const slideSecurityConcerns = async (ctx: SlideContext): Promise<ISvgSlid
           
         </g>
       `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

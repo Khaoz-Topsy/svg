@@ -19,10 +19,11 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Why is an SVG?',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Why is an SVG?',
+        content: `
         ${whyIsSvgCard({
           ctx,
           x: 100,
@@ -150,8 +151,8 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
       
 
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

@@ -28,10 +28,11 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
   };
 
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Meta image / templates',
-      content: `        
+    content: async () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Meta image / templates',
+        content: `        
         <g opacity="0" transform="translate(250 90)">
           ${animateFadeIn({
             duration: '1s',
@@ -57,9 +58,9 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
               ${code.tag('&lt;svg', notFocussedStyle)}
               ${code.keyValue(['viewBox', '=', '"0 0 1200 627"'], notFocussedStyle)}
               ${code.keyValue(['xmlns', '=', '"http://www.w3..."'], notFocussedStyle)}${code.tag(
-        '&gt;',
-        notFocussedStyle,
-      )}
+          '&gt;',
+          notFocussedStyle,
+        )}
               <br />
               <br />
               ${code.tag('&lt;image', { tabLevel: 2 })}
@@ -170,8 +171,8 @@ export const slideMetaImage = async (ctx: SlideContext): Promise<ISvgSlide> => {
           </g>
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

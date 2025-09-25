@@ -1,5 +1,5 @@
 export interface ISvgSlide {
-  content: string;
+  content: () => Promise<string>;
   notes: string;
   publicNotes?: string;
   ssg: ISvgSlideServerSideOptions;

@@ -20,10 +20,11 @@ export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Basics of drawing - Fake SVGs',
-      content: `
+    content: async () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Basics of drawing - Fake SVGs',
+        content: `
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -135,8 +136,8 @@ export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
           `,
         })}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

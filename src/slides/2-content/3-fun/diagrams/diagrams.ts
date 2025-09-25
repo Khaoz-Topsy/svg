@@ -31,10 +31,11 @@ export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Diagrams',
-      content: `
+    content: async () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Diagrams',
+        content: `
         <clipPath id="diagram-rounded">
           <rect x="-90" y="-100" width="650" height="595" rx="20" />
         </clipPath>
@@ -118,8 +119,8 @@ export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
           </g>
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

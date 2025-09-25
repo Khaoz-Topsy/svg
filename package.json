@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "vite",
     "build:web": "tsc && vite build",
-    "build:ssg": "bun ./src/server/ssg.ts",
-    "build:ssg-auto": "bun ./src/server/ssg.ts auto-slide",
+    "build:ssg": "bun ./src/server/ssg.ts --transition=click",
+    "build:ssg-auto": "bun ./src/server/ssg.ts --transition=svg-animation",
+    "build:ssg-css": "bun ./src/server/ssg.ts --transition=css",
     "prod": "npm-run-all --sequential build:*",
     "preview": "vite preview"
   },

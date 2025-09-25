@@ -12,14 +12,15 @@ export const slideThemedIllustrations = async (ctx: SlideContext): Promise<ISvgS
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Themed Illustrations',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Themed Illustrations',
+        content: `
         ${usePublicImage('undraw')}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

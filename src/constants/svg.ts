@@ -3,6 +3,8 @@ import { themes, type ThemeKey } from './theme';
 export const svgConstants = {
   width: 1920,
   height: 1080,
+  borderRadius: 20,
+  strokeWidth: 4,
   defaultTheme: 'dark',
   font: '"Calibri", "Arial", sans-serif',
   windowIconSize: 10,

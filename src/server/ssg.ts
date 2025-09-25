@@ -5,6 +5,7 @@ import url from 'node:url';
 
 import type { EnvMode } from '@/constants/env.ts';
 import type { ThemeKey } from '@/constants/theme.ts';
+import type { TransitionType } from '@/contracts/slideContext.ts';
 import { writeLinesToFile } from '@/helpers/fileHelper.ts';
 import { slideEmpty } from '@/slides/slideBase.ts';
 import { renderSvgOuterSSG } from '../renderSvg.ts';
@@ -12,6 +13,8 @@ import { getAllSlides } from '../slides.ts';
 // import { generateNotesPanel } from './notesPanel.ts';
 
 let env: EnvMode = 'ssg';
+let transition: TransitionType = 'click';
+let showNotes = false; //TODO: add notes ability
 const themeKey: ThemeKey = 'dark';
 const currentFileName = url.fileURLToPath(import.meta.url);
 const directory = path.dirname(currentFileName);
@@ -24,11 +27,21 @@ const generateFullSvg = async () => {
 
   const args = process.argv.slice(2);
   args.forEach((val) => {
-    if (val == 'auto-slide') env = 'auto-slide';
+    if (val.includes('--transition=')) {
+      transition = val.replace('--transition=', '') as TransitionType;
+    }
   });
 
   const slides = getAllSlides();
   const numberOfSlides = slides.length;
+
+  const outputFileNameArr: Array<string> = [env, transition];
+  if (showNotes) outputFileNameArr.push('with-notes');
+  const output = outputFileNameArr.join('-');
+  console.log(`env: ${env}`);
+  console.log(`transition: ${transition}`);
+  console.log(`showNotes: ${showNotes}`);
+  console.log(`output: ${output}.svg`);
 
   const svgSlideContents: Array<string> = [];
   for (let invertedSlideIndex = 0; invertedSlideIndex < numberOfSlides; invertedSlideIndex++) {
@@ -41,15 +54,17 @@ const generateFullSvg = async () => {
       themeKey,
       currentSlideIndex: slideIndex,
       numberOfSlides,
+      transition,
       prevSlideId: slides[slideIndex - 1]?.id,
-      showNotes: false, //TODO: add notes ability
+      showNotes,
     });
-    svgSlideContents.push(slideObj.content);
+    const slideContent = await slideObj.content();
+    svgSlideContents.push(slideContent);
   }
 
   let fullSvg = await renderSvgOuterSSG(themeKey, svgSlideContents);
   // let formattedSvg = xmlFormat(fullSvg);
-  const outputPath = path.join(projectDirectory, 'website', 'assets', 'img', 'generated', `${env}.svg`);
+  const outputPath = path.join(projectDirectory, 'website', 'assets', 'img', 'generated', `${output}.svg`);
   await writeLinesToFile(fullSvg, outputPath);
 };
 

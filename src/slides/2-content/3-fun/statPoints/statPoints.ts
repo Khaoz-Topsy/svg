@@ -18,10 +18,11 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Complex shapes',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Complex shapes',
+        content: `
         <g transform="scale(3) translate(50, 80)">
           <g fill="#9dacc2" stroke="${theme.controlForeground}">
             <polygon points="100,0 14,50 14,150 100,200 186,150 186,50 100,0"></polygon>
@@ -130,8 +131,8 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
           
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

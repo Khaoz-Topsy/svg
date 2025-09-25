@@ -1,3 +1,4 @@
-export type EnvMode = 'web' | 'ssg' | 'auto-slide';
+export type EnvMode = 'web' | 'ssg';
 
-export const isServerMode = (mode: EnvMode) => ['ssg', 'auto-slide'].includes(mode);
+const serverSideEnvs: Array<EnvMode> = ['ssg'];
+export const isServerMode = (mode: EnvMode) => serverSideEnvs.includes(mode);

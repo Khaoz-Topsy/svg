@@ -15,6 +15,7 @@
 - github profile banner?
 - line animations
   - more detail
+- Circular Progress icon
 
 ## Links page
 

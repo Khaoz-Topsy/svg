@@ -2,6 +2,8 @@ import type { EnvMode } from '@/constants/env';
 import type { Prettify } from '@/constants/prettify';
 import type { ThemeKey } from '@/constants/theme';
 
+export type TransitionType = 'click' | 'svg-animation' | 'css';
+
 export type BaseSlideContext = {
   id: string;
   themeKey: ThemeKey;
@@ -14,6 +16,7 @@ export type WebSlideContext = BaseSlideContext & {};
 export type SsgSlideContext = BaseSlideContext & {
   env: EnvMode;
   prevSlideId: string;
+  transition: TransitionType;
   showNotes?: boolean;
 };
 
@@ -23,8 +26,5 @@ export type SlideContext = Prettify<
     } & WebSlideContext)
   | ({
       env: 'ssg';
-    } & SsgSlideContext)
-  | ({
-      env: 'auto-slide';
     } & SsgSlideContext)
 >;

@@ -19,10 +19,11 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'The Fun stuff - Custom charts',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'The Fun stuff - Custom charts',
+        content: `
         <clipPath id="chart-rounded">
           <rect x="0" y="0" width="820" height="650" rx="20" />
         </clipPath>
@@ -74,8 +75,8 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ${drawText(theme, 6, 'Profit?')}          
         </g>
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

@@ -30,10 +30,11 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Basics of drawing - defs',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Basics of drawing - defs',
+        content: `
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -247,8 +248,8 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
         })}
         
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

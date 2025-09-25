@@ -4,7 +4,7 @@ import { createDuckSvg } from './common/duck';
 
 export const svgHeading = (props: {
   themeKey: ThemeKey; //
-  imagePreloads: string; //
+  imagePreloads: string;
 }) => {
   const gradients = svgGradients(props.themeKey);
   const theme = themes[props.themeKey];
@@ -30,6 +30,16 @@ export const svgHeading = (props: {
     <clipPath id="basic-setup-example-2"><rect x="0" y="150" width="100" height="100" /></clipPath>
     <clipPath id="basic-setup-example-3"><rect x="50" y="150" width="100" height="100" /></clipPath>
     <clipPath id="basic-setup-example-4"><rect x="-50" y="50" width="100" height="100" /></clipPath>
+
+    <clipPath id="presentation-clip">
+      <rect 
+        width="${svgConstants.width + svgConstants.strokeWidth / 2}"
+        height="${svgConstants.height + svgConstants.strokeWidth / 2}"
+        x="0"
+        y="0"
+        rx="${svgConstants.borderRadius}"
+      />
+    </clipPath>
 
     <rect id="qrPixel" width="8" height="8" rx="0.5"/>
     <symbol id="duckPixelArt">
@@ -160,6 +170,22 @@ export const svgHeading = (props: {
       to {
         stroke-dashoffset: 0;
       }
+    }
+
+    @keyframes anim-next-slide {
+      0% {
+        transform: translate(0, 0) rotate(0);
+      }
+      100% {
+        transform: translate(0, 200%) rotate(45deg);
+      }
+    }
+
+    .next-slide-anim {
+      animation: anim-next-slide;
+      animation-duration: var(--duration, 250ms);
+      animation-delay: var(--delay, 150ms);
+      animation-fill-mode: forwards;
     }
   </style>`;
 };

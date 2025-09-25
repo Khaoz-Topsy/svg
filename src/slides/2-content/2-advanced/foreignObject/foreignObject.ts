@@ -19,10 +19,11 @@ export const slideForeignObject = async (ctx: SlideContext): Promise<ISvgSlide> 
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Special Tags - foreignObject',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Special Tags - foreignObject',
+        content: `
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -157,8 +158,8 @@ export const slideForeignObject = async (ctx: SlideContext): Promise<ISvgSlide> 
           `,
         })}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };

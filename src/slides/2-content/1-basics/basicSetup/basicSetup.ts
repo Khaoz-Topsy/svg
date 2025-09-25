@@ -17,10 +17,11 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
     notes: await readLocalFile(notesMd),
   };
   return {
-    content: slideBase({
-      ctx: ctx,
-      title: 'Basic setup',
-      content: `
+    content: () =>
+      slideBase({
+        ctx: ctx,
+        title: 'Basic setup',
+        content: `
         ${codeBlockWithExample({
           ctx,
           x: 100,
@@ -76,35 +77,35 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
           height: 350,
           animatePosition: 2,
           svgContent: `
-            <g id="basic-setup-example" transform="translate(200 50)">
+            <g transform="translate(200 50)">
               <text x="50" y="50" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">viewBox</text>
               <text x="50" y="80" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">0 0 100 100</text>
               <circle cx="50" cy="150" r="50" fill="${theme.exampleColour}"></circle>
               <rect x="0" y="100" fill="transparent" width="100" height="100" stroke="red" stroke-width="5" />
             </g>
 
-            <g id="basic-setup-example-1" transform="translate(500 50)">
+            <g transform="translate(500 50)">
               <text x="50" y="50" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">viewBox</text>
               <text x="50" y="80" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">50 0 100 100</text>
               <circle cx="50" cy="150" r="50" transform="translate(-50 0)" fill="${theme.exampleColour}" clip-path="url(#basic-setup-example-1)"></circle>
               <rect x="0" y="100" fill="transparent" width="100" height="100" stroke="red" stroke-width="5" />
             </g>
 
-            <g id="basic-setup-example-2" transform="translate(800 50)">
+            <g transform="translate(800 50)">
               <text x="50" y="50" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">viewBox</text>
               <text x="50" y="80" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">0 50 100 100</text>
               <circle cx="50" cy="150" r="50" transform="translate(0 -50)" fill="${theme.exampleColour}" clip-path="url(#basic-setup-example-2)"></circle>
               <rect x="0" y="100" fill="transparent" width="100" height="100" stroke="red" stroke-width="5" />
             </g>
 
-            <g id="basic-setup-example-3" transform="translate(1100 50)">
+            <g transform="translate(1100 50)">
               <text x="50" y="50" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">viewBox</text>
               <text x="50" y="80" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">50 50 100 100</text>
               <circle cx="50" cy="150" r="50" transform="translate(-50 -50)" fill="${theme.exampleColour}" clip-path="url(#basic-setup-example-3)"></circle>
               <rect x="0" y="100" fill="transparent" width="100" height="100" stroke="red" stroke-width="5" />
             </g>
 
-            <g id="basic-setup-example-4" transform="translate(1400 50)">
+            <g transform="translate(1400 50)">
               <text x="50" y="50" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">viewBox</text>
               <text x="50" y="80" text-anchor="middle" font-size="25" fill="${theme.controlForeground}">-50 -50 100 100</text>
               <circle cx="50" cy="150" r="50" transform="translate(50 50)" fill="${theme.exampleColour}" clip-path="url(#basic-setup-example-4)"></circle>
@@ -114,8 +115,8 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
           codeContent: '',
         })}
         `,
-      ...sharedProperties,
-    }),
+        ...sharedProperties,
+      }),
     ...sharedProperties,
   };
 };
