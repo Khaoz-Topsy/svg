@@ -49,6 +49,17 @@ a {
   transform: translateY(92.5vh);
 }
 
+#presentation-container.cursor-red-dot {
+  cursor: url('/presentation/assets/img/red-dot.svg') 16 16, url('/assets/img/red-dot.svg') 16 16,
+    url('../img/red-dot.svg') 16 16, auto;
+}
+#presentation-container.cursor-hand {
+  cursor: url('/presentation/assets/img/hand.png'), url('/assets/img/hand.png'), url('../img/hand.png'), progress;
+}
+#presentation-container.cursor-bubble {
+  cursor: url('./assets/img/hand.cur'), pointer;
+}
+
 #presentation-container,
 #presentation-presenter-container {
   display: flex;
@@ -104,6 +115,7 @@ a {
 }
 
 .control {
+  display: none !important;
   position: fixed;
   top: 0;
   bottom: 0;

@@ -36,13 +36,13 @@
     #ship {
       transform-origin: 50% 50%;
       will-change: transform;
-      animation: ship-anim 20s linear infinite;
+      animation: ship-anim 15s linear infinite;
     }
 
     #thumb {
       transform-origin: center;
       will-change: transform;
-      animation: thumb-anim 10s infinite;
+      animation: thumb-anim 20s infinite;
     }
 
     .bouncing {

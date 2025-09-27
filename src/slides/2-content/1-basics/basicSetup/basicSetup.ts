@@ -30,7 +30,7 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
           height: 450,
           animatePosition: 1,
           svgContent: `
-            <g transform="translate(990 0) scale(1.58)">
+            <g transform="translate(990 0) scale(1.58)" class="noselect">
               <rect x="0" y="0" fill="transparent" width="450" height="285" rx="35" stroke="${theme.controlForeground}" stroke-width="2" />
               
               <rect x="100" y="100" fill="transparent" width="150" height="150" stroke="red" stroke-width="5" />

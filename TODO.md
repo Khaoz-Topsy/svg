@@ -12,10 +12,14 @@
 ## Cool use cases
 
 - themed illustrations?
-- github profile banner?
 - line animations
   - more detail
 - "Circular Progress" slide notes
+
+## Pointers
+
+- Bubble?
+- Magnify?
 
 ## Links page
 

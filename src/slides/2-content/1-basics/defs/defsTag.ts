@@ -1,6 +1,6 @@
 import { codeBlockWithExample } from '@/components/code/codeBlockWithExample.ts';
 import { svgCode } from '@/components/code/codeSpan';
-import { animateSlideIn } from '@/components/core/animate';
+import { animateFadeIn, animateSlideIn } from '@/components/core/animate';
 import { gradientSphere } from '@/components/spheres/gradientSphere';
 import { isServerMode } from '@/constants/env';
 import { usePublicImage } from '@/constants/image.ts';
@@ -14,6 +14,7 @@ import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './defsTag.md';
+import { slideBeginValue } from '@/components/common/slideAnimation';
 
 export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
@@ -247,30 +248,33 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           `,
         })}
 
-        <g transform="translate(1075 890)">
-          <text x="0" y="0" font-size="25" font-style="italic"
-            fill="${theme.controlForeground}" 
-          >Free resources for SVG backgrounds & more:</text>
-        </g>
-            
-        <line x1="1075" y1="925" x2="1085" y2="925" stroke="${theme.controlForeground}" stroke-width="2" />
-        <g transform="translate(1100 930)">
-          <a xlink:href="https://www.fffuel.co/" target="_blank">
+        <g opacity="0" class="noselect">
+          ${animateFadeIn({ duration: '1s', begin: slideBeginValue(previousSlideId, 500 * 4, 'end') })}
+          <g transform="translate(1075 890)">
             <text x="0" y="0" font-size="25" font-style="italic"
               fill="${theme.controlForeground}" 
-            >fffuel.co</text>
-            <line x1="0" y1="10" x2="85" y2="10" stroke="${theme.controlForeground}" stroke-width="2" />
-          </a>
-        </g>
-        
-        <line x1="1075" y1="975" x2="1085" y2="975" stroke="${theme.controlForeground}" stroke-width="2" />
-        <g transform="translate(1100 980)">
-          <a xlink:href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/" target="_blank">
-            <text x="0" y="0" font-size="25" font-style="italic"
-              fill="${theme.controlForeground}" 
-            >svgbackgrounds.com</text>
-            <line x1="0" y1="10" x2="210" y2="10" stroke="${theme.controlForeground}" stroke-width="2" />
-          </a>
+            >Free resources for SVG backgrounds & more:</text>
+          </g>
+              
+          <line x1="1075" y1="925" x2="1085" y2="925" stroke="${theme.controlForeground}" stroke-width="2" />
+          <g transform="translate(1100 930)">
+            <a xlink:href="https://www.fffuel.co/" target="_blank">
+              <text x="0" y="0" font-size="25" font-style="italic"
+                fill="${theme.controlForeground}" 
+              >fffuel.co</text>
+              <line x1="0" y1="10" x2="85" y2="10" stroke="${theme.controlForeground}" stroke-width="2" />
+            </a>
+          </g>
+          
+          <line x1="1075" y1="975" x2="1085" y2="975" stroke="${theme.controlForeground}" stroke-width="2" />
+          <g transform="translate(1100 980)">
+            <a xlink:href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/" target="_blank">
+              <text x="0" y="0" font-size="25" font-style="italic"
+                fill="${theme.controlForeground}" 
+              >svgbackgrounds.com</text>
+              <line x1="0" y1="10" x2="210" y2="10" stroke="${theme.controlForeground}" stroke-width="2" />
+            </a>
+          </g>
         </g>
         
         `,

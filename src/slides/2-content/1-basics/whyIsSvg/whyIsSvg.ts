@@ -34,7 +34,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
               Scalability
             </text>
 
-            <g transform="translate(50 175)">
+            <g transform="translate(50 175)" class="noselect">
               <use href="#duckPixelArt" /> 
               <text x="45" y="120" fill="${theme.code.key}" text-anchor="middle" font-size="25">
                 PNG
@@ -49,7 +49,7 @@ export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
               <use href="#duckPixelArt" /> 
             </g>
 
-            <g transform="translate(50 500)">
+            <g transform="translate(50 500)" class="noselect">
               <use href="#duckPixelArt" /> 
               <text x="45" y="120" fill="${theme.code.key}" text-anchor="middle" font-size="25">
                 SVG

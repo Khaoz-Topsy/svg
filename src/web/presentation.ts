@@ -1,21 +1,24 @@
+import { BroadcastType } from '@/constants/broadcast.ts';
+import { cursorList } from '@/constants/cursor.ts';
 import type { EnvMode } from '@/constants/env.ts';
 import type { RenderOriginType } from '@/constants/renderOrigin.ts';
+import { themes, type ThemeKey } from '@/constants/theme.ts';
 import { ViewMode } from '@/constants/viewMode.ts';
 import type { SlideMeta } from '@/contracts/slideMeta.ts';
 import { generateHtmlFromMarkdown } from '@/helpers/markdownHelper.ts';
+import { slideCenterText, slideEmpty } from '@/slides/slideBase.ts';
 import { renderSvgSlide } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
-import { slideCenterText, slideEmpty } from '@/slides/slideBase.ts';
 import { changeControlsOnSlideChange, setupControlOnClicks, setupMouseTrap } from './controls.ts';
 import { handleSlideIndex } from './slide.ts';
 import { setRootCss } from './style.ts';
 import { getValuesFromUrl, updateUrl, windowButtonHandler } from './window.ts';
-import { themes, type ThemeKey } from '@/constants/theme.ts';
 
 const env: EnvMode = 'web';
 const localStorageThemeKey = 'kurt-presentation-theme';
 let isMinimized = false;
 let themeKey = (localStorage.getItem(localStorageThemeKey) ?? 'dark') as unknown as ThemeKey;
+let cursorIndex = 0;
 
 const slideBackgrounds: Record<string, string> = {
   'slide-basic-drawing-defs': './assets/img/sun-tornado.svg',
@@ -47,8 +50,16 @@ const setupPresentationForWeb = async () => {
   );
 
   broadcastChannel.addEventListener('message', async (event) => {
-    if (slideIndex == event.data) return;
-    slideIndex = await renderFunc(slideIndex, event.data, 'broadcast');
+    const slideData = event.data;
+    console.log(slideData.type);
+    if (slideData.type == BroadcastType.slide) {
+      if (slideIndex == slideData.data) return;
+      slideIndex = await renderFunc(slideIndex, slideData.data, 'broadcast');
+    }
+    if (slideData.type == BroadcastType.cursor) {
+      if (cursorIndex == slideData.data) return;
+      setCursor(containerElem, slideData.data);
+    }
   });
 
   const slideFromModifier = async (indexModifier: number) => {
@@ -83,7 +94,7 @@ const getRenderFunctions = (
     updateUrl(newIndex, viewMode);
 
     if (renderOrigin != 'broadcast') {
-      broadcastChannel.postMessage(newIndex);
+      broadcastChannel.postMessage({ type: BroadcastType.slide, data: newIndex });
     }
 
     const slideMeta = slides[newIndex];
@@ -164,7 +175,25 @@ const getRenderFunctions = (
     return newIndex;
   };
 
+  containerElem.oncontextmenu = (e: Event) => {
+    e?.preventDefault?.();
+
+    const newCursorIndex = (cursorIndex + 1) % cursorList.length;
+    setCursor(containerElem, newCursorIndex);
+
+    broadcastChannel.postMessage({ type: BroadcastType.cursor, data: newCursorIndex });
+  };
+
   return { broadcastChannel, renderFunc };
+};
+
+const setCursor = (containerElem: HTMLElement, newCursorIndex: number) => {
+  for (const cursorType of cursorList) {
+    containerElem.classList.remove(cursorType);
+  }
+  cursorIndex = newCursorIndex;
+  const newCursorType = cursorList[cursorIndex];
+  if (newCursorType.includes('cursor-')) containerElem.classList.add(newCursorType);
 };
 
 setRootCss(themes[themeKey]);
