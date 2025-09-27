@@ -8,7 +8,6 @@ interface ISlideAnimationFadeInProps {
 export const slideAnimationFadeIn = (props: ISlideAnimationFadeInProps) => {
   let previousSlideId = undefined;
   if (props.ctx.env == 'ssg' && props.ctx.transition == 'click') {
-    // TODO: check if ssg-auto needs to have this as well
     const ctx = props.ctx as SsgSlideContext;
     previousSlideId = ctx.prevSlideId;
   }

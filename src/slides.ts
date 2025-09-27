@@ -22,6 +22,7 @@ import { slideStatPoints } from './slides/2-content/3-fun/statPoints/statPoints.
 import { slideSwatChart } from './slides/2-content/3-fun/swatChart/swatChart.ts';
 import { slideWheelOfFortune } from './slides/2-content/3-fun/wheelOfFortune/wheelOfFortune.ts';
 import { slideLinks } from './slides/3-conclusion/3-end/links';
+import { slideGithubProfile } from './slides/2-content/3-fun/githubProfile/githubProfile.ts';
 
 export const getAllSlides = (): Array<SlideMeta> => [
   // Foundation
@@ -47,6 +48,7 @@ export const getAllSlides = (): Array<SlideMeta> => [
   { id: 'slide-fun-circular-progress', slideFunc: slideCircularProgress },
   { id: 'slide-fun-calendar-icon', slideFunc: slideCalendarIcon },
   { id: 'slide-fun-rabobank-line', slideFunc: slideRaboLine },
+  { id: 'slide-fun-github-profile', slideFunc: slideGithubProfile },
   // { id: 'slide-fun-themed-illustrations', slideFunc: slideThemedIllustrations },
   { id: 'slide-fun-stat-points', slideFunc: slideStatPoints },
   { id: 'slide-fun-meta-image', slideFunc: slideMetaImage },

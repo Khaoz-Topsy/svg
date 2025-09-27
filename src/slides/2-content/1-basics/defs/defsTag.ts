@@ -246,6 +246,32 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             </g>
           `,
         })}
+
+        <g transform="translate(1075 890)">
+          <text x="0" y="0" font-size="25" font-style="italic"
+            fill="${theme.controlForeground}" 
+          >Free resources for SVG backgrounds & more:</text>
+        </g>
+            
+        <line x1="1075" y1="925" x2="1085" y2="925" stroke="${theme.controlForeground}" stroke-width="2" />
+        <g transform="translate(1100 930)">
+          <a xlink:href="https://www.fffuel.co/" target="_blank">
+            <text x="0" y="0" font-size="25" font-style="italic"
+              fill="${theme.controlForeground}" 
+            >fffuel.co</text>
+            <line x1="0" y1="10" x2="85" y2="10" stroke="${theme.controlForeground}" stroke-width="2" />
+          </a>
+        </g>
+        
+        <line x1="1075" y1="975" x2="1085" y2="975" stroke="${theme.controlForeground}" stroke-width="2" />
+        <g transform="translate(1100 980)">
+          <a xlink:href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/" target="_blank">
+            <text x="0" y="0" font-size="25" font-style="italic"
+              fill="${theme.controlForeground}" 
+            >svgbackgrounds.com</text>
+            <line x1="0" y1="10" x2="210" y2="10" stroke="${theme.controlForeground}" stroke-width="2" />
+          </a>
+        </g>
         
         `,
         ...sharedProperties,

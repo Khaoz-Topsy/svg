@@ -41,7 +41,7 @@ export const svgHeading = (props: {
       />
     </clipPath>
 
-    <rect id="qrPixel" width="8" height="8" rx="0.5"/>
+    <rect id="p" width="8" height="8" rx="0.5"/>
     <symbol id="duckPixelArt">
       ${createDuckSvg(theme)}
     </symbol>

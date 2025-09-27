@@ -155,6 +155,12 @@ const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
 
       return `<g id="hacker">${innerSvg}</g>`;
     }),
+    readSvg(theme, PublicImage.kurtGithubHeader, (doc) => {
+      const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+      if (innerSvg == null) return '';
+
+      return `<g id="kurtGithubHeader">${innerSvg}</g>`;
+    }),
   ];
   return Promise.all(imagePreloadsTasks);
 };

@@ -16,5 +16,5 @@ export const createDuckSvg = (theme: ITheme, pixelSize: number = 8) => {
           <rect width="${3 * pixelSize}" height="${2 * pixelSize}" x="${4 * pixelSize}" y="${7 * pixelSize}" />
           <rect width="${2 * pixelSize}" height="${1 * pixelSize}" x="${3 * pixelSize}" y="${7 * pixelSize}" />
       </g>
-      <use href="#qrPixel" x="${7 * pixelSize}" y="${3 * pixelSize}" fill="${theme.illustrationDuckEye}" />`;
+      <use href="#p" x="${7 * pixelSize}" y="${3 * pixelSize}" fill="${theme.illustrationDuckEye}" />`;
 };

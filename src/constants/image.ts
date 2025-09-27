@@ -10,6 +10,7 @@ export const PublicImage = {
   hacker: './assets/img/hacker.svg',
   ghost: './assets/img/ghost.svg',
   facebook: './assets/img/facebook.svg',
+  kurtGithubHeader: './assets/img/kurt-lourens-header.svg',
   //
   entelect: './assets/img/entelect.png',
   entelectGithub: './assets/img/entelect-github.png',

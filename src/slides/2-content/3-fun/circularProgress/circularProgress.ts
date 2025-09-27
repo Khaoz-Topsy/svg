@@ -75,11 +75,6 @@ export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlid
             ${percent} %
           </text>
         </g>
-
-
-
-
-
         
         <g opacity="0" transform="translate(100 90)">
           ${animateFadeIn({
@@ -99,6 +94,9 @@ export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlid
 
           <text x="690" y="120" fill="${theme.controlForeground}" font-size="30">
             SolidJS component
+          </text>
+          <text x="1400" y="120" fill="${theme.controlForeground}" font-size="20">
+            (or your favourite JS framework)
           </text>
             
           <g transform="translate(650 140)">
@@ -144,6 +142,16 @@ export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlid
                 
                 ${code.tag('&lt;animate', { tabLevel: 4 })}
                 <br/>
+                ${code.keyValue(['attributeName', '=', '"stroke-dashoffset"'], { tabLevel: 5 })}
+                ${code.keyValue(['dur', '=', '"1s"'])}
+                <br/>
+                ${code.keyValue(['from', '=', '"${strokeDashArray}"'], { tabLevel: 5 })}
+                ${code.keyValue(['to', '=', '"${strokeDashOffset}"'])}
+                <br/>
+                ${code.keyValue(['fill', '=', '"freeze"'], { tabLevel: 5 })}
+                ${code.keyValue(['calcMode', '=', '"spline"'])}
+                ${code.keyValue(['keySplines', '=', '"0.42 0 0.58 1"'])}
+
                 <br/>
                 ${code.tag('/&gt;', { tabLevel: 4 })}
                 <br/>
