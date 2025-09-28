@@ -30,3 +30,7 @@
 
 - <https://oak.is/thinking/animated-svgs/>
 - Different slide backgrounds (SVG backgrounds)
+  - Change on click?
+- Presenter control panel
+  - Timer for how much time has passed
+  - Control cursor from presenter mode
