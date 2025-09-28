@@ -253,7 +253,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           <g transform="translate(1075 890)">
             <text x="0" y="0" font-size="25" font-style="italic"
               fill="${theme.controlForeground}" 
-            >Free resources for SVG backgrounds & more:</text>
+            >Free resources for SVG backgrounds &amp; more:</text>
           </g>
               
           <line x1="1075" y1="925" x2="1085" y2="925" stroke="${theme.controlForeground}" stroke-width="2" />

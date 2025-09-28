@@ -7,8 +7,8 @@ import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
-
 import { isServerMode } from '@/constants/env';
+
 import notesMd from './circularProgress.md';
 
 export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlide> => {
@@ -93,7 +93,7 @@ export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlid
           />
 
           <text x="690" y="120" fill="${theme.controlForeground}" font-size="30">
-            SolidJS component
+            ReactJS / SolidJS component
           </text>
           <text x="1400" y="120" fill="${theme.controlForeground}" font-size="20">
             (or your favourite JS framework)
@@ -103,8 +103,7 @@ export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlid
             <foreignObject x="40" y="15" width="1200" height="800">
               <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
                 ${code.tag('export const', notFocussedStyle)}
-                ${code.value('CircularProgress', notFocussedStyle)}${code.tag(':', notFocussedStyle)}
-                ${code.key('Component&lt;ICircularProgressProps&gt;', notFocussedStyle)}
+                ${code.value('CircularProgress', notFocussedStyle)}
                 ${code.tag('= (props) => {', notFocussedStyle)}
                 <br />
                 ${code.value('// setup variables from props etc...', { ...notFocussedStyle, tabLevel: 1 })}

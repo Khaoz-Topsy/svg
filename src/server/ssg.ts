@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import path from 'node:path';
 import url from 'node:url';
-// import xmlFormat from 'xml-formatter';
+import xmlFormat from 'xml-formatter';
 
 import type { EnvMode } from '@/constants/env.ts';
 import type { ThemeKey } from '@/constants/theme.ts';
@@ -63,7 +63,9 @@ const generateFullSvg = async () => {
   }
 
   let fullSvg = await renderSvgOuterSSG(themeKey, svgSlideContents);
-  // let formattedSvg = xmlFormat(fullSvg);
+  fullSvg = xmlFormat(fullSvg);
+  const numNewLines = fullSvg.split('\n').length;
+  fullSvg = fullSvg.replaceAll('{{svgNumLines}}', numNewLines.toFixed());
   const outputPath = path.join(projectDirectory, 'website', 'assets', 'img', 'generated', `${output}.svg`);
   await writeLinesToFile(fullSvg, outputPath);
 };
