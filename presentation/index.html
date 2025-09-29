@@ -24,7 +24,7 @@
     }
   </style>
   <link href="./assets/css/main.css" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-1FxhT9Pw.js"></script>
+  <script type="module" crossorigin src="./assets/index-BRZd3SN2.js"></script>
 </head>
 
 <body>
@@ -37,13 +37,17 @@
       <hr />
       <div class="notes"></div>
     </div>
-  </div>
-  <div id="presentation-controls" class="first">
-    <div class="control left noselect" draggable="false">⮜</div>
-    <div class="control bottom noselect" draggable="false" style="display: none">
-      <button>Leave presenter</button>
+    <div id="presentation-presenter-controls">
+      <div class="control timer noselect" draggable="false" onclick="setupTimer(this)">
+        ▶️ Start timer
+      </div>
+      <!-- <div class="control options noselect" draggable="false">
+        <input id="remote-cursor" type="checkbox" onclick="controlRemoteCursor(this)" />
+        <label for="remote-cursor">Control remote cursor</label>
+      </div> -->
+      <div id="cursor-options" class="control cursors noselect" draggable="false"></div>
     </div>
-    <div class="control right noselect" draggable="false">⮞</div>
+    <!-- <img id="fake-cursor" src="./assets/img/red-dot.svg" alt="fake-cursor" /> -->
   </div>
 </body>
 
