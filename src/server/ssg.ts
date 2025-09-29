@@ -10,6 +10,7 @@ import { writeLinesToFile } from '@/helpers/fileHelper.ts';
 import { slideEmpty } from '@/slides/slideBase.ts';
 import { renderSvgOuterSSG } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
+import { svgExportFolderPaths } from '@/constants/file.ts';
 // import { generateNotesPanel } from './notesPanel.ts';
 
 let env: EnvMode = 'ssg';
@@ -66,7 +67,7 @@ const generateFullSvg = async () => {
   fullSvg = xmlFormat(fullSvg);
   const numNewLines = fullSvg.split('\n').length;
   fullSvg = fullSvg.replaceAll('{{svgNumLines}}', numNewLines.toFixed());
-  const outputPath = path.join(projectDirectory, 'website', 'assets', 'img', 'generated', `${output}.svg`);
+  const outputPath = path.join(projectDirectory, ...svgExportFolderPaths, `${output}.svg`);
   await writeLinesToFile(fullSvg, outputPath);
 };
 

@@ -36,13 +36,17 @@
       <hr />
       <div class="notes"></div>
     </div>
-  </div>
-  <div id="presentation-controls" class="first">
-    <div class="control left noselect" draggable="false">⮜</div>
-    <div class="control bottom noselect" draggable="false" style="display: none">
-      <button>Leave presenter</button>
+    <div id="presentation-presenter-controls">
+      <div class="control timer noselect" draggable="false" onclick="setupTimer(this)">
+        ▶️ Start timer
+      </div>
+      <!-- <div class="control options noselect" draggable="false">
+        <input id="remote-cursor" type="checkbox" onclick="controlRemoteCursor(this)" />
+        <label for="remote-cursor">Control remote cursor</label>
+      </div> -->
+      <div id="cursor-options" class="control cursors noselect" draggable="false"></div>
     </div>
-    <div class="control right noselect" draggable="false">⮞</div>
+    <!-- <img id="fake-cursor" src="./assets/img/red-dot.svg" alt="fake-cursor" /> -->
   </div>
   <script type="module" src="./src/web/presentation.ts"></script>
 </body>

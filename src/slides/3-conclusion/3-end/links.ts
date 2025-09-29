@@ -1,8 +1,10 @@
 import { animateFadeIn } from '@/components/core/animate';
 import { usePublicImage } from '@/constants/image';
+import { svgMeta } from '@/constants/svgMeta';
 import { themes, type ITheme } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
+import { formatBytes } from '@/helpers/byteHelper';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { slideBase } from '@/slides/slideBase';
 
@@ -20,22 +22,56 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
         ctx: ctx,
         title: 'Links',
         content: `
-        
-          <text x="100" y="150" 
-            fill="${theme.controlForeground}" font-size="30">
-            This presentation was an SVG 🤯
-          </text>
+          <g opacity="0">
+            ${animateFadeIn({
+              duration: '1s',
+              begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+1s`,
+            })}
+            <rect 
+              width="1100"
+              height="810"
+              x="100"
+              y="140"
+              rx="50"
+              fill="transparent"
+              stroke="${theme.secondary}"
+              stroke-width="3"
+            />
+            <text x="150" y="220" 
+              fill="${theme.controlForeground}" font-size="40">
+              Presentation Statistics:
+            </text>
 
+            ${renderStats(theme, 300, 'Interactive SVG', 'ssg-click.svg')}
+            ${renderStats(theme, 450, 'Auto slide SVG (CSS)', 'ssg-css.svg')}
+            ${renderStats(theme, 600, 'Auto slide SVG (SMIL animation)', 'ssg-svg-animation.svg')}
 
-          <clipPath id="presentation-in-presentation">
-            <rect x="0" y="0" width="820" height="650" rx="20" />
-          </clipPath>
-          <g transform="translate(100, 150)" clip-path="url(#presentation-in-presentation)">
-            <foreignObject x="0" y="0" width="1200" height="800">
-              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-                <img src="https://svg.kurtlourens.com/assets/img/generated/ssg-css.svg" />
-              </div>
-            </foreignObject>
+            <g transform="translate(550 300)">
+              <text x="0" y="0" fill="${theme.controlForeground}" font-size="30">
+                PNGs used
+              </text>
+              <text x="10" y="40" fill="${theme.controlForeground}" font-size="25">
+                - 4 files
+              </text>
+              <text x="10" y="80" fill="${theme.controlForeground}" font-size="25">
+                - ${formatBytes(160308)}
+              </text>
+            </g>
+
+            <g transform="translate(950 350)">
+              <circle cx="0" cy="0" r="100" fill="transparent" stroke="red" stroke-width="10" />
+
+              <text x="0" y="5" fill="${theme.controlForeground}" 
+                font-size="125" text-anchor="middle" font-weight="bold"
+                alignment-baseline="middle">AI</text>
+
+              <line
+                x1="70" y1="70"
+                x2="-70" y2="-70"
+                stroke="red" stroke-width="10"
+              />
+            </g>
+
           </g>
 
           <g opacity="0" transform="translate(100 90)">
@@ -65,9 +101,9 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
               fill="${theme.controlForeground}" font-size="20">
               Downloads:
             </text>
-            ${downloadButton(theme, 1250, 175, 'https://svg.kurtlourens.com', 'Interactive SVG')}
-            ${downloadButton(theme, 1250, 235, 'https://svg.kurtlourens.com', 'Auto slide SVG (Best compatibility)')}
-            ${downloadButton(theme, 1250, 295, 'https://svg.kurtlourens.com', 'Auto slide SVG (Chromium browsers)')}
+            ${downloadButton(theme, 1250, 175, 'ssg-click.svg', 'Interactive SVG')}
+            ${downloadButton(theme, 1250, 235, 'ssg-css.svg', 'Auto slide SVG (Best compatibility)')}
+            ${downloadButton(theme, 1250, 295, 'ssg-svg-animation.svg', 'Auto slide SVG (Chromium browsers)')}
 
             <text x="1450" y="420" text-anchor="middle" font-style="italic"
               fill="${theme.controlForeground}" font-size="20">
@@ -77,11 +113,6 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
               ${usePublicImage('qrCode')}
             </g>
           </g>
-
-
-          <text>
-          {{svgNumLines}}
-          </text>
         `,
         ...sharedProperties,
       }),
@@ -89,10 +120,10 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
   };
 };
 
-const downloadButton = (theme: ITheme, x: number, y: number, link: string, title: string) => {
+const downloadButton = (theme: ITheme, x: number, y: number, partialLink: string, title: string) => {
   return `
     <g transform="translate(${x} ${y})">
-      <a xlink:href="${link}" target="_blank">
+      <a xlink:href="https://svg.kurtlourens.com/assets/img/generated/${partialLink}" target="_blank">
         <rect 
           width="400"
           height="40"
@@ -115,3 +146,17 @@ const downloadButton = (theme: ITheme, x: number, y: number, link: string, title
       </a>
     </g>`;
 };
+
+const renderStats = (theme: ITheme, y: number, title: string, metaKey: keyof typeof svgMeta) => `
+  <g transform="translate(150 ${y})">
+    <text x="0" y="0" fill="${theme.controlForeground}" font-size="30">
+      ${title}
+    </text>
+  
+    <text x="10" y="40" fill="${theme.controlForeground}" font-size="25">
+      - ${svgMeta[metaKey].numLines} lines
+    </text>
+    <text x="10" y="80" fill="${theme.controlForeground}" font-size="25">
+      - ${formatBytes(svgMeta[metaKey].numChars)}
+    </text>
+  </g>`;

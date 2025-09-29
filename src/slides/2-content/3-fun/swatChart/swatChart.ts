@@ -70,9 +70,17 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
           </a>
           ${drawLine(theme, 3.75, 430)}
           
+          ${drawPoint(theme, 7)}
+          ${drawText(theme, 7, 'Profit?')}
 
-          ${drawPoint(theme, 6)}
-          ${drawText(theme, 6, 'Profit?')}          
+          ${drawPoint(theme, 12)}
+          ${drawText(theme, 12, 'Used by a friend here:')}
+          <a xlink:href="https://crisply.app" target="_blank">
+            ${drawText(theme, 12.75, 'https://crisply.app', 30, 'font-style="italic"')}
+          </a>
+          ${drawLine(theme, 12.8, 205)}
+
+          
         </g>
         `,
         ...sharedProperties,

@@ -9,7 +9,7 @@ import { generateHtmlFromMarkdown } from '@/helpers/markdownHelper.ts';
 import { slideCenterText, slideEmpty } from '@/slides/slideBase.ts';
 import { renderSvgSlide } from '../renderSvg.ts';
 import { getAllSlides } from '../slides.ts';
-import { changeControlsOnSlideChange, setupControlOnClicks, setupMouseTrap } from './controls.ts';
+import { setupMouseTrap } from './controls.ts';
 import { handleSlideIndex } from './slide.ts';
 import { setRootCss } from './style.ts';
 import { getValuesFromUrl, updateUrl, windowButtonHandler } from './window.ts';
@@ -29,9 +29,9 @@ const setupPresentationForWeb = async () => {
 
   const containerElem = document.querySelector<HTMLElement>('#presentation-container');
   const presenterElem = document.querySelector<HTMLElement>('#presentation-presenter-container');
-  const controlsElem = document.querySelector<HTMLElement>('#presentation-controls');
-  if (containerElem == null || presenterElem == null || controlsElem == null) {
-    console.error('unable to initialise', { containerElem, presenterElem, controlsElem });
+  // const fakeCursorElem = document.querySelector<HTMLElement>('#fake-cursor');
+  if (containerElem == null || presenterElem == null) {
+    console.error('unable to initialise', { containerElem, presenterElem });
     return;
   }
 
@@ -42,7 +42,6 @@ const setupPresentationForWeb = async () => {
   const { renderFunc, broadcastChannel } = getRenderFunctions(
     containerElem,
     presenterElem,
-    controlsElem,
     slides,
     numberOfSlides,
     lastSlideIndex,
@@ -51,7 +50,6 @@ const setupPresentationForWeb = async () => {
 
   broadcastChannel.addEventListener('message', async (event) => {
     const slideData = event.data;
-    console.log(slideData.type);
     if (slideData.type == BroadcastType.slide) {
       if (slideIndex == slideData.data) return;
       slideIndex = await renderFunc(slideIndex, slideData.data, 'broadcast');
@@ -60,6 +58,21 @@ const setupPresentationForWeb = async () => {
       if (cursorIndex == slideData.data) return;
       setCursor(containerElem, slideData.data);
     }
+    // if (slideData.type == BroadcastType.cursorRemote) {
+    //   if (slideData.data == true) {
+    //     containerElem.classList.add('remote-cursor');
+    //   } else {
+    //     containerElem.classList.remove('remote-cursor');
+    //   }
+    // }
+    // if (slideData.type == BroadcastType.cursorPosition) {
+    //   if (cursorIndex == slideData.data) return;
+    //   if (fakeCursorElem == null) return;
+    //   console.log(slideData.data);
+    //   const [x, y] = slideData.data.split(',');
+    //   fakeCursorElem.style.left = x;
+    //   fakeCursorElem.style.top = y;
+    // }
   });
 
   const slideFromModifier = async (indexModifier: number) => {
@@ -67,7 +80,6 @@ const setupPresentationForWeb = async () => {
   };
 
   setupMouseTrap(() => slideIndex, slideFromModifier);
-  setupControlOnClicks(controlsElem, viewMode, slideFromModifier);
   await renderFunc(slideIndex, slideIndex, 'initial');
   containerElem.classList.add('ready');
 };
@@ -75,7 +87,6 @@ const setupPresentationForWeb = async () => {
 const getRenderFunctions = (
   containerElem: HTMLElement,
   presenterElem: HTMLElement,
-  controlsElem: HTMLElement,
   slides: Array<SlideMeta>,
   numberOfSlides: number,
   lastSlideIndex: number,
@@ -90,7 +101,6 @@ const getRenderFunctions = (
     const [newIndex, skip] = handleSlideIndex(slideIndex, newSlideIndex, renderOrigin, lastSlideIndex);
     if (skip == true) return slideIndex;
 
-    changeControlsOnSlideChange(controlsElem, newIndex, lastSlideIndex);
     updateUrl(newIndex, viewMode);
 
     if (renderOrigin != 'broadcast') {
@@ -152,6 +162,72 @@ const getRenderFunctions = (
       containerElem.classList.add(viewMode);
       presenterElem.style.removeProperty('display');
 
+      (window as any).setupTimer = (timerElem: HTMLElement | null) => {
+        console.log('setupTimer');
+        if (timerElem == null) return;
+        timerElem.innerHTML = '00m 00s';
+        const start = new Date().getTime();
+        const interval = setInterval(() => {
+          if (timerElem == null) clearInterval(interval);
+
+          const distance = new Date().getTime() - start;
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          timerElem.innerHTML = `${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+        }, 333);
+      };
+
+      // (window as any).controlRemoteCursor = function () {
+      //   const isChecked = (event as any).target.checked;
+      //   const mainContentSvgElem = containerElem.querySelector<HTMLElement>('#presentation-container > svg');
+
+      //   if (mainContentSvgElem == null) return;
+      //   if (isChecked == false) {
+      //     mainContentSvgElem.onmousemove = function () {};
+      //     broadcastChannel.postMessage({ type: BroadcastType.cursorRemote, data: false });
+      //   } else {
+      //     broadcastChannel.postMessage({ type: BroadcastType.cursorRemote, data: true });
+      //     const { width, height } = mainContentSvgElem.getBoundingClientRect();
+      //     mainContentSvgElem.onmousemove = function (e) {
+      //       const xPercent = Math.round((e.clientX / width) * 10000) / 100;
+      //       const yPercent = Math.round((e.clientY / height) * 10000) / 100;
+      //       debounce(() => {
+      //         console.log(`mouse location: ${xPercent}% ${yPercent}%`);
+      //         broadcastChannel.postMessage({ type: BroadcastType.cursorPosition, data: `${xPercent}%,${yPercent}%` });
+      //       }, 5);
+      //     };
+      //   }
+      // };
+
+      const cursorOptionsElem = containerElem.querySelector<HTMLElement>('#cursor-options');
+      if (cursorOptionsElem != null) {
+        const buttons = [];
+        const onClickTemplate = (cursorIdx: number, fileName: string) =>
+          `<button class="cursor-btn" onclick="onCursorButtonClick(${cursorIdx})"><img src="./assets/img/${fileName}" width="20px" height="20px" /></button>`;
+        for (let cursorIndex = 0; cursorIndex < cursorList.length; cursorIndex++) {
+          const cursorType = cursorList[cursorIndex];
+          if (cursorType == 'unset') continue;
+          if (cursorType == 'cursor-red-dot') {
+            buttons.push(onClickTemplate(cursorIndex, 'red-dot.svg'));
+          }
+          if (cursorType == 'cursor-hand') {
+            buttons.push(onClickTemplate(cursorIndex, 'hand.png'));
+          }
+        }
+        cursorOptionsElem.innerHTML = buttons.join('');
+
+        (window as any).onCursorButtonClick = function (newCursorIndex: number) {
+          for (const cursorType of cursorList) {
+            containerElem.classList.remove(cursorType);
+          }
+          cursorIndex = newCursorIndex;
+          const newCursorType = cursorList[cursorIndex];
+          if (newCursorType.includes('cursor-')) containerElem.classList.add(newCursorType);
+          broadcastChannel.postMessage({ type: BroadcastType.cursor, data: newCursorIndex });
+        };
+      }
+
       const nextSlideMeta = slides[newIndex + 1];
       const nextSlideFunc = nextSlideMeta.slideFunc ?? (() => Promise.resolve(slideCenterText('END')));
       const nextSlideObj = await nextSlideFunc({
@@ -195,6 +271,12 @@ const setCursor = (containerElem: HTMLElement, newCursorIndex: number) => {
   const newCursorType = cursorList[cursorIndex];
   if (newCursorType.includes('cursor-')) containerElem.classList.add(newCursorType);
 };
+
+// let debounceTimer: number;
+// const debounce = (callback: () => void, time: number) => {
+//   window.clearTimeout(debounceTimer);
+//   debounceTimer = window.setTimeout(callback, time);
+// };
 
 setRootCss(themes[themeKey]);
 setupPresentationForWeb();

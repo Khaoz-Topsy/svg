@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "meta": "bun ./src/data/meta.ts",
     "build:web": "tsc && vite build",
     "build:ssg": "bun ./src/server/ssg.ts --transition=click",
     "build:ssg-auto": "bun ./src/server/ssg.ts --transition=svg-animation",
