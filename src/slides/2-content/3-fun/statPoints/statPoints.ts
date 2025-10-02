@@ -1,4 +1,5 @@
 import { animateFadeIn } from '@/components/core/animate';
+import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -124,7 +125,7 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
 
           ${drawPoint(theme, 12)}
           ${drawText(theme, 12, 'I used this on:')}
-          <a xlink:href="https://cassettebeasts.assistantapps.com" target="_blank">
+          <a xlink:href="https://cassettebeasts.assistantapps.com?${svgConstants.linkRef}" target="_blank">
             ${drawText(theme, 12.75, 'https://cassettebeasts.assistantapps.com', 30, 'font-style="italic"')}
           </a>
           ${drawLine(theme, 12.8, 500)}

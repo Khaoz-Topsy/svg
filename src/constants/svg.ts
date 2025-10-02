@@ -11,6 +11,7 @@ export const svgConstants = {
   progress: {
     iconSize: 5,
   },
+  linkRef: 'ref=kurt',
 } as const;
 
 export const svgGradients = (themeKey: ThemeKey) => ({

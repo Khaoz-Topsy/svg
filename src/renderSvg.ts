@@ -3,7 +3,7 @@ import { svgHeading } from '@/components/svgSetup.ts';
 import { windowBarLine } from '@/components/window/windowBarLine.ts';
 import { windowButtons } from '@/components/window/windowButtons.ts';
 import { windowTitleIcon } from '@/components/window/windowTitleIcon.ts';
-import { PublicImage } from '@/constants/image.ts';
+import { PublicImage, svgLoaders } from '@/constants/image.ts';
 import { svgConstants } from '@/constants/svg.ts';
 import type { ISvgSlide } from '@/contracts/svgSlide.ts';
 import { readSvg } from '@/helpers/fileHelper.ts';
@@ -168,5 +168,16 @@ const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
       return `<g id="githubHeader">${innerSvg}</g>`;
     }),
   ];
+
+  for (const svgLoader of svgLoaders) {
+    imagePreloadsTasks.push(
+      readSvg(theme, `./assets/img/loaders/${svgLoader.id}.svg`, (doc) => {
+        const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+        if (innerSvg == null) return '';
+
+        return `<g id="${svgLoader.id}">${innerSvg}</g>`;
+      }),
+    );
+  }
   return Promise.all(imagePreloadsTasks);
 };

@@ -1,14 +1,15 @@
+import { animateFadeIn } from '@/components/core/animate';
+import { usePublicImage } from '@/constants/image';
+import { svgConstants } from '@/constants/svg';
+import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
+import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
+import { drawLine, drawPoint, drawRect, drawText } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
-import { usePublicImage } from '@/constants/image';
 import notesMd from './swatChart.md';
-import { animateFadeIn } from '@/components/core/animate';
-import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { themes } from '@/constants/theme';
-import { drawPoint, drawText, drawRect, drawLine } from '@/helpers/svgHelper';
 
 export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
@@ -65,7 +66,7 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
           ${drawPoint(theme, 2)}
           ${drawText(theme, 2, 'Change the config to your liking')}
           ${drawText(theme, 3, 'You can play around with the live version:', 25, 'font-style="italic"')}
-          <a xlink:href="https://assistantapps.github.io/Swat-Chart" target="_blank">
+          <a xlink:href="https://assistantapps.github.io/Swat-Chart?${svgConstants.linkRef}" target="_blank">
             ${drawText(theme, 3.75, 'https://assistantapps.github.io/Swat-Chart', 25, 'font-style="italic"')}
           </a>
           ${drawLine(theme, 3.75, 430)}
@@ -75,7 +76,7 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
           ${drawPoint(theme, 12)}
           ${drawText(theme, 12, 'Used by a friend here:')}
-          <a xlink:href="https://crisply.app" target="_blank">
+          <a xlink:href="https://crisply.app?${svgConstants.linkRef}" target="_blank">
             ${drawText(theme, 12.75, 'https://crisply.app', 30, 'font-style="italic"')}
           </a>
           ${drawLine(theme, 12.8, 205)}

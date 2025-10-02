@@ -1,5 +1,6 @@
 import { svgCode } from '@/components/code/codeSpan';
 import { animateFadeIn } from '@/components/core/animate';
+import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -65,7 +66,7 @@ export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
           </text>
 
           <g transform="translate(490 -45)">
-            <a xlink:href="https://d2lang.com" target="_blank">
+            <a xlink:href="https://d2lang.com?${svgConstants.linkRef}" target="_blank">
               ${drawText(theme, 0, 'https://d2lang.com', 30, 'font-style="italic"')}
             </a>
             ${drawLine(theme, -0.05, 235)}

@@ -4,7 +4,7 @@ import { animateFadeIn, animateSlideIn } from '@/components/core/animate';
 import { gradientSphere } from '@/components/spheres/gradientSphere';
 import { isServerMode } from '@/constants/env';
 import { usePublicImage } from '@/constants/image.ts';
-import { svgGradients } from '@/constants/svg';
+import { svgConstants, svgGradients } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -12,9 +12,9 @@ import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
+import { slideBeginValue } from '@/components/common/slideAnimation';
 
 import notesMd from './defsTag.md';
-import { slideBeginValue } from '@/components/common/slideAnimation';
 
 export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
@@ -258,7 +258,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
               
           <line x1="1075" y1="925" x2="1085" y2="925" stroke="${theme.controlForeground}" stroke-width="2" />
           <g transform="translate(1100 930)">
-            <a xlink:href="https://www.fffuel.co/" target="_blank">
+            <a xlink:href="https://www.fffuel.co?${svgConstants.linkRef}" target="_blank">
               <text x="0" y="0" font-size="25" font-style="italic"
                 fill="${theme.controlForeground}" 
               >fffuel.co</text>
@@ -268,7 +268,9 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
           
           <line x1="1075" y1="975" x2="1085" y2="975" stroke="${theme.controlForeground}" stroke-width="2" />
           <g transform="translate(1100 980)">
-            <a xlink:href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/" target="_blank">
+            <a xlink:href="https://www.svgbackgrounds.com/set/free-svg-backgrounds-and-patterns/?${
+              svgConstants.linkRef
+            }" target="_blank">
               <text x="0" y="0" font-size="25" font-style="italic"
                 fill="${theme.controlForeground}" 
               >svgbackgrounds.com</text>

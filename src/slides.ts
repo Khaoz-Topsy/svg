@@ -16,13 +16,14 @@ import { slideFunBegins } from './slides/2-content/3-fun/1-begins/begins.ts';
 import { slideCalendarIcon } from './slides/2-content/3-fun/calendar/calendarIcon.ts';
 import { slideCircularProgress } from './slides/2-content/3-fun/circularProgress/circularProgress.ts';
 import { slideDiagrams } from './slides/2-content/3-fun/diagrams/diagrams.ts';
+import { slideGithubProfile } from './slides/2-content/3-fun/githubProfile/githubProfile.ts';
+import { slideLoaders } from './slides/2-content/3-fun/loaders/loaders.ts';
 import { slideMetaImage } from './slides/2-content/3-fun/metaImage/metaImage.ts';
 import { slideRaboLine } from './slides/2-content/3-fun/rabo-line/raboLine.ts';
 import { slideStatPoints } from './slides/2-content/3-fun/statPoints/statPoints.ts';
 import { slideSwatChart } from './slides/2-content/3-fun/swatChart/swatChart.ts';
 import { slideWheelOfFortune } from './slides/2-content/3-fun/wheelOfFortune/wheelOfFortune.ts';
 import { slideLinks } from './slides/3-conclusion/3-end/links';
-import { slideGithubProfile } from './slides/2-content/3-fun/githubProfile/githubProfile.ts';
 
 export const getAllSlides = (): Array<SlideMeta> => [
   // Foundation
@@ -45,6 +46,7 @@ export const getAllSlides = (): Array<SlideMeta> => [
   { id: 'slide-advanced-security-concerns', slideFunc: slideSecurityConcerns },
 
   { id: 'slide-fun-begins', slideFunc: slideFunBegins },
+  { id: 'slide-fun-loaders', slideFunc: slideLoaders },
   { id: 'slide-fun-circular-progress', slideFunc: slideCircularProgress },
   { id: 'slide-fun-calendar-icon', slideFunc: slideCalendarIcon },
   { id: 'slide-fun-rabobank-line', slideFunc: slideRaboLine },

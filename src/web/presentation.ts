@@ -212,7 +212,7 @@ const getRenderFunctions = (
             buttons.push(onClickTemplate(cursorIndex, 'red-dot.svg'));
           }
           if (cursorType == 'cursor-hand') {
-            buttons.push(onClickTemplate(cursorIndex, 'hand.png'));
+            buttons.push(onClickTemplate(cursorIndex, 'hand.svg'));
           }
         }
         cursorOptionsElem.innerHTML = buttons.join('');

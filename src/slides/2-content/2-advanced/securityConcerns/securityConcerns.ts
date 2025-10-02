@@ -1,5 +1,7 @@
 import { animateFadeIn } from '@/components/core/animate';
+import { isServerMode } from '@/constants/env';
 import { usePublicImage } from '@/constants/image';
+import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -9,7 +11,6 @@ import { drawLine, drawPoint, drawText } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './securityConcerns.md';
-import { isServerMode } from '@/constants/env';
 
 export const slideSecurityConcerns = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
@@ -91,7 +92,9 @@ export const slideSecurityConcerns = async (ctx: SlideContext): Promise<ISvgSlid
 
           ${drawPoint(theme, 12)}
           ${drawText(theme, 12, 'For more details:')}
-          <a xlink:href="https://www.cloudflare.com/en-gb/threat-intelligence/research/report/svgs-the-hackers-canvas/" target="_blank">
+          <a xlink:href="https://www.cloudflare.com/en-gb/threat-intelligence/research/report/svgs-the-hackers-canvas/?${
+            svgConstants.linkRef
+          }" target="_blank">
             ${drawText(theme, 12.75, 'https://cloudflare.com/threat/report...', 30, 'font-style="italic"')}
           </a>
           ${drawLine(theme, 12.8, 500)}

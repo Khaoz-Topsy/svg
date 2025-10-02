@@ -1,5 +1,6 @@
 import { animateFadeIn } from '@/components/core/animate';
 import { usePublicImage } from '@/constants/image';
+import { svgConstants } from '@/constants/svg';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -114,10 +115,10 @@ export const slideGithubProfile = async (ctx: SlideContext): Promise<ISvgSlide> 
           
           ${drawPoint(theme, 12)}
           ${drawText(theme, 12, 'View this on:')}
-          <a xlink:href="https://github.com/Khaoz-Topsy" target="_blank">
+          <a xlink:href="https://github.com/Khaoz-Topsy?${svgConstants.linkRef}" target="_blank">
             ${drawText(theme, 12.75, 'https://github.com/Khaoz-Topsy', 30, 'font-style="italic"')}
           </a>
-          ${drawLine(theme, 12.8, 420)}
+          ${drawLine(theme, 12.8, 390)}
         </g>
         `,
         ...sharedProperties,

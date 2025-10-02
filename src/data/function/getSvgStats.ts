@@ -13,8 +13,9 @@ export const getSvgStats = async (props: {
   const svgContent = await fs.readFile(filePath, 'utf-8');
   const numLines = svgContent.split('\n').length;
   const numChars = svgContent.length;
+  const numCharsMinified = svgContent.replace(/(\r\n|\n|\r)/g, '').length;
 
-  return { fileName: props.fileName, numLines, numChars };
+  return { fileName: props.fileName, numLines, numChars, numCharsMinified };
 };
 
 export const getFileData = async (props: { directory: string; files: Array<string> }) => {

@@ -49,6 +49,11 @@ export const svgHeading = (props: {
     <filter id="GaussianBlur" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
       <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
     </filter>
+    
+		<linearGradient id="atlas" x1="0%" y1="0%" x2="100%" y2="0%">
+			<stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+			<stop offset="100%" style="stop-color:rgb(155,0,0);stop-opacity:1" />
+		</linearGradient>
   </defs>
 
   <style>
@@ -187,5 +192,22 @@ export const svgHeading = (props: {
       animation-delay: var(--delay, 150ms);
       animation-fill-mode: forwards;
     }
+
+		#atlas-loader {
+			position: relative;
+			animation: anim-up-and-down 1s ease-in-out infinite;
+		}
+		
+		@keyframes anim-up-and-down {
+			0% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(1em);
+			}
+			100% {
+				transform: translateY(0);
+			}
+		}
   </style>`;
 };

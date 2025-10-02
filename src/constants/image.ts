@@ -21,6 +21,25 @@ export const PublicImage = {
   review: './assets/img/icon/review.svg',
 } as const; // These images are always included
 
+export const svgLoaders = [
+  { id: 'audio', colour: '#1ABC9C' },
+  { id: 'rings', colour: '#34495E' },
+  { id: 'grid', colour: '#F39C12' },
+  { id: 'hearts', colour: '#9B59B6' },
+
+  { id: 'oval', colour: '#3498DB' },
+  { id: 'three-dots', colour: '#E74C3C' },
+  { id: 'spinning-circles', colour: '#2ECC71' },
+  { id: 'puff', colour: '#2C3E50' },
+
+  { id: 'circles', colour: '#F1C40F' },
+  { id: 'tail-spin', colour: '#8E44AD' },
+  { id: 'bars', colour: '#2980B9' },
+  { id: 'ball-triangle', colour: '#E74C3C' },
+] as const;
+
 export type PublicImageKey = keyof typeof PublicImage;
 
 export const usePublicImage = (id: PublicImageKey, attr?: string) => `<use href="#${id}" ${attr ?? ''} />`;
+export const usePublicLoaderImage = (id: (typeof svgLoaders)[number]['id'], attr?: string) =>
+  `<use href="#${id}" ${attr ?? ''} />`;
