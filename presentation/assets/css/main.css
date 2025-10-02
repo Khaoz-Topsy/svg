@@ -54,7 +54,7 @@ a {
     url('../img/red-dot.svg') 16 16, auto;
 }
 #presentation-container.cursor-hand {
-  cursor: url('/presentation/assets/img/hand.png'), url('/assets/img/hand.png'), url('../img/hand.png'), progress;
+  cursor: url('/presentation/assets/img/hand.svg'), url('/assets/img/hand.svg'), url('../img/hand.svg'), progress;
 }
 #presentation-container.cursor-bubble {
   cursor: url('./assets/img/hand.cur'), pointer;
