@@ -14,4 +14,4 @@ It is like a window on the infinite canvas that an SVG provides. and the viewbox
 
 Examples of half-circle and quarter-circle images you could make by abusing the viewbox
 
-## Transition: Now that you know the basics lets draw some more shapes
+## ▶️ Now that you know the basics lets draw some shapes

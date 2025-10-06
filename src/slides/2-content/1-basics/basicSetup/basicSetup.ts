@@ -35,8 +35,8 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
               
               <rect x="100" y="100" fill="transparent" width="150" height="150" stroke="red" stroke-width="5" />
               <text x="0" y="0" text-anchor="middle" transform="translate(80, 180) rotate(90)" fill="red">ViewBox</text>
-              <text x="175" y="90" text-anchor="middle" fill="red">200</text>
-              <text x="275" y="180" text-anchor="middle" fill="red">200</text>
+              <text x="175" y="90" text-anchor="middle" fill="red">150</text>
+              <text x="275" y="180" text-anchor="middle" fill="red">150</text>
 
               <circle cx="350" cy="40" r="7" fill="${theme.controlForeground}"></circle>
               <text x="350" y="65" text-anchor="middle" fill="${theme.controlForeground}">x: 350, y: 40</text>
@@ -51,7 +51,7 @@ export const slideBasicSetup = async (ctx: SlideContext): Promise<ISvgSlide> => 
             ${code.tag('&lt;svg')}
             ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'])}
             <br />
-            ${code.keyValue(['viewBox', '=', '"100 100 200 200"'], { tabLevel: 1 })}
+            ${code.keyValue(['viewBox', '=', '"100 100 250 250"'], { tabLevel: 1 })}
             <br />
             ${code.keyValue(['width', '=', '"300"'], { tabLevel: 1 })}
             ${code.keyValue(['height', '=', '"200"'])}

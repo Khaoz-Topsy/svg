@@ -10,4 +10,4 @@ Literally none of the benefits and all of the downsides. But here is how you do 
 
 You can also load network images in the image tag of an SVG. In this example I also made use of clipPath and the star definition from the last slide to make this cut out Entelect logo.
 
-## Transition: If you are getting tired of SVG code, I have some good news
+## ▶️ If you are getting tired of SVG code, I have some good news

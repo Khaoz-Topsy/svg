@@ -4,6 +4,7 @@ import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
+import { drawPoint, drawText } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './raboLine.md';
@@ -85,7 +86,7 @@ export const slideRaboLine = async (ctx: SlideContext): Promise<ISvgSlide> => {
             theme.phoneFrameAccent
           }" stroke-width="1" rx="10" />
         </g>
-        <g opacity="0" transform="translate(100 90)">
+        <g opacity="0" transform="translate(-100 90)">
           ${animateFadeIn({
             duration: '1s',
             begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+1s`,
@@ -93,7 +94,7 @@ export const slideRaboLine = async (ctx: SlideContext): Promise<ISvgSlide> => {
           <rect 
             width="1050"
             height="810"
-            x="650"
+            x="850"
             y="50"
             rx="50"
             fill="transparent"
@@ -101,16 +102,47 @@ export const slideRaboLine = async (ctx: SlideContext): Promise<ISvgSlide> => {
             stroke-width="3"
           />
 
-          <text x="690" y="120" fill="${theme.controlForeground}" font-size="30">
-            TODO: RaboLine content
+          <text x="890" y="120" fill="${theme.controlForeground}" font-size="30">
+            One of the strategies used
+          </text>
+          <text x="890" y="150" fill="${theme.controlForeground}" font-size="20">
+            For Rabobank Wrap/Recap
           </text>
             
-          <g transform="translate(650 140)">
-            <foreignObject x="40" y="15" width="1200" height="800">
-              <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
-              </div>
-            </foreignObject>
-          </g>
+          ${drawPoint(theme, 2)}
+          ${drawText(theme, 2, 'Animating the Rabo line')}
+          ${drawText(theme, 3, 'Have the list of points for the before state', 25, 'font-style="italic"')}
+          ${drawText(theme, 4, 'Have the list of points for the after state', 25, 'font-style="italic"')}
+          ${drawText(theme, 5, 'Use the &lt;animate /&gt; tag', 25, 'font-style="italic"')}
+            
+          ${drawPoint(theme, 7)}
+          ${drawText(theme, 7, 'Animating the position of Rabo line')}
+          ${drawText(theme, 8, 'Draw a long version of the line', 25, 'font-style="italic"')}
+          ${drawText(theme, 9, 'Move the line along the viewable window', 25, 'font-style="italic"')}
+          ${drawText(theme, 10, '   Gives a sense of movement', 25, 'font-style="italic"')}
+        </g>
+
+        <g opacity="0" transform="scale(0.15) translate(9000 2500)">
+          ${animateFadeIn({
+            duration: '1s',
+            begin: previousSlideId == undefined ? undefined : `${previousSlideId}-slide-anim.begin+2s`,
+          })}
+          <path id="squiggle-line" d="M 9 10 C 613 331 1599 -302 2385 7" 
+            stroke="${theme.exampleColour}" 
+            stroke-width="50" 
+            stroke-linecap="round"
+            fill="transparent"
+          >
+            <animate id="twistStart" attributeName="d"
+              from="M 9 10 C 613 331 1599 -302 2385 7" to="M 2134 -1179 C -1623 652 3432 712 -293 -1191" 
+              begin="1s;twistEnd.end+1" dur="1s" fill="freeze"
+            />
+            <animate id="twistEnd" attributeName="d"
+              to="M 9 10 C 613 331 1599 -302 2385 7" from="M 2134 -1179 C -1623 652 3432 712 -293 -1191" 
+              begin="twistStart.end+1" dur="1s" fill="freeze"
+            />
+            
+          </path>
         </g>
         `,
         ...sharedProperties,

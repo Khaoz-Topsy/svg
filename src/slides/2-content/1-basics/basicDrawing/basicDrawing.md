@@ -16,4 +16,4 @@ path - this is a super powerful tag. Far too complicated to be covered in this p
 
 basically you can use path to draw all the previous shapes, it is just a lot more difficult
 
-## Transition: With these basic drawings we can reuse and build on top of them
+## ▶️ With these basic drawings we can reuse and build on top of them

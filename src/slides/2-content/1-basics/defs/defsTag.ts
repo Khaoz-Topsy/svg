@@ -58,15 +58,17 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             
             ${code.tag('&lt;defs&gt;', { tabLevel: 1 })}
             <br />
-            ${code.tag('&lt;polygon', { tabLevel: 2 })}
-            ${code.keyValue(['id', '=', '"star"'])}
+            ${code.tag('&lt;symbol', { tabLevel: 2 })}
+            ${code.keyValue(['id', '=', '"star"'])}${code.tag('&gt;')}
+            <br />
+            ${code.tag('&lt;polygon', { tabLevel: 3 })}
             ${code.keyValue(['fill', '=', '"transparent"'])}
+            ${code.keyValue(['stroke-width', '=', '"5"'])}
             <br />
-            ${code.keyValue(['points', '=', '"96,0,125.38926261462,55.5491.....'], { tabLevel: 3 })}
+            ${code.keyValue(['points', '=', '"96,0,125.38926261462,55.91.....'], { tabLevel: 4 })}
+            ${code.tag('/&gt;')}
             <br />
-            ${code.keyValue(['stroke-width', '=', '"5"'], { tabLevel: 3 })}${code.tag('&gt;')}
-            <br />
-            ${code.tag('&lt;/polygon&gt;', { tabLevel: 2 })}
+            ${code.tag('&lt;symbol&gt;', { tabLevel: 2 })}
             <br />
 
             ${code.tag('&lt;/defs&gt;', { tabLevel: 1 })}

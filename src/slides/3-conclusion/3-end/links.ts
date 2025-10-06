@@ -1,4 +1,5 @@
 import { animateFadeIn } from '@/components/core/animate';
+import { isServerMode } from '@/constants/env';
 import { usePublicImage } from '@/constants/image';
 import { svgMeta } from '@/constants/svgMeta';
 import { themes, type ITheme } from '@/constants/theme';
@@ -44,8 +45,19 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
             ${renderStats(theme, 300, 'Interactive SVG', 'ssg-click.svg')}
             ${renderStats(theme, 450, 'Auto slide SVG (CSS)', 'ssg-css.svg')}
-            ${renderStats(theme, 600, 'Auto slide SVG (SMIL animation)', 'ssg-svg-animation.svg')}
+            ${renderStats(theme, 600, 'Auto slide SVG (SMIL)', 'ssg-svg-animation.svg')}
 
+            ${
+              isServerMode(ctx.env)
+                ? ''
+                : `<g transform="translate(500 560)">
+                  <foreignObject x="50" y="0" width="600" height="700">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 1.5em;">
+                      <img src="https://svg.kurtlourens.com/assets/img/generated/ssg-css.svg" alt="slides" />
+                    </div>
+                  </foreignObject>
+                </g>`
+            }
             <g transform="translate(550 300)">
               <text x="0" y="0" fill="${theme.controlForeground}" font-size="30">
                 PNGs used

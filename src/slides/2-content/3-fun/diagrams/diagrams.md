@@ -1,3 +1,3 @@
 diagrams
 
-## Transition: This whole presentation is an SVG
+## ▶️ The best or worst use for an SVG is a presentation

@@ -10,4 +10,4 @@ You can use css to do svg things, like earlier we were using fill on the basic d
 
 Because SVGs support CSS, you can also define and use CSS animations
 
-## Transition: But what if you want animations but hate CSS
+## ▶️ But what if you want animations but hate CSS
