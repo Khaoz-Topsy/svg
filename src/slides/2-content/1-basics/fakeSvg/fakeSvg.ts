@@ -1,5 +1,7 @@
 import { codeBlockWithExample } from '@/components/code/codeBlockWithExample';
 import { svgCode } from '@/components/code/codeSpan';
+import { isServerMode } from '@/constants/env';
+import { PublicImage } from '@/constants/image';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -8,8 +10,6 @@ import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
 import notesMd from './fakeSvg.md';
-import { isServerMode } from '@/constants/env';
-import { PublicImage } from '@/constants/image';
 
 export const slideFakeSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];

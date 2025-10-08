@@ -1,5 +1,6 @@
 import { codeBlockWithExample } from '@/components/code/codeBlockWithExample.ts';
 import { svgCode } from '@/components/code/codeSpan.ts';
+import { usePublicImage } from '@/constants/image';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext.ts';
 import type { ISvgSlide } from '@/contracts/svgSlide.ts';
@@ -28,10 +29,10 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
           x: 100,
           y: 120,
           width: 750,
-          height: 670,
+          height: 520,
           animatePosition: 1,
           svgContent: `
-            <circle class="cool-circle" cx="580" cy="270" r="75" />
+            <circle class="cool-circle" cx="580" cy="220" r="75" />
           `,
           codeContent: `
             ${code.tag('&lt;svg', notFocussedStyle)}
@@ -40,12 +41,6 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
             ${code.keyValue(['xmlns', '=', '"http://ww..."'], notFocussedStyle)}
             ${code.tag('&gt;', notFocussedStyle)}
-            <br />
-            <br />
-            
-            ${code.tag('&lt;defs&gt;', { ...notFocussedStyle, tabLevel: 1 })}<br />
-            ${code.value('...', { ...notFocussedStyle, tabLevel: 2 })}<br />
-            ${code.tag('&lt;/defs&gt;', { ...notFocussedStyle, tabLevel: 1 })}
             <br />
             <br />
             
@@ -136,6 +131,10 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             ${code.tag('&lt;/svg&gt;', notFocussedStyle)}
           `,
         })}
+
+        <g transform="scale(0.8) translate(70 737)">
+          ${usePublicImage('webDeveloper')}
+        </g>
         `,
         ...sharedProperties,
       }),

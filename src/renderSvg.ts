@@ -167,6 +167,12 @@ const preloadImages = (themeKey: ThemeKey): Promise<Array<string>> => {
 
       return `<g id="githubHeader">${innerSvg}</g>`;
     }),
+    readSvg(theme, PublicImage.webDeveloper, (doc) => {
+      const innerSvg = doc?.children?.[0]?.innerHTML ?? '';
+      if (innerSvg == null) return '';
+
+      return `<g id="webDeveloper">${innerSvg}</g>`;
+    }),
   ];
 
   for (const svgLoader of svgLoaders) {

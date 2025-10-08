@@ -1,5 +1,6 @@
 import { codeBlockWithExample } from '@/components/code/codeBlockWithExample';
 import { svgCode } from '@/components/code/codeSpan';
+import { isServerMode } from '@/constants/env';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -7,7 +8,6 @@ import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
-import { isServerMode } from '@/constants/env';
 import notesMd from './foreignObject.md';
 
 export const slideForeignObject = async (ctx: SlideContext): Promise<ISvgSlide> => {

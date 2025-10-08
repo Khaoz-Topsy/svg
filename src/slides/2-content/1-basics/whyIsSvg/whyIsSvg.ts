@@ -5,10 +5,10 @@ import type { ISvgSlide } from '@/contracts/svgSlide';
 import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
+import { flexibilityHtml, flexibilitySvgResult } from './flexibility';
 import { whyIsSvgCard } from './whyIsSvgCard';
 
 import notesMd from './whyIsSvg.md';
-import { flexibilityHtml, flexibilitySvgResult } from './flexibility';
 
 export const slideWhyIsSvg = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];

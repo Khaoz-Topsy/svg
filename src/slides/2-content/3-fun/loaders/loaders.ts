@@ -16,6 +16,13 @@ export const slideLoaders = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const theme = themes[ctx.themeKey];
   const previousSlideId = getPreviousSlideIndex(ctx);
 
+  const debugLines = '';
+  // [
+  //   '<rect x="0" y="0" transform="translate(50 50)" fill="transparent" width="600" height="400" stroke="red" stroke-width="2" />',
+  //   '<rect x="0" y="0" transform="translate(50 50)" fill="transparent" width="600" height="200" stroke="red" stroke-width="2" />',
+  //   '<rect x="0" y="0" transform="translate(250 50)" fill="transparent" width="200" height="400" stroke="red" stroke-width="2" />',
+  // ].join('');
+
   const sharedProperties = {
     ssg: { secondsToDisplay: 3 },
     notes: await readLocalFile(notesMd),
@@ -46,6 +53,7 @@ export const slideLoaders = async (ctx: SlideContext): Promise<ISvgSlide> => {
                 </g>`,
               )
               .join('')}
+              ${debugLines}
           </g>
           
         <g opacity="0" transform="translate(300 90)">

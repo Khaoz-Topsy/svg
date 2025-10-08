@@ -1,5 +1,6 @@
 import { svgCode } from '@/components/code/codeSpan';
 import { animateFadeIn } from '@/components/core/animate';
+import { isServerMode } from '@/constants/env';
 import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
@@ -7,7 +8,6 @@ import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
 import { readLocalFile } from '@/helpers/fileHelper';
 import { notFocussedStyle } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
-import { isServerMode } from '@/constants/env';
 
 import notesMd from './circularProgress.md';
 
