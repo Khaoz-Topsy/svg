@@ -488,7 +488,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
         ${fe({x:1e3,y:420,ctx:n,animatePosition:4,overrideForeignObjectX:280,svgContent:`<polygon points="130,50 200,110 180,190 80,190 60,110" 
               fill="transparent" stroke="${a.exampleColour}" stroke-width="5" />`,codeContent:`
             ${t.tag("&lt;polygon")}<br />
-            ${t.keyValue(["points","=",'"130,50 200,110 180,200 80,200 60,110"'],{tabLevel:1})}<br />
+            ${t.keyValue(["points","=",'"130,50 200,110 180,200 80,200"'],{tabLevel:1})}<br />
             ${t.keyValue(["fill","=",'"transparent"'],{tabLevel:1})}<br />
             ${t.keyValue(["stroke","=",`"${a.exampleColour}"`],{tabLevel:1})}
             ${t.keyValue(["stroke-width","=",'"5"'])}<br />
@@ -599,7 +599,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
             ${t.keyValue(["version","=",'"1.1"'],m)}
             ${t.keyValue(["width","=",'"300"'],m)}
             ${t.keyValue(["height","=",'"200"'],m)}
-            ${t.keyValue(["xmlns","=",'"http://ww..."'],m)}
+            ${t.keyValue(["xmlns","=",'"http..."'],m)}
             ${t.tag("&gt;",m)}
             <br />
             <br />
@@ -696,7 +696,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
             ${u.keyValue(["version","=",'"1.1"'],m)}
             ${u.keyValue(["width","=",'"300"'],m)}
             ${u.keyValue(["height","=",'"200"'],m)}
-            ${u.keyValue(["xmlns","=",'"http://www.w3.org/2000/svg"'],m)}
+            ${u.keyValue(["xmlns","=",'"http://www.w3.org/20..."'],m)}
             ${u.tag("&gt;",m)}
             <br />
             
@@ -744,7 +744,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
             ${u.keyValue(["version","=",'"1.1"'],m)}
             ${u.keyValue(["width","=",'"300"'],m)}
             ${u.keyValue(["height","=",'"200"'],m)}
-            ${u.keyValue(["xmlns","=",'"http://w...."'],m)}
+            ${u.keyValue(["xmlns","=",'"http...."'],m)}
             ${u.tag("&gt;",m)}
             <br />
             
@@ -788,7 +788,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
             ${u.keyValue(["version","=",'"1.1"'],m)}
             ${u.keyValue(["width","=",'"300"'],m)}
             ${u.keyValue(["height","=",'"200"'],m)}
-            ${u.keyValue(["xmlns","=",'"http://www.w3.org/2000/svg"'],m)}
+            ${u.keyValue(["xmlns","=",'"http://www.w3.org/20..."'],m)}
             ${u.tag("&gt;",m)}
             <br />
             
@@ -2344,7 +2344,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
           ${_(a,1,"Using &lt;polygon&gt;",25,'font-style="italic"')}
 
           ${S(a,2)}
-          ${_(a,2,"Draw a line from the center to the the edge of the hexagon")}
+          ${_(a,2,"Draw a line from the center to the the edge")}
           ${_(a,3,"6 times, one for each point",25,'font-style="italic"')}
 
           ${S(a,4)}
@@ -2397,7 +2397,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
 
           ${S(t,0)}
           ${_(t,0,"Install my npm package")}
-          ${_t(t,1,415,40)}
+          ${_t(t,1,430,40)}
           ${_(n.themeKey=="light"?{...t,controlForeground:t.controlBackground}:t,1,"npm install @assistantapps/swat-chart ",25,'font-style="italic"')}
           
           ${S(t,2)}
@@ -2508,7 +2508,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
             ${_(a,5,"Draw the text of the option")}
 
             ${S(a,6)}
-            ${_(a,6,"Rotate the text by wedge angle x the (index of the text + 0.5)")}
+            ${_(a,6,"Rotate the text by wedge angle x the (index + 0.5)")}
             ${_(a,7,"This will place the text in the middle of the slice",25,'font-style="italic"')}
 
             ${S(a,8)}
