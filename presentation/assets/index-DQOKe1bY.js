@@ -2397,7 +2397,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
 
           ${S(t,0)}
           ${_(t,0,"Install my npm package")}
-          ${_t(t,1,430,40)}
+          ${_t(t,1,450,40)}
           ${_(n.themeKey=="light"?{...t,controlForeground:t.controlBackground}:t,1,"npm install @assistantapps/swat-chart ",25,'font-style="italic"')}
           
           ${S(t,2)}
