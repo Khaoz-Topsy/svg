@@ -54,7 +54,7 @@ export const slideSwatChart = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
           ${drawPoint(theme, 0)}
           ${drawText(theme, 0, 'Install my npm package')}
-          ${drawRect(theme, 1, 430, 40)}
+          ${drawRect(theme, 1, 450, 40)}
           ${drawText(
             ctx.themeKey == 'light' ? { ...theme, controlForeground: theme.controlBackground } : theme,
             1,
