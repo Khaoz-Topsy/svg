@@ -38,7 +38,7 @@ export const slideBasicDrawingDefsWithCss = async (ctx: SlideContext): Promise<I
             ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
             ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
             ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${code.keyValue(['xmlns', '=', '"http://ww..."'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http..."'], notFocussedStyle)}
             ${code.tag('&gt;', notFocussedStyle)}
             <br />
             <br />

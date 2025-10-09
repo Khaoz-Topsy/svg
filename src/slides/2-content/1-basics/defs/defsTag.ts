@@ -52,7 +52,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
             ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
             ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/20..."'], notFocussedStyle)}
             ${code.tag('&gt;', notFocussedStyle)}
             <br />
             
@@ -115,7 +115,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
             ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
             ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${code.keyValue(['xmlns', '=', '"http://w...."'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http...."'], notFocussedStyle)}
             ${code.tag('&gt;', notFocussedStyle)}
             <br />
             
@@ -169,7 +169,7 @@ export const slideBasicDrawingDefs = async (ctx: SlideContext): Promise<ISvgSlid
             ${code.keyValue(['version', '=', '"1.1"'], notFocussedStyle)}
             ${code.keyValue(['width', '=', '"300"'], notFocussedStyle)}
             ${code.keyValue(['height', '=', '"200"'], notFocussedStyle)}
-            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/2000/svg"'], notFocussedStyle)}
+            ${code.keyValue(['xmlns', '=', '"http://www.w3.org/20..."'], notFocussedStyle)}
             ${code.tag('&gt;', notFocussedStyle)}
             <br />
             

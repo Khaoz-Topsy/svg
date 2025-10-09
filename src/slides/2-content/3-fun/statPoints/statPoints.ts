@@ -101,7 +101,7 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
           ${drawText(theme, 1, 'Using &lt;polygon&gt;', 25, 'font-style="italic"')}
 
           ${drawPoint(theme, 2)}
-          ${drawText(theme, 2, 'Draw a line from the center to the the edge of the hexagon')}
+          ${drawText(theme, 2, 'Draw a line from the center to the the edge')}
           ${drawText(theme, 3, '6 times, one for each point', 25, 'font-style="italic"')}
 
           ${drawPoint(theme, 4)}

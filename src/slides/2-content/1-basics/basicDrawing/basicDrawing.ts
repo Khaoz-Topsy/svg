@@ -90,7 +90,7 @@ export const slideBasicDrawing = async (ctx: SlideContext): Promise<ISvgSlide> =
               fill="transparent" stroke="${theme.exampleColour}" stroke-width="5" />`,
           codeContent: `
             ${code.tag('&lt;polygon')}<br />
-            ${code.keyValue(['points', '=', '"130,50 200,110 180,200 80,200 60,110"'], { tabLevel: 1 })}<br />
+            ${code.keyValue(['points', '=', '"130,50 200,110 180,200 80,200"'], { tabLevel: 1 })}<br />
             ${code.keyValue(['fill', '=', '"transparent"'], { tabLevel: 1 })}<br />
             ${code.keyValue(['stroke', '=', `"${theme.exampleColour}"`], { tabLevel: 1 })}
             ${code.keyValue(['stroke-width', '=', '"5"'])}<br />

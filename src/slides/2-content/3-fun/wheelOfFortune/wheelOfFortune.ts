@@ -63,7 +63,7 @@ export const slideWheelOfFortune = async (ctx: SlideContext): Promise<ISvgSlide>
             ${drawText(theme, 5, 'Draw the text of the option')}
 
             ${drawPoint(theme, 6)}
-            ${drawText(theme, 6, 'Rotate the text by wedge angle x the (index of the text + 0.5)')}
+            ${drawText(theme, 6, 'Rotate the text by wedge angle x the (index + 0.5)')}
             ${drawText(theme, 7, 'This will place the text in the middle of the slice', 25, 'font-style="italic"')}
 
             ${drawPoint(theme, 8)}
