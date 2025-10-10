@@ -89,6 +89,7 @@ export const replaceVariablesInSvgContent = (theme: ITheme, svgContent: string):
   for (const colourProp of Object.keys(theme)) {
     const value = (theme as unknown as { [x: string]: string })[colourProp];
     const cssRootProp = formatForCssRoot(colourProp);
+    // console.log(cssRootProp);
     result = result.replaceAll(cssRootProp, value);
   }
   return result;

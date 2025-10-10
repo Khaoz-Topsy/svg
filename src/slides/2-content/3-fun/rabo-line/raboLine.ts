@@ -43,7 +43,16 @@ export const slideRaboLine = async (ctx: SlideContext): Promise<ISvgSlide> => {
             transform="translate(300 0)"
           >
             <animateTransform id="left" attributeName="transform" type="translate"
-              from="300 0" to="-950 0" begin="3s;right.end" dur="1s" fill="freeze"
+              from="300 0" to="-950 0" begin="1s;resetOpacity.end+1s" dur="1s" fill="freeze"
+            />
+            <animate id="restartOpacity" attributeName="opacity"
+              from="1" to="0" begin="left.end+1s" dur="500ms" fill="freeze"
+            />
+            <animateTransform id="restartRight" attributeName="transform" type="translate"
+              to="300 0" from="-950 0" begin="restartOpacity.end" dur="50ms" fill="freeze"
+            />
+            <animate id="resetOpacity" attributeName="opacity"
+              from="0" to="1" begin="restartRight.end" dur="500ms" fill="freeze"
             />
           </path>
         </g>

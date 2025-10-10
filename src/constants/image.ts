@@ -12,6 +12,7 @@ export const PublicImage = {
   facebook: './assets/img/facebook.svg',
   kurtGithubHeader: './assets/img/kurt-lourens-header.svg',
   githubHeader: './assets/img/github-header.svg',
+  webDeveloper: './assets/img/web-developer.svg',
   //
   entelect: './assets/img/entelect.png',
   entelectGithub: './assets/img/entelect-github.png',

@@ -21,7 +21,7 @@ export const slideLinks = async (ctx: SlideContext): Promise<ISvgSlide> => {
     content: () =>
       slideBase({
         ctx: ctx,
-        title: 'Links',
+        title: 'The end',
         content: `
           <g opacity="0">
             ${animateFadeIn({
