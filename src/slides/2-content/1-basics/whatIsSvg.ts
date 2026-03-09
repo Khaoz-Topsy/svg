@@ -44,7 +44,7 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
               stroke-width="3"
           >
           </rect>
-          <text x="55" y="105" opacity="0" fill="${theme.controlForeground}" font-size="100">
+          <text x="50" y="105" opacity="0" fill="${theme.controlForeground}" font-size="100">
             ${animateFadeIn({ duration: '1s', begin: getBegin(1) })}
             S
           </text>
@@ -57,15 +57,15 @@ export const slideWhatIsAnSvg = async (ctx: SlideContext): Promise<ISvgSlide> =>
             G
           </text>
 
-          <text x="100" y="105" opacity="0" fill="${theme.controlForeground}" font-size="50">
+          <text x="115" y="105" opacity="0" fill="${theme.controlForeground}" font-size="50">
             ${animateFadeIn({ duration: '1s', begin: getBegin(4) })}
             calar
           </text>
-          <text x="97" y="205" opacity="0" fill="${theme.controlForeground}" font-size="50">
+          <text x="105" y="205" opacity="0" fill="${theme.controlForeground}" font-size="50">
             ${animateFadeIn({ duration: '1s', begin: getBegin(5) })}
             ector
           </text>
-          <text x="105" y="305" opacity="0" fill="${theme.controlForeground}" font-size="50">
+          <text x="120" y="305" opacity="0" fill="${theme.controlForeground}" font-size="50">
             ${animateFadeIn({ duration: '1s', begin: getBegin(6) })}
             raphic
           </text>

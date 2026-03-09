@@ -144,8 +144,8 @@ export const slideCircularProgress = async (ctx: SlideContext): Promise<ISvgSlid
                 ${code.keyValue(['attributeName', '=', '"stroke-dashoffset"'], { tabLevel: 5 })}
                 ${code.keyValue(['dur', '=', '"1s"'])}
                 <br/>
-                ${code.keyValue(['from', '=', '"${strokeDashArray}"'], { tabLevel: 5 })}
-                ${code.keyValue(['to', '=', '"${strokeDashOffset}"'])}
+                ${code.keyValue(['from', '=', '{strokeDashArray}'], { tabLevel: 5 })}
+                ${code.keyValue(['to', '=', '{strokeDashOffset}'])}
                 <br/>
                 ${code.keyValue(['fill', '=', '"freeze"'], { tabLevel: 5 })}
                 ${code.keyValue(['calcMode', '=', '"spline"'])}

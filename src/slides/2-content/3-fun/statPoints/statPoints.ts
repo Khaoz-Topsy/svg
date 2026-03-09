@@ -110,13 +110,13 @@ export const slideStatPoints = async (ctx: SlideContext): Promise<ISvgSlide> => 
           ${drawPoint(theme, 5)}
           ${drawText(theme, 5, 'Draw the value of each attribute')}
           ${drawText(theme, 6, 'Defining the point for each attribute in a', 25, 'font-style="italic"')}
-          <text x="1345" y="${
+          <text x="1370" y="${
             160 + circleRadius + 6 * 50
           }" fill="#ab75e8" font-size="25" font-style="italic">&lt;polyline&gt;</text>
 
           ${drawPoint(theme, 7)}
           ${drawText(theme, 7, 'Add some colour to the')}
-          <text x="1223" y="${
+          <text x="1243" y="${
             160 + circleRadius + 7 * 50
           }" fill="#ab75e8" font-size="30" font-style="italic">&lt;polyline&gt;</text>
 

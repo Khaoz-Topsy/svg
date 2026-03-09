@@ -100,9 +100,9 @@ export const slideGithubProfile = async (ctx: SlideContext): Promise<ISvgSlide> 
           ${drawPoint(theme, 5)}
           ${drawText(theme, 5, 'Non-SVG images used')}
           ${drawText(theme, 6, 'Ship icon', 25, 'font-style="italic"')}
-          <text x="1030" y="467" fill="${theme.exampleColour2}" font-size="20">(2kb)</text>
+          <text x="1035" y="467" fill="${theme.exampleColour2}" font-size="20">(2kb)</text>
           ${drawText(theme, 7, 'Ficsit thumbs up', 25, 'font-style="italic"')}
-          <text x="1110" y="517" fill="${theme.exampleColour2}" font-size="20">(6kb)</text>
+          <text x="1115" y="517" fill="${theme.exampleColour2}" font-size="20">(6kb)</text>
 
           ${drawPoint(theme, 8)}
           ${drawText(theme, 8, 'Hand emoji (text)')}
