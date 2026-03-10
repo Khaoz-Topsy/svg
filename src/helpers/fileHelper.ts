@@ -77,7 +77,7 @@ export const readDiagramSvg = async (
           innerSvg = innerSvg.replace(fillClassKey.reg, `.fill-N7{fill:${fillClassKey.newColour};}`);
         }
 
-        return `<g id="diagramCloud">${innerSvg}</g>`;
+        return `<g id="${diagramName}">${innerSvg}</g>`;
       }),
   );
 };
