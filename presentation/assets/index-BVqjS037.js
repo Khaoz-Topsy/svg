@@ -187,7 +187,7 @@
               dur="${n.rotationAnimateDur}"
               repeatCount="indefinite" 
             />`}    
-    </circle>`,T={kurtLourens:"./assets/img/kurtLourens.svg",pitch:"./assets/img/pitch.svg",standing:"./assets/img/standing.svg",tooltip:"./assets/img/tooltip.svg",qrCode:"./assets/img/qrCode.svg",alien:"./assets/img/alien.svg",undraw:"./assets/img/undraw.svg",swatChart:"./assets/img/swatChart.svg",hacker:"./assets/img/hacker.svg",ghost:"./assets/img/ghost.svg",facebook:"./assets/img/facebook.svg",kurtGithubHeader:"./assets/img/kurt-lourens-header.svg",githubHeader:"./assets/img/github-header.svg",webDeveloper:"./assets/img/web-developer.svg",entelect:"./assets/img/entelect.png",entelectGithub:"./assets/img/entelect-github.png",metaDataExample:"./assets/img/metaDataExample.png",about:"./assets/img/icon/about.svg",cool:"./assets/img/icon/cool.svg",review:"./assets/img/icon/review.svg"},Ke=[{id:"audio",colour:"#1ABC9C"},{id:"rings",colour:"#34495E"},{id:"grid",colour:"#F39C12"},{id:"hearts",colour:"#9B59B6"},{id:"oval",colour:"#3498DB"},{id:"three-dots",colour:"#E74C3C"},{id:"spinning-circles",colour:"#2ECC71"},{id:"puff",colour:"#2C3E50"},{id:"circles",colour:"#F1C40F"},{id:"tail-spin",colour:"#8E44AD"},{id:"bars",colour:"#2980B9"},{id:"ball-triangle",colour:"#E74C3C"}],Q=(n,a)=>`<use href="#${n}" ${a??""} />`,gt=(n,a)=>`<use href="#${n}"  />`,Re={title:"SVG explained",subTitle:"An explanation of why they are great"},xe={},ht="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Oe=n=>{if(n.length==0)return n;let a="--";for(const t of n)ht.includes(t)&&(a+="-"),a+=t;return`${a}-colour`.toLocaleLowerCase()},Y=async(n,a="utf-8")=>{if(ee("production")){let B=xe.resolve(n)==xe.normalize(n)?n:xe.join(void 0,"public",n);const z=a=="none"?void 0:{encoding:a};return xe.readFile(B,z)}return(await fetch(n)).text()},X=async(n,a,t)=>{let r=await Y(a,"utf-8");if(r=pt(n,r),t==null)return r;const k=new DOMParser().parseFromString(r,"image/svg+xml");return t(k)},We=async n=>{if(ee("production")){const t=await Y(n,"none");return`data:image/png;base64,${Buffer.from(t).toString("base64")}`}else return new Promise(r=>{const u=new XMLHttpRequest;u.onload=function(){const k=new FileReader;k.onloadend=function(){r(k.result)},k.readAsDataURL(u.response)},u.open("GET",n),u.responseType="blob",u.send()})},mt=async(n,a,t,r,u)=>X(n,`./assets/diagram/${t}.d2.${a}.svg`,k=>{let B=k?.children?.[0]?.children?.[0].innerHTML??"";if(B==null)return"";for(const z of r)B=B.replace(z.reg,`.fill-N7{fill:${z.newColour};}`);return`<g id="diagramCloud">${B}</g>`}),pt=(n,a)=>{if(a.includes("--")==!1)return a;let t=a.toString();for(const r of Object.keys(n)){const u=n[r],k=Oe(r);t=t.replaceAll(k,u)}return t},bt="data:text/markdown;base64,IyBJbnRybwoKU1ZHIHByZXNlbnRhdGlvbiBieSBLdXJ0IExvdXJlbnMKCi0gQXZhaWxhYmxlIGF0IFtzdmcua3VydGxvdXJlbnMuY29tXShodHRwczovL3N2Zy5rdXJ0bG91cmVucy5jb20pCg==",yt=async n=>{const a=Ge(n.themeKey),t=I[n.themeKey],r={ssg:{secondsToDisplay:3},notes:await Y(bt)};return{content:()=>A({ctx:n,title:Re.title,content:`
+    </circle>`,T={kurtLourens:"./assets/img/kurtLourens.svg",pitch:"./assets/img/pitch.svg",standing:"./assets/img/standing.svg",tooltip:"./assets/img/tooltip.svg",qrCode:"./assets/img/qrCode.svg",alien:"./assets/img/alien.svg",undraw:"./assets/img/undraw.svg",swatChart:"./assets/img/swatChart.svg",hacker:"./assets/img/hacker.svg",ghost:"./assets/img/ghost.svg",facebook:"./assets/img/facebook.svg",kurtGithubHeader:"./assets/img/kurt-lourens-header.svg",githubHeader:"./assets/img/github-header.svg",webDeveloper:"./assets/img/web-developer.svg",entelect:"./assets/img/entelect.png",entelectGithub:"./assets/img/entelect-github.png",metaDataExample:"./assets/img/metaDataExample.png",about:"./assets/img/icon/about.svg",cool:"./assets/img/icon/cool.svg",review:"./assets/img/icon/review.svg"},Ke=[{id:"audio",colour:"#1ABC9C"},{id:"rings",colour:"#34495E"},{id:"grid",colour:"#F39C12"},{id:"hearts",colour:"#9B59B6"},{id:"oval",colour:"#3498DB"},{id:"three-dots",colour:"#E74C3C"},{id:"spinning-circles",colour:"#2ECC71"},{id:"puff",colour:"#2C3E50"},{id:"circles",colour:"#F1C40F"},{id:"tail-spin",colour:"#8E44AD"},{id:"bars",colour:"#2980B9"},{id:"ball-triangle",colour:"#E74C3C"}],Q=(n,a)=>`<use href="#${n}" ${a??""} />`,gt=(n,a)=>`<use href="#${n}"  />`,Re={title:"SVG explained",subTitle:"An explanation of why they are great"},xe={},ht="ABCDEFGHIJKLMNOPQRSTUVWXYZ",Oe=n=>{if(n.length==0)return n;let a="--";for(const t of n)ht.includes(t)&&(a+="-"),a+=t;return`${a}-colour`.toLocaleLowerCase()},Y=async(n,a="utf-8")=>{if(ee("production")){if(n.startsWith("<"))return n;let B=xe.resolve(n)==xe.normalize(n)?n:xe.join(void 0,"public",n);const z=a=="none"?void 0:{encoding:a};return xe.readFile(B,z)}return(await fetch(n)).text()},X=async(n,a,t)=>{let r=await Y(a,"utf-8");if(r=pt(n,r),t==null)return r;const k=new DOMParser().parseFromString(r,"image/svg+xml");return t(k)},We=async n=>{if(ee("production")){const t=await Y(n,"none");return`data:image/png;base64,${Buffer.from(t).toString("base64")}`}else return new Promise(r=>{const u=new XMLHttpRequest;u.onload=function(){const k=new FileReader;k.onloadend=function(){r(k.result)},k.readAsDataURL(u.response)},u.open("GET",n),u.responseType="blob",u.send()})},mt=async(n,a,t,r,u)=>X(n,`./assets/diagram/${t}.d2.${a}.svg`,k=>{let B=k?.children?.[0]?.children?.[0].innerHTML??"";if(B==null)return"";for(const z of r)B=B.replace(z.reg,`.fill-N7{fill:${z.newColour};}`);return`<g id="${t}">${B}</g>`}),pt=(n,a)=>{if(a.includes("--")==!1)return a;let t=a.toString();for(const r of Object.keys(n)){const u=n[r],k=Oe(r);t=t.replaceAll(k,u)}return t},bt="data:text/markdown;base64,IyBJbnRybwoKU1ZHIHByZXNlbnRhdGlvbiBieSBLdXJ0IExvdXJlbnMKCi0gQXZhaWxhYmxlIGF0IFtzdmcua3VydGxvdXJlbnMuY29tXShodHRwczovL3N2Zy5rdXJ0bG91cmVucy5jb20pCg==",yt=async n=>{const a=Ge(n.themeKey),t=I[n.themeKey],r={ssg:{secondsToDisplay:3},notes:await Y(bt)};return{content:()=>A({ctx:n,title:Re.title,content:`
         ${Q("standing",'transform="translate(750, 315) scale(1.5)"')}
         <g id="intro-spheres">
           ${ve({gradientId:a.SpherePurple1Gradient.id,className:"slide-up-down",styleOverrides:"--delay: -3s;",x:v.width-400,y:200,size:50})}
@@ -983,7 +983,7 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
               stroke-width="3"
           >
           </rect>
-          <text x="55" y="105" opacity="0" fill="${t.controlForeground}" font-size="100">
+          <text x="50" y="105" opacity="0" fill="${t.controlForeground}" font-size="100">
             ${H({duration:"1s",begin:u(1)})}
             S
           </text>
@@ -996,15 +996,15 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
             G
           </text>
 
-          <text x="100" y="105" opacity="0" fill="${t.controlForeground}" font-size="50">
+          <text x="115" y="105" opacity="0" fill="${t.controlForeground}" font-size="50">
             ${H({duration:"1s",begin:u(4)})}
             calar
           </text>
-          <text x="97" y="205" opacity="0" fill="${t.controlForeground}" font-size="50">
+          <text x="105" y="205" opacity="0" fill="${t.controlForeground}" font-size="50">
             ${H({duration:"1s",begin:u(5)})}
             ector
           </text>
-          <text x="105" y="305" opacity="0" fill="${t.controlForeground}" font-size="50">
+          <text x="120" y="305" opacity="0" fill="${t.controlForeground}" font-size="50">
             ${H({duration:"1s",begin:u(6)})}
             raphic
           </text>
@@ -1788,8 +1788,8 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
                 ${r.keyValue(["attributeName","=",'"stroke-dashoffset"'],{tabLevel:5})}
                 ${r.keyValue(["dur","=",'"1s"'])}
                 <br/>
-                ${r.keyValue(["from","=",'"${strokeDashArray}"'],{tabLevel:5})}
-                ${r.keyValue(["to","=",'"${strokeDashOffset}"'])}
+                ${r.keyValue(["from","=","{strokeDashArray}"],{tabLevel:5})}
+                ${r.keyValue(["to","=","{strokeDashOffset}"])}
                 <br/>
                 ${r.keyValue(["fill","=",'"freeze"'],{tabLevel:5})}
                 ${r.keyValue(["calcMode","=",'"spline"'])}
@@ -1962,9 +1962,9 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
           ${S(t,5)}
           ${_(t,5,"Non-SVG images used")}
           ${_(t,6,"Ship icon",25,'font-style="italic"')}
-          <text x="1030" y="467" fill="${t.exampleColour2}" font-size="20">(2kb)</text>
+          <text x="1035" y="467" fill="${t.exampleColour2}" font-size="20">(2kb)</text>
           ${_(t,7,"Ficsit thumbs up",25,'font-style="italic"')}
-          <text x="1110" y="517" fill="${t.exampleColour2}" font-size="20">(6kb)</text>
+          <text x="1115" y="517" fill="${t.exampleColour2}" font-size="20">(6kb)</text>
 
           ${S(t,8)}
           ${_(t,8,"Hand emoji (text)")}
@@ -2361,11 +2361,11 @@ concerns or negatives are when using SVGs.`,iconTransformProp:"scale(0.05) trans
           ${S(a,5)}
           ${_(a,5,"Draw the value of each attribute")}
           ${_(a,6,"Defining the point for each attribute in a",25,'font-style="italic"')}
-          <text x="1345" y="${160+Ie+6*50}" fill="#ab75e8" font-size="25" font-style="italic">&lt;polyline&gt;</text>
+          <text x="1370" y="${160+Ie+6*50}" fill="#ab75e8" font-size="25" font-style="italic">&lt;polyline&gt;</text>
 
           ${S(a,7)}
           ${_(a,7,"Add some colour to the")}
-          <text x="1223" y="${160+Ie+7*50}" fill="#ab75e8" font-size="30" font-style="italic">&lt;polyline&gt;</text>
+          <text x="1243" y="${160+Ie+7*50}" fill="#ab75e8" font-size="30" font-style="italic">&lt;polyline&gt;</text>
 
           ${S(a,8)}
           ${_(a,8,"Add an animation 💫")}
