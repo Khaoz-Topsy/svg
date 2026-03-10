@@ -5,3 +5,4 @@ node_modules
 /temp
 .env
 /public/assets/diagram/*.svg*
+.DS_Store
