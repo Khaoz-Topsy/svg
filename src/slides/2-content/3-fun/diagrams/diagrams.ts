@@ -5,11 +5,11 @@ import { themes } from '@/constants/theme';
 import type { SlideContext } from '@/contracts/slideContext';
 import type { ISvgSlide } from '@/contracts/svgSlide';
 import { getPreviousSlideIndex } from '@/helpers/contextHelper.ts';
-import { readDiagramSvg } from '@/helpers/fileHelper';
+import { readDiagramSvg, readLocalFile } from '@/helpers/fileHelper';
 import { drawLine, drawText } from '@/helpers/svgHelper';
 import { slideBase } from '@/slides/slideBase';
 
-// import notesMd from './diagrams.md';
+import notesMd from './diagrams.md';
 
 export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
   const previousSlideId = getPreviousSlideIndex(ctx);
@@ -29,7 +29,7 @@ export const slideDiagrams = async (ctx: SlideContext): Promise<ISvgSlide> => {
 
   const sharedProperties = {
     ssg: { secondsToDisplay: 3 },
-    notes: '', //await readLocalFile(notesMd),
+    notes: await readLocalFile(notesMd),
   };
   return {
     content: async () =>

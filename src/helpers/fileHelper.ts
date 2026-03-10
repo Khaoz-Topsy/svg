@@ -12,6 +12,9 @@ export const readLocalFile = async (
 ): Promise<string> => {
   const envMode = import.meta.env.MODE as unknown as EnvMode;
   if (isServerMode(envMode)) {
+    // Dirty hack for Github CI
+    if (relativePath.startsWith('<')) return relativePath;
+
     const projectDir = import.meta.env.PROJECT_DIR;
     const isFullPath = path.resolve(relativePath) == path.normalize(relativePath);
     let fullPath = isFullPath ? relativePath : path.join(projectDir, 'public', relativePath);
